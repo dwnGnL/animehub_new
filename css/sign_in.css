@@ -1,0 +1,106 @@
+body.sign-in #sign-in-page {
+  display: block
+}
+
+body.sign-in .background {
+  display: block;
+  opacity: .5;
+}
+
+#sign-in-page {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  background: #fff;
+  box-shadow: 0 0 0 10px rgba(0, 0, 0, .3);
+  z-index: 3;
+}
+
+
+#sign-in-page .top {
+  background: #00ADEF;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 20px;
+}
+
+#sign-in-page .exit-sign-in {
+  position: relative;
+  padding: 25px;
+  cursor: pointer;
+}
+
+#sign-in-page .exit-sign-in .exit-line {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  height: 4px;
+  width: 50%;
+  border-radius: 4px;
+  background: #fff;
+}
+
+#sign-in-page .exit-sign-in .f-line {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+#sign-in-page .exit-sign-in .s-line {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+#sign-in-page .main-sign-in-page {
+  margin: 20px;
+  box-sizing: border-box;
+}
+
+#sign-in-page input.main-input {
+  width: 100%;
+  height: 40px;
+  margin-bottom: 20px;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+  font-size: 17px;
+}
+
+#sign-in-page input[type='text'], input[type='password'] {
+  padding: 0px 20px;
+  background: #E8F0FE;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2) inset;
+  border-radius: 5px;
+}
+
+#sign-in-page input[type=button] {
+  color: #fff;
+  border-radius: 20px;
+  background: #00ADEF;
+  cursor: pointer;
+}
+
+#sign-in-page input[type=button]:hover {
+  background: #00A2EA;
+}
+
+#sign-in-page input[type=checkbox] {
+  width: 17px;
+  height: 17px;
+}
+
+div.check-block {
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0px;
+  font-size: 15px;
+}
