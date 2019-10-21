@@ -1,0 +1,172 @@
+/*
+1200
+992
+767
+*/
+#header {
+  display: flex;
+  align-items: center;
+  box-shadow: 0px 0px 30px #CACACA;
+  height: 80px;
+}
+
+#logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  background: #000;
+  color: #fff;
+  font-size: 30px;
+  font-weight: bold;
+  margin: 10px;
+  padding: 0px 7px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#logo span {
+  background: #FF1F00;
+  color: #000;
+  border-radius: 3px;
+  padding: 0px 2px;
+}
+
+#menu {
+  display: flex;
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+#menu li {
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+#log {
+  background: #00ADEF;
+  color: #fff;
+  position: absolute;
+  padding: 10px 30px;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+#log:hover {
+  background: #00A2EA;
+}
+
+#background-menu {
+  display: none;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 100vh;
+  width: 100vw;
+  background: #000;
+  opacity: 0;
+  transition: .5s;
+}
+
+#menu-button {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background: #FF505F;
+  width: 80px;
+  height: 80px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.menu-lines {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-gap: 4px;
+
+  width: 25px;
+  height: 20px;
+}
+
+.menu-line {
+  height: 5px;
+  width: 25px;
+  transition-duration: .5s;
+  background: #fff;
+  border-radius: 5px;
+}
+
+.open-menu #menu {
+  left: 0px;
+}
+
+.background-opacity #background-menu {
+  opacity: .5;
+}
+
+
+@media screen and (min-width: 992px) {
+  #menu li {
+    margin: 0px 10px;
+    padding: 30px 20px;
+    height: 80px;
+  }
+
+  #menu li.active {
+    background: #FF505F;
+  }
+
+  #menu li.active span {
+    color: #fff !important;
+  }
+
+  #menu li span {
+    border-top: 4px solid rgba(255, 80, 95, 0);
+    padding: 26px 0px;
+  }
+
+  #menu li span:hover {
+    border-top: 4px solid #FF505F;
+    color: #FF505F;
+  }
+
+
+  #log {
+    right: 10px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  #header {
+    justify-content: space-between;
+  }
+
+  #menu {
+    position: absolute;
+    top: 0px;
+    left: -300px;
+    flex-direction: column;
+    width: 300px;
+    min-height: 100vh;
+    overflow: hidden;
+    transition: .5s;
+    z-index: 1;
+  }
+
+  #menu li {
+    padding: 15px 20px;
+    border-bottom: 2px solid #E3E3E3;
+    cursor: pointer;
+  }
+
+  #log {
+    right: 100px;
+  }
+
+  #menu-button {
+    display: flex;
+  }
+}
