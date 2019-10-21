@@ -56,7 +56,7 @@
         <li><span>Дорамы</span></li>
         <li><span>Онгоинги</span></li>
         <li><span>Статьи</span></li>
-        <li><span>Краткие сюжеты</span></li>
+        <li><span>Помощь нам</span></li>
       </ul>
 
       <div id="sign-in">Войти</div>
@@ -71,23 +71,7 @@
       </div>
     </div>
 
-    <div id="slider">
-      <div class="background-slider"></div>
-  		<div class="slide-wrapper">
-  			<div class="slide"><img src="images/Dr_Stone_Banner.png"></div>
-  			<div class="slide"><img src="images/Fire_Force.png"></div>
-  			<div class="slide"><img src="images/klinok.png"></div>
-  			<div class="slide"><img src="images/Vinland-Banner.png"></div>
-  		</div>
 
-  		<div class="controls">
-  			<div class="thumbs"></div>
-  			<div class="arrows">
-  				<div class="s-next"></div>
-  				<div class="s-prev"></div>
-  			</div>
-  		</div>
-  	</div>
 
 
 

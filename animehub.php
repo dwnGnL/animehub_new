@@ -1,6 +1,5 @@
-<a class="nav-link" href="index.php?post">Вторая страница</a>
+<a class="nav-link" href="index.php?post"></a>
 
-<!-- ______________________ -->
 <div id="slider">
   <div class="background-slider"></div>
   <div class="slide-wrapper">
