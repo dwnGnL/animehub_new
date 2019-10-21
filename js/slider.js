@@ -49,7 +49,7 @@ function showSlide() {
 	swrap.style.transform = "translateX(-" + pos * swidth + "px)";
   setTimeout(function () {
     isSwitching = true;
-  }, 1000);
+  }, 2000);
 };
 
 function showByPos(index) {
