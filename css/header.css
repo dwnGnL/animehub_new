@@ -11,25 +11,12 @@
 }
 
 #logo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 50px;
-  background: #000;
-  color: #fff;
-  font-size: 30px;
-  font-weight: bold;
-  margin: 10px;
-  padding: 0px 7px;
-  border-radius: 5px;
+  margin: 0px 10px;
   cursor: pointer;
 }
 
-#logo span {
-  background: #FF1F00;
-  color: #000;
-  border-radius: 3px;
-  padding: 0px 2px;
+#logo img {
+  height: 80px;
 }
 
 #menu {
@@ -46,7 +33,7 @@
   cursor: pointer;
 }
 
-#log {
+#sign-in {
   background: #00ADEF;
   color: #fff;
   position: absolute;
@@ -57,19 +44,6 @@
 
 #log:hover {
   background: #00A2EA;
-}
-
-#background-menu {
-  display: none;
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  height: 100vh;
-  width: 100vw;
-  background: #000;
-  opacity: 0;
-  transition: .5s;
-  z-index: 3;
 }
 
 #menu-button {
@@ -104,7 +78,7 @@
   left: 0px;
 }
 
-.background-opacity #background-menu {
+.background-opacity .background {
   opacity: .5;
 }
 
@@ -135,7 +109,7 @@
   }
 
 
-  #log {
+  #sign-in {
     right: 10px;
   }
 }
@@ -163,7 +137,7 @@
     cursor: pointer;
   }
 
-  #log {
+  #sign-in {
     right: 100px;
   }
 
