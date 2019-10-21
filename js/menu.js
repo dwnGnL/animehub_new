@@ -1,5 +1,5 @@
 let menuButton = document.querySelector('#menu-button');
-let backgroundMenu = document.querySelector('#background-menu');
+let backgroundMenu = document.querySelector('.background-menu');
 
 menuButton.addEventListener('click', openMenu);
 backgroundMenu.addEventListener('click', closeMenu);
