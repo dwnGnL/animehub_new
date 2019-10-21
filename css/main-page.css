@@ -1,0 +1,8 @@
+#content {
+  padding: 40px;
+}
+div.head {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid;
+}
