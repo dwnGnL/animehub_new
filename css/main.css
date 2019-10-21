@@ -3,3 +3,16 @@ body {
   padding: 0px;
   margin: 0px;
 }
+
+.background {
+  display: none;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 100vh;
+  width: 100vw;
+  background: #000;
+  opacity: 0;
+  transition: .5s;
+  z-index: 3;
+}
