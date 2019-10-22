@@ -4,19 +4,12 @@
 767
 */
 #header {
+  position: relative;
   display: flex;
   align-items: center;
   box-shadow: 0px 0px 30px #CACACA;
   height: 80px;
-}
-
-#logo {
-  margin: 0px 10px;
-  cursor: pointer;
-}
-
-#logo img {
-  height: 80px;
+  background: #fff;
 }
 
 #menu {
@@ -42,7 +35,7 @@
   cursor: pointer;
 }
 
-#log:hover {
+#sign-in:hover {
   background: #00A2EA;
 }
 

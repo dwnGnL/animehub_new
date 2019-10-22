@@ -1,8 +1,148 @@
 #content {
-  padding: 40px;
+  width: 70%;
+  padding: 30px 50px;
 }
+
+form.search-block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #EDF2F9;
+}
+
+.search-block input {
+  outline: none;
+  border: none;
+  box-sizing: border-box;
+}
+
+.search-block input[type='text'] {
+  margin: 15px;
+  padding-left: 20px;
+  height: 45px;
+  width: 100%;
+  font-size: 17px;
+}
+
+.search-block input[type='button'] {
+  height: 75px;
+  padding: 0px 30px;
+  font-size: 20px;
+  color: #fff;
+  background: #00ADEF;
+}
+
+.search-block input[type='button']:hover {
+  background: #00A2EA;
+}
+
+
+
 div.head {
   display: flex;
   justify-content: space-between;
-  border: 1px solid;
+  align-items: center;
+
+  margin: 20px 0px;
+  padding: 10px 0px;
+
+  border-bottom: 1px solid #E3E3E3;
+}
+
+
+div.new-series {
+  font-size: 30px;
+}
+
+div.all-new {
+  color: #7F7F7F;
+}
+
+div.all-new:hover {
+  color: #FF7884;
+  text-decoration: underline;
+}
+
+
+div.films {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 20px;
+}
+
+div.films-youtube {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+}
+
+div.film-item {
+  /* height: 300px; */
+}
+
+div.background-film-item {
+  height: 200px;
+  overflow: hidden;
+}
+
+div.background-film-item img {
+  width: 100%;
+  min-height: 100%;
+}
+
+div.film-name {
+  margin-top: 10px;
+  font-size: 15px;
+  line-height: 25px;
+}
+
+div.film-style {
+  margin: 10px 0px;
+  color: #898989;
+  font-size: 13px;
+}
+
+
+div.news {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 25px;
+}
+
+div.news-item {
+  display: flex;
+  border-bottom: 1px solid #E3E3E3;
+}
+
+div.background-news {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  overflow: hidden;
+  border-radius: 80px;
+  margin-right: 10px;
+}
+
+div.background-news img {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+}
+
+
+div.right-block {
+  width: 75%;
+}
+
+div.news-discription {
+  font-size: 17px;
+  line-height: 22px;
+  margin-bottom: 10px
+}
+
+div.date {
+  margin-bottom: 10px;
+  color: #898989;
+  font-size: 13px;
 }
