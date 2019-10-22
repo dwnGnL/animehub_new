@@ -1,9 +1,16 @@
 body.sign-in #sign-in-page {
-  display: block
+  display: block;
 }
 
 body.sign-in .background {
   display: block;
+}
+
+body.sign-in-opacity #sign-in-page {
+  opacity: 1;
+}
+
+body.sign-in-opacity .background {
   opacity: .5;
 }
 
@@ -17,6 +24,8 @@ body.sign-in .background {
   background: #fff;
   box-shadow: 0 0 0 10px rgba(0, 0, 0, .3);
   z-index: 3;
+  transition: .5s;
+  opacity: 0;
 }
 
 

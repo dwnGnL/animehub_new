@@ -16,7 +16,7 @@
   <body>
     <!-- Backgrounds -->
     <div class="background background-menu"></div>
-    <div class="background"></div>
+    <div class="background background-sign-in"></div>
 
     <div id="wrapper">
       <!-- Sign in -->
@@ -125,8 +125,8 @@
             </div>
           </div>
 
-          <div><a href="#">Связаться с нами</a></div>
-          <div>Мы в соц. сетях</div>
+          <div class="to-left"><a href="#" class="communication">Связаться с нами</a></div>
+          <div class="to-left">Мы в соц. сетях</div>
         </div>
 
         <div class="bottom-block">

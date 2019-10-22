@@ -30,13 +30,12 @@ form.search-block {
   font-size: 20px;
   color: #fff;
   background: #00ADEF;
+  cursor: pointer;
 }
 
 .search-block input[type='button']:hover {
   background: #00A2EA;
 }
-
-
 
 div.head {
   display: flex;
@@ -48,7 +47,6 @@ div.head {
 
   border-bottom: 1px solid #E3E3E3;
 }
-
 
 div.new-series {
   font-size: 30px;
@@ -63,7 +61,6 @@ div.all-new:hover {
   text-decoration: underline;
 }
 
-
 div.films {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -76,24 +73,79 @@ div.films-youtube {
   grid-gap: 20px;
 }
 
-div.film-item {
-  /* height: 300px; */
-}
-
 div.background-film-item {
-  height: 200px;
+  position: relative;
   overflow: hidden;
 }
 
-div.background-film-item img {
+div.films div.background-film-item {
+  height: 200px;
+}
+
+div.films-youtube div.background-film-item {
+  height: 170px;
+}
+
+div.background-film-item > img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 100%;
   min-height: 100%;
+}
+
+div.over-back-film-item {
+  position: absolute;
+  top: 0px;
+  background: rgba(0, 0, 0, .5);
+  width: 100%;
+  height: 100%;
+  transition: .5s;
+  opacity: .0;
+}
+
+div.over-back-film-item:hover {
+  opacity: 1;
+}
+
+div.circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 2px solid #fff;
+  border-radius: 100px;
+  height: 100px;
+  width: 100px;
+  color: #fff;
+  font-size: 15px;
+}
+
+div.films-youtube .circle {
+  height: 70px;
+  width: 70px;
+}
+
+div.films-youtube .circle img {
+  width: 35px;
+  height: 35px;
+  transform: rotate(90deg);
 }
 
 div.film-name {
   margin-top: 10px;
   font-size: 15px;
   line-height: 25px;
+  cursor: pointer;
+}
+
+div.film-name:hover {
+  color: #FF505F;
 }
 
 div.film-style {
@@ -101,7 +153,6 @@ div.film-style {
   color: #898989;
   font-size: 13px;
 }
-
 
 div.news {
   display: grid;
@@ -130,7 +181,6 @@ div.background-news img {
   width: 100%;
 }
 
-
 div.right-block {
   width: 75%;
 }
@@ -138,7 +188,12 @@ div.right-block {
 div.news-discription {
   font-size: 17px;
   line-height: 22px;
-  margin-bottom: 10px
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+div.news-discription:hover {
+  color: #FF505F;
 }
 
 div.date {
