@@ -3,6 +3,20 @@
 992
 767
 */
+
+body.open-menu {
+  overflow: hidden;
+}
+
+body.open-menu #menu {
+  left: 0px;
+}
+
+body.background-opacity .background {
+  opacity: .5;
+}
+
+
 #header {
   position: relative;
   display: flex;
@@ -67,14 +81,18 @@
   border-radius: 5px;
 }
 
-.open-menu #menu {
-  left: 0px;
+
+@media screen and (min-width: 1200px)  {
+  #header {
+    width: 1200px;
+  }
 }
 
-.background-opacity .background {
-  opacity: .5;
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+  #header {
+    width: 992px;
+  }
 }
-
 
 @media screen and (min-width: 992px) {
   #menu li {
@@ -109,11 +127,12 @@
 
 @media screen and (max-width: 992px) {
   #header {
+    width: 100%;
     justify-content: space-between;
   }
 
   #menu {
-    position: absolute;
+    position: fixed;
     top: 0px;
     left: -350px;
     flex-direction: column;

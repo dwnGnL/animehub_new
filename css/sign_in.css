@@ -1,3 +1,7 @@
+body.sign-in {
+  overflow: hidden;
+}
+
 body.sign-in #sign-in-page {
   display: block;
 }
