@@ -1,6 +1,7 @@
 body {
   font-family: arial;
-  padding: 0px 50px;
+  /* padding: 0px 50px; */
+  padding: 0px;
   margin: 0px;
   box-sizing: border-box;
   background: #EBF0F7;
@@ -8,6 +9,8 @@ body {
 
 #wrapper {
   background: #fff;
+  width: 1250px;
+  margin: auto;
 }
 
 #main {

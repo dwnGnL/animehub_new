@@ -115,7 +115,7 @@
   #menu {
     position: absolute;
     top: 0px;
-    left: -300px;
+    left: -350px;
     flex-direction: column;
     width: 300px;
     min-height: 100vh;

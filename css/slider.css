@@ -1,6 +1,7 @@
 #slider {
   width: 100%;
-  height: 30vw;
+  height: 400px;
+  /* height: 30vw; */
   position: relative;
   box-sizing: border-box;
   overflow: hidden;
@@ -16,7 +17,7 @@
 
 .slide-wrapper {
   position: absolute;
-  left: -50px;
+  /* left: -50px; */
   width: 99999px;
   display: flex;
   height: 100%;
@@ -26,7 +27,8 @@
 
 .slide {
   position: relative;
-  width: 100vw;
+  width: 1250px;
+  /* width: 100vw; */
   box-sizing: border-box;
 }
 
