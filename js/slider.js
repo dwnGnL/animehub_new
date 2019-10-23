@@ -37,3 +37,5 @@ function showSlide() {
     isSwitching = true;
   }, 2000);
 };
+
+setInterval(nextSlide,2000)
