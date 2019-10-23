@@ -1,6 +1,5 @@
 <a class="nav-link" href="index.php?post"></a>
 
-
 <div id="slider">
   <div class="background-slider"></div>
   <div class="slide-wrapper">
@@ -12,11 +11,12 @@
 
   <div class="controls">
     <div class="arrows">
-      <div class="s-next"><img src="images/arrow.png"></div>
-      <div class="s-prev"><img src="images/arrow.png"></div>
+      <div class="arrow-item s-next"><img src="images/arrow.png"></div>
+      <div class="arrow-item s-prev"><img src="images/arrow.png"></div>
     </div>
   </div>
 </div>
+
 <!-- Content -->
 <div id="content">
   <form class="search-block" action="index.html" method="post">
@@ -26,8 +26,8 @@
 
   <!-- New series -->
   <div class="head">
-    <div class="new-series">Новые серии аниме</div>
-    <div class="all-new">Смотреть все новинки</div>
+    <div class="left-head">Новые серии аниме</div>
+    <div class="right-head">Смотреть все новинки</div>
   </div>
 
   <div class="films">
@@ -44,7 +44,7 @@
 
       <div class="discription">
         <div class="film-name">Название sdsadsd фильма</div>
-        <div class="film-style">Стиль фильма</div>
+        <div class="film-gener">Жанр фильма</div>
       </div>
     </div>
 
@@ -61,7 +61,7 @@
 
       <div class="discription">
         <div class="film-name">Название фильма</div>
-        <div class="film-style">Стиль фильма</div>
+        <div class="film-gener">Жанр фильма</div>
       </div>
     </div>
 
@@ -78,7 +78,7 @@
 
       <div class="discription">
         <div class="film-name">Название sdsadsd фильма</div>
-        <div class="film-style">Стиль фильма</div>
+        <div class="film-gener">Жанр фильма</div>
       </div>
     </div>
 
@@ -95,7 +95,7 @@
 
       <div class="discription">
         <div class="film-name">Название sdsadsd фильма</div>
-        <div class="film-style">Стиль фильма</div>
+        <div class="film-gener">Жанр фильма</div>
       </div>
     </div>
 
@@ -112,7 +112,7 @@
 
       <div class="discription">
         <div class="film-name">Название sdsadsd фильма</div>
-        <div class="film-style">Стиль фильма</div>
+        <div class="film-gener">Жанр фильма</div>
       </div>
     </div>
 
@@ -129,7 +129,7 @@
 
       <div class="discription">
         <div class="film-name">Название sdsadsd фильма</div>
-        <div class="film-style">Стиль фильма</div>
+        <div class="film-gener">Жанр фильма</div>
       </div>
     </div>
 
@@ -146,7 +146,7 @@
 
       <div class="discription">
         <div class="film-name">Название sdsadsd фильма</div>
-        <div class="film-style">Стиль фильма</div>
+        <div class="film-gener">Жанр фильма</div>
       </div>
     </div>
 
@@ -163,7 +163,7 @@
 
       <div class="discription">
         <div class="film-name">Название sdsadsd фильма</div>
-        <div class="film-style">Стиль фильма</div>
+        <div class="film-gener">Жанр фильма</div>
       </div>
     </div>
 
@@ -180,7 +180,7 @@
 
       <div class="discription">
         <div class="film-name">Название sdsadsd фильма</div>
-        <div class="film-style">Стиль фильма</div>
+        <div class="film-gener">Жанр фильма</div>
       </div>
     </div>
 
@@ -197,7 +197,7 @@
 
       <div class="discription">
         <div class="film-name">Название sdsadsd фильма</div>
-        <div class="film-style">Стиль фильма</div>
+        <div class="film-gener">Жанр фильма</div>
       </div>
     </div>
   </div>
@@ -205,8 +205,8 @@
 
   <!-- All of anime -->
   <div class="head">
-    <div class="new-series">Все аниме</div>
-    <div class="all-new">Смотреть все новинки</div>
+    <div class="left-head">Все аниме</div>
+    <div class="right-head">Смотреть все новинки</div>
   </div>
 
   <div class="films">
@@ -223,7 +223,7 @@
 
       <div class="discription">
         <div class="film-name">Название sdsadsd фильма</div>
-        <div class="film-style">Стиль фильма</div>
+        <div class="film-gener">Жанр фильма</div>
       </div>
     </div>
 
@@ -240,7 +240,7 @@
 
       <div class="discription">
         <div class="film-name">Название sdsadsd фильма</div>
-        <div class="film-style">Стиль фильма</div>
+        <div class="film-gener">Жанр фильма</div>
       </div>
     </div>
 
@@ -257,7 +257,7 @@
 
       <div class="discription">
         <div class="film-name">Название sdsadsd фильма</div>
-        <div class="film-style">Стиль фильма</div>
+        <div class="film-gener">Жанр фильма</div>
       </div>
     </div>
 
@@ -274,7 +274,7 @@
 
       <div class="discription">
         <div class="film-name">Название sdsadsd фильма</div>
-        <div class="film-style">Стиль фильма</div>
+        <div class="film-gener">Жанр фильма</div>
       </div>
     </div>
 
@@ -291,114 +291,15 @@
 
       <div class="discription">
         <div class="film-name">Название sdsadsd фильма</div>
-        <div class="film-style">Стиль фильма</div>
-      </div>
-    </div>
-  </div>
-
-
-  <!-- The last of YouTube -->
-  <div class="head">
-    <div class="new-series">Последнее с YouTube</div>
-    <div class="all-new">Смотреть все новинки</div>
-  </div>
-
-  <div class="films-youtube">
-    <div class="film-item">
-      <div class="background-film-item">
-        <img src="images/image (1).jpg">
-        <div class="over-back-film-item">
-          <div class="circle">
-            <img src="images/play.png">
-          </div>
-        </div>
-      </div>
-
-      <div class="discription">
-        <div class="film-name">Название sdsadsd фильма</div>
-      </div>
-    </div>
-
-    <div class="film-item">
-      <div class="background-film-item">
-        <img src="images/image (2).jpg">
-        <div class="over-back-film-item">
-          <div class="circle">
-            <img src="images/play.png">
-          </div>
-        </div>
-      </div>
-
-      <div class="discription">
-        <div class="film-name">Название sdsadsd фильма</div>
-      </div>
-    </div>
-
-    <div class="film-item">
-      <div class="background-film-item">
-        <img src="images/image (3).jpg">
-        <div class="over-back-film-item">
-          <div class="circle">
-            <img src="images/play.png">
-          </div>
-        </div>
-      </div>
-
-      <div class="discription">
-        <div class="film-name">Название sdsadsd фильма</div>
-      </div>
-    </div>
-
-    <div class="film-item">
-      <div class="background-film-item">
-        <img src="images/image (4).jpg">
-        <div class="over-back-film-item">
-          <div class="circle">
-            <img src="images/play.png">
-          </div>
-        </div>
-      </div>
-
-      <div class="discription">
-        <div class="film-name">Название sdsadsd фильма</div>
-      </div>
-    </div>
-
-    <div class="film-item">
-      <div class="background-film-item">
-        <img src="images/image (5).jpg">
-        <div class="over-back-film-item">
-          <div class="circle">
-            <img src="images/play.png">
-          </div>
-        </div>
-      </div>
-
-      <div class="discription">
-        <div class="film-name">Название sdsadsd фильма</div>
-      </div>
-    </div>
-
-    <div class="film-item">
-      <div class="background-film-item">
-        <img src="images/image (6).jpg">
-        <div class="over-back-film-item">
-          <div class="circle">
-            <img src="images/play.png">
-          </div>
-        </div>
-      </div>
-
-      <div class="discription">
-        <div class="film-name">Название sdsadsd фильма</div>
+        <div class="film-gener">Жанр фильма</div>
       </div>
     </div>
   </div>
 
   <!-- News -->
   <div class="head">
-    <div class="new-series">Свежие статьи и новости</div>
-    <div class="all-new">Читать все</div>
+    <div class="left-head">Свежие статьи и новости</div>
+    <div class="right-head">Читать все</div>
   </div>
 
 
