@@ -59,7 +59,7 @@
         <ul id="menu">
           <li class="active sub-menu top-menu">
             <span>Аниме</span>
-            <!-- <div id="sub-menu">
+            <div id="sub-menu">
               <div class="left-part-sub-menu">
                 <span class="sub-menu-header">По типу</span>
                 <ul class="qualification-list">
@@ -139,89 +139,8 @@
                 <li>Яой</li>
                 <li>Юри</li>
               </ul>
-            </div> -->
-          </li>
-          <div id="sub-menu">
-            <div class="left-part-sub-menu">
-              <span class="sub-menu-header">По типу</span>
-              <ul class="qualification-list">
-                <li>Запад</li>
-                <li>ТВ</li>
-                <li>OVA</li>
-                <li>Фильм</li>
-                <li>ONA</li>
-              </ul>
-
-              <span class="sub-menu-header">По годам</span>
-              <ul class="qualification-list">
-                <li>2019</li>
-                <li>2018</li>
-                <li>2017</li>
-                <li>2016</li>
-                <li>2015</li>
-                <li>2014</li>
-                <li>2013</li>
-                <li>2012</li>
-                <li>2011</li>
-                <li>2010</li>
-                <li>2009</li>
-                <li>2008</li>
-                <li>2007</li>
-                <li>2006</li>
-                <li>2005</li>
-                <li>2004</li>
-                <li>2003</li>
-                <li>2002</li>
-                <li>2001</li>
-                <li>2000</li>
-                <li>1999</li>
-                <li>1998</li>
-              </ul>
             </div>
-
-            <ul class="middle-part-sub-menu gener-list">
-              <li>Апокалипсис</li>
-              <li>Боевик</li>
-              <li>Боевые искусства</li>
-              <li>Вампиры</li>
-              <li>Война</li>
-              <li>Гарем</li>
-              <li>Детектив</li>
-              <li>Детское</li>
-              <li>Драма</li>
-              <li>Игры</li>
-              <li>Исторический</li>
-              <li>Киберпанк</li>
-              <li>Комедия</li>
-              <li>Космос</li>
-              <li>Магия</li>
-              <li>Меха</li>
-              <li>Мистика</li>
-              <li>Музыка</li>
-              <li>Пародия</li>
-            </ul>
-
-            <ul class="right-part-sub-menu gener-list">
-              <li>Повседневность</li>
-              <li>Приключения</li>
-              <li>Психология</li>
-              <li>Романтика</li>
-              <li>Сверхъестественное</li>
-              <li>Сказка</li>
-              <li>Спорт</li>
-              <li>Сёнэн</li>
-              <li>Сёдзё</li>
-              <li>Триллер</li>
-              <li>Ужасы</li>
-              <li>Фантастика</li>
-              <li>Фэнтези</li>
-              <li>Школа</li>
-              <li>Экшен</li>
-              <li>Этти</li>
-              <li>Яой</li>
-              <li>Юри</li>
-            </ul>
-          </div>
+          </li>
           <li class="top-menu"><span>Анонсы</span></li>
           <li class="top-menu"><span>Дорамы</span></li>
           <li class="top-menu"><span>Онгоинги</span></li>
@@ -239,89 +158,6 @@
             <div class="menu-line l3"></div>
           </div>
         </div>
-
-
-        <!-- <div id="sub-menu" class="sub-menu">
-          <div class="left-part-sub-menu">
-            <span class="sub-menu-header">По типу</span>
-            <ul class="qualification-list">
-              <li>Запад</li>
-              <li>ТВ</li>
-              <li>OVA</li>
-              <li>Фильм</li>
-              <li>ONA</li>
-            </ul>
-
-            <span class="sub-menu-header">По годам</span>
-            <ul class="qualification-list">
-              <li>2019</li>
-              <li>2018</li>
-              <li>2017</li>
-              <li>2016</li>
-              <li>2015</li>
-              <li>2014</li>
-              <li>2013</li>
-              <li>2012</li>
-              <li>2011</li>
-              <li>2010</li>
-              <li>2009</li>
-              <li>2008</li>
-              <li>2007</li>
-              <li>2006</li>
-              <li>2005</li>
-              <li>2004</li>
-              <li>2003</li>
-              <li>2002</li>
-              <li>2001</li>
-              <li>2000</li>
-              <li>1999</li>
-              <li>1998</li>
-            </ul>
-          </div>
-
-          <ul class="middle-part-sub-menu gener-list">
-            <li>Апокалипсис</li>
-            <li>Боевик</li>
-            <li>Боевые искусства</li>
-            <li>Вампиры</li>
-            <li>Война</li>
-            <li>Гарем</li>
-            <li>Детектив</li>
-            <li>Детское</li>
-            <li>Драма</li>
-            <li>Игры</li>
-            <li>Исторический</li>
-            <li>Киберпанк</li>
-            <li>Комедия</li>
-            <li>Космос</li>
-            <li>Магия</li>
-            <li>Меха</li>
-            <li>Мистика</li>
-            <li>Музыка</li>
-            <li>Пародия</li>
-          </ul>
-
-          <ul class="right-part-sub-menu gener-list">
-            <li>Повседневность</li>
-            <li>Приключения</li>
-            <li>Психология</li>
-            <li>Романтика</li>
-            <li>Сверхъестественное</li>
-            <li>Сказка</li>
-            <li>Спорт</li>
-            <li>Сёнэн</li>
-            <li>Сёдзё</li>
-            <li>Триллер</li>
-            <li>Ужасы</li>
-            <li>Фантастика</li>
-            <li>Фэнтези</li>
-            <li>Школа</li>
-            <li>Экшен</li>
-            <li>Этти</li>
-            <li>Яой</li>
-            <li>Юри</li>
-          </ul>
-        </div> -->
       </div>
 
     <!-- main page -->
@@ -383,7 +219,7 @@
     </div>
 
 
-    <!-- <script src="js/menu.js"></script> -->
+    <script src="js/menu.js"></script>
     <script src="js/sign_in.js"></script>
     <script src="js/slider.js"></script>
   </body>
