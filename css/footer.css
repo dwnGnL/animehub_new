@@ -1,14 +1,9 @@
 #footer {
-  /* display: none; */
-  /* height: 200px; */
   padding: 30px 50px;
 }
 
 .top-block {
   border-bottom: 1px solid #E3E3E3;
-  /* display: grid;
-  grid-template-columns: 4fr 2fr 2fr;
-  grid-gap: 20px; */
   padding-bottom: 15px;
   margin-bottom: 15px;
 }

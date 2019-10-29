@@ -8,7 +8,7 @@ let isSwitching = true;
 let prevpos = 0;
 let pos = 0;
 
-setInterval(nextSlide, 5000);
+// setInterval(nextSlide, 5000);
 
 narr.addEventListener('click', nextSlide)
 parr.addEventListener('click', prevSlide)

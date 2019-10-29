@@ -19,3 +19,22 @@ function closeMenu() {
     backgroundMenu.style.display = 'none';
   }, 500);
 };
+
+let subMenu = document.querySelector('.sub-menu');
+
+subMenu.addEventListener('mouseover', openSubMenu);
+subMenu.addEventListener('mouseout', closeSubMenu);
+
+function openSubMenu() {
+  document.body.classList.add('open-sub-menu');
+  setTimeout(function () {
+    document.body.classList.add('opacity-sub-menu');
+  }, 0);
+}
+
+function closeSubMenu() {
+  document.body.classList.remove('opacity-sub-menu');
+  // setTimeout(function () {
+    document.body.classList.remove('open-sub-menu');
+  // }, 500);
+}
