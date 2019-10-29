@@ -32,6 +32,24 @@
     font-weight: bold;
 }
 
+.poryadok_prosm {
+    margin-top: 10px;
+    color: #00adef;
+}
+
+.poryadok_prosm ol{
+    padding-left: 15px;
+}
+
+.poryadok_prosm a{
+    text-decoration: none;
+    color: red;
+}
+
+.poryadok_prosm p{
+    font-weight: bold;
+}
+
 .opis .divopis{
     overflow: hidden;
     position: relative;
