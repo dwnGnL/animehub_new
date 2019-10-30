@@ -189,6 +189,60 @@
 
         <!-- Sidebar -->
         <div id="sidebar">
+          <div class="sidebar-head">
+            Обновления
+          </div>
+
+          <div class="update">
+            <div class="update-item">
+              <div class="update-data">Сегодня, 12:00</div>
+              <div class="update-bottom">
+                <div class="update-name">Вавилон</div>
+                <div class="update-series">3 серия</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="update">
+            <div class="update-item">
+              <div class="update-data">Сегодня, 12:00</div>
+              <div class="update-bottom">
+                <div class="update-name">Новый мастер кулинарии</div>
+                <div class="update-series">3 серия</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="update">
+            <div class="update-item">
+              <div class="update-data">Сегодня, 12:00</div>
+              <div class="update-bottom">
+                <div class="update-name">Мастер меча</div>
+                <div class="update-series">3 серия</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="update">
+            <div class="update-item">
+              <div class="update-data">Сегодня, 12:00</div>
+              <div class="update-bottom">
+                <div class="update-name">Нет лекарств для моего брата</div>
+                <div class="update-series">62+ special 3 серия</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="update">
+            <div class="update-item">
+              <div class="update-data">Сегодня, 12:00</div>
+              <div class="update-bottom">
+                <div class="update-name">Несносные пришельц</div>
+                <div class="update-series">3 серия</div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
 
@@ -232,5 +286,6 @@
     <script src="js/menu.js"></script>
     <script src="js/sign_in.js"></script>
     <script src="js/slider.js"></script>
+    <script src="js/short-text.js"></script>
   </body>
 </html>
