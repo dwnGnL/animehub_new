@@ -209,7 +209,14 @@
           </div>
 
           <div class="to-left"><a href="#" class="communication">Связаться с нами</a></div>
-          <div class="to-left">Мы в соц. сетях</div>
+          <div class="to-left social">
+            <span>Мы в соц. сетях</span>
+            <div class="social-item">
+              <img src="images/vk.png">
+              <img src="images/facebook.png">
+              <img src="images/instagram.png">
+            </div>
+          </div>
         </div>
 
         <div class="bottom-block">
