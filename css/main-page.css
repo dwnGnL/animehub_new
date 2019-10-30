@@ -384,8 +384,8 @@ div.date {
 
 @media screen and (min-width: 992px) {
   #content {
-    width: 70%;
     padding: 30px 50px;
+    grid-column: 1/8;
   }
 
   div.left-head {
@@ -399,8 +399,8 @@ div.date {
 
 @media screen and (max-width: 992px) {
   #content {
-    width: 100%;
     padding: 10px;
+    grid-column: 1/11;
   }
 
   div.left-head {

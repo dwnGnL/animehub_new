@@ -1,0 +1,16 @@
+#sidebar {
+  height: 100%;
+  box-sizing: border-box;
+  background: #eee;
+  grid-column: 8/11;
+}
+
+
+@media screen and (min-width: 992px) {
+}
+
+@media screen and (max-width: 992px) {
+  #sidebar {
+    display: none;
+  }
+}

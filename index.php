@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/sign_in.css">
     <link rel="stylesheet" href="css/slider.css">
     <link rel="stylesheet" href="css/main-page.css">
+    <link rel="stylesheet" href="css/sidebar.css">
   </head>
   <body>
     <!-- Backgrounds -->
@@ -163,7 +164,6 @@
     <!-- main page -->
       <!-- Main -->
       <div id="main">
-
         <?php
           if(isset($_GET['post'])){
             include 'title_content.php';
@@ -186,7 +186,10 @@
           }
         ?>
 
-        <!-- Navbar -->
+
+        <!-- Sidebar -->
+        <div id="sidebar">
+        </div>
       </div>
 
       <!-- Footer -->
