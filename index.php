@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="css/slider.css">
     <link rel="stylesheet" href="css/main-page.css">
   </head>
-  <body class="open-menu">
+  <body>
     <!-- Backgrounds -->
     <div class="background background-menu"></div>
     <div class="background background-sign-in"></div>

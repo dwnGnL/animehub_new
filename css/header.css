@@ -89,21 +89,35 @@ body.opacity-sub-menu #sub-menu {
   border-radius: 5px;
 }
 
+/* ---------------------------------------- */
 #sub-menu {
   position: absolute;
   top: 80px;
-  left: 0px;
-  opacity: 0;
-  width: 0%;
+  left: 0%;
+  opacity: 1;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  width: 0%;
   background: #fff;
+  width: 100%;
+  height: 550px;
   z-index: 1;
-  transition: opacity .5s;
-  overflow: hidden;
+  transition: .5s;
   cursor: default;
+  overflow: hidden;
 }
+
+/* .sub-menu:hover #sub-menu {
+  opacity: 1;
+  height: auto;
+}
+
+.sub-menu:not(:hover) #sub-menu {
+  opacity: 0;
+  height: 0%;
+} */
+
+
+/* ---------------------------------------- */
 
 .left-part-sub-menu {
   background: #EDF2F9;
@@ -161,12 +175,20 @@ ul.gener-list li:hover {
   #header {
     width: 1200px;
   }
+
+  /* body.open-sub-menu #sub-menu {
+    width: 1200px;
+  } */
 }
 
 @media screen and (min-width: 992px) and (max-width: 1200px) {
   #header {
     width: 992px;
   }
+
+  /* body.open-sub-menu #sub-menu {
+    width: 992px;
+  } */
 }
 
 @media screen and (min-width: 992px) {
