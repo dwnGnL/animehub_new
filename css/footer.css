@@ -47,3 +47,13 @@
 .to-left {
   text-align: center;
 }
+
+.social-item img {
+  margin: 10px 5px;
+  width: 30px;
+  cursor: pointer;
+}
+
+.social-item img:hover {
+  opacity: .9;
+}
