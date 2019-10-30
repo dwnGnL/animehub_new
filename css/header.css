@@ -94,14 +94,13 @@ body.opacity-sub-menu #sub-menu {
   position: absolute;
   top: 80px;
   left: 0%;
-  opacity: 1;
+  opacity: 0;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   background: #fff;
-  width: 100%;
-  height: 550px;
+  width: 0%;
   z-index: 1;
-  transition: .5s;
+  transition: opacity .5s;
   cursor: default;
   overflow: hidden;
 }

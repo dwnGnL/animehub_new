@@ -1,8 +1,25 @@
+let subMenu = document.querySelector('.sub-menu');
 let menuButton = document.querySelector('#menu-button');
 let backgroundMenu = document.querySelector('.background-menu');
 
+subMenu.addEventListener('mouseenter', openSubMenu);
+subMenu.addEventListener('mouseleave', closeSubMenu);
 menuButton.addEventListener('click', openMenu);
 backgroundMenu.addEventListener('click', closeMenu);
+
+function openSubMenu() {
+  document.body.classList.add('open-sub-menu');
+  setTimeout(function () {
+    document.body.classList.add('opacity-sub-menu');
+  }, 10);
+};
+
+function closeSubMenu() {
+  document.body.classList.remove('opacity-sub-menu');
+  setTimeout(function () {
+    document.body.classList.remove('open-sub-menu');
+  }, 500);
+};
 
 function openMenu() {
   document.body.classList.add('open-menu');
@@ -19,65 +36,3 @@ function closeMenu() {
     backgroundMenu.style.display = 'none';
   }, 500);
 };
-
-// let subMenu = document.querySelector('.sub-menu');
-//
-// let q = false;
-// // subMenu.addEventListener('mouseover', openSubMenu);
-// // subMenu.addEventListener('mouseout', closeSubMenu);
-//
-// window.addEventListener('mousemove', function() {
-//   subMenu.addEventListener('mousemove', function(event) {
-//     if (event) {
-//       q = true;
-//     }
-//   });
-//   // qwer()
-//   console.log(q);
-//   // if (q) {
-//   //   openSubMenu();
-//   // } else {
-//   //   closeSubMenu();
-//   //   console.log(q);
-//   // }
-//   // q = false;
-// });
-//
-// // subMenu.addEventListener('mousemove', function(event) {
-// //   if (event) {
-// //     q = true;
-// //   } else {
-// //     q = false;
-// //   }
-// // });
-// //
-// // subMenu.addEventListener('mousemove', function() {
-// //   if (q) {
-// //     openSubMenu();
-// //   } else {
-// //     closeSubMenu();
-// //   };
-// // })
-//
-// function qwer() {
-//   if (q) {
-//     openSubMenu()
-//   } else {
-//     closeSubMenu()
-//   }
-// }
-//
-// function openSubMenu() {
-//   document.body.classList.add('open-sub-menu');
-//   setTimeout(function () {
-//     document.body.classList.add('opacity-sub-menu');
-//   }, 10);
-//   // q = false;
-// };
-//
-// function closeSubMenu() {
-//   document.body.classList.remove('opacity-sub-menu');
-//   setTimeout(function () {
-//     document.body.classList.remove('open-sub-menu');
-//   }, 500);
-// };
