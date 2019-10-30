@@ -89,7 +89,6 @@ body.opacity-sub-menu #sub-menu {
   border-radius: 5px;
 }
 
-/* ---------------------------------------- */
 #sub-menu {
   position: absolute;
   top: 80px;
@@ -104,19 +103,6 @@ body.opacity-sub-menu #sub-menu {
   cursor: default;
   overflow: hidden;
 }
-
-/* .sub-menu:hover #sub-menu {
-  opacity: 1;
-  height: auto;
-}
-
-.sub-menu:not(:hover) #sub-menu {
-  opacity: 0;
-  height: 0%;
-} */
-
-
-/* ---------------------------------------- */
 
 .left-part-sub-menu {
   background: #EDF2F9;
@@ -174,20 +160,12 @@ ul.gener-list li:hover {
   #header {
     width: 1200px;
   }
-
-  /* body.open-sub-menu #sub-menu {
-    width: 1200px;
-  } */
 }
 
 @media screen and (min-width: 992px) and (max-width: 1200px) {
   #header {
     width: 992px;
   }
-
-  /* body.open-sub-menu #sub-menu {
-    width: 992px;
-  } */
 }
 
 @media screen and (min-width: 992px) {
@@ -244,15 +222,9 @@ ul.gener-list li:hover {
     cursor: pointer;
   }
 
-  li.sub-menu {
-    height: 500px;
-  }
-
-  /* ---------------------- */
   #sub-menu {
     display: none;
   }
-  /* ------------- */
 
   #sign-in {
     right: 100px;
