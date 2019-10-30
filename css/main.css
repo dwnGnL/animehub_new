@@ -14,7 +14,7 @@ body {
 #main {
   box-shadow: 0 0 30px #CACACA;
   display: grid;
-  grid-template-columns: repeat(10, 1fr);
+  grid-template-columns: repeat(12, 1fr);
 }
 
 .main-logo {
