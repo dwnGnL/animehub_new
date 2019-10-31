@@ -32,7 +32,6 @@ body.sign-in-opacity .background {
   opacity: 0;
 }
 
-
 #sign-in-page .top {
   background: #00ADEF;
   color: #fff;
@@ -109,6 +108,7 @@ div.check-block {
   font-size: 15px;
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 .bottom {
@@ -116,4 +116,8 @@ div.check-block {
   justify-content: space-between;
   margin: 10px 0px;
   font-size: 15px;
+}
+
+.bottom > div {
+  cursor: pointer;
 }

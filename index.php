@@ -40,11 +40,11 @@
             </div>
           </form>
           <div class="bottom">
-            <div class="">
+            <div class="forget-password">
               Забыли пароль?
             </div>
 
-            <div class="">
+            <div class="registration">
               Регистрация
             </div>
           </div>
