@@ -181,7 +181,6 @@
           }
         ?>
 
-
         <!-- Sidebar -->
         <div id="sidebar">
           <div class="update-block">
@@ -293,11 +292,7 @@
             <div class="sidebar-head">Коментарии</div>
 
             <div class="comment-item">
-              <div class="comment-text">
-                ffas  dsa  fasfa ds asdfasdfa asd fasd
-                dfasdfsdf as d fa dsa sdfas dfasd fads
-                asd asd
-              </div>
+              <div class="comment-text">ffas  dsa  fasfa ds asdfasdfa asd fasd</div>
 
               <div class="comment-user">
                 <div class="user-avatar">
@@ -308,11 +303,7 @@
             </div>
 
             <div class="comment-item">
-              <div class="comment-text">
-                ffas  dsa  fasfa ds asdfasdfa asd fasd
-                dfasdfsdf as d fa dsa sdfas dfasd fads
-                asd asd
-              </div>
+              <div class="comment-text">ffas  dsa  fasfa ds asdfasdfa asd fasd</div>
 
               <div class="comment-user">
                 <div class="user-avatar">
@@ -323,11 +314,7 @@
             </div>
 
             <div class="comment-item">
-              <div class="comment-text">
-                ffas  dsa  fasfa ds asdfasdfa asd fasd
-                dfasdfsdf as d fa dsa sdfas dfasd fads
-                asd asd
-              </div>
+              <div class="comment-text">ffas  dsa  fasfa ds asdfasdfa asd fasd</div>
 
               <div class="comment-user">
                 <div class="user-avatar">
@@ -338,11 +325,7 @@
             </div>
 
             <div class="comment-item">
-              <div class="comment-text">
-                ffas  dsa  fasfa ds asdfasdfa asd fasd
-                dfasdfsdf as d fa dsa sdfas dfasd fads
-                asd asd
-              </div>
+              <div class="comment-text">ffas  dsa  fasfa ds asdfasdfa asd fasd</div>
 
               <div class="comment-user">
                 <div class="user-avatar">
@@ -352,8 +335,6 @@
               </div>
             </div>
           </div>
-
-
         </div>
       </div>
 
