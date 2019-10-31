@@ -98,7 +98,7 @@ body.opacity-sub-menu #sub-menu {
   grid-template-columns: 1fr 1fr 1fr;
   background: #fff;
   width: 0%;
-  z-index: 1;
+  z-index: 2;
   transition: opacity .5s;
   cursor: default;
   overflow: hidden;
