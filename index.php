@@ -40,13 +40,8 @@
             </div>
           </form>
           <div class="bottom">
-            <div class="forget-password">
-              Забыли пароль?
-            </div>
-
-            <div class="registration">
-              Регистрация
-            </div>
+            <div class="forget-password">Забыли пароль?</div>
+            <div class="registration">Регистрация</div>
           </div>
         </div>
       </div>
