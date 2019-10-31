@@ -1,25 +1,18 @@
 <a class="nav-link" href="index.php?post"></a>
 
 <div id="slider">
-  <div class="background-slider"></div>
-  <div class="controls">
-    <div class="arrows">
-      <div class="arrow-item s-next"><img src="images/arrow.png"></div>
-      <div class="arrow-item s-prev"><img src="images/arrow.png"></div>
-    </div>
-  </div>
-  <div class="slide-items-block">
-    <div class="slide-item previous-slide-item"><img class="slide-img" draggable="false"></div>
-    <div class="slide-item present-slide-item"><img class="slide-img" draggable="false"></div>
-    <div class="slide-item next-slide-item"><img class="slide-img" draggable="false"></div>
+  <div class="arrows">
+    <div class="arrow-item s-next"><img src="images/arrow.png" alt=""> </div>
+    <div class="arrow-item s-prev"><img src="images/arrow.png" alt=""> </div>
   </div>
 
-  <!-- Images for slider -->
-  <div id="images-slider-block">
-    <img src="images/Dr_Stone_Banner.png">
-    <img src="images/Fire_Force.png">
-    <img src="images/klinok.png">
-    <img src="images/Vinland-Banner.png">
+  <div class="background-slider"></div>
+
+  <div class="slide-wrapper">
+    <div class="slide"><img src="images/Dr_Stone_Banner.png"> </div>
+    <div class="slide"><img src="images/Fire_Force.png"> </div>
+    <div class="slide"><img src="images/klinok.png"> </div>
+    <div class="slide"><img src="images/Vinland-Banner.png"> </div>
   </div>
 </div>
 
