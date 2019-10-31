@@ -1,6 +1,6 @@
-let sliderWidth = document.querySelector('#wrapper').clientWidth;;
+let sliderWidth = document.querySelector('#wrapper').clientWidth;
 let slides = document.querySelectorAll(".slide");
-let backgroundSlider = document.querySelector('.background-slider')
+let backgroundSlider = document.querySelector('.background-slider');
 let swrap	= document.querySelector(".slide-wrapper");
 let narr = document.querySelector(".s-next");
 let parr = document.querySelector(".s-prev");
@@ -10,12 +10,12 @@ let pos = 0;
 
 setInterval(nextSlide, 4000);
 
-narr.addEventListener('click', nextSlide)
-parr.addEventListener('click', prevSlide)
+narr.addEventListener('click', nextSlide);
+parr.addEventListener('click', prevSlide);
 
 function nextSlide() {
   if (isSwitching) {
-    isSwitching = false
+    isSwitching = false;
     prevpos = pos;
     pos < slides.length - 1 ? pos++ : pos = 0;
     showSlide();

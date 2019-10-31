@@ -189,7 +189,6 @@
 
         <!-- Sidebar -->
         <div id="sidebar">
-
           <div class="update-block">
             <div class="sidebar-head">Обновления</div>
 
@@ -244,6 +243,122 @@
             </div>
           </div>
 
+          <div class="top-weak">
+            <div class="sidebar-head">Топ за неделю</div>
+
+            <div class="top-weak-img">
+              <img src="images/image (1).jpg">
+            </div>
+
+            <ul class="top-weak-films">
+              <li><div class="current-number current-number-active"></div><span class="top-weak-film-name">Ван пис</span></li>
+              <li><div class="current-number"></div><span class="top-weak-film-name">Доктор Стоун</span></li>
+              <li><div class="current-number"></div><span class="top-weak-film-name">Моя героическая академия 4</span></li>
+              <li><div class="current-number"></div><span class="top-weak-film-name">Семь смертных грехов: Гнев Богов</span></li>
+              <li><div class="current-number"></div><span class="top-weak-film-name">Мастер меча</span></li>
+            </ul>
+          </div>
+
+          <div class="advice-block">
+            <div class="sidebar-head">Советуем глянуть</div>
+
+            <div id="advice-slider">
+              <div class="dots"></div>
+
+              <div class="advice-slider-item">
+                <div class="advice-item">
+                  <div class="advice-img"><img src="images/image (3).jpg"></div>
+                  <div>
+                    <div class="advice-name">Блич Краткий сюжет</div>
+                    <div class="advice-data">11 декабря 2018, Вторник</div>
+                  </div>
+                </div>
+
+                <div class="advice-item">
+                  <div class="advice-img"><img src="images/image (2).jpg"></div>
+                  <div>
+                    <div class="advice-name">Блич Краткий сюжет</div>
+                    <div class="advice-data">11 декабря 2018, Вторник</div>
+                  </div>
+                </div>
+
+                <div class="advice-item">
+                  <div class="advice-img"><img src="images/image (1).jpg"></div>
+                  <div>
+                    <div class="advice-name">Блич Краткий сюжет</div>
+                    <div class="advice-data">11 декабря 2018, Вторник</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- _______________________ -->
+          <div class="comments">
+            <div class="sidebar-head">Коментарии</div>
+
+            <div class="comment-item">
+              <div class="comment-text">
+                ffas  dsa  fasfa ds asdfasdfa asd fasd
+                dfasdfsdf as d fa dsa sdfas dfasd fads
+                asd asd
+              </div>
+
+              <div class="comment-user">
+                <div class="user-avatar">
+                  <img src="images/image (1).jpg">
+                </div>
+                <div class="comments-name-film">sdasdasd a fasd asd asdfasd</div>
+              </div>
+            </div>
+
+            <div class="comment-item">
+              <div class="comment-text">
+                ffas  dsa  fasfa ds asdfasdfa asd fasd
+                dfasdfsdf as d fa dsa sdfas dfasd fads
+                asd asd
+              </div>
+
+              <div class="comment-user">
+                <div class="user-avatar">
+                  <img src="images/image (1).jpg">
+                </div>
+                <div class="comments-name-film">sdasdasd a fasd asd asdfasd</div>
+              </div>
+            </div>
+
+            <div class="comment-item">
+              <div class="comment-text">
+                ffas  dsa  fasfa ds asdfasdfa asd fasd
+                dfasdfsdf as d fa dsa sdfas dfasd fads
+                asd asd
+              </div>
+
+              <div class="comment-user">
+                <div class="user-avatar">
+                  <img src="images/image (1).jpg">
+                </div>
+                <div class="comments-name-film">sdasdasd a fasd asd asdfasd</div>
+              </div>
+            </div>
+
+            <div class="comment-item">
+              <div class="comment-text">
+                ffas  dsa  fasfa ds asdfasdfa asd fasd
+                dfasdfsdf as d fa dsa sdfas dfasd fads
+                asd asd
+              </div>
+
+              <div class="comment-user">
+                <div class="user-avatar">
+                  <img src="images/image (1).jpg">
+                </div>
+                <div class="comments-name-film">sdasdasd a fasd asd asdfasd</div>
+              </div>
+            </div>
+          </div>
+
+
         </div>
       </div>
 
@@ -287,6 +402,8 @@
     <script src="js/menu.js"></script>
     <script src="js/sign_in.js"></script>
     <script src="js/slider.js"></script>
+    <script src="js/slider-sidebar.js"></script>
     <script src="js/short-text.js"></script>
+    <script src="js/current-number.js"></script>
   </body>
 </html>

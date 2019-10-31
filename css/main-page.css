@@ -48,6 +48,7 @@ div.head {
 
 div.right-head {
   color: #7F7F7F;
+  cursor: pointer;
 }
 
 div.right-head:hover {
@@ -110,7 +111,6 @@ div.circle {
   align-items: center;
   flex-direction: column;
   color: #fff;
-  font-size: 15px;
 }
 
 div.news {
@@ -160,7 +160,7 @@ div.date {
   }
 
   div.films div.background-film-item {
-    height: 180px;
+    height: 210px;
   }
 
   div.circle {
@@ -215,15 +215,15 @@ div.date {
   }
 
   div.films div.background-film-item {
-    height: 14vw;
+    height: 220px;
   }
 
   div.circle {
     border: .15vw solid #fff;
     border-radius: 7vw;
-    height: 7vw;
-    width: 7vw;
-    font-size: 1vw;
+    height: 8.5vw;
+    width: 8.5vw;
+    font-size: 1.2vw;
   }
 
   div.film-name {
@@ -270,7 +270,7 @@ div.date {
   }
 
   div.films div.background-film-item {
-    height: 30vw;
+    height: 35vw;
   }
 
   div.circle {
@@ -338,7 +338,7 @@ div.date {
   }
 
   div.films div.background-film-item {
-    height: 60vw;
+    height: 70vw;
   }
 
   div.circle {

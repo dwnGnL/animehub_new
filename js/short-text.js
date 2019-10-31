@@ -1,7 +1,15 @@
-let name = document.querySelectorAll('.update-name');
+let updateName = document.querySelectorAll('.update-name');
+let topWeakFilmName = document.querySelectorAll('.top-weak-film-name');
+let commentsNameFilm = document.querySelectorAll('.comments-name-film');
 
-for (var i = 0; i < name.length; i++) {
-  if (name[i].innerHTML.length >= 13) {
-    name[i].innerHTML = name[i].innerHTML.substr(0, 13) + '...';
+shortingText(updateName, 13);
+shortingText(topWeakFilmName, 20);
+shortingText(commentsNameFilm, 25);
+
+function shortingText(elem, length) {
+  for (let i = 0; i < elem.length; i++) {
+    if (elem[i].innerHTML.length >= length) {
+      elem[i].innerHTML = elem[i].innerHTML.substr(0, length) + '...';
+    };
   };
 };
