@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="css/slider.css">
     <link rel="stylesheet" href="css/main-page.css">
     <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/title_content.css">
+    <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
   </head>
   <body>
     <!-- Backgrounds -->
@@ -241,7 +243,7 @@
             <div class="sidebar-head">Топ за неделю</div>
 
             <div class="top-weak-img">
-              <img src="images/image (1).jpg">
+              <img src="images/image (2).jpg">
             </div>
 
             <ul class="top-weak-films">
@@ -277,7 +279,7 @@
                 </div>
 
                 <div class="advice-item">
-                  <div class="advice-img"><img src="images/image (1).jpg"></div>
+                  <div class="advice-img"><img src="images/image (4).jpg"></div>
                   <div>
                     <div class="advice-name">Блич Краткий сюжет</div>
                     <div class="advice-data">11 декабря 2018, Вторник</div>
@@ -381,5 +383,6 @@
     <script src="js/slider-sidebar.js"></script>
     <script src="js/short-text.js"></script>
     <script src="js/current-number.js"></script>
+    <script src="js/show-hide-text.js"></script>
   </body>
 </html>
