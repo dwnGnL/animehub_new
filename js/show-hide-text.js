@@ -7,5 +7,9 @@ showText.addEventListener('click', show);
 function show() {
   discriptionText.style.height = `${discriptionText.scrollHeight}px`;
   discriptionText.classList.toggle('gradient');
-  if (!discriptionText.classList.contains('gradient')) discriptionText.style.height = `${previousHeight}px`;
-}
+  showText.innerHTML = 'Свернуть';
+  if (!discriptionText.classList.contains('gradient')) {
+    showText.innerHTML = 'Развернуть';
+    discriptionText.style.height = `${previousHeight}px`;
+  };
+};

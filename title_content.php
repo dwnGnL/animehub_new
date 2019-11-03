@@ -57,6 +57,6 @@
       Esse hic perspiciatis, excepturi soluta distinctio explicabo porro harum ratione minima, reprehenderit eaque voluptates consectetur temporibus accusamus nobis iste, voluptas recusandae laborum id fugit in. Rem eum explicabo voluptatum saepe? vero facilis vel tempore doloribus?
     </div>
 
-    <div class="show-all-text">Раскрыть</div>
+    <div class="show-all-text">Развернуть</div>
   </div>
 </div>
