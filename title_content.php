@@ -1,52 +1,53 @@
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<link rel="stylesheet" href="css/title_content.css">
+<!-- <link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/title_content.css"> -->
 <script src="js/jquery-3.3.1.min.js"></script>
+
 <div id="titleContent">
-  <div class="row">
-    <div class="col-sm-5">
-      <div class="image">
-        <img src="images/Image (8).jpg"  alt="">
-      </div>
+  <div class="film-discription-block">
+    <div class="img-film-discription">
+      <img src="images/image (2).jpg">
     </div>
-    <div class="col-sm-7">
-      <h1 class="">Ван пис</h1>
-      <p>One Piece</p>
-      <div class="info">
-        <ul>
-          <li>
-            <span class="">Жанры:</span>
-            <span class="info_right">fdsfds,fdsfds,fdsfs</span>
-          </li>
-          <li>
-            <span>Год:</span>
-            <span class="info_right">2019</span>
-          </li>
-          <li>
-            <span>Эпизоды:</span>
-            <span class="info_right">13 из 24</span>
-          </li>
-          <li>
-            <span>Автор:</span>
-            <span class="info_right">nGnL</span>
-          </li>
-          <li>
-            <span>День выхода:</span>
-            <span class="info_right">Воскресение</span>
-          </li>
-        </ul>
-      </div>
-      <div class="poryadok_prosm">
-        <p>порядок просмотра</p>
-        <ol>
-          <li><a href="#">Tv-1</a></li>
-          <li><a href="#">Tv-1</a></li>
-          <li><a href="#">Tv-1</a></li>
-          <li><a href="#">Tv-1</a></li>
-        </ol>
-      </div>
+
+    <div class="film-discription">
+      <div class="film-discription-header">Ван пис</div>
+      <div class="film-discription-header-translate">One Piece</div>
+
+      <ul class="distinctio-list">
+        <li>
+          <span class="distinctio-list-left">Жанры:</span>
+          <span class="distinctio-list-right">Какой-то жанр</span>
+        </li>
+        <li>
+          <span class="distinctio-list-left">Год:</span>
+          <span class="distinctio-list-right">2019</span>
+        </li>
+        <li>
+          <span class="distinctio-list-left">Эпизоды:</span>
+          <span class="distinctio-list-right">13 из 24</span>
+        </li>
+        <li>
+          <span class="distinctio-list-left">Автор:</span>
+          <span class="distinctio-list-right">nGnL</span>
+        </li>
+        <li>
+          <span class="distinctio-list-left">День выхода:</span>
+          <span class="distinctio-list-right">Воскресение</span>
+        </li>
+
+        <li class="review-order">
+          <span>Порядок просмотра:</span>
+          <ol class="review-order-list">
+            <li><a href="#">Tv-1</a></li>
+            <li><a href="#">Tv-1</a></li>
+            <li><a href="#">Tv-1</a></li>
+            <li><a href="#">Tv-1</a></li>
+          </ol>
+        </li>
+      </ul>
     </div>
   </div>
-  <hr>
+
+<!-- _______________________ -->
   <div class="opis">
     <h4>Описание <span>аниме </span> <span>«Пламенная бригада пожарных»</span></h4>
     <div class="divopis divopisafter slice" >
@@ -63,6 +64,7 @@
     <div class="slice-btn">
       <span  id="alltext">Раскрыть</span>
     </div>
+
     <script>
       $("#alltext").click(function (){
         $(".divopis").toggleClass("divopisafter");

@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="css/main-page.css">
     <link rel="stylesheet" href="css/sidebar.css">
     <link rel="stylesheet" href="css/title_content.css">
+
     <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
   </head>
   <body>

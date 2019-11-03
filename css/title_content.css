@@ -1,91 +1,270 @@
 #titleContent {
-    width: 100%;
-    padding: 50px 30px;
-    grid-column: 1/10;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.image {
+#titleContent a {
+  color: #007BFF;
+  text-decoration: none;
+}
+
+#titleContent a:hover {
+  color: #0056B3;
+  text-decoration: underline;
+}
+
+.film-discription-block {
+  border-bottom: 1px solid #E3E3E3;
+}
+
+.img-film-discription img {
+  width: 100%;
+}
+
+.film-discription-header {
+  font-weight: bold;
+}
+
+.film-discription-header-translate {
+  color: #898989;
+}
+
+.distinctio-list {
+  margin: 0 0 10px 0;
+  padding: 0;
+}
+
+.distinctio-list > li {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.review-order > * {
+  grid-column: 1/6;
+}
+
+.review-order-list {
+  margin: 0;
+  padding: 0;
+}
+
+
+@media screen and (min-width: 1200px)  {
+  .film-discription-block {
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+  }
+
+  .img-film-discription {
     width: 300px;
-    overflow: hidden;
-    height: 450px;
+  }
+
+  .film-discription-header {
+    font-size: 35px;
+    margin: 7px 0;
+  }
+
+  .film-discription-header-translate {
+    font-size: 17px;
+    margin: 7px 0;
+  }
+
+  .distinctio-list > li {
+    padding: 12px 0px;
+    font-size: 15px;
+  }
+
+  .review-order span {
+    margin-bottom: 8px;
+  }
+
+  .review-order-list > li {
+    margin: 0 0 5px 30px;
+  }
 }
 
-.image img {
-    width: 100%;
-    height: 100%;
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+  .film-discription-block {
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+  }
+
+  .img-film-discription {
+    width: 250px;
+  }
+
+  .film-discription-header {
+    font-size: 30px;
+    margin: 5px 0;
+  }
+
+  .film-discription-header-translate {
+    font-size: 15px;
+    margin: 5px 0;
+  }
+
+  .distinctio-list > li {
+    padding: 9px 0px;
+    font-size: 13px;
+  }
+
+  .review-order span {
+    margin-bottom: 8px;
+  }
+
+  .review-order-list > li {
+    margin: 0 0 5px 30px;
+  }
 }
 
-.info ul {
-    list-style: none;
-    padding: 0;
+@media screen and (min-width: 767px) and (max-width: 992px) {
+  .film-discription-block {
+    /* padding-bottom: 0px;
+    margin-bottom: 0px; */
+  }
+
+  .img-film-discription {
+    width: 400px;
+    margin: auto;
+  }
+
+  .film-discription-header {
+    font-size: 50px;
+    margin: 40px 0 10px 0;
+  }
+
+  .film-discription-header-translate {
+    font-size: 25px;
+    margin: 7px 0;
+  }
+
+  .distinctio-list > li {
+    padding: 17px 0px;
+    font-size: 20px;
+  }
+
+  .review-order span {
+    margin-bottom: 17px;
+  }
+
+  .review-order-list > li {
+    margin: 0 0 10px 50px;
+  }
 }
 
-.info ul li {
-    margin-bottom: 20px;
+@media screen and (max-width: 767px) {
+  .film-discription-block {
+    /* padding-bottom: 0px;
+    margin-bottom: 0px; */
+  }
+
+  .img-film-discription {
+    width: 80vw;
+    margin: auto;
+  }
+
+  .film-discription-header {
+    font-size: 15vw;
+    margin: 10vw 0 0 0;
+  }
+
+  .film-discription-header-translate {
+    font-size: 7.5vw;
+    margin: 1vw 0;
+  }
+
+  .distinctio-list > li {
+    font-size: 5.5vw;
+    padding: 4.5vw 0;
+  }
+
+  .review-order span {
+    margin-bottom: 5vw;
+  }
+
+  .review-order-list > li {
+    margin: 0 0 3vw 15vw;
+  }
 }
 
-.info ul li span:first-child {
-    display: inline-block;
-    width: 230px;
+@media screen and (min-width: 992px) {
+  #titleContent {
+    padding: 30px 50px;
+    grid-column: 1/10;
+  }
+
+  .film-discription-block {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 30px;
+  }
 }
 
+@media screen and (max-width: 992px) {
+  #titleContent {
+    padding: 10px;
+    grid-column: 1/13;
+  }
+}
+
+/* ----------------------- */
 .opis h4 {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .opis .divopis{
-    overflow: hidden;
-    position: relative;
-    height: 200px;
+  overflow: hidden;
+  position: relative;
+  height: 200px;
 
 }
 
 .opis .opistext{
-    text-align: justify;
+  text-align: justify;
 }
 
 
 div.slice-btn span{
-    display: block;
-    cursor: pointer;
-    text-decoration: underline;
-    color:#00adef;
+  display: block;
+  cursor: pointer;
+  text-decoration: underline;
+  color:#00adef;
 }
 
 .slice{
 
-    transition: all .2s linear;
+  transition: all .2s linear;
 }
 
 /* .opis .divopis{
-    height: 200px;
-    position: relative;
-    overflow: hidden;
+  height: 200px;
+  position: relative;
+  overflow: hidden;
 }
 
 
 
 .opis .opisslide{
-    text-align: justify;
-    transition-duration: 10ms;
-    transition-property: all;
+  text-align: justify;
+  transition-duration: 10ms;
+  transition-property: all;
 }
 
 .overOff{
-    overflow: visible !important;
-    height: 100%;
+  overflow: visible !important;
+  height: 100%;
 }
 */
 .opis .divopisafter::after {
-    content: '';
-    position: absolute;
-    z-index: 1;
-    bottom: 0px;
-    left: 0;
-    right: 0;
-    height: 120px;
-    pointer-events: none;
-    background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, #fff 100%);
-    background: linear-gradient(to bottom,
-            rgba(255, 255, 255, 0) 0%, #fff 100%);
-}
+  content: '';
+  position: absolute;
+  z-index: 1;
+  bottom: 0px;
+  left: 0;
+  right: 0;
+  height: 120px;
+  pointer-events: none;
+  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, #fff 100%);
+  background: linear-gradient(to bottom,
+    rgba(255, 255, 255, 0) 0%, #fff 100%);
+  }
