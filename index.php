@@ -159,9 +159,9 @@
         </div>
       </div>
 
-    <!-- main page -->
-      <!-- Main -->
+      <!-- Main page -->
       <div id="main">
+        <!-- Main -->
         <?php
           if(isset($_GET['post'])){
             include 'title_content.php';
