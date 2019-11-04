@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="css/film-page.css">
+
 <div id="film-content">
   <div class="film-discription-block">
     <div class="img-film-discription">

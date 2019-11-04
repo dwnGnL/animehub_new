@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="css/all-anime.css">
+
 <div id="all-anime-content">
   <div class="new-series-block">
     <div class="head">

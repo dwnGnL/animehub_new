@@ -10,11 +10,7 @@
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/sign_in.css">
-    <link rel="stylesheet" href="css/slider.css">
-    <link rel="stylesheet" href="css/main-page.css">
     <link rel="stylesheet" href="css/sidebar.css">
-    <link rel="stylesheet" href="css/all-anime.css">
-    <link rel="stylesheet" href="css/film-page.css">
   </head>
   <body>
     <!-- Backgrounds -->
@@ -428,14 +424,10 @@
       </div>
     </div>
 
-
     <script src="js/menu.js"></script>
     <script src="js/sign_in.js"></script>
-    <script src="js/slider.js"></script>
     <script src="js/slider-sidebar.js"></script>
     <script src="js/short-text.js"></script>
     <script src="js/current-number.js"></script>
-    <!-- <script src="js/show-hide-text.js"></script> -->
-    <!-- <script src="js/video.js"></script> -->
   </body>
 </html>

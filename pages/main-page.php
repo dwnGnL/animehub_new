@@ -1,4 +1,6 @@
 <!-- <a class="nav-link" href="index.php?post"></a> -->
+<link rel="stylesheet" href="css/main-page.css">
+<link rel="stylesheet" href="css/slider.css">
 
 <div id="slider">
   <div class="arrows">
@@ -15,7 +17,6 @@
     <div class="slide"><img src="images/Vinland-Banner.png"> </div>
   </div>
 </div>
-
 
 <!-- Content -->
 <div id="content">
@@ -374,5 +375,6 @@
       </div>
     </div>
   </div>
-
 </div>
+
+<script src="js/slider.js"></script>
