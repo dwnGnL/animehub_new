@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="css/slider.css">
     <link rel="stylesheet" href="css/main-page.css">
     <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/all-anime.css">
     <link rel="stylesheet" href="css/film-page.css">
   </head>
   <body>
@@ -161,24 +162,26 @@
       <div id="main">
         <!-- Main -->
         <?php
-          if(isset($_GET['post'])){
-            include 'film-page.php';
-          }elseif (isset($_GET['info'])){
+          if (isset($_GET['post'])) {
+            include 'pages/film-page.php';
+          } elseif (isset($_GET['info'])) {
             include 'animehub_info.php';
-          }elseif (isset($_GET['regist'])) {
-            include 'regis.php';
-          }elseif (isset($_GET['stol']) || isset($_POST['zButton'])){
+          } elseif (isset($_GET['regist'])) {
+            include 'pages/regis.php';
+          } elseif (isset($_GET['stol']) || isset($_POST['zButton'])) {
             include 'stol.php';
-          }elseif (isset($_GET['news'])){
+          } elseif (isset($_GET['news'])) {
             include 'title_posts.php';
-          }elseif (isset($_GET['profile'])){
+          } elseif (isset($_GET['profile'])) {
             include 'profile.php';
-          }elseif (isset($_GET['donat'])){
+          } elseif (isset($_GET['donat'])) {
             include 'donat.php';
-          }elseif (isset($_GET['prof'])){
+          } elseif (isset($_GET['prof'])) {
             include 'prof.php';
-          }else{
-            include "main-page.php";
+          } elseif (isset($_GET['all-anime'])) {
+            include 'pages/all-anime.php';
+          } else {
+            include "pages/main-page.php";
           }
         ?>
 
@@ -432,7 +435,7 @@
     <script src="js/slider-sidebar.js"></script>
     <script src="js/short-text.js"></script>
     <script src="js/current-number.js"></script>
-    <script src="js/show-hide-text.js"></script>
-    <script src="js/video.js"></script>
+    <!-- <script src="js/show-hide-text.js"></script> -->
+    <!-- <script src="js/video.js"></script> -->
   </body>
 </html>

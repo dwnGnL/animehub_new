@@ -264,6 +264,7 @@
       </div>
     </div>
   </div>
-
-
 </div>
+
+<script src="js/show-hide-text.js"></script>
+<script src="js/video.js"></script>

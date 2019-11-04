@@ -36,7 +36,7 @@ form.search-block {
   background: #00A2EA;
 }
 
-div.head {
+.head {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -46,39 +46,27 @@ div.head {
 }
 
 
-div.right-head {
+.right-head {
   color: #7F7F7F;
   cursor: pointer;
 }
 
-div.right-head:hover {
+.right-head:hover {
   color: #FF7884;
   text-decoration: underline;
 }
 
-div.films {
+.films {
   display: grid;
 }
 
-div.background-film-item {
+.background-film-item {
   position: relative;
   overflow: hidden;
   cursor: pointer;
 }
 
-div.film-name {
-  cursor: pointer;
-}
-
-div.film-name:hover {
-  color: #FF505F;
-}
-
-div.film-gener {
-  color: #898989;
-}
-
-div.background-film-item > img {
+.background-film-item > img {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -87,7 +75,19 @@ div.background-film-item > img {
   min-height: 100%;
 }
 
-div.over-back-film-item {
+.film-name {
+  cursor: pointer;
+}
+
+.film-name:hover {
+  color: #FF505F;
+}
+
+.film-gener {
+  color: #898989;
+}
+
+.over-back-film-item {
   position: absolute;
   top: 0px;
   background: rgba(0, 0, 0, .5);
@@ -97,11 +97,11 @@ div.over-back-film-item {
   opacity: .0;
 }
 
-div.over-back-film-item:hover {
+.over-back-film-item:hover {
   opacity: 1;
 }
 
-div.circle {
+.circle {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -113,57 +113,57 @@ div.circle {
   color: #fff;
 }
 
-div.news {
+.news {
   display: grid;
 }
 
-div.news-item {
+.news-item {
   display: grid;
   grid-template-columns: 1fr 10fr;
   border-bottom: 1px solid #E3E3E3;
 }
 
-div.background-news {
+.background-news {
   position: relative;
   overflow: hidden;
 }
 
-div.background-news img {
+.background-news img {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   width: 100%;
 }
 
-div.news-discription {
+.news-discription {
   cursor: pointer;
 }
 
-div.news-discription:hover {
+.news-discription:hover {
   color: #FF505F;
 }
 
-div.date {
+.date {
   color: #898989;
 }
 
 
 @media screen and (min-width: 1200px)  {
-  div.films {
+  .films {
     grid-template-columns: repeat(5, 1fr);
     grid-gap: 20px;
   }
 
-  div.news {
+  .news {
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 25px;
   }
 
-  div.films div.background-film-item {
+  .films .background-film-item {
     height: 210px;
   }
 
-  div.circle {
+  .circle {
     border: 2px solid #fff;
     border-radius: 90px;
     height: 90px;
@@ -171,54 +171,54 @@ div.date {
     font-size: 13px;
   }
 
-  div.film-name {
+  .film-name {
     margin-top: 10px;
     font-size: 15px;;
   }
 
-  div.film-gener {
+  .film-gener {
     margin: 10px 0;
     font-size: 12px;
   }
 
-  div.news-item {
+  .news-item {
     padding-bottom: 10px;
   }
 
-  div.background-news {
+  .background-news {
     width: 70px;
     height: 70px;
     border-radius: 70px;
     margin-right: 10px;
   }
 
-  div.news-discription {
+  .news-discription {
     font-size: 16px;
     line-height: 23px;
   }
 
-  div.date {
+  .date {
     margin-top: 10px;
     font-size: 11px;
   }
 }
 
 @media screen and (min-width: 992px) and (max-width: 1200px) {
-  div.films {
+  .films {
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 20px;
   }
 
-  div.news {
+  .news {
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 25px;
   }
 
-  div.films div.background-film-item {
+  .films .background-film-item {
     height: 220px;
   }
 
-  div.circle {
+  .circle {
     border: .15vw solid #fff;
     border-radius: 7vw;
     height: 8.5vw;
@@ -226,54 +226,54 @@ div.date {
     font-size: 1.2vw;
   }
 
-  div.film-name {
+  .film-name {
     margin-top: 1vw;
     font-size: 1.3vw;
   }
 
-  div.film-gener {
+  .film-gener {
     margin: 1vw 0vw;
     font-size: 1.1vw;
   }
 
-  div.news-item {
+  .news-item {
     padding-bottom: .8vw;
   }
 
-  div.background-news {
+  .background-news {
     width: 5vw;
     height: 5vw;
     border-radius: 5vw;
     margin-right: .8vw;
   }
 
-  div.news-discription {
+  .news-discription {
     font-size: 1.2vw;
     line-height: 1.6vw;
   }
 
-  div.date {
+  .date {
     margin-top: .8vw;
     font-size: .9vw;
   }
 }
 
 @media screen and (min-width: 767px) and (max-width: 992px) {
-  div.films {
+  .films {
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 20px;
   }
 
-  div.news {
+  .news {
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 50px;
   }
 
-  div.films div.background-film-item {
+  .films .background-film-item {
     height: 35vw;
   }
 
-  div.circle {
+  .circle {
     border: .3vw solid #fff;
     border-radius: 15vw;
     height: 15vw;
@@ -281,45 +281,45 @@ div.date {
     font-size: 2vw;
   }
 
-  div.film-name {
+  .film-name {
     margin-top: 1.9vw;
     font-size: 2.5vw;
   }
 
-  div.film-gener {
+  .film-gener {
     margin: 1.9vw 0vw;
     font-size: 2vw;
   }
 
-  div.news-item {
+  .news-item {
     padding-bottom: 1.2vw;
   }
 
-  div.background-news {
+  .background-news {
     width: 7.5vw;
     height: 7.5vw;
     border-radius: 7.7vw;
     margin-right: 1.2vw;
   }
 
-  div.news-discription {
+  .news-discription {
     font-size: 2vw;
     line-height: 3vw;
   }
 
-  div.date {
+  .date {
     margin-top: 1.2vw;
     font-size: 1.5vw;
   }
 }
 
 @media screen and (max-width: 767px) {
-  div.films {
+  .films {
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 20px;
   }
 
-  div.news {
+  .news {
     grid-template-columns: repeat(1, 1fr);
     grid-gap: 25px;
   }
@@ -337,11 +337,11 @@ div.date {
     font-size: 15px;
   }
 
-  div.films div.background-film-item {
+  .films .background-film-item {
     height: 70vw;
   }
 
-  div.circle {
+  .circle {
     border: .6vw solid #fff;
     border-radius: 30vw;
     height: 30vw;
@@ -349,33 +349,33 @@ div.date {
     font-size: 4vw;
   }
 
-  div.film-name {
+  .film-name {
     margin-top: 3.8vw;
     font-size: 5vw;
   }
 
-  div.film-gener {
+  .film-gener {
     margin: 3.8vw 0vw;
     font-size: 4vw;
   }
 
-  div.news-item {
+  .news-item {
     padding-bottom: 2vw;
   }
 
-  div.background-news {
+  .background-news {
     width: 10vw;
     height: 10vw;
     border-radius: 10vw;
     margin-right: 2vw;
   }
 
-  div.news-discription {
+  .news-discription {
     font-size: 4vw;
     line-height: 5vw;
   }
 
-  div.date {
+  .date {
     margin-top: 2vw;
     font-size: 3vw;
   }
@@ -388,11 +388,11 @@ div.date {
     grid-column: 1/10;
   }
 
-  div.left-head {
+  .left-head {
     font-size: 30px;
   }
 
-  div.right-head {
+  .right-head {
     font-size: 15px;
   }
 }
@@ -403,11 +403,11 @@ div.date {
     grid-column: 1/13;
   }
 
-  div.left-head {
+  .left-head {
     font-size: 20px;
   }
 
-  div.right-head {
+  .right-head {
     font-size: 10px;
   }
 }

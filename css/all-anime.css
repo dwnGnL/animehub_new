@@ -1,0 +1,47 @@
+#all-anime-content {
+  padding: 30px 50px;
+  grid-column: 1/10;
+}
+
+@media screen and (min-width: 1200px)  {
+  #all-anime-content .films {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  #all-anime-content .films .background-film-item {
+    height: 260px;
+  }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+  
+}
+
+@media screen and (min-width: 767px) and (max-width: 992px) {
+  #all-anime-content .films {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  #all-anime-content .films .background-film-item {
+    height: 45vw;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  
+}
+
+
+@media screen and (min-width: 992px) {
+  #all-anime-content {
+    padding: 30px 50px;
+    grid-column: 1/10;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  #all-anime-content {
+    padding: 10px;
+    grid-column: 1/13;
+  }
+}
