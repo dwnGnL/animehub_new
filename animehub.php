@@ -1,4 +1,4 @@
-<a class="nav-link" href="index.php?post"></a>
+<!-- <a class="nav-link" href="index.php?post"></a> -->
 
 <div id="slider">
   <div class="arrows">

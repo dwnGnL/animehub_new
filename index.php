@@ -14,8 +14,6 @@
     <link rel="stylesheet" href="css/main-page.css">
     <link rel="stylesheet" href="css/sidebar.css">
     <link rel="stylesheet" href="css/title_content.css">
-
-    <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
   </head>
   <body>
     <!-- Backgrounds -->
@@ -292,7 +290,7 @@
 
           <!-- _______________________ -->
           <div class="comments">
-            <div class="sidebar-head">Коментарии</div>
+            <div class="sidebar-head">Комментарии</div>
 
             <div class="comment-item">
               <div class="comment-text">ffas  dsa  fasfa ds asdfasdfa asd fasd</div>

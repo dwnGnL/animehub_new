@@ -131,11 +131,85 @@ video {
   font-size: 25px;
 }
 
-/* ------------------------ */
+table {
+  width: 100%;
+  margin: 30px 0;
+}
+
+caption {
+  text-align: left;
+  background: #393939;
+  color: #fff;
+  padding: 10px;
+}
+
+th {
+  text-align: left;
+  background: #E3E3E3;
+  padding: 2px 5px;
+}
+
+td {
+  padding: 10px;
+  border-top: 1px solid #E3E3E3;
+}
+
+.video-comment-item {
+  display: grid;
+}
+
+.video-comment-user-avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+  overflow: hidden;
+}
+
+.video-comment-user-avatar img {
+  width: 100%;
+  /* height: 100%; */
+}
+
+.video-comment-right {
+  position: relative;
+  background: #EDF2F9;
+  border-radius: 5px;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.comment-arrow {
+  background: inherit;
+  position: absolute;
+  left: 0px;
+  top: 20px;
+  transform: translate(-50%, -50%) rotate(45deg);
+  width: 15px;
+  height: 15px;
+}
+
+.top-video-comment-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.video-comment-user-name {
+  font-weight: bold;
+}
+
+.video-comment-date {
+  color: #898989;
+}
+
+.video-comment-text {
+  margin: 10px 0;
+}
 
 
-
-/* ------------------------ */
 @media screen and (min-width: 1200px)  {
   .film-discription-block {
     padding-bottom: 20px;
@@ -300,6 +374,58 @@ video {
   }
 
   .discription-text, #alltext {
+    font-size: 15px;
+  }
+
+  caption {
+    font-size: 5vw;
+  }
+
+  th {
+    font-size: 2.5vw;
+  }
+
+  td {
+    font-size: 2.5vw;
+  }
+
+  .video-comment-item {
+    grid-template-columns: 50px 1fr;
+  }
+
+  .video-comment-user-avatar {
+    width: 30px;
+    height: 30px;
+  }
+
+  .video-comment-right {
+    font-size: 3vw;
+  }
+}
+
+@media screen and (min-width: 767px) {
+  caption {
+    font-size: 20px;
+  }
+
+  th {
+    font-size: 15px;
+  }
+
+  td {
+    font-size: 15px;
+  }
+
+  .video-comment-item {
+    grid-template-columns: 60px 1fr;
+  }
+
+  .video-comment-user-avatar {
+    width: 40px;
+    height: 40px;
+  }
+
+  .video-comment-right {
     font-size: 15px;
   }
 }

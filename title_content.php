@@ -174,4 +174,96 @@
     </div>
   </div>
 
+  <!-- <table cellspacing="0">
+    <caption>Ван пис</caption>
+    <thead>
+      <tr>
+        <th>Номер серии</th>
+        <th>Название</th>
+        <th>Дата выхода оригинала</th>
+        <th>Дата релиза</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>какая-та серия</td>
+        <td> какое-то название</td>
+        <td>какая-та дата</td>
+        <td>какая-та дата</td>
+      </tr>
+
+      <tr>
+        <td>какая-та серия</td>
+        <td> какое-то название</td>
+        <td>какая-та дата</td>
+        <td>какая-та дата</td>
+      </tr>
+
+      <tr>
+        <td>какая-та серия</td>
+        <td> какое-то название</td>
+        <td>какая-та дата</td>
+        <td>какая-та дата</td>
+      </tr>
+
+      <tr>
+        <td>какая-та серия</td>
+        <td> какое-то название</td>
+        <td>какая-та дата</td>
+        <td>какая-та дата</td>
+      </tr>
+
+      <tr>
+        <td>какая-та серия</td>
+        <td> какое-то название</td>
+        <td>какая-та дата</td>
+        <td>какая-та дата</td>
+      </tr>
+
+      <tr>
+        <td>какая-та серия</td>
+        <td> какое-то название</td>
+        <td>какая-та дата</td>
+        <td>какая-та дата</td>
+      </tr>
+    </tbody>
+  </table> -->
+
+
+  <div class="video-comments-block">
+    <div class="head">
+      <div class="left-head">Комментарии</div>
+    </div>
+
+    <div class="video-comments">
+      <div class="video-comment-item">
+        <div class="video-comment-user-avatar">
+          <img src="images/image (1).jpg">
+        </div>
+
+        <div class="video-comment-right">
+          <div class="comment-arrow"></div>
+
+          <div class="top-video-comment-item">
+            <div class="video-comment-user-name">
+              Тут имя
+            </div>
+            <div class="video-comment-date">
+              1 ноября 2019 16:00
+            </div>
+          </div>
+
+          <div class="video-comment-text">
+            Здравствуйте. Подскажите, когда выйдет следующая серия?
+            И почему у организации занимающейся, считай,
+            благотворительным переводом мультсериалов не указаны
+            реквизиты, для добровольных пожертвований?
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
 </div>
