@@ -310,7 +310,35 @@
             </div>
           </div>
 
-          <!-- _______________________ -->
+          <div class="news-sidebar">
+            <div class="sidebar-head">Новости и статьи</div>
+
+            <div class="news-sidebar-item">
+              <div class="news-sidebar-text">Восстановление работы сайта и смена домена!</div>
+              <div class="news-sidebar-date">Статьи и Новости, 21 август 2019, Среда</div>
+            </div>
+
+            <div class="news-sidebar-item">
+              <div class="news-sidebar-text">Восстановление работы сайта и смена домена!</div>
+              <div class="news-sidebar-date">Статьи и Новости, 21 август 2019, Среда</div>
+            </div>
+
+            <div class="news-sidebar-item">
+              <div class="news-sidebar-text">Восстановление работы сайта и смена домена!</div>
+              <div class="news-sidebar-date">Статьи и Новости, 21 август 2019, Среда</div>
+            </div>
+
+            <div class="news-sidebar-item">
+              <div class="news-sidebar-text">Восстановление работы сайта и смена домена!</div>
+              <div class="news-sidebar-date">Статьи и Новости, 21 август 2019, Среда</div>
+            </div>
+
+            <div class="news-sidebar-item">
+              <div class="news-sidebar-text">Восстановление работы сайта и смена домена!</div>
+              <div class="news-sidebar-date">Статьи и Новости, 21 август 2019, Среда</div>
+            </div>
+          </div>
+
           <div class="comments">
             <div class="sidebar-head">Комментарии</div>
 

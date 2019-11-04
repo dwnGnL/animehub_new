@@ -169,6 +169,23 @@
   color: #FF505F;
 }
 
+.news-sidebar-item {
+  margin: 10px 0px;
+  border-bottom: 1px solid #E3E3E3;
+}
+
+.news-sidebar-text {
+  cursor: pointer;
+}
+
+.news-sidebar-text:hover {
+  color: #FF505F;
+}
+
+.news-sidebar-date {
+  margin: 10px 0;
+  color: #898989;
+}
 
 @media screen and (min-width: 1200px)  {
   .sidebar-head {
@@ -236,6 +253,15 @@
   }
 
   .comments-name-film {
+    font-size: 14px;
+  }
+
+  .news-sidebar-text {
+    line-height: 20px;
+    font-size: 16px;
+  }
+
+  .news-sidebar-date {
     font-size: 14px;
   }
 }
@@ -306,6 +332,15 @@
   }
 
   .comments-name-film {
+    font-size: 11px;
+  }
+
+  .news-sidebar-text {
+    line-height: 16px;
+    font-size: 13px;
+  }
+
+  .news-sidebar-date {
     font-size: 11px;
   }
 }
