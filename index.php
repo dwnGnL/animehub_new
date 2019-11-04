@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="css/slider.css">
     <link rel="stylesheet" href="css/main-page.css">
     <link rel="stylesheet" href="css/sidebar.css">
-    <link rel="stylesheet" href="css/title_content.css">
+    <link rel="stylesheet" href="css/film-page.css">
   </head>
   <body>
     <!-- Backgrounds -->
@@ -162,7 +162,7 @@
         <!-- Main -->
         <?php
           if(isset($_GET['post'])){
-            include 'title_content.php';
+            include 'film-page.php';
           }elseif (isset($_GET['info'])){
             include 'animehub_info.php';
           }elseif (isset($_GET['regist'])) {
@@ -178,8 +178,30 @@
           }elseif (isset($_GET['prof'])){
             include 'prof.php';
           }else{
-            include "animehub.php";
+            include "main-page.php";
           }
+        ?>
+
+        <?php
+          // if(isset($_GET['post'])){
+          //   include 'title_content.php';
+          // }elseif (isset($_GET['info'])){
+          //   include 'animehub_info.php';
+          // }elseif (isset($_GET['regist'])) {
+          //   include 'regis.php';
+          // }elseif (isset($_GET['stol']) || isset($_POST['zButton'])){
+          //   include 'stol.php';
+          // }elseif (isset($_GET['news'])){
+          //   include 'title_posts.php';
+          // }elseif (isset($_GET['profile'])){
+          //   include 'profile.php';
+          // }elseif (isset($_GET['donat'])){
+          //   include 'donat.php';
+          // }elseif (isset($_GET['prof'])){
+          //   include 'prof.php';
+          // }else{
+          //   include "animehub.php";
+          // }
         ?>
 
         <!-- Sidebar -->

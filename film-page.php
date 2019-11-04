@@ -1,4 +1,4 @@
-<div id="titleContent">
+<div id="film-content">
   <div class="film-discription-block">
     <div class="img-film-discription">
       <img src="images/image (2).jpg">

@@ -1,14 +1,14 @@
-#titleContent {
+#film-content {
   width: 100%;
   box-sizing: border-box;
 }
 
-#titleContent a {
+#film-content a {
   color: #007BFF;
   text-decoration: none;
 }
 
-#titleContent a:hover {
+#film-content a:hover {
   color: #0056B3;
   text-decoration: underline;
 }
@@ -127,7 +127,7 @@ video {
   width: 100%;
 }
 
-#titleContent .left-head {
+#film-content .left-head {
   font-size: 25px;
 }
 
@@ -431,7 +431,7 @@ td {
 }
 
 @media screen and (min-width: 992px) {
-  #titleContent {
+  #film-content {
     padding: 30px 50px;
     grid-column: 1/10;
   }
@@ -444,7 +444,7 @@ td {
 }
 
 @media screen and (max-width: 992px) {
-  #titleContent {
+  #film-content {
     padding: 10px;
     grid-column: 1/13;
   }
