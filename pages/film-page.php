@@ -76,6 +76,13 @@
       <li class="series-item"><span class="series-number"></span> серия</li>
       <li class="series-item"><span class="series-number"></span> серия</li>
       <li class="series-item"><span class="series-number"></span> серия</li>
+      <li class="series-item"><span class="series-number"></span> серия</li>
+      <li class="series-item"><span class="series-number"></span> серия</li>
+      <li class="series-item"><span class="series-number"></span> серия</li>
+      <li class="series-item"><span class="series-number"></span> серия</li>
+      <li class="series-item"><span class="series-number"></span> серия</li>
+      <li class="series-item"><span class="series-number"></span> серия</li>
+      <li class="series-item"><span class="series-number"></span> серия</li>
     </ul>
   </div>
 
