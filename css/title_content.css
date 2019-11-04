@@ -85,7 +85,57 @@
   cursor: pointer;
 }
 
+.series-block {
+  background: #EDF1F2;
+  width: 100%;
+  margin-top: 50px;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
 
+.series-list {
+  width: 999999px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.series-item {
+  background: #fff;
+  font-size: 14px;
+  padding: 5px;
+  margin: 10px 5px;
+  cursor: pointer;
+}
+
+.series-item:hover {
+  background: #00ABED;
+  color: #fff;
+}
+
+.series-item:active {
+  opacity: .7;
+}
+
+.series-item-active {
+  background: #FD505E !important;
+  color: #fff;
+}
+
+video {
+  width: 100%;
+}
+
+#titleContent .left-head {
+  font-size: 25px;
+}
+
+/* ------------------------ */
+
+
+
+/* ------------------------ */
 @media screen and (min-width: 1200px)  {
   .film-discription-block {
     padding-bottom: 20px;

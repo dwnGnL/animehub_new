@@ -385,5 +385,6 @@
     <script src="js/short-text.js"></script>
     <script src="js/current-number.js"></script>
     <script src="js/show-hide-text.js"></script>
+    <script src="js/video.js"></script>
   </body>
 </html>
