@@ -1,5 +1,5 @@
 <!-- <a class="nav-link" href="index.php?post"></a> -->
-<link rel="stylesheet" href="css/main-page.css">
+<!-- <link rel="stylesheet" href="css/main-page.css"> -->
 <link rel="stylesheet" href="css/slider.css">
 
 <div id="slider">
