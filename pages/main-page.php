@@ -1,6 +1,15 @@
-<!-- <a class="nav-link" href="index.php?post"></a> -->
-<!-- <link rel="stylesheet" href="css/main-page.css"> -->
 <link rel="stylesheet" href="css/slider.css">
+
+<style>
+  #menu > li:nth-child(1) {
+    background: #FF505F;
+    cursor: pointer;
+  }
+
+  #menu > li:nth-child(1) a  span {
+    color: #fff !important;
+  }
+</style>
 
 <div id="slider">
   <div class="arrows">

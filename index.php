@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/sign_in.css">
     <link rel="stylesheet" href="css/sidebar.css">
     <link rel="stylesheet" href="css/main-page.css">
+    <link rel="stylesheet" href="css/film-list.css">
   </head>
   <body>
     <!-- Backgrounds -->
@@ -53,7 +54,7 @@
 
         <ul id="menu">
           <li class="active sub-menu top-menu">
-            <span>Аниме</span>
+            <a href="index.php?all-anime"><span>Аниме</span></a>
             <div id="sub-menu">
               <div class="left-part-sub-menu">
                 <span class="sub-menu-header">По типу</span>
@@ -136,15 +137,14 @@
               </ul>
             </div>
           </li>
-          <li class="top-menu"><span>Анонсы</span></li>
-          <li class="top-menu"><span>Дорамы</span></li>
-          <li class="top-menu"><span>Онгоинги</span></li>
-          <li class="top-menu"><span>Статьи</span></li>
-          <li class="top-menu"><span>Помощь нам</span></li>
+          <li class="top-menu"><a href="index.php?advertisement"><span>Анонсы</span></a></li>
+          <li class="top-menu"><a href="index.php?dorames"><span>Дорамы</span></a></li>
+          <li class="top-menu"><a href="index.php?ongoings"><span>Онгоинги</span></a></li>
+          <li class="top-menu"><a href="index.php?articles"><span>Статьи</span></a></li>
+          <li class="top-menu"><a href=""><span>Помощь нам</span></a></li>
         </ul>
 
         <div id="sign-in">Войти</div>
-
 
         <div id="menu-button">
           <div class="menu-lines">
@@ -177,31 +177,17 @@
             include 'prof.php';
           } elseif (isset($_GET['all-anime'])) {
             include 'pages/all-anime.php';
+          } elseif (isset($_GET['advertisement'])) {
+            include 'pages/advertisement.php';
+          } elseif (isset($_GET['dorames'])) {
+            include 'pages/dorames.php';
+          } elseif (isset($_GET['ongoings'])) {
+            include 'pages/ongoings.php';
+          } elseif (isset($_GET['articles'])) {
+            include 'pages/articles.php';
           } else {
             include "pages/main-page.php";
           }
-        ?>
-
-        <?php
-          // if(isset($_GET['post'])){
-          //   include 'title_content.php';
-          // }elseif (isset($_GET['info'])){
-          //   include 'animehub_info.php';
-          // }elseif (isset($_GET['regist'])) {
-          //   include 'regis.php';
-          // }elseif (isset($_GET['stol']) || isset($_POST['zButton'])){
-          //   include 'stol.php';
-          // }elseif (isset($_GET['news'])){
-          //   include 'title_posts.php';
-          // }elseif (isset($_GET['profile'])){
-          //   include 'profile.php';
-          // }elseif (isset($_GET['donat'])){
-          //   include 'donat.php';
-          // }elseif (isset($_GET['prof'])){
-          //   include 'prof.php';
-          // }else{
-          //   include "animehub.php";
-          // }
         ?>
 
         <!-- Sidebar -->

@@ -1,18 +1,18 @@
 <style>
-  #menu > li:nth-child(1) {
+  #menu > li:nth-child(4) {
     background: #FF505F;
     cursor: pointer;
   }
 
-  #menu > li:nth-child(1) a  span {
+  #menu > li:nth-child(4) a  span {
     color: #fff !important;
   }
 </style>
 
 <div id="film-list-content">
-  <div class="all-anime-list-block">
+  <div class="ongoings-list-block">
     <div class="head">
-      <div class="left-head">Новые серии аниме</div>
+      <div class="left-head">Онгоинги</div>
     </div>
 
     <div class="films">

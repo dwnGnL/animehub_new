@@ -48,6 +48,11 @@ body.opacity-sub-menu #sub-menu {
   cursor: pointer;
 }
 
+#menu a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
 #sign-in {
   background: #00ADEF;
   color: #fff;
@@ -175,20 +180,12 @@ ul.gener-list li:hover {
     height: 80px;
   }
 
-  #menu li.active {
-    background: #FF505F;
-  }
-
-  #menu li.active > span {
-    color: #fff !important;
-  }
-
-  li.top-menu > span {
+  li.top-menu a > span {
     border-top: 4px solid rgba(255, 80, 95, 0);
     padding: 26px 0px;
   }
 
-  li.top-menu:hover > span {
+  li.top-menu:hover a > span {
     border-top: 4px solid #FF505F;
     color: #FF505F;
   }
@@ -219,7 +216,6 @@ ul.gener-list li:hover {
   #menu > li {
     padding: 15px 20px;
     border-bottom: 2px solid #E3E3E3;
-    cursor: pointer;
   }
 
   #sub-menu {
