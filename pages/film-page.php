@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="css/film-page.css">
+<script type="text/javascript" src="Admin/js/ckeditor/ckeditor.js"></script>
 
 <div id="film-content">
   <div class="film-discription-block">
@@ -244,6 +245,38 @@
     <div class="head">
       <div class="left-head">Комментарии</div>
     </div>
+
+    <form  class="form"> <!--Коментарий-->
+          <!-- <textarea class="form-control" name="comment"  id="textComment" cols="80" rows="10" placeholder="Оставить коментарий..." ></textarea> -->
+          <textarea id="textComment"  name="comment" class="form-control"  placeholder="Оставить коментарий..."></textarea>
+          <button class="btn btn-outline-secondary " type="button" id="sendComment">Оставить комментарий</button>
+    </form>
+
+
+    <script type="text/javascript">
+                // var config1 = {
+                //     height:'200',
+                //     startupOutlineBlocks:true,
+                //     scayt_autoStartup:true,
+                //     toolbar:[
+
+                //         { name: 'insert', items : [ 'Smiley' ] }
+                //     ]
+                // }
+                // CKEDITOR.replace('textComment',config1);
+                var config2={
+                    height:'200',
+                    startupOutlineBlocks:true,
+                    startupFocus : true,
+                    scayt_autoStartup:true,
+                    toolbar:[
+
+                        { name: 'insert', items : [ 'HKemoji' ] }
+                    ]
+                }
+                CKEDITOR.replace('textComment',config2);
+      
+            </script>
 
     <div class="video-comments">
       <div class="video-comment-item">
