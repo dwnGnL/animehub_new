@@ -42,7 +42,7 @@
           </form>
           <div class="bottom">
             <div class="forget-password">Забыли пароль?</div>
-            <div class="registration">Регистрация</div>
+            <div class="registration"><a href="index.php?regist">Регистрация</a></div>
           </div>
         </div>
       </div>
@@ -174,8 +174,8 @@
           <li class="top-menu"><a href=""><span>Помощь нам</span></a></li>
         </ul>
 
-        <div id="sign-in">Войти</div>
         <div id="profile">Профиль</div>
+        <div id="sign-in">Войти</div>
 
         <div id="menu-button">
           <div class="menu-lines">
@@ -195,7 +195,7 @@
           } elseif (isset($_GET['info'])) {
             include 'animehub_info.php';
           } elseif (isset($_GET['regist'])) {
-            include 'pages/regis.php';
+            include 'pages/regist.php';
           } elseif (isset($_GET['stol']) || isset($_POST['zButton'])) {
             include 'stol.php';
           } elseif (isset($_GET['news'])) {

@@ -32,6 +32,11 @@ body.sign-in-opacity .background {
   opacity: 0;
 }
 
+#sign-in-page a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
 #sign-in-page .top {
   background: #00ADEF;
   color: #fff;
@@ -81,7 +86,7 @@ body.sign-in-opacity .background {
   font-size: 17px;
 }
 
-#sign-in-page input[type='text'], input[type='password'] {
+#sign-in-page input[type='text'], #sign-in-page input[type='password'] {
   padding: 0px 20px;
   background: #E8F0FE;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2) inset;
