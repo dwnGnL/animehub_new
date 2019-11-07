@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/sign_in.css">
+    <link rel="stylesheet" href="css/profile.css">
     <link rel="stylesheet" href="css/sidebar.css">
     <link rel="stylesheet" href="css/main-page.css">
     <link rel="stylesheet" href="css/film-list.css">
@@ -42,6 +43,35 @@
           <div class="bottom">
             <div class="forget-password">Забыли пароль?</div>
             <div class="registration">Регистрация</div>
+          </div>
+        </div>
+      </div>
+
+
+      <div id="profile-page">
+        <div class="top">
+          <div>Profile name</div>
+          <div class="exit-profile">
+            <div class="exit-line f-line"></div>
+            <div class="exit-line s-line"></div>
+          </div>
+        </div>
+
+        <div class="main-sign-in-page">
+          <div class="profile-data">
+            <div class="profile-avatar">
+              <img src="images/image (1).jpg" alt="">
+            </div>
+
+            <div class="profile-name">
+              Profile name
+            </div>
+          </div>
+
+          <div class="profile-bottom">
+            <div>Профиль</div>
+            <div>Закладки: (<span class="bookmark-quantity">0</span>)</div>
+            <div>Выйти</div>
           </div>
         </div>
       </div>
@@ -145,6 +175,7 @@
         </ul>
 
         <div id="sign-in">Войти</div>
+        <div id="profile">Профиль</div>
 
         <div id="menu-button">
           <div class="menu-lines">
