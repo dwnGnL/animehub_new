@@ -22,7 +22,7 @@
 
     <div id="wrapper">
       <!-- Sign in -->
-      <div id="sign-in-page">
+      <div id="sign-in">
         <div class="top">
           <div>Авторизация</div>
           <div class="exit-sign-in">
@@ -47,8 +47,7 @@
         </div>
       </div>
 
-
-      <div id="profile-page">
+      <div id="profile">
         <div class="top">
           <div>Profile name</div>
           <div class="exit-profile">
@@ -69,7 +68,7 @@
           </div>
 
           <div class="profile-bottom">
-            <div>Профиль</div>
+            <div><a href="index.php?profile">Профиль</a></div>
             <div>Закладки: (<span class="bookmark-quantity">0</span>)</div>
             <div>Выйти</div>
           </div>
@@ -174,8 +173,8 @@
           <li class="top-menu"><a href=""><span>Помощь нам</span></a></li>
         </ul>
 
-        <div id="profile">Профиль</div>
-        <div id="sign-in">Войти</div>
+        <div id="profile-button">Профиль</div>
+        <div id="sign-in-button">Войти</div>
 
         <div id="menu-button">
           <div class="menu-lines">
@@ -200,8 +199,6 @@
             include 'stol.php';
           } elseif (isset($_GET['news'])) {
             include 'title_posts.php';
-          } elseif (isset($_GET['profile'])) {
-            include 'profile.php';
           } elseif (isset($_GET['donat'])) {
             include 'donat.php';
           } elseif (isset($_GET['prof'])) {
@@ -216,13 +213,15 @@
             include 'pages/ongoings.php';
           } elseif (isset($_GET['articles'])) {
             include 'pages/articles.php';
+          } elseif (isset($_GET['profile'])) {
+            include 'pages/profile.php';
           } else {
             include "pages/main-page.php";
           }
         ?>
 
         <!-- Sidebar -->
-        <div id="sidebar">
+        <!-- <div id="sidebar">
           <div class="update-block">
             <div class="sidebar-head">Обновления</div>
 
@@ -403,7 +402,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
 
       <!-- Footer -->
@@ -444,7 +443,7 @@
 
     <script src="js/menu.js"></script>
     <script src="js/sign_in.js"></script>
-    <script src="js/slider-sidebar.js"></script>
+    <!-- <script src="js/slider-sidebar.js"></script> -->
     <script src="js/short-text.js"></script>
     <script src="js/current-number.js"></script>
   </body>

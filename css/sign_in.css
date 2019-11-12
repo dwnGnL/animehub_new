@@ -2,7 +2,7 @@ body.sign-in {
   overflow: hidden;
 }
 
-body.sign-in #sign-in-page {
+body.sign-in #sign-in {
   display: block;
 }
 
@@ -10,7 +10,7 @@ body.sign-in .background {
   display: block;
 }
 
-body.sign-in-opacity #sign-in-page {
+body.sign-in-opacity #sign-in {
   opacity: 1;
 }
 
@@ -18,7 +18,7 @@ body.sign-in-opacity .background {
   opacity: .5;
 }
 
-#sign-in-page {
+#sign-in {
   display: none;
   position: fixed;
   top: 50%;
@@ -32,12 +32,12 @@ body.sign-in-opacity .background {
   opacity: 0;
 }
 
-#sign-in-page a {
+#sign-in a {
   color: inherit;
   text-decoration: inherit;
 }
 
-#sign-in-page .top {
+#sign-in .top {
   background: #00ADEF;
   color: #fff;
   display: flex;
@@ -46,13 +46,13 @@ body.sign-in-opacity .background {
   padding-left: 20px;
 }
 
-#sign-in-page .exit-sign-in {
+#sign-in .exit-sign-in {
   position: relative;
   padding: 25px;
   cursor: pointer;
 }
 
-#sign-in-page .exit-sign-in .exit-line {
+#sign-in .exit-sign-in .exit-line {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -63,20 +63,20 @@ body.sign-in-opacity .background {
   background: #fff;
 }
 
-#sign-in-page .exit-sign-in .f-line {
+#sign-in .exit-sign-in .f-line {
   transform: translate(-50%, -50%) rotate(45deg);
 }
 
-#sign-in-page .exit-sign-in .s-line {
+#sign-in .exit-sign-in .s-line {
   transform: translate(-50%, -50%) rotate(-45deg);
 }
 
-#sign-in-page .main-sign-in-page {
+#sign-in .main-sign-in-page {
   margin: 20px;
   box-sizing: border-box;
 }
 
-#sign-in-page input.main-input {
+#sign-in input.main-input {
   width: 100%;
   height: 40px;
   margin-bottom: 20px;
@@ -86,25 +86,25 @@ body.sign-in-opacity .background {
   font-size: 17px;
 }
 
-#sign-in-page input[type='text'], #sign-in-page input[type='password'] {
+#sign-in input[type='text'], #sign-in input[type='password'] {
   padding: 0px 20px;
   background: #E8F0FE;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2) inset;
   border-radius: 5px;
 }
 
-#sign-in-page input[type=button] {
+#sign-in input[type=button] {
   color: #fff;
   border-radius: 20px;
   background: #00ADEF;
   cursor: pointer;
 }
 
-#sign-in-page input[type=button]:hover {
+#sign-in input[type=button]:hover {
   background: #00A2EA;
 }
 
-#sign-in-page input[type=checkbox] {
+#sign-in input[type=checkbox] {
   width: 17px;
   height: 17px;
 }

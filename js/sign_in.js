@@ -1,7 +1,7 @@
-let profile = document.querySelector('#profile');
+let profile = document.querySelector('#profile-button');
 let exitProfile = document.querySelector('.exit-profile');
 
-let signIn = document.querySelector('#sign-in');
+let signIn = document.querySelector('#sign-in-button');
 let exitSignIn = document.querySelector('.exit-sign-in');
 
 profile.addEventListener('click', openProfile);
