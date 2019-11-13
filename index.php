@@ -37,7 +37,7 @@
             <input type="password" placeholder="Ваш пароль" class="main-input">
             <input type="button" value="Войти на сайт" class="main-input">
             <div class="check-block">
-              <input type="checkbox" id="check"><label for="check">Запомнить меня</label>
+              <label for="check"><input type="checkbox" id="check"> Запомнить меня</label>
             </div>
           </form>
           <div class="bottom">
@@ -221,7 +221,7 @@
         ?>
 
         <!-- Sidebar -->
-        <!-- <div id="sidebar">
+        <div id="sidebar">
           <div class="update-block">
             <div class="sidebar-head">Обновления</div>
 
@@ -402,7 +402,7 @@
               </div>
             </div>
           </div>
-        </div> -->
+        </div>
       </div>
 
       <!-- Footer -->
@@ -443,7 +443,7 @@
 
     <script src="js/menu.js"></script>
     <script src="js/sign_in.js"></script>
-    <!-- <script src="js/slider-sidebar.js"></script> -->
+    <script src="js/slider-sidebar.js"></script>
     <script src="js/short-text.js"></script>
     <script src="js/current-number.js"></script>
   </body>

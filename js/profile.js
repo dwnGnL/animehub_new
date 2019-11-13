@@ -1,9 +1,9 @@
+// Choose avater
 let chooseAvatarBlock = document.querySelector('.choose-avatar');
 
 for (var i = 0; i < 100; i++) {
   chooseAvatarBlock.innerHTML += '<div class="choose-avatar-item"><img class="choose-avatar-img" src="images/avatar/' + (i + 1) + '.png"></div>';
 };
-
 
 let chooseAvatar = document.querySelector('.left-profile');
 let changeAvatar = document.querySelector('.profile-page-user-avatar');
@@ -14,14 +14,18 @@ changeAvatar.addEventListener('click', openCooseAvatar);
 
 chooseAvatarImg.forEach((elem) => {
   elem.onclick = () => {
-    closeCooseAvatar();
     choosedIMG.src = elem.src;
+    closeCooseAvatar();
   };
 });
 
+window.addEventListener('click', () => {
+  if (chooseAvatar.classList.contains('open-choose-avatar') && chooseAvatar.classList.contains('opacity-choose-avatar')) closeCooseAvatar();
+})
+
 function openCooseAvatar() {
   chooseAvatar.classList.add('open-choose-avatar');
-  setTimeout(function () {chooseAvatar.classList.add('opacity-choose-avatar')}, 0);
+  setTimeout(function () {chooseAvatar.classList.add('opacity-choose-avatar')}, 10);
 };
 
 function closeCooseAvatar() {
@@ -29,8 +33,7 @@ function closeCooseAvatar() {
   chooseAvatar.classList.remove('opacity-choose-avatar');
 };
 
-
-
+// Toggle profile page
 let rightProfile = document.querySelector('.right-profile');
 let accountButton = document.querySelector('.account-button');
 let vipSettingButton = document.querySelector('.vip-setting-button');
@@ -48,12 +51,13 @@ function togglePage(presentPage, previousPage, presentOpacity, previousOpacity) 
   }, 300);
 };
 
+// Change profile data
 let changeProfileData = document.querySelectorAll('.change-profile-data');
 let changeProfileDataSelect = document.querySelector('.change-profile-data-select');
 let saveChangePlace = document.querySelector('.save-change-button-place');
 let changeButton = document.querySelector('.change-button');
 let saveChange = document.querySelector('.save-button');
-let dataItem, dataSelectItem;
+let dataItem, dataSelectItem, select;
 let givedDate = [];
 
 changeButton.addEventListener('click', changeDate);
@@ -62,28 +66,16 @@ saveChange.addEventListener('click', saveDate);
 function changeDate() {
   for (let i = 0; i < changeProfileData.length; i++) {
     changeProfileData[i].innerHTML = `<input class="profile-data-input" type="text" value="${changeProfileData[i].innerHTML}">`;
-    dataItem = document.querySelectorAll('.profile-data-input')
+    dataItem = document.querySelectorAll('.profile-data-input');
   };
 
   changeProfileDataSelect.innerHTML = `
-    <select>
-    <option class="qwer">Мужской</option>
-    <option class="qwer">Женский</option>
-    </select>`
+    <select class="select">
+      <option>Мужской</option>
+      <option>Женский</option>
+    </select>`;
 
-  qwer = document.querySelectorAll('.qwer');
-
-  // for (var i = 0; i < qwer.length; i++) {
-  //   dataSelectItem = qwer[i];
-  // }
-
-  console.log(dataSelectItem);
-
-  // qwer.forEach((elem) => {
-  //   elem.onclick = () => {
-  //     alert(elem.innerHTML)
-  //   }
-  // })
+  select = document.querySelector('.select');
 
   saveChangePlace.classList.remove('changed');
   saveChangePlace.classList.add('saved');
@@ -95,6 +87,20 @@ function saveDate() {
     changeProfileData[i].innerHTML = givedDate[i];
   };
 
+  changeProfileDataSelect.innerHTML = select.value;
+
   saveChangePlace.classList.remove('saved');
   saveChangePlace.classList.add('changed');
 };
+
+
+// Change font family
+let fontFamilyUserName = document.querySelector('.font-family-user-name');
+let fontFamilyType = document.querySelector('.font-family-type');
+let saveVip = document.querySelector('.save-vip-button');
+
+saveVip.addEventListener('click', saveingVip);
+
+function saveingVip() {
+  fontFamilyUserName.style.fontFamily = fontFamilyType.value;
+}

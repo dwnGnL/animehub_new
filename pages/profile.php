@@ -54,33 +54,27 @@
     </div>
 
     <div class="profile-vip-setting-page">
-      <select>
-        <option value="">Arial</option>
-        <option value="">Times</option>
-        <option value="">Courier</option>
-        <option value="">Cute Font</option>
-        <option value="">fadsfads</option>
-        <option value="">Arial</option>
-        <option value="">fadsfads</option>
-        <option value="">fadsfads</option>
-        <option value="">fadsfassssssssssssds</option>
-        <option value="">fadsfads</option>
-        <option value="">Arial</option>
-        <option value="">fadsfads</option>
-        <option value="">fadsfads</option>
-        <option value="">fadsfads</option>
-        <option value="">fadsfads</option>
-        <option value="">Arial</option>
-        <option value="">fadsfads</option>
-        <option value="">fadsfads</option>
-        <option value="">fadsfads</option>
-        <option value="">fadsfads</option>
-        <option value="">Arial</option>
-        <option value="">fadsfads</option>
-        <option value="">fadsfads</option>
-        <option value="">fadsfads</option>
-        <option value="">fadsfads</option>
-      </select>
+      <div class="change-font-family-user-name">
+        <div>Шрифт</div>
+        <select class="font-family-type">
+          <option>Arial</option>
+          <option>Times</option>
+          <option>Courier</option>
+          <option>Cute Font</option>
+        </select>
+      </div>
+
+      <div class="show-notification">
+        <label for="notification-check">
+          <b>Показывать уведомления о новых сериях?</b>
+          <input type="checkbox" id="notification-check">
+        </label>
+      </div>
+
+      <textarea name="name" placeholder=""></textarea>
+
+      <div class="save-vip-button">Сохранить</div>
+
     </div>
   </div>
 </div>

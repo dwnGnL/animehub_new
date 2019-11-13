@@ -109,10 +109,18 @@ body.sign-in-opacity .background {
   height: 17px;
 }
 
-div.check-block {
+.check-block {
   font-size: 15px;
   display: flex;
+}
+
+.check-block label {
+  display: flex;
   align-items: center;
+  cursor: pointer;
+}
+
+.check-block label input {
   cursor: pointer;
 }
 

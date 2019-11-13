@@ -1,10 +1,13 @@
+#sidebar {
+  display: none;
+}
+
 #profile-page {
   width: 100%;
-  grid-column: 2/12;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
   grid-gap: 30px;
   margin: 50px 0;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 #profile-page > div {
@@ -15,6 +18,8 @@
 .left-profile {
   position: relative;
   border: 1px solid #CECECE;
+  box-sizing: border-box;
+
 }
 
 .left-profile-head {
@@ -31,9 +36,7 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  width: 12vw;
-  height: 12vw;
-  border-radius: 20vw;
+  border-radius: 50vw;
   cursor: pointer;
 }
 
@@ -45,29 +48,20 @@
   display: none;
   position: absolute;
   top: 40px;
-
   width: 100%;
   height: calc(100% - 50px);
   box-sizing: border-box;
   background: #fff;
-
-  padding: 20px;
-
-  /* display: grid; */
+  padding: 10px;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 20px;
-
   overflow-y: auto;
-  /* overflow-x: hidden; */
-
   transition: .5s;
   opacity: 0;
 }
 
 .choose-avatar-item {
-  width: 5vw;
-  height: 5vw;
-  border-radius: 100px;
+  border-radius: 20vw;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -90,6 +84,8 @@
 .right-profile {
   grid-column: 2/4;
   padding: 15px;
+  box-sizing: border-box;
+
 }
 
 .profile-button-place {
@@ -141,6 +137,22 @@
   background: #F1F3F4;
 }
 
+#profile-page input[type="text"] {
+  padding: 5px;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+  outline: none;
+}
+
+#profile-page select {
+  padding: 5px;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+  outline: none;
+}
+
 .save-change-button-place {
   display: flex;
   justify-content: flex-end;
@@ -149,17 +161,16 @@
 .change-save-button {
   padding: 10px;
   border-radius: 5px;
-  color: #28A745;
+  color: #5CB85C;
   transition: .3s;
   cursor: pointer;
   display: none;
 }
 
 .change-save-button:hover {
-  background: #28A745;
+  background: #5CB85C;
   color: #fff;
 }
-
 
 .changed .change-button {
   display: block;
@@ -177,17 +188,62 @@
   display: block;
 }
 
-/* ------------- */
 .profile-vip-setting-page {
   display: none;
   transition: .3s;
   opacity: 0;
 }
 
+.change-font-family-user-name {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
 
+.change-font-family-user-name > div {
+  margin-right: 10px;
+}
 
+.show-notification {
+  display: flex;
+}
 
-/* ------------- */
+.show-notification label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.show-notification label input {
+  border: 1px solid;
+  cursor: pointer;
+}
+
+.profile-vip-setting-page textarea {
+  width: 100%;
+  resize: vertical;
+  min-height: 50px;
+  font-family: arial;
+  padding: 5px;
+  border-radius: 5px;
+  margin: 20px 0;
+  box-sizing: border-box;
+}
+
+.save-vip-button {
+  display: inline-block;
+  padding: 10px;
+  border-radius: 5px;
+  background: #5CB85C;
+  color: #fff;
+  transition: .3s;
+  cursor: pointer;
+}
+
+.save-vip-button:hover {
+  background: #449D44;
+}
+
 .open-choose-avatar .choose-avatar {
   display: grid;
 }
@@ -195,9 +251,6 @@
 .opacity-choose-avatar .choose-avatar {
   opacity: 1;
 }
-
-
-
 
 .show-account .profile-account-page {
   display: block;
@@ -224,4 +277,73 @@
 
 .vip-setting-opacity .profile-vip-setting-page {
   opacity: 1;
+}
+
+/* --------------------- */
+@media screen and (min-width: 1200px)  {
+
+}
+
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+
+}
+
+@media screen and (min-width: 767px) and (max-width: 992px) {
+  #profile-page {
+    grid-column: 1/13;
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  #profile-page {
+    grid-column: 1/13;
+  }
+
+  .left-profile {
+    width: 80%;
+    margin: auto;
+    margin-bottom: 20px;
+  }
+
+  .right-profile {
+    width: 80%;
+    margin: auto;
+  }
+
+  .profile-page-user-avatar {
+    width: 20vw;
+    height: 20vw;
+  }
+
+  .choose-avatar-item {
+    width: 15vw;
+    height: 15vw;
+  }
+}
+
+@media screen and (min-width: 767px) {
+  .profile-page-user-avatar {
+    width: 12vw;
+    height: 12vw;
+  }
+
+  .choose-avatar-item {
+    width: 5vw;
+    height: 5vw;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  #profile-page {
+    grid-column: 2/12;
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 992px) {
 }
