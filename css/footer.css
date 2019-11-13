@@ -48,9 +48,26 @@
   text-align: center;
 }
 
-.social-item img {
-  margin: 10px 5px;
+.social-item {
+  display: flex;
+  justify-content: space-between;
+  width: 120px;
+  margin: auto;
+}
+
+.social-item-img {
+  position: relative;
   width: 30px;
+  height: 30px;
+  border-radius: 100px;
+  /* overflow: hidden; */
+}
+
+.social-item-img img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   cursor: pointer;
 }
 

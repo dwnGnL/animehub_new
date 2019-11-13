@@ -428,9 +428,9 @@
           <div class="to-left social">
             <span>Мы в соц. сетях</span>
             <div class="social-item">
-              <img src="images/vk.png">
-              <img src="images/facebook.png">
-              <img src="images/instagram.png">
+              <div class="social-item-img"><a href="https://vk.com/animehub_tj" target="_blank"><img src="images/vk.png"></a></div>
+              <div class="social-item-img"><a href="https://www.facebook.com/animehub.tj" target="_blank"><img src="images/facebook.png"></a></div>
+              <div class="social-item-img"><a href="https://www.instagram.com/anime_hub_tj" target="_blank"><img src="images/instagram.png"></a></div>
             </div>
           </div>
         </div>
