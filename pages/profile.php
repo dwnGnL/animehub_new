@@ -4,10 +4,10 @@
   <div class="left-profile">
     <div class="left-profile-head">Пользователь сайта</div>
     <div class="profile-page-user-avatar"><img class="profile-page-user-avatar-img" src="images/avatar/1.png"></div>
-
     <div class="choose-avatar"></div>
 
     <div class="left-profile-user-name font-family-user-name">User name</div>
+    <div class="left-profile-bottom"><b>Админ</b></div>
   </div>
 
   <div class="right-profile show-account account-opacity">

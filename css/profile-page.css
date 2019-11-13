@@ -19,7 +19,6 @@
   position: relative;
   border: 1px solid #CECECE;
   box-sizing: border-box;
-
 }
 
 .left-profile-head {
@@ -27,6 +26,20 @@
   padding: 10px;
   font-weight: bold;
   text-align: center;
+}
+
+.left-profile-bottom {
+  display: flex;
+  justify-content: center;
+  font-size: 13px;
+  margin: 10px
+}
+
+.left-profile-bottom b {
+  border-radius: 3px;
+  color: #fff;
+  background: #F0AD4E;
+  padding: 2px;
 }
 
 .profile-page-user-avatar {
@@ -329,6 +342,10 @@
   .profile-page-user-avatar {
     width: 12vw;
     height: 12vw;
+  }
+
+  .left-profile {
+    height: calc(160px + 12vw);
   }
 
   .choose-avatar-item {
