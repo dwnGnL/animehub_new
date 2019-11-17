@@ -185,98 +185,98 @@
   </div>
 
   <!-- <table cellspacing="0">
-    <caption>Ван пис</caption>
-    <thead>
-      <tr>
-        <th>Номер серии</th>
-        <th>Название</th>
-        <th>Дата выхода оригинала</th>
-        <th>Дата релиза</th>
-      </tr>
-    </thead>
+  <caption>Ван пис</caption>
+  <thead>
+  <tr>
+  <th>Номер серии</th>
+  <th>Название</th>
+  <th>Дата выхода оригинала</th>
+  <th>Дата релиза</th>
+</tr>
+</thead>
 
-    <tbody>
-      <tr>
-        <td>какая-та серия</td>
-        <td> какое-то название</td>
-        <td>какая-та дата</td>
-        <td>какая-та дата</td>
-      </tr>
+<tbody>
+  <tr>
+    <td>какая-та серия</td>
+    <td> какое-то название</td>
+    <td>какая-та дата</td>
+    <td>какая-та дата</td>
+  </tr>
 
-      <tr>
-        <td>какая-та серия</td>
-        <td> какое-то название</td>
-        <td>какая-та дата</td>
-        <td>какая-та дата</td>
-      </tr>
+  <tr>
+    <td>какая-та серия</td>
+    <td> какое-то название</td>
+    <td>какая-та дата</td>
+    <td>какая-та дата</td>
+  </tr>
 
-      <tr>
-        <td>какая-та серия</td>
-        <td> какое-то название</td>
-        <td>какая-та дата</td>
-        <td>какая-та дата</td>
-      </tr>
+  <tr>
+    <td>какая-та серия</td>
+    <td> какое-то название</td>
+    <td>какая-та дата</td>
+    <td>какая-та дата</td>
+  </tr>
 
-      <tr>
-        <td>какая-та серия</td>
-        <td> какое-то название</td>
-        <td>какая-та дата</td>
-        <td>какая-та дата</td>
-      </tr>
+  <tr>
+    <td>какая-та серия</td>
+    <td> какое-то название</td>
+    <td>какая-та дата</td>
+    <td>какая-та дата</td>
+  </tr>
 
-      <tr>
-        <td>какая-та серия</td>
-        <td> какое-то название</td>
-        <td>какая-та дата</td>
-        <td>какая-та дата</td>
-      </tr>
+  <tr>
+    <td>какая-та серия</td>
+    <td> какое-то название</td>
+    <td>какая-та дата</td>
+    <td>какая-та дата</td>
+  </tr>
 
-      <tr>
-        <td>какая-та серия</td>
-        <td> какое-то название</td>
-        <td>какая-та дата</td>
-        <td>какая-та дата</td>
-      </tr>
-    </tbody>
-  </table> -->
-
-
-  <div class="video-comments-block">
-    <div class="head">
-      <div class="left-head">Комментарии</div>
-    </div>
-
-    <form  class="form"> <!--Коментарий-->
-          <!-- <textarea class="form-control" name="comment"  id="textComment" cols="80" rows="10" placeholder="Оставить коментарий..." ></textarea> -->
-          <textarea id="textComment"  name="comment" class="form-control"  placeholder="Оставить коментарий..."></textarea>
-          <button class="btn btn-outline-secondary " type="button" id="sendComment">Оставить комментарий</button>
-    </form>
+  <tr>
+    <td>какая-та серия</td>
+    <td> какое-то название</td>
+    <td>какая-та дата</td>
+    <td>какая-та дата</td>
+  </tr>
+</tbody>
+</table> -->
 
 
-    <script type="text/javascript">
-                // var config1 = {
-                //     height:'200',
-                //     startupOutlineBlocks:true,
-                //     scayt_autoStartup:true,
-                //     toolbar:[
+<div class="video-comments-block">
+  <div class="head">
+    <div class="left-head">Комментарии</div>
+  </div>
 
-                //         { name: 'insert', items : [ 'Smiley' ] }
-                //     ]
-                // }
-                // CKEDITOR.replace('textComment',config1);
-                var config2={
-                    height:'200',
-                    startupOutlineBlocks:true,
-                    startupFocus : true,
-                    scayt_autoStartup:true,
-                    toolbar:[
+  <!--Коментарий-->
+  <form class="form-comment form">
+    <!-- <textarea class="form-control" name="comment"  id="textComment" cols="80" rows="10" placeholder="Оставить коментарий..." ></textarea> -->
+    <textarea id="textComment"  name="comment" class="form-control"  placeholder="Оставить коментарий..."></textarea>
+    <button class="btn btn-outline-secondary " type="button" id="sendComment">Оставить комментарий</button>
+  </form>
 
-                        { name: 'insert', items : [ 'HKemoji' ] }
-                    ]
-                }
-                CKEDITOR.replace('textComment',config2);
-      
-            </script>
+
+  <script type="text/javascript">
+    // var config1 = {
+    //   height:'200',
+    //   startupOutlineBlocks:true,
+    //   scayt_autoStartup:true,
+    //   toolbar:[
+    //
+    //     { name: 'insert', items : [ 'Smiley' ] }
+    //   ]
+    // }
+    // CKEDITOR.replace('textComment',config1);
+    var config2 = {
+      height:'200',
+      startupOutlineBlocks:true,
+      startupFocus : true,
+      scayt_autoStartup:true,
+      toolbar: [
+        { name: 'insert', items : [ 'HKemoji' ] }
+      ]
+    }
+
+    CKEDITOR.replace('textComment',config2);
+  </script>
 
     <div class="video-comments">
       <div class="video-comment-item">
