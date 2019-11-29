@@ -63,31 +63,46 @@
     <div class="show-all-text">Развернуть</div>
   </div>
 
-  <div class="series-block">
-    <ul class="series-list">
-      <li class="series-item series-item-active"><span class="series-number">1</span> серия</li>
-      <li class="series-item"><span class="series-number"></span> серия</li>
-      <li class="series-item"><span class="series-number"></span> серия</li>
-      <li class="series-item"><span class="series-number"></span> серия</li>
-      <li class="series-item"><span class="series-number"></span> серия</li>
-      <li class="series-item"><span class="series-number"></span> серия</li>
-      <li class="series-item"><span class="series-number"></span> серия</li>
-      <li class="series-item"><span class="series-number"></span> серия</li>
-      <li class="series-item"><span class="series-number"></span> серия</li>
-      <li class="series-item"><span class="series-number"></span> серия</li>
-      <li class="series-item"><span class="series-number"></span> серия</li>
-      <li class="series-item"><span class="series-number"></span> серия</li>
-      <li class="series-item"><span class="series-number"></span> серия</li>
-      <li class="series-item"><span class="series-number"></span> серия</li>
-      <li class="series-item"><span class="series-number"></span> серия</li>
-      <li class="series-item"><span class="series-number"></span> серия</li>
-      <li class="series-item"><span class="series-number"></span> серия</li>
-      <li class="series-item"><span class="series-number"></span> серия</li>
-      <li class="series-item"><span class="series-number"></span> серия</li>
-      <li class="series-item"><span class="series-number"></span> серия</li>
-      <li class="series-item"><span class="series-number"></span> серия</li>
-    </ul>
+  <!-- ____________________________ -->
+  <div class="top-video-block">
+    <div class="search-series-input">
+      <input id="search-input" type="text" placeholder="Поиск серии">
+      <div class="start-search">Поиск</div>
+    </div>
+
+    <div class="arrow-series to-left-series"><div></div></div>
+
+    <div class="series-block">
+      <ul class="series-list">
+        <li class="series-item series-item-active"><span class="series-number"></span> серия</li>
+        <li class="series-item"><span class="series-number"></span> серия</li>
+        <li class="series-item"><span class="series-number"></span> серия</li>
+        <li class="series-item"><span class="series-number"></span> серия</li>
+        <li class="series-item"><span class="series-number"></span> серия</li>
+        <li class="series-item"><span class="series-number"></span> серия</li>
+        <li class="series-item"><span class="series-number"></span> серия</li>
+        <li class="series-item"><span class="series-number"></span> серия</li>
+        <li class="series-item"><span class="series-number"></span> серия</li>
+        <li class="series-item"><span class="series-number"></span> серия</li>
+        <li class="series-item"><span class="series-number"></span> серия</li>
+        <li class="series-item"><span class="series-number"></span> серия</li>
+        <li class="series-item"><span class="series-number"></span> серия</li>
+        <li class="series-item"><span class="series-number"></span> серия</li>
+        <li class="series-item"><span class="series-number"></span> серия</li>
+        <li class="series-item"><span class="series-number"></span> серия</li>
+        <li class="series-item"><span class="series-number"></span> серия</li>
+        <li class="series-item"><span class="series-number"></span> серия</li>
+        <li class="series-item"><span class="series-number"></span> серия</li>
+        <li class="series-item"><span class="series-number"></span> серия</li>
+        <li class="series-item"><span class="series-number"></span> серия</li>
+      </ul>
+    </div>
+
+    <div class="arrow-series to-right-series"><div></div></div>
+    <div class="search-series"><img src="images/search.png"></div>
   </div>
+
+  <!-- ____________________________ -->
 
   <video src="videos/DEEP SPACE INDUSTRIES (DSI).mp4" controls></video>
 
@@ -185,60 +200,60 @@
   </div>
 
   <!-- <table cellspacing="0">
-  <caption>Ван пис</caption>
-  <thead>
-  <tr>
-  <th>Номер серии</th>
-  <th>Название</th>
-  <th>Дата выхода оригинала</th>
-  <th>Дата релиза</th>
-</tr>
-</thead>
+    <caption>Ван пис</caption>
+    <thead>
+      <tr>
+        <th>Номер серии</th>
+        <th>Название</th>
+        <th>Дата выхода оригинала</th>
+        <th>Дата релиза</th>
+      </tr>
+    </thead>
 
-<tbody>
-  <tr>
-    <td>какая-та серия</td>
-    <td> какое-то название</td>
-    <td>какая-та дата</td>
-    <td>какая-та дата</td>
-  </tr>
+    <tbody>
+      <tr>
+        <td>какая-та серия</td>
+        <td> какое-то название</td>
+        <td>какая-та дата</td>
+        <td>какая-та дата</td>
+      </tr>
 
-  <tr>
-    <td>какая-та серия</td>
-    <td> какое-то название</td>
-    <td>какая-та дата</td>
-    <td>какая-та дата</td>
-  </tr>
+      <tr>
+        <td>какая-та серия</td>
+        <td> какое-то название</td>
+        <td>какая-та дата</td>
+        <td>какая-та дата</td>
+      </tr>
 
-  <tr>
-    <td>какая-та серия</td>
-    <td> какое-то название</td>
-    <td>какая-та дата</td>
-    <td>какая-та дата</td>
-  </tr>
+      <tr>
+        <td>какая-та серия</td>
+        <td> какое-то название</td>
+        <td>какая-та дата</td>
+        <td>какая-та дата</td>
+      </tr>
 
-  <tr>
-    <td>какая-та серия</td>
-    <td> какое-то название</td>
-    <td>какая-та дата</td>
-    <td>какая-та дата</td>
-  </tr>
+      <tr>
+        <td>какая-та серия</td>
+        <td> какое-то название</td>
+        <td>какая-та дата</td>
+        <td>какая-та дата</td>
+      </tr>
 
-  <tr>
-    <td>какая-та серия</td>
-    <td> какое-то название</td>
-    <td>какая-та дата</td>
-    <td>какая-та дата</td>
-  </tr>
+      <tr>
+        <td>какая-та серия</td>
+        <td> какое-то название</td>
+        <td>какая-та дата</td>
+        <td>какая-та дата</td>
+      </tr>
 
-  <tr>
-    <td>какая-та серия</td>
-    <td> какое-то название</td>
-    <td>какая-та дата</td>
-    <td>какая-та дата</td>
-  </tr>
-</tbody>
-</table> -->
+      <tr>
+        <td>какая-та серия</td>
+        <td> какое-то название</td>
+        <td>какая-та дата</td>
+        <td>какая-та дата</td>
+      </tr>
+    </tbody>
+  </table> -->
 
 
 <div class="video-comments-block">
@@ -249,8 +264,8 @@
   <!--Коментарий-->
   <form class="form-comment form">
     <!-- <textarea class="form-control" name="comment"  id="textComment" cols="80" rows="10" placeholder="Оставить коментарий..." ></textarea> -->
-    <textarea id="textComment"  name="comment" class="form-control"  placeholder="Оставить коментарий..."></textarea>
-    <button class="btn btn-outline-secondary " type="button" id="sendComment">Оставить комментарий</button>
+    <!-- <textarea id="textComment" name="comment" class="form-control" placeholder="Оставить коментарий..."></textarea> -->
+    <button class="btn btn-outline-secondary" type="button" id="sendComment">Оставить комментарий</button>
   </form>
 
 
@@ -275,7 +290,7 @@
       ]
     }
 
-    CKEDITOR.replace('textComment',config2);
+    CKEDITOR.replace('textComment', config2);
   </script>
 
     <div class="video-comments">

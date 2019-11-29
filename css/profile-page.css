@@ -38,7 +38,7 @@
 .left-profile-bottom b {
   border-radius: 3px;
   color: #fff;
-  background: #F0AD4E;
+  background: #FCBC5B;
   padding: 2px;
 }
 
@@ -111,7 +111,7 @@
   padding: 10px;
   margin-right: 10px;
   border-radius: 5px;
-  color: #00ADEF;
+  color: #6882A1;
   cursor: pointer;
   transition: .3s;
 }
@@ -150,20 +150,43 @@
   background: #F1F3F4;
 }
 
+.about-profile-data-right {
+  color: #888888;
+}
+
 #profile-page input[type="text"] {
-  padding: 5px;
+  /* padding: 5px;
   border-radius: 5px;
   width: 100%;
   box-sizing: border-box;
+  outline: none; */
+  width: 100%;
+  color: #888888;
+  border: none;
   outline: none;
+  border-bottom: 1px solid #6882A1;
+  transition: border .5s, color .5s;
+}
+
+#profile-page input[type="text"]:focus {
+  border-bottom: 1px solid #D81C27;
+  color: #000;
 }
 
 #profile-page select {
-  padding: 5px;
-  border-radius: 5px;
+  padding: 5px 0;
   width: 100%;
+  color: #888888;
   box-sizing: border-box;
   outline: none;
+  border: none;
+  border-bottom: 1px solid #6882A1;
+  transition: border .5s, color .5s;
+}
+
+#profile-page select:focus {
+  border-bottom: 1px solid #D81C27;
+  color: #000;
 }
 
 .save-change-button-place {
@@ -275,12 +298,12 @@
 }
 
 .show-account .account-button {
-  background: #00ADEF !important;
+  background: #6882A1 !important;
   color: #fff !important;
 }
 
 .show-vip-setting .vip-setting-button {
-  background: #00ADEF !important;
+  background: #6882A1 !important;
   color: #fff !important;
 }
 

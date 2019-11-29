@@ -32,13 +32,8 @@ body.sign-in-opacity .background {
   opacity: 0;
 }
 
-#sign-in a {
-  color: inherit;
-  text-decoration: inherit;
-}
-
 #sign-in .top {
-  background: #00ADEF;
+  background: #6882A1;
   color: #fff;
   display: flex;
   justify-content: space-between;
@@ -80,6 +75,7 @@ body.sign-in-opacity .background {
   width: 100%;
   height: 40px;
   margin-bottom: 20px;
+  margin-top: 10px;
   border: none;
   outline: none;
   box-sizing: border-box;
@@ -87,21 +83,38 @@ body.sign-in-opacity .background {
 }
 
 #sign-in input[type='text'], #sign-in input[type='password'] {
-  padding: 0px 20px;
+  /* padding: 0px 20px;
   background: #E8F0FE;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2) inset;
-  border-radius: 5px;
+  border-radius: 5px; */
+  border-bottom: 1px solid #6882A1;
+  height: 25px;
+  /* color: #6882A1; */
+  /* transition: .5s; */
+}
+
+#sign-in input[type='text']:focus::placeholder, #sign-in input[type='password']:focus::placeholder {
+  color: #D81C27;
+  /* transition: .5s; */
+}
+
+#sign-in input[type='text']:focus, #sign-in input[type='password']:focus {
+  /* padding: 0px 20px;
+  background: #E8F0FE;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2) inset;
+  border-radius: 5px; */
+  border-bottom: 1px solid #D81C27;
 }
 
 #sign-in input[type=button] {
   color: #fff;
   border-radius: 20px;
-  background: #00ADEF;
+  background: #6882A1;
   cursor: pointer;
 }
 
 #sign-in input[type=button]:hover {
-  background: #00A2EA;
+  background: #889CB5;
 }
 
 #sign-in input[type=checkbox] {
@@ -133,4 +146,13 @@ body.sign-in-opacity .background {
 
 .bottom > div {
   cursor: pointer;
+}
+
+.bottom > div:hover {
+  color: #D81C27;
+}
+
+#sign-in a {
+  color: inherit;
+  text-decoration: inherit;
 }

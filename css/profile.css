@@ -33,7 +33,7 @@ body.sign-in-opacity .background {
 }
 
 #profile .top {
-  background: #00ADEF;
+  background: #6882A1;
   color: #fff;
   display: flex;
   justify-content: space-between;
@@ -66,7 +66,6 @@ body.sign-in-opacity .background {
 }
 
 #profile .main-sign-in-page {
-  /* margin: 20px; */
   box-sizing: border-box;
 }
 
@@ -75,7 +74,7 @@ body.sign-in-opacity .background {
   justify-content: center;
   align-items: center;
   padding: 20px;
-  background: #E8EAED;
+  background: #F8F8F8;
 }
 
 .profile-avatar {
@@ -97,7 +96,7 @@ body.sign-in-opacity .background {
 .profile-bottom {
   margin: 15px;
   padding: 5px;
-  background: #E8EAED;
+  background: #F8F8F8;
 }
 
 .profile-bottom > div {
@@ -106,7 +105,7 @@ body.sign-in-opacity .background {
 }
 
 .profile-bottom > div:hover {
-  color: #FF7884;
+  color: #D81C27;
 }
 
 #profile a {

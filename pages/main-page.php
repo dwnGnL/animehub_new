@@ -1,13 +1,15 @@
 <link rel="stylesheet" href="css/slider.css">
 
 <style>
-  #menu > li:nth-child(1) {
-    background: #FF505F;
-    cursor: pointer;
-  }
+  @media screen and (min-width: 992px) {
+    #menu > li:nth-child(1) {
+      background: #D81C27;
+      cursor: pointer;
+    }
 
-  #menu > li:nth-child(1) a  span {
-    color: #fff !important;
+    #menu > li:nth-child(1) a  span {
+      color: #fff !important;
+    }
   }
 </style>
 

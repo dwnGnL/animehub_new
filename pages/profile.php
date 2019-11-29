@@ -74,7 +74,6 @@
       <textarea name="name" placeholder=""></textarea>
 
       <div class="save-vip-button">Сохранить</div>
-
     </div>
   </div>
 </div>

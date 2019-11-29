@@ -1,11 +1,13 @@
 <style>
-  #menu > li:nth-child(4) {
-    background: #FF505F;
-    cursor: pointer;
-  }
+  @media screen and (min-width: 992px) {
+    #menu > li:nth-child(4) {
+      background: #D81C27;
+      cursor: pointer;
+    }
 
-  #menu > li:nth-child(4) a  span {
-    color: #fff !important;
+    #menu > li:nth-child(4) a  span {
+      color: #fff !important;
+    }
   }
 </style>
 

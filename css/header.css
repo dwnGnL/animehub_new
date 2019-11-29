@@ -55,7 +55,7 @@ body.opacity-sub-menu #sub-menu {
 }
 
 #sign-in-button {
-  background: #00ADEF;
+  background: #6882A1;
   color: #fff;
   position: absolute;
   padding: 10px 30px;
@@ -64,11 +64,11 @@ body.opacity-sub-menu #sub-menu {
 }
 
 #sign-in-button:hover {
-  background: #00A2EA;
+  background: #889CB5;
 }
 
 #profile-button {
-  background: #00ADEF;
+  background: #6882A1;
   color: #fff;
   position: absolute;
   padding: 10px 30px;
@@ -77,14 +77,14 @@ body.opacity-sub-menu #sub-menu {
 }
 
 #profile-button:hover {
-  background: #00A2EA;
+  background: #889CB5;
 }
 
 #menu-button {
   display: none;
   justify-content: center;
   align-items: center;
-  background: #FF505F;
+  background: #D81C27;
   width: 80px;
   height: 80px;
   box-sizing: border-box;
@@ -124,7 +124,7 @@ body.opacity-sub-menu #sub-menu {
 }
 
 .left-part-sub-menu {
-  background: #EDF2F9;
+  background: #F8F8F8;
   padding: 20px 20px;
 }
 
@@ -148,7 +148,7 @@ body.opacity-sub-menu #sub-menu {
 }
 
 #sub-menu ul li:hover {
-  color: #FF505F;
+  color: #D81C27;
 }
 
 ul.qualification-list {
@@ -171,7 +171,7 @@ ul.gener-list li {
 }
 
 ul.gener-list li:hover {
-  background: #EDF2F9;
+  background: #F8F8F8;
 }
 
 
@@ -188,6 +188,16 @@ ul.gener-list li:hover {
 }
 
 @media screen and (min-width: 992px) {
+  /* .active-top-menu-item {
+    background: #D81C27;
+    cursor: pointer;
+  }
+
+  .active-top-menu-item a  span {
+    color: #fff !important;
+  } */
+  /* --------------- */
+
   #menu > li {
     margin: 0px 10px;
     padding: 30px 20px;
@@ -200,8 +210,8 @@ ul.gener-list li:hover {
   }
 
   li.top-menu:hover a > span {
-    border-top: 4px solid #FF505F;
-    color: #FF505F;
+    border-top: 4px solid #D81C27;
+    color: #D81C27;
   }
 
   #sign-in-button {

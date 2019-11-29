@@ -6,7 +6,7 @@ form.search-block {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #EDF2F9;
+  background: #F8F8F8;
 }
 
 .search-block input {
@@ -28,12 +28,12 @@ form.search-block {
   padding: 0px 30px;
   font-size: 20px;
   color: #fff;
-  background: #00ADEF;
+  background: #6882A1;
   cursor: pointer;
 }
 
 .search-block input[type='button']:hover {
-  background: #00A2EA;
+  background: #889CB5;
 }
 
 .head {
@@ -51,7 +51,7 @@ form.search-block {
 }
 
 .right-head:hover {
-  color: #FF7884;
+  color: #D81C27;
   text-decoration: underline;
 }
 
@@ -79,7 +79,7 @@ form.search-block {
 }
 
 .film-name:hover {
-  color: #FF505F;
+  color: #D81C27;
 }
 
 .film-gener {
@@ -139,7 +139,7 @@ form.search-block {
 }
 
 .news-discription:hover {
-  color: #FF505F;
+  color: #D81C27;
 }
 
 .date {

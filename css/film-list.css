@@ -19,16 +19,18 @@
 }
 
 .switch-page-item {
-  background: #EDF2F9;
+  background: #F8F8F8;
   cursor: pointer;
 }
 
 .switch-page-active {
-  background: #00ADEF;
+  background: #6882A1;
+  color: #fff;
 }
 
 .switch-page-item:hover {
-  background: #00ADEF;
+  background: #889CB5;
+  color: #fff;
 }
 
 @media screen and (min-width: 1200px)  {
