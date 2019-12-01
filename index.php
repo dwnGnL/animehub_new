@@ -1,450 +1,100 @@
-<!DOCTYPE html>
-<html lang="ru">
-  <head>
-    <title>AnimeHub</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content ="Аниме портал Таджикистана!">
-    <link rel="shortcut icon" href="images/logo.png">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="css/sign_in.css">
-    <link rel="stylesheet" href="css/profile.css">
-    <link rel="stylesheet" href="css/sidebar.css">
-    <link rel="stylesheet" href="css/main-page.css">
-    <link rel="stylesheet" href="css/film-list.css">
-  </head>
-  <body>
-    <!-- Backgrounds -->
-    <div class="background background-menu"></div>
-    <div class="background background-sign-in"></div>
+<?php
+  define('_Sdef', true);
 
-    <div id="wrapper">
-      <!-- Sign in -->
-      <div id="sign-in">
-        <div class="top">
-          <div>Авторизация</div>
-          <div class="exit-sign-in">
-            <div class="exit-line f-line"></div>
-            <div class="exit-line s-line"></div>
-          </div>
-        </div>
+  session_start();
 
-        <div class="main-sign-in-page">
-          <form class="" action="index.html" method="post">
-            <input type="text" placeholder="Ваш логин" class="main-input">
-            <input type="password" placeholder="Ваш пароль" class="main-input">
-            <input type="button" value="Войти на сайт" class="main-input">
-            <div class="check-block">
-              <label for="check"><input type="checkbox" id="check"> Запомнить меня</label>
-            </div>
-          </form>
-          <div class="bottom">
-            <div class="forget-password">Забыли пароль?</div>
-            <div class="registration"><a href="index.php?regist">Регистрация</a></div>
-          </div>
-        </div>
-      </div>
+  require_once 'vendor/autoload.php';
 
-      <div id="profile">
-        <div class="top">
-          <div>Profile name</div>
-          <div class="exit-profile">
-            <div class="exit-line f-line"></div>
-            <div class="exit-line s-line"></div>
-          </div>
-        </div>
+  require 'config.php';
 
-        <div class="main-sign-in-page">
-          <div class="profile-data">
-            <div class="profile-avatar">
-              <img src="images/image (1).jpg" alt="">
-            </div>
 
-            <div class="profile-name">
-              Profile name
-            </div>
-          </div>
+\Slim\Slim::registerAutoloader();
 
-          <div class="profile-bottom">
-            <div><a href="index.php?profile">Профиль</a></div>
-            <div>Закладки: (<span class="bookmark-quantity">0</span>)</div>
-            <div>Выйти</div>
-          </div>
-        </div>
-      </div>
+$app = new \Slim\Slim([
+        'templates.path' => __DIR__.'/templates',
+        'debug' => true,
+        'cookies.encrypt' => false,
+        'cookies.secret_key' => 'my_secret_key',
+]);
+function my_autoload($className){
+    $baseDir = __DIR__;
 
-      <!-- Header -->
-      <div id="header">
-        <div class="logo main-logo">
-          <img class="logo-img" src="images/logo.png">
-        </div>
+    $fileName = $baseDir.DIRECTORY_SEPARATOR;
+    $namespace = '';
+    if($lastNsPos = strripos($className, '\\')){
+        $namespace = substr($className, 0,$lastNsPos);
+        $className = substr($className, $lastNsPos + 1);
+        $fileName .= str_replace('\\',DIRECTORY_SEPARATOR,$namespace).DIRECTORY_SEPARATOR;
+    }
+    $fileName .= ucfirst($className).'.php';
 
-        <ul id="menu">
-          <li class="active sub-menu top-menu">
-            <a href="index.php?all-anime"><span>Аниме</span></a>
-            <div id="sub-menu">
-              <div class="left-part-sub-menu">
-                <span class="sub-menu-header">По типу</span>
-                <ul class="qualification-list">
-                  <li>Запад</li>
-                  <li>ТВ</li>
-                  <li>OVA</li>
-                  <li>Фильм</li>
-                  <li>ONA</li>
-                </ul>
+    if (file_exists($fileName)){
 
-                <span class="sub-menu-header">По годам</span>
-                <ul class="qualification-list">
-                  <li>2019</li>
-                  <li>2018</li>
-                  <li>2017</li>
-                  <li>2016</li>
-                  <li>2015</li>
-                  <li>2014</li>
-                  <li>2013</li>
-                  <li>2012</li>
-                  <li>2011</li>
-                  <li>2010</li>
-                  <li>2009</li>
-                  <li>2008</li>
-                  <li>2007</li>
-                  <li>2006</li>
-                  <li>2005</li>
-                  <li>2004</li>
-                  <li>2003</li>
-                  <li>2002</li>
-                  <li>2001</li>
-                  <li>2000</li>
-                  <li>1999</li>
-                  <li>1998</li>
-                </ul>
-              </div>
+        require $fileName;
+    }
 
-              <ul class="middle-part-sub-menu gener-list">
-                <li>Апокалипсис</li>
-                <li>Боевик</li>
-                <li>Боевые искусства</li>
-                <li>Вампиры</li>
-                <li>Война</li>
-                <li>Гарем</li>
-                <li>Детектив</li>
-                <li>Детское</li>
-                <li>Драма</li>
-                <li>Игры</li>
-                <li>Исторический</li>
-                <li>Киберпанк</li>
-                <li>Комедия</li>
-                <li>Космос</li>
-                <li>Магия</li>
-                <li>Меха</li>
-                <li>Мистика</li>
-                <li>Музыка</li>
-                <li>Пародия</li>
-              </ul>
+}
 
-              <ul class="right-part-sub-menu gener-list">
-                <li>Повседневность</li>
-                <li>Приключения</li>
-                <li>Психология</li>
-                <li>Романтика</li>
-                <li>Сверхъестественное</li>
-                <li>Сказка</li>
-                <li>Спорт</li>
-                <li>Сёнэн</li>
-                <li>Сёдзё</li>
-                <li>Триллер</li>
-                <li>Ужасы</li>
-                <li>Фантастика</li>
-                <li>Фэнтези</li>
-                <li>Школа</li>
-                <li>Экшен</li>
-                <li>Этти</li>
-                <li>Яой</li>
-                <li>Юри</li>
-              </ul>
-            </div>
-          </li>
-          <li class="top-menu"><a href="index.php?advertisement"><span>Анонсы</span></a></li>
-          <li class="top-menu"><a href="index.php?dorames"><span>Дорамы</span></a></li>
-          <li class="top-menu"><a href="index.php?ongoings"><span>Онгоинги</span></a></li>
-          <li class="top-menu"><a href="index.php?articles"><span>Статьи</span></a></li>
-          <li class="top-menu"><a href=""><span>Помощь нам</span></a></li>
-        </ul>
+spl_autoload_register('my_autoload');
 
-        <div id="profile-button">Профиль</div>
-        <div id="sign-in-button">Войти</div>
+//$app->add(new \Lib\AuthMiddleware(
+//    ['routeName' => '/admin'],
+//    \Lib\AuthClass::getInstance(new \Model\Model()),
+//    \Lib\AclClass::getInstance()
+//
+//));
 
-        <div id="menu-button">
-          <div class="menu-lines">
-            <div class="menu-line l1"></div>
-            <div class="menu-line l2"></div>
-            <div class="menu-line l3"></div>
-          </div>
-        </div>
-      </div>
+$app->get('/(:page)', function ($page = false) use($app){
 
-      <!-- Main page -->
-      <div id="main">
-        <!-- Main -->
-        <?php
-          if (isset($_GET['post'])) {
-            include 'pages/film-page.php';
-          } elseif (isset($_GET['info'])) {
-            include 'animehub_info.php';
-          } elseif (isset($_GET['regist'])) {
-            include 'pages/regist.php';
-          } elseif (isset($_GET['stol']) || isset($_POST['zButton'])) {
-            include 'stol.php';
-          } elseif (isset($_GET['news'])) {
-            include 'title_posts.php';
-          } elseif (isset($_GET['donat'])) {
-            include 'donat.php';
-          } elseif (isset($_GET['prof'])) {
-            include 'prof.php';
-          } elseif (isset($_GET['all-anime'])) {
-            include 'pages/all-anime.php';
-          } elseif (isset($_GET['advertisement'])) {
-            include 'pages/advertisement.php';
-          } elseif (isset($_GET['dorames'])) {
-            include 'pages/dorames.php';
-          } elseif (isset($_GET['ongoings'])) {
-            include 'pages/ongoings.php';
-          } elseif (isset($_GET['articles'])) {
-            include 'pages/articles.php';
-          } elseif (isset($_GET['profile'])) {
-            include 'pages/profile.php';
-          } else {
-            include "pages/main-page.php";
-          }
-        ?>
+    $o = \Controller\Controller::getInstance('index'); //IndexController
+    $o->execute(['page' => $page]);
+})->conditions(['page' => '\d+'])->name('home');
 
-        <!-- Sidebar -->
-        <div id="sidebar">
-          <div class="update-block">
-            <div class="sidebar-head">Обновления</div>
+$app->get('/page/:alias', function ($alias) use($app){
 
-            <div class="update">
-              <div class="update-item">
-                <div class="update-data">Сегодня, 12:00</div>
-                <div class="update-bottom">
-                  <div class="update-name">Вавилон</div>
-                  <div class="update-series">3 серия</div>
-                </div>
-              </div>
-            </div>
+    $o = \Controller\Controller::getInstance('pages'); //PagesController
+    $o->execute(['alias' => $alias]);
+})->name('page');
 
-            <div class="update">
-              <div class="update-item">
-                <div class="update-data">Сегодня, 12:00</div>
-                <div class="update-bottom">
-                  <div class="update-name">Новый мастер кулинарии</div>
-                  <div class="update-series">3 серия</div>
-                </div>
-              </div>
-            </div>
+$app->get('/category/:alias(/:page)', function ($alias, $page = false) use($app){
 
-            <div class="update">
-              <div class="update-item">
-                <div class="update-data">Сегодня, 12:00</div>
-                <div class="update-bottom">
-                  <div class="update-name">Мастер меча</div>
-                  <div class="update-series">3 серия</div>
-                </div>
-              </div>
-            </div>
+    $o = \Controller\Controller::getInstance('category'); //CategoryController
+    $o->execute(['alias' => $alias, 'page' => $page]);
+})->name('category');
 
-            <div class="update">
-              <div class="update-item">
-                <div class="update-data">Сегодня, 12:00</div>
-                <div class="update-bottom">
-                  <div class="update-name">Нет лекарств для моего брата</div>
-                  <div class="update-series">62+ special 3 серия</div>
-                </div>
-              </div>
-            </div>
+$app->get('/post/:alias', function ($alias) use($app){
 
-            <div class="update">
-              <div class="update-item">
-                <div class="update-data">Сегодня, 12:00</div>
-                <div class="update-bottom">
-                  <div class="update-name">Несносные пришельц</div>
-                  <div class="update-series">3 серия</div>
-                </div>
-              </div>
-            </div>
-          </div>
+    $o = \Controller\Controller::getInstance('post'); //PostController
+    $o->execute(['alias' => $alias]);
+})->name('post');
 
-          <div class="top-weak">
-            <div class="sidebar-head">Топ за неделю</div>
+$app->post('/login', function () use ($app){
+    $o = \Controller\Controller::getInstance('login'); //LoginController
+    $o->execute();
+})->name('login');
 
-            <div class="top-weak-img">
-              <img src="images/image (2).jpg">
-            </div>
+$app->get('/logout/:route', function ($route) use ($app){
+    $o = \Controller\Controller::getInstance('login'); //LoginController
+    $o->logout( $route);
+})->name('logout');
 
-            <ul class="top-weak-films">
-              <li><div class="current-number current-number-active"></div><span class="top-weak-film-name">Ван пис</span></li>
-              <li><div class="current-number"></div><span class="top-weak-film-name">Доктор Стоун</span></li>
-              <li><div class="current-number"></div><span class="top-weak-film-name">Моя героическая академия 4</span></li>
-              <li><div class="current-number"></div><span class="top-weak-film-name">Семь смертных грехов: Гнев Богов</span></li>
-              <li><div class="current-number"></div><span class="top-weak-film-name">Мастер меча</span></li>
-            </ul>
-          </div>
+$middle = function (){
+    $obj = new \Lib\AuthMiddleware(
+    ['routeName' => '/admin'],
+    \Lib\AuthClass::getInstance(new \Model\Model()),
+    \Lib\AclClass::getInstance()
+                                );
+   return $obj->onBeforeDispatch();
+};
 
-          <div class="advice-block">
-            <div class="sidebar-head">Советуем глянуть</div>
+$app->group('/admin', $middle,function () use ($app){
 
-            <div id="advice-slider">
-              <div class="dots"></div>
+        $app->get('(/:page)', function ($page = 1) {
+                $o = \Controller\Controller::getInstance('admin'); //AdminController
+                $o->execute();
+        })->conditions(['page' => '\d+'])->name('aItems');
 
-              <div class="advice-slider-item">
-                <div class="advice-item">
-                  <div class="advice-img"><img src="images/image (3).jpg"></div>
-                  <div>
-                    <div class="advice-name">Блич Краткий сюжет</div>
-                    <div class="advice-data">11 декабря 2018, Вторник</div>
-                  </div>
-                </div>
+});
 
-                <div class="advice-item">
-                  <div class="advice-img"><img src="images/image (2).jpg"></div>
-                  <div>
-                    <div class="advice-name">Блич Краткий сюжет</div>
-                    <div class="advice-data">11 декабря 2018, Вторник</div>
-                  </div>
-                </div>
-
-                <div class="advice-item">
-                  <div class="advice-img"><img src="images/image (4).jpg"></div>
-                  <div>
-                    <div class="advice-name">Блич Краткий сюжет</div>
-                    <div class="advice-data">11 декабря 2018, Вторник</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="news-sidebar">
-            <div class="sidebar-head">Новости и статьи</div>
-
-            <div class="news-sidebar-item">
-              <div class="news-sidebar-text">Восстановление работы сайта и смена домена!</div>
-              <div class="news-sidebar-date">Статьи и Новости, 21 август 2019, Среда</div>
-            </div>
-
-            <div class="news-sidebar-item">
-              <div class="news-sidebar-text">Восстановление работы сайта и смена домена!</div>
-              <div class="news-sidebar-date">Статьи и Новости, 21 август 2019, Среда</div>
-            </div>
-
-            <div class="news-sidebar-item">
-              <div class="news-sidebar-text">Восстановление работы сайта и смена домена!</div>
-              <div class="news-sidebar-date">Статьи и Новости, 21 август 2019, Среда</div>
-            </div>
-
-            <div class="news-sidebar-item">
-              <div class="news-sidebar-text">Восстановление работы сайта и смена домена!</div>
-              <div class="news-sidebar-date">Статьи и Новости, 21 август 2019, Среда</div>
-            </div>
-
-            <div class="news-sidebar-item">
-              <div class="news-sidebar-text">Восстановление работы сайта и смена домена!</div>
-              <div class="news-sidebar-date">Статьи и Новости, 21 август 2019, Среда</div>
-            </div>
-          </div>
-
-          <div class="comments">
-            <div class="sidebar-head">Комментарии</div>
-
-            <div class="comment-item">
-              <div class="comment-text">ffas  dsa  fasfa ds asdfasdfa asd fasd</div>
-
-              <div class="comment-user">
-                <div class="user-avatar">
-                  <img src="images/image (1).jpg">
-                </div>
-                <div class="comments-name-film">sdasdasd a fasd asd asdfasd</div>
-              </div>
-            </div>
-
-            <div class="comment-item">
-              <div class="comment-text">ffas  dsa  fasfa ds asdfasdfa asd fasd</div>
-
-              <div class="comment-user">
-                <div class="user-avatar">
-                  <img src="images/image (1).jpg">
-                </div>
-                <div class="comments-name-film">sdasdasd a fasd asd asdfasd</div>
-              </div>
-            </div>
-
-            <div class="comment-item">
-              <div class="comment-text">ffas  dsa  fasfa ds asdfasdfa asd fasd</div>
-
-              <div class="comment-user">
-                <div class="user-avatar">
-                  <img src="images/image (1).jpg">
-                </div>
-                <div class="comments-name-film">sdasdasd a fasd asd asdfasd</div>
-              </div>
-            </div>
-
-            <div class="comment-item">
-              <div class="comment-text">ffas  dsa  fasfa ds asdfasdfa asd fasd</div>
-
-              <div class="comment-user">
-                <div class="user-avatar">
-                  <img src="images/image (1).jpg">
-                </div>
-                <div class="comments-name-film">sdasdasd a fasd asd asdfasd</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Footer -->
-      <div id="footer">
-        <div class="top-block">
-          <div class="left">
-            <div class="logo footer-logo">
-              <img class="logo-img" src="images/logo.png">
-            </div>
-
-            <div class="questions-block">
-              <div class="questions">
-                По вопросам рекламы:
-              </div>
-              <div class="direction">
-                <a href="#">Пишите в ВК</a><br>
-                <a href="#">На почту:</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="to-left"><a href="#" class="communication">Связаться с нами</a></div>
-          <div class="to-left social">
-            <span>Мы в соц. сетях</span>
-            <div class="social-item">
-              <div class="social-item-img"><a href="https://vk.com/animehub_tj" target="_blank"><img src="images/vk.png"></a></div>
-              <div class="social-item-img"><a href="https://www.facebook.com/animehub.tj" target="_blank"><img src="images/facebook.png"></a></div>
-              <div class="social-item-img"><a href="https://www.instagram.com/anime_hub_tj" target="_blank"><img src="images/instagram.png"></a></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="bottom-block">
-          &#169; 2018 - 2019 AnimeHub.tj
-        </div>
-      </div>
-    </div>
-
-    <script src="js/menu.js"></script>
-    <script src="js/sign_in.js"></script>
-    <script src="js/slider-sidebar.js"></script>
-    <script src="js/short-text.js"></script>
-    <script src="js/current-number.js"></script>
-  </body>
-</html>
+$app->run();
+?>

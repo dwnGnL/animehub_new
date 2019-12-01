@@ -1,0 +1,158 @@
+body.sign-in {
+  overflow: hidden;
+}
+
+body.sign-in #sign-in {
+  display: block;
+}
+
+body.sign-in .background {
+  display: block;
+}
+
+body.sign-in-opacity #sign-in {
+  opacity: 1;
+}
+
+body.sign-in-opacity .background {
+  opacity: .5;
+}
+
+#sign-in {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  background: #fff;
+  box-shadow: 0 0 0 10px rgba(0, 0, 0, .3);
+  z-index: 3;
+  transition: .5s;
+  opacity: 0;
+}
+
+#sign-in .top {
+  background: #6882A1;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 20px;
+}
+
+#sign-in .exit-sign-in {
+  position: relative;
+  padding: 25px;
+  cursor: pointer;
+}
+
+#sign-in .exit-sign-in .exit-line {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  height: 4px;
+  width: 50%;
+  border-radius: 4px;
+  background: #fff;
+}
+
+#sign-in .exit-sign-in .f-line {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+#sign-in .exit-sign-in .s-line {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+#sign-in .main-sign-in-page {
+  margin: 20px;
+  box-sizing: border-box;
+}
+
+#sign-in input.main-input {
+  width: 100%;
+  height: 40px;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+  font-size: 17px;
+}
+
+#sign-in input[type='text'], #sign-in input[type='password'] {
+  /* padding: 0px 20px;
+  background: #E8F0FE;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2) inset;
+  border-radius: 5px; */
+  border-bottom: 1px solid #6882A1;
+  height: 25px;
+  /* color: #6882A1; */
+  /* transition: .5s; */
+}
+
+#sign-in input[type='text']:focus::placeholder, #sign-in input[type='password']:focus::placeholder {
+  color: #D81C27;
+  /* transition: .5s; */
+}
+
+#sign-in input[type='text']:focus, #sign-in input[type='password']:focus {
+  /* padding: 0px 20px;
+  background: #E8F0FE;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2) inset;
+  border-radius: 5px; */
+  border-bottom: 1px solid #D81C27;
+}
+
+#sign-in input[type=button] {
+  color: #fff;
+  border-radius: 20px;
+  background: #6882A1;
+  cursor: pointer;
+}
+
+#sign-in input[type=button]:hover {
+  background: #889CB5;
+}
+
+#sign-in input[type=checkbox] {
+  width: 17px;
+  height: 17px;
+}
+
+.check-block {
+  font-size: 15px;
+  display: flex;
+}
+
+.check-block label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.check-block label input {
+  cursor: pointer;
+}
+
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0px;
+  font-size: 15px;
+}
+
+.bottom > div {
+  cursor: pointer;
+}
+
+.bottom > div:hover {
+  color: #D81C27;
+}
+
+#sign-in a {
+  color: inherit;
+  text-decoration: inherit;
+}

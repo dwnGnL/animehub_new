@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="http://hub/add" method="post">
+   <p> <input type="text" name="name" placeholder="name"></p>
+    <p> <textarea type="text" name="text" placeholder="name"></textarea></p>
+   <p> <input type="submit" name="btn" value="enter"></p>
+</form>
+<form action="http://hub/update" method="post">
+    ... other form fields here...
+    <input type="hidden" name="_METHOD" value="PUT"/>
+    <input type="submit" value="Update Book"/>
+</form>
+</body>
+</html>
