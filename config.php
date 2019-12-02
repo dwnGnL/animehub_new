@@ -5,7 +5,7 @@ define('PREF', 'lite_');
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
 define('DB_PASSWORD', '');
-define('DB_NAME', 'anime');
+define('DB_NAME', 'hub');
 
 
 define('QUANTITY', 28);
