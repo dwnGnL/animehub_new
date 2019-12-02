@@ -56,7 +56,7 @@ class Model
      * @param bool $alias
      * @return array
      */
-    public function getItems($page,$alias = false){
+    public function getItems($page,$route, $alias = false){
 
 
             $params = [];
@@ -95,7 +95,7 @@ class Model
 
         $result = [];
         $result['items'] = $pager->get_posts();
-        $result['navigation'] = $pager->render();
+        $result['navigation'] = $pager->render($route);
         return $result;
 
     }

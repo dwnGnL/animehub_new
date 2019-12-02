@@ -19,7 +19,12 @@ class PageController extends DisplayController
 
     protected function display()
     {
-        $items = $this->model->getItems($this->page,$this->alias);
+
+        $path = $this->app->request->getPath();
+        preg_match('#/\d+#', $path, $mathces);
+        $path = str_replace($mathces[0], '', $path);
+        $path .= '/';
+        $items = $this->model->getItems($this->page,$path,$this->alias);
         foreach ($items['items'] as $item){
             $row[] = $item;
         }

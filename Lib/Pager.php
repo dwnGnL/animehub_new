@@ -91,10 +91,16 @@ class Pager{
         }
 
         if ($this->page > $this->number_link + 1){
+            if(($tmp_number = $number_pages - $this->page) <= $this->number_link ){
+
+                    $this->number_link += $this->number_link - $tmp_number;
+
+            }
             for ($i = $this->page - $this->number_link;$i < $this->page; $i++){
 
                 $result['previous'][] = $i;
             }
+            
         }else{
             for ($i = 1; $i < $this->page; $i++){
                 $result['previous'][] = $i;
@@ -105,14 +111,28 @@ class Pager{
 
         if ($this->page + $this->number_link < $number_pages){
 
-            for ($i = $this->page +1; $i <= $this->page + $this->number_link;$i++){
-                $result['next'][] = $i;
+
+            if(($tmp_number = $this->page - 1) <= $this->number_link ){
+
+                $this->number_link += $this->number_link - $tmp_number;
+
             }
 
-        }else{
-            for ($i = $this->page+1; $i <= $number_pages;$i++){
+            for ($i = $this->page +1; $i <= $this->page + $this->number_link ;$i++){
                 $result['next'][] = $i;
+
             }
+                  
+           
+
+        }else{
+       
+            
+                    for ($i = $this->page+1; $i <= $number_pages;$i++){
+                        $result['next'][] = $i;
+                    
+                }
+           
         }
 
         if ($this->page != $number_pages){
@@ -123,27 +143,87 @@ class Pager{
         return $result;
     }
 
-    public function render(){
+    public function render($route){
       $navigation = $this->get_navigation();
+        $temp = '<ul class="switch-page">';
+            if (!empty($navigation['previous'])){
+                if ($this->page > $this->number_link + 1){
+                    $temp .= '<li class="switch-page-item"><a href="'.$route.$navigation['last_page'].'">Туда</a></li>';
+                    $temp .= '<li class="switch-page-item"><a href="'.$route.$navigation['first'].'">'.$navigation['first'].'</a></li>';
+                    $temp .= '<li class="switch-page-item disabled">...</li>';
+                }
+                foreach ($navigation['previous'] as $previous){
 
-//      print_r($navigation);
-//      exit();
-//        if ($navigation['first'] > $page )
-      return '  <ul class="switch-page">
-        <li class="switch-page-item switch-page-active">1</li>
-        <li class="switch-page-item">2</li>
-        <li class="switch-page-item">3</li>
-        <li class="switch-page-item">4</li>
-        <li class="switch-page-item">5</li>
-        <li class="switch-page-item">6</li>
-        <li class="switch-page-item">7</li>
-        <li class="switch-page-item">8</li>
-        <li class="switch-page-item">9</li>
-        <li class="switch-page-item">10</li>
-        <li>...</li>
-        <li class="switch-page-item">25</li>
-    </ul>';
+                    $temp .= '<li class="switch-page-item "><a href="'.$route.$previous.'">'.$previous.'</a></li>';
+                }
+            }
+            $temp .= '<li class="switch-page-item switch-page-active">'.$navigation['current'].'</li>';
+            if (!empty($navigation['next'])){
+                foreach ($navigation['next'] as $next){
+                    $temp .= '<li class="switch-page-item "><a href="'.$route.$next.'">'.$next.'</a></li>';
+                }
+                if ($navigation['end'] - $this->page > $this->number_link){
 
+                    $temp .= '<li class="switch-page-item disabled">...</li>';
+                    $temp .= '<li class="switch-page-item"><a href="'.$route.$navigation['end'].'">'.$navigation['end'].'</a></li>';
+                    $temp .= '<li class="switch-page-item"><a href="'.$route.$navigation['next_pages'].'">Cюда</a></li>';
+                }
+            }
+            $temp .= '</ul>';
+
+//        $end = $navigation['end'] - $navigation['currnent'];
+//        $tmp = ' <ul class="switch-page">';
+//
+//       if ($navigation['current'] == 1 ){
+//        $tmp .= '<li class="switch-page switch-page-active disabled">'.$this->page.'</li>';
+//        $end = $navigation['end'] - $navigation['currnent'];
+//            foreach($navigation['next'] as $next){
+//                $tmp .=  ' <li class="switch-page-item">'.$next.'</li>';
+//
+//            }
+//            if($end > 0){
+//                $tmp .= ' <li class="switch-page-item disabled">...</li>';
+//                $tmp .= ' <li class="switch-page-item">'.$navigation['end'].'</li>';
+//            }
+//
+//            $tmp .= ' <li class="page-item"> <a class="page-link" href="#" aria-label="Next">
+//                        <span aria-hidden="true">&raquo;</span>
+//                         </a></li>';
+//       }
+//
+//       if($navigation['current'] > 1){
+//        $tmp .= ' <li class="page-item">
+//      <a class="page-link" href="#" aria-label="Previous">
+//        <span aria-hidden="true">&laquo;</span>
+//        <span class="sr-only">Previous</span>
+//      </a>
+//    </li>';
+//        if ($navigation['current'] - $this->number_link > 1){
+//            $tmp .= ' <li class="switch-page-item ">'.$navigation['first'].'</li>';
+//            $tmp .= ' <li class="switch-page-item disabled">...</li>';
+//        }
+//        foreach ($navigation['previous'] as $previous){
+//            $tmp .= ' <li class="switch-page-item ">'.$previous.'</li>';
+//        }
+//            $tmp .= ' <li class="switch-page-item switch-page-active disabled ">'.$navigation['current'].'</li>';
+//        if (!empty($navigation['next'])){
+//        foreach ($navigation['next'] as $next){
+//            $tmp .= ' <li class="switch-page-item ">'.$next.'</li>';
+//        }
+//        }
+//           if($end > 0){
+//               $tmp .= ' <li class="switch-page-item disabled">...</li>';
+//               $tmp .= ' <li class="switch-page-item">'.$navigation['end'].'</li>';
+//           }
+//
+//           $tmp .= ' <li class="page-item"> <a class="page-link" href="#" aria-label="Next">
+//                        <span aria-hidden="true">&raquo;</span>
+//                         </a></li>';
+//       }
+
+      
+      return $temp;
+      
     }
 }
 
