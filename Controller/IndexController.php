@@ -16,14 +16,9 @@ class IndexController extends DisplayController
 
     protected function display()
     {
-        $items = $this->model->getItems($this->page);
-        foreach ($items['items'] as $item){
-            $row[] = $item;
-        }
-        $items['items'] = $row;
+
+
         $this->main = $this->app->view()->fetch('indexbar.tpl.php',[
-            'items' => $items['items'],
-            'navigation' => $items['navigation'],
             'app' => $this->app,
             'uri' => $this->uri
         ]);
