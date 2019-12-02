@@ -57,26 +57,29 @@ class Model
      * @return array
      */
     public function getItems($page,$alias = false){
+
+
             $params = [];
             $where = '';
             $from = '';
             $fields = '';
         if ($alias){
             $params = [
-                'cat' => $alias
+                'alias' => $alias
                 ];
-            $fields = 'lite_post.id , lite_post.title, lite_post.image,lite_tv.title, lite_cat.title AS cat AS tv_title, lite_post.views';
-            $from = 'lite_post, lite_cat, lite_tv, lite_cat_post';
-            $where = 'lite_post.id_tv = lite_tv.id and lite_cat.id = lite_cat_post.id_cat AND lite_cat_post.id_post = lite_post.id AND lite_cat = :cat ';
+            $fields = 'lite_post.id, lite_type_post.title_type_post, lite_post.title, lite_post.image, lite_tv.title AS tv_title, lite_post.views ';
+            $from = 'lite_post, lite_tv, lite_type_post';
+            $where = 'lite_post.id_tv = lite_tv.id AND lite_type_post.id_type_post = lite_post.id_type_post AND lite_type_post.title_type_post = :alias ORDER BY date DESC';
             $sql = 'SELECT '.$fields.' 
                     FROM '.$from.'  
                     WHERE '.$where;
         }else{
             $fields = ' lite_post.id , lite_post.title, lite_post.image,lite_tv.title AS tv_title, lite_post.views ';
-            $where = 'lite_post.id_tv = lite_tv.id';
+            $where = 'lite_post.id_tv = lite_tv.id ORDER BY date DESC';
             $from = 'lite_post, lite_tv';
             $sql = 'SELECT '.$fields.'  FROM '.$from.' WHERE '.$where;
         }
+
 
 
         $pager = new \Lib\Pager(
@@ -92,7 +95,7 @@ class Model
 
         $result = [];
         $result['items'] = $pager->get_posts();
-        $result['navigation'] = $pager->get_navigation();
+        $result['navigation'] = $pager->render();
         return $result;
 
     }
@@ -128,6 +131,8 @@ class Model
 
         $this->driver->query($sql,$params);
     }
+
+
 
 
 }

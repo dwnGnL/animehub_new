@@ -37,24 +37,20 @@ function my_autoload($className){
 
 spl_autoload_register('my_autoload');
 
-//$app->add(new \Lib\AuthMiddleware(
-//    ['routeName' => '/admin'],
-//    \Lib\AuthClass::getInstance(new \Model\Model()),
-//    \Lib\AclClass::getInstance()
-//
-//));
+$app->add(new \Lib\CheckAuthMiddleware( \Lib\AuthClass::getInstance(new \Model\Driver()))
+);
 
-$app->get('/(:page)', function ($page = false) use($app){
+$app->get('/', function ($page = false) use($app){
 
     $o = \Controller\Controller::getInstance('index'); //IndexController
     $o->execute(['page' => $page]);
-})->conditions(['page' => '\d+'])->name('home');
+})->name('home');
 
-$app->get('/page/:alias', function ($alias) use($app){
+$app->get('/page/:alias(/:page)', function ($alias, $page = false) use($app){
 
-    $o = \Controller\Controller::getInstance('pages'); //PagesController
-    $o->execute(['alias' => $alias]);
-})->name('page');
+    $o = \Controller\Controller::getInstance('page'); //PageController
+    $o->execute(['alias' => $alias, 'page' => $page]);
+})->conditions(['page' => '\d+'])->name('page');
 
 $app->get('/category/:alias(/:page)', function ($alias, $page = false) use($app){
 
@@ -80,8 +76,6 @@ $app->get('/logout/:route', function ($route) use ($app){
 
 $middle = function (){
     $obj = new \Lib\AuthMiddleware(
-    ['routeName' => '/admin'],
-    \Lib\AuthClass::getInstance(new \Model\Model()),
     \Lib\AclClass::getInstance()
                                 );
    return $obj->onBeforeDispatch();

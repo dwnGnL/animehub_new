@@ -29,10 +29,11 @@ class AuthClass
                         'id' => $_COOKIE['id'],
                         'salt' => $_COOKIE['key'],
                     ];
-                    $sql = 'SELECT * FROM lite_users WHERE id = id: AND salt = :salt';
+                    $sql = 'SELECT lite_users.login,lite_status.title AS status,lite_users.id 
+                            FROM lite_users, lite_status
+                            WHERE lite_users.status = lite_status.id AND lite_users.id = :id AND lite_users.salt = :salt ';
                     $user =  $this->driver->column($sql,$params);
                     if (!empty($user)){
-
                         return $user;
                     }
                     return false;

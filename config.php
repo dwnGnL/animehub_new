@@ -8,6 +8,6 @@ define('DB_PASSWORD', '');
 define('DB_NAME', 'anime');
 
 
-define('QUANTITY', 20);
+define('QUANTITY', 28);
 define('QUANTITY_LINKS', 3);
 ?>

@@ -37,7 +37,7 @@
     </a>
     <ul id="menu">
         <li class="active sub-menu top-menu">
-            <a href="/anime"><span>Аниме</span></a>
+            <a href="/page/anime"><span>Аниме</span></a>
             <div id="sub-menu">
                 <div class="left-part-sub-menu">
                     <span class="sub-menu-header">По типу</span>

@@ -32,17 +32,19 @@ class AclClass
     }
     public function check($resource, $role, $method){
         if (empty($this->allow)){
-            return false;
+            return true;
+
         }
+
         if (isset($this->allow[$role]) && is_array($this->allow[$role])) {
             foreach ($this->allow[$role] as $item) {
                 if ($item['resource'] == $resource) {
                     if (in_array($method, $item['method'])) {
-                        return true;
+                        return false;
                     }
                 }
             }
         }
-        return false;
+        return true;
     }
 }

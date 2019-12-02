@@ -26,7 +26,7 @@ class Pager{
         $this->where = $where;
         $this->post_number = $post_number;
         $this->number_link = $number_link;
-
+        $this->params = $params;
         $this->driver = $driver;
     }
 
@@ -34,13 +34,18 @@ class Pager{
         if($this->total_count){
             return $this->total_count;
         }
+
         $sql = 'SELECT COUNT(*) AS count FROM '.$this->tablename.' WHERE '.$this->where;
         if (!empty($this->where)){
-            $count  =  $this->driver->row($sql);
-        }
+            $count  =  $this->driver->row($sql,$this->params);
+
+        }else{
             $count = $this->driver->row($sql);
+        }
+
 
         $this->total_count = $count[0]['count'];
+
         return $this->total_count;
 
     }
@@ -65,7 +70,7 @@ class Pager{
        return $result;
     }
 
-    public function get_navigation(){
+    protected function get_navigation(){
         $total_post = $this->get_total();
 
         $number_pages = (int)($total_post/$this->post_number);
@@ -116,6 +121,29 @@ class Pager{
         }
 
         return $result;
+    }
+
+    public function render(){
+      $navigation = $this->get_navigation();
+
+//      print_r($navigation);
+//      exit();
+//        if ($navigation['first'] > $page )
+      return '  <ul class="switch-page">
+        <li class="switch-page-item switch-page-active">1</li>
+        <li class="switch-page-item">2</li>
+        <li class="switch-page-item">3</li>
+        <li class="switch-page-item">4</li>
+        <li class="switch-page-item">5</li>
+        <li class="switch-page-item">6</li>
+        <li class="switch-page-item">7</li>
+        <li class="switch-page-item">8</li>
+        <li class="switch-page-item">9</li>
+        <li class="switch-page-item">10</li>
+        <li>...</li>
+        <li class="switch-page-item">25</li>
+    </ul>';
+
     }
 }
 
