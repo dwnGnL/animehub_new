@@ -40,13 +40,13 @@ spl_autoload_register('my_autoload');
 $app->add(new \Lib\CheckAuthMiddleware( \Lib\AuthClass::getInstance(new \Model\Driver()))
 );
 
-$app->get('/', function ($page = false) use($app){
+$app->get('/', function () use($app){
 
     $o = \Controller\Controller::getInstance('index'); //IndexController
-    $o->execute(['page' => $page]);
+    $o->execute();
 })->name('home');
 
-$app->get('/page/:alias(/:page)', function ($alias, $page = false) use($app){
+$app->get('/:alias(/:page)', function ($alias, $page = false) use($app){
 
     $o = \Controller\Controller::getInstance('page'); //PageController
     $o->execute(['alias' => $alias, 'page' => $page]);
@@ -58,11 +58,6 @@ $app->get('/category/:alias(/:page)', function ($alias, $page = false) use($app)
     $o->execute(['alias' => $alias, 'page' => $page]);
 })->name('category');
 
-$app->get('/post/:alias', function ($alias) use($app){
-
-    $o = \Controller\Controller::getInstance('post'); //PostController
-    $o->execute(['alias' => $alias]);
-})->name('post');
 
 $app->post('/login', function () use ($app){
     $o = \Controller\Controller::getInstance('login'); //LoginController
