@@ -21,6 +21,13 @@
 .switch-page-item {
   background: #F8F8F8;
   cursor: pointer;
+  padding: 2px;
+  box-sizing: border-box;
+}
+
+.switch-page-item a{
+  text-decoration: none;
+  color:black;
 }
 
 .switch-page-active {
