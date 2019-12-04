@@ -1,7 +1,7 @@
 <?php
 namespace Lib;
 
-
+use function FastRoute\TestFixtures\empty_options_cached;
 
 defined('_Sdef') or exit();
 
@@ -18,6 +18,7 @@ class Pager{
                                 $post_number,
                                 $number_link,
                                 $driver
+
                                  )
     {
         $this->page = $page;

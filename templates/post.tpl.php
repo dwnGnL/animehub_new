@@ -8,7 +8,7 @@
         </div>
 
         <div class="film-discription">
-            <div class="film-discription-header"><?=$post['title']?></div>
+            <div class="film-discription-header"><?=$post['title'].' '.$post['tv']?></div>
             <div class="film-discription-header-translate"><?=$post['alias']?></div>
 
             <ul class="distinctio-list">
@@ -65,27 +65,11 @@
 
         <div class="series-block">
             <ul class="series-list">
-                <li class="series-item series-item-active"><span class="series-number"></span> серия</li>
-                <li class="series-item"><span class="series-number"></span> серия</li>
-                <li class="series-item"><span class="series-number"></span> серия</li>
-                <li class="series-item"><span class="series-number"></span> серия</li>
-                <li class="series-item"><span class="series-number"></span> серия</li>
-                <li class="series-item"><span class="series-number"></span> серия</li>
-                <li class="series-item"><span class="series-number"></span> серия</li>
-                <li class="series-item"><span class="series-number"></span> серия</li>
-                <li class="series-item"><span class="series-number"></span> серия</li>
-                <li class="series-item"><span class="series-number"></span> серия</li>
-                <li class="series-item"><span class="series-number"></span> серия</li>
-                <li class="series-item"><span class="series-number"></span> серия</li>
-                <li class="series-item"><span class="series-number"></span> серия</li>
-                <li class="series-item"><span class="series-number"></span> серия</li>
-                <li class="series-item"><span class="series-number"></span> серия</li>
-                <li class="series-item"><span class="series-number"></span> серия</li>
-                <li class="series-item"><span class="series-number"></span> серия</li>
-                <li class="series-item"><span class="series-number"></span> серия</li>
-                <li class="series-item"><span class="series-number"></span> серия</li>
-                <li class="series-item"><span class="series-number"></span> серия</li>
-                <li class="series-item"><span class="series-number"></span> серия</li>
+                <?php if(isset($player) && is_array($player)): ?>
+                <?php foreach($player As $item): ?>
+                <li class="series-item" src="<?=$item['src']?>" id="<?=$item['id']?>"><?=''.$item['kach'].' '.$item['stud'].' '.$item['seria'].' серия'?></li>
+                <?php endforeach; ?>
+                <?php endif; ?>
             </ul>
         </div>
 
@@ -103,90 +87,27 @@
         </div>
 
         <div class="films">
+            <?php foreach ($similar as $value):?>
+            <a href="/anime/<?=$helper::renderUrl($value['id'],$value['alias'])?>">
             <div class="film-item">
                 <div class="background-film-item">
-                    <img src="<?=$uri?>/templates/images/image (1).jpg">
+                    <img src="<?=$value['image']?>">
                     <div class="over-back-film-item">
                         <div class="circle">
-                            <span class="review">15 423</span>
+                            <span class="review"><?=$value['views']?></span>
                             <span>Просмотров</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="discription">
-                    <div class="film-name">Название sdsadsd фильма</div>
+                    <div class="film-name"><?=$value['title']?> <?=$value['tv_title']?></div>
                     <div class="film-gener">Жанр фильма</div>
                 </div>
             </div>
+            </a>
+            <?php endforeach; ?>
 
-            <div class="film-item">
-                <div class="background-film-item">
-                    <img src="<?=$uri?>/templates/images/image (2).jpg">
-                    <div class="over-back-film-item">
-                        <div class="circle">
-                            <span class="review">15 423</span>
-                            <span>Просмотров</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="discription">
-                    <div class="film-name">Название sdsadsd фильма</div>
-                    <div class="film-gener">Жанр фильма</div>
-                </div>
-            </div>
-
-            <div class="film-item">
-                <div class="background-film-item">
-                    <img src="<?=$uri?>/templates/images/image (3).jpg">
-                    <div class="over-back-film-item">
-                        <div class="circle">
-                            <span class="review">15 423</span>
-                            <span>Просмотров</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="discription">
-                    <div class="film-name">Название sdsadsd фильма</div>
-                    <div class="film-gener">Жанр фильма</div>
-                </div>
-            </div>
-
-            <div class="film-item">
-                <div class="background-film-item">
-                    <img src="<?=$uri?>/templates/images/image (4).jpg">
-                    <div class="over-back-film-item">
-                        <div class="circle">
-                            <span class="review">15 423</span>
-                            <span>Просмотров</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="discription">
-                    <div class="film-name">Название sdsadsd фильма</div>
-                    <div class="film-gener">Жанр фильма</div>
-                </div>
-            </div>
-
-            <div class="film-item">
-                <div class="background-film-item">
-                    <img src="<?=$uri?>/templates/images/image (5).jpg">
-                    <div class="over-back-film-item">
-                        <div class="circle">
-                            <span class="review">15 423</span>
-                            <span>Просмотров</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="discription">
-                    <div class="film-name">Название sdsadsd фильма</div>
-                    <div class="film-gener">Жанр фильма</div>
-                </div>
-            </div>
         </div>
     </div>
 
@@ -285,31 +206,30 @@
         </script>
 
         <div class="video-comments">
+            <?php foreach($comments as $val): ?>
             <div class="video-comment-item">
                 <div class="video-comment-user-avatar">
                     <img src="<?=$uri?>/templates/images/image (1).jpg">
                 </div>
 
-                <div class="video-comment-right">
+                <div class="video-comment-right" style="<?=$val['back_fon']?>">
                     <div class="comment-arrow"></div>
 
                     <div class="top-video-comment-item">
-                        <div class="video-comment-user-name">
-                            Тут имя
+                        <div class="video-comment-user-name" style="font-family:<?=$val['font']?>;<?=$val['login_color']?>">
+                            <?=$val['login'].' '?><span style ="color:<?=$val['color']?>"><?=$val['status']?></span>
                         </div>
                         <div class="video-comment-date">
-                            1 ноября 2019 16:00f
+                            <?=$val['date']?>
                         </div>
                     </div>
 
                     <div class="video-comment-text">
-                        Здравствуйте. Подскажите, когда выйдет следующая серия?
-                        И почему у организации занимающейся, считай,
-                        благотворительным переводом мультсериалов не указаны
-                        реквизиты, для добровольных пожертвований?
+                    <?=$val['body']?>
                     </div>
                 </div>
             </div>
+            <?php endforeach; ?>
         </div>
     </div>
 </div>
