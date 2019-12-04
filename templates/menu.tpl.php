@@ -23,7 +23,7 @@
             <div class="profile-bottom">
                 <div><a href="<?=$uri?>/templates/index.php?profile">Профиль</a></div>
                 <div>Закладки: (<span class="bookmark-quantity">0</span>)</div>
-                <div><a href="<?='/logout/'.$app->router->getCurrentRoute()->getName()?>">Выйти</a> </div>
+                <div><a href="<?=$app->urlFor('logout')?>">Выйти</a> </div>
             </div>
         </div>
     </div>
@@ -37,7 +37,7 @@
     </a>
     <ul id="menu">
         <li class="active sub-menu top-menu">
-            <a href="/page/anime"><span>Аниме</span></a>
+            <a href="/anime"><span>Аниме</span></a>
             <div id="sub-menu">
                 <div class="left-part-sub-menu">
                     <span class="sub-menu-header">По типу</span>

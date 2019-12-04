@@ -21,6 +21,7 @@
             <?php if(isset($items) && is_array($items)): ?>
             <?php foreach ($items as $item): ?>
             <div class="film-item">
+                <a href="/anime/<?=$helper::renderUrl($item['id'],$item['alias'])?>">
                 <div class="background-film-item">
                     <img src="<?=$item['image']?>">
                     <div class="over-back-film-item">
@@ -30,7 +31,7 @@
                         </div>
                     </div>
                 </div>
-
+                </a>
                 <div class="discription">
                     <div class="film-name"><?=$item['title'].' '.$item['tv_title']?></div>
                     <div class="film-gener">Жанр фильма</div>

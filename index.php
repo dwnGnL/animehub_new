@@ -40,17 +40,23 @@ spl_autoload_register('my_autoload');
 $app->add(new \Lib\CheckAuthMiddleware( \Lib\AuthClass::getInstance(new \Model\Driver()))
 );
 
-$app->get('/', function ($page = false) use($app){
+$app->get('/', function () use($app){
 
     $o = \Controller\Controller::getInstance('index'); //IndexController
-    $o->execute(['page' => $page]);
+    $o->execute();
 })->name('home');
 
-$app->get('/page/:alias(/:page)', function ($alias, $page = false) use($app){
+$app->get('/:alias(/:page)', function ($alias, $page = false) use($app){
 
     $o = \Controller\Controller::getInstance('page'); //PageController
-    $o->execute(['alias' => $alias, 'page' => $page]);
+    $o->allPost(['alias' => $alias, 'page' => $page]);
 })->conditions(['page' => '\d+'])->name('page');
+
+$app->get('/:alias(/:page)', function ($alias, $page = false) use($app){
+
+    $o = \Controller\Controller::getInstance('page'); //PageController
+    $o->post(['alias' => $alias, 'page' => $page]);
+})->name('post');
 
 $app->get('/category/:alias(/:page)', function ($alias, $page = false) use($app){
 
@@ -58,20 +64,15 @@ $app->get('/category/:alias(/:page)', function ($alias, $page = false) use($app)
     $o->execute(['alias' => $alias, 'page' => $page]);
 })->name('category');
 
-$app->get('/post/:alias', function ($alias) use($app){
-
-    $o = \Controller\Controller::getInstance('post'); //PostController
-    $o->execute(['alias' => $alias]);
-})->name('post');
 
 $app->post('/login', function () use ($app){
     $o = \Controller\Controller::getInstance('login'); //LoginController
     $o->execute();
 })->name('login');
 
-$app->get('/logout/:route', function ($route) use ($app){
+$app->get('/login/logout', function () use ($app){
     $o = \Controller\Controller::getInstance('login'); //LoginController
-    $o->logout( $route);
+    $o->logout();
 })->name('logout');
 
 $middle = function (){
