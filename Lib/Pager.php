@@ -1,7 +1,7 @@
 <?php
 namespace Lib;
 
-use function FastRoute\TestFixtures\empty_options_cached;
+
 
 defined('_Sdef') or exit();
 
@@ -10,14 +10,14 @@ class Pager{
     protected $params;
 
     public function __construct(
-                                $page,
                                 $fields,
                                 $tablename,
                                 $where ,
+                                $page,
+                                $params = [],
                                 $post_number,
                                 $number_link,
-                                $driver,
-                                $params = []
+                                $driver
                                  )
     {
         $this->page = $page;

@@ -6,6 +6,7 @@ defined('_Sdef') or  exit();
 
 abstract  class DisplayController extends Controller
 {
+
     protected function getMenu()
     {
         $pages = $this->model->getPages();

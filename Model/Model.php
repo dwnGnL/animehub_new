@@ -67,14 +67,14 @@ class Model
             $params = [
                 'alias' => $alias
                 ];
-            $fields = 'lite_post.id, lite_type_post.title_type_post, lite_post.title, lite_post.image, lite_tv.title AS tv_title, lite_post.views ';
+            $fields = 'lite_post.id, lite_post.alias, lite_type_post.title_type_post, lite_post.title, lite_post.image, lite_tv.title AS tv_title, lite_post.views ';
             $from = 'lite_post, lite_tv, lite_type_post';
             $where = 'lite_post.id_tv = lite_tv.id AND lite_type_post.id_type_post = lite_post.id_type_post AND lite_type_post.title_type_post = :alias ORDER BY date DESC';
             $sql = 'SELECT '.$fields.' 
                     FROM '.$from.'  
                     WHERE '.$where;
         }else{
-            $fields = ' lite_post.id , lite_post.title, lite_post.image,lite_tv.title AS tv_title, lite_post.views ';
+            $fields = ' lite_post.id ,lite_post.alias, lite_post.title, lite_post.image,lite_tv.title AS tv_title, lite_post.views ';
             $where = 'lite_post.id_tv = lite_tv.id ORDER BY date DESC';
             $from = 'lite_post, lite_tv';
             $sql = 'SELECT '.$fields.'  FROM '.$from.' WHERE '.$where;
@@ -83,14 +83,14 @@ class Model
 
 
         $pager = new \Lib\Pager(
-                                $page,
                                 $fields,
                                 $from,
                                 $where,
+                                $page,
+                                $params,
                                 QUANTITY,
                                 QUANTITY_LINKS,
-                                $this->driver,
-                                $params
+                                $this->driver
                                 );
 
         $result = [];
@@ -132,6 +132,30 @@ class Model
         $this->driver->query($sql,$params);
     }
 
+    public function getPost($id){
+        $sql = 'SELECT lite_users.id AS id_user, lite_post.id AS id_post, lite_post.title, lite_post.image, lite_post.alias, lite_post.date, lite_post.body,
+                lite_tv.title AS tv, lite_god_wip.title AS god, lite_users.login
+                FROM lite_post, lite_god_wip, lite_tv, lite_users
+                WHERE lite_post.id_tv = lite_tv.id 
+                AND lite_users.id = lite_post.id_user 
+                AND lite_god_wip.id = lite_post.id_god_wip
+                AND lite_post.id = :id';
+        $params = [
+            'id' => $id
+        ];
+      return $this->driver->column($sql,$params);
+    }
+
+    public function getCatPost($id_post){
+        $sql = 'SELECT lite_cat.*
+                FROM lite_cat, lite_cat_post
+                WHERE lite_cat.id = lite_cat_post.id_cat
+                AND lite_cat_post.id_post = :id';
+        $params = [
+            'id' =>$id_post
+        ];
+     return  $this->driver->row($sql,$params);
+    }
 
 
 

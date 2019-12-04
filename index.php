@@ -49,8 +49,14 @@ $app->get('/', function () use($app){
 $app->get('/:alias(/:page)', function ($alias, $page = false) use($app){
 
     $o = \Controller\Controller::getInstance('page'); //PageController
-    $o->execute(['alias' => $alias, 'page' => $page]);
+    $o->allPost(['alias' => $alias, 'page' => $page]);
 })->conditions(['page' => '\d+'])->name('page');
+
+$app->get('/:alias(/:page)', function ($alias, $page = false) use($app){
+
+    $o = \Controller\Controller::getInstance('page'); //PageController
+    $o->post(['alias' => $alias, 'page' => $page]);
+})->name('post');
 
 $app->get('/category/:alias(/:page)', function ($alias, $page = false) use($app){
 
@@ -64,9 +70,9 @@ $app->post('/login', function () use ($app){
     $o->execute();
 })->name('login');
 
-$app->get('/logout/:route', function ($route) use ($app){
+$app->get('/login/logout', function () use ($app){
     $o = \Controller\Controller::getInstance('login'); //LoginController
-    $o->logout( $route);
+    $o->logout();
 })->name('logout');
 
 $middle = function (){

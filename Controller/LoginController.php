@@ -26,14 +26,16 @@ class LoginController extends DisplayController
 //        }
     }
 
-    public function logout($route){
+    public function logout(){
         if (isset($_SESSION['auth'])){
             session_destroy();
             $this->app->deleteCookie('key');
             $this->app->deleteCookie('id');
-            $this->app->redirect($this->app->urlFor($route));
+            $this->app->redirect($this->app->urlFor('home'));
+
         }
-        $this->app->redirect($this->app->urlFor($route));
+        $this->app->redirect($this->app->urlFor('home'));
+
     }
 
     protected function login(){

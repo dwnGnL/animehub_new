@@ -23,7 +23,7 @@
             <div class="profile-bottom">
                 <div><a href="<?=$uri?>/templates/index.php?profile">Профиль</a></div>
                 <div>Закладки: (<span class="bookmark-quantity">0</span>)</div>
-                <div><a href="<?='/logout/'.$app->router->getCurrentRoute()->getName()?>">Выйти</a> </div>
+                <div><a href="<?=$app->urlFor('logout')?>">Выйти</a> </div>
             </div>
         </div>
     </div>
