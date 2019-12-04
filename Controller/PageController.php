@@ -31,7 +31,7 @@ class PageController extends DisplayController
         $post = $this->model->getPost($matches[0]);
         $cat = $this->model->getCatPost($post['id_post']);
         $countCat = count($cat);
-        $player = 
+        $player =
         $this->index = $this->app->view()->fetch('post.tpl.php',[
             'uri' => $this->uri,
             'cat' => Helper::renderCat($cat,$countCat),
