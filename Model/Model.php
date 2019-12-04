@@ -191,7 +191,11 @@ class Model
     }
 
     public function getSimilarPost($cat = []){
-        $sql = 'SELECT *'
+        $sql = 'SELECT lite_post.id ,lite_post.alias, lite_post.title, lite_post.image,lite_tv.title AS tv_title, lite_post.views 
+                FROM lite_post, lite_tv, lite_type_post, lite_cat_post
+                WHERE lite_post.id_tv = lite_tv.id
+                AND lite_cat_post.id_post = lite_post.id
+                AND lite_cat.post.id_cat in(50)';
     }
 
 }
