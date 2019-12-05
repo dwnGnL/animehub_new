@@ -75,6 +75,10 @@ $app->get('/login/logout', function () use ($app){
     $o->logout();
 })->name('logout');
 
+$app->post('/ajax/comment', function () use ($app){
+   $o = \Controller\Controller::getInstance('Ajax'); //AjaxController
+    $o->request();
+});
 $middle = function (){
     $obj = new \Lib\AuthMiddleware(
     \Lib\AclClass::getInstance()
