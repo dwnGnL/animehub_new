@@ -27,18 +27,22 @@ class PageController extends DisplayController
 
         $post = $this->model->getPost($matches[0]);
         $cat = $this->model->getCatPost($post['id_post']);
-        $countCat = count($cat);
         $similar = $this->model->getSimilarPosts($cat[1]['id'],$param['alias'],$matches[0]);
+        foreach ($similar as $key => $val){
+            $similar[$key]['cats'] = $this->model->getCatPostL2($similar[$key]['id']);
+        }
+        $orderPosts = $this->model->getOrderPosts($post['title']);
         $player = $this->model->getSeria($post['id_tv'], $post['title']);
         $comments = $this->model->getComments($post['id_post']);
         $this->index = $this->app->view()->fetch('post.tpl.php',[
             'uri' => $this->uri,
-            'cat' => Helper::renderCat($cat,$countCat),
+            'cat' => Helper::renderCat($cat),
             'post' => $post,
             'similar' => $similar,
             'player' => $player,
             'comments' => $comments,
             'helper' => Helper::getInstance(),
+            'orderPosts' => $orderPosts,
         ]);
 
         $this->display();
@@ -63,6 +67,7 @@ class PageController extends DisplayController
             'items' => $items['items'],
             'navigation' => $items['navigation'],
             'helper' => Helper::getInstance(),
+            'alias' => $param['alias'],
         ]);
     $this->display();
     }

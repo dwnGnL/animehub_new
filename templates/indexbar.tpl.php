@@ -45,9 +45,9 @@
         </div>
 
         <div class="films">
-            <?php if (isset($items) && is_array($items)):?>
-            <?php foreach ($items as $item):?>
+            <?php foreach ($posts as $item):?>
             <div class="film-item">
+                <a href="/anime/<?=$helper::renderUrl($item['id'], $item['alias'])?>">
                 <div class="background-film-item">
                     <img src="<?=$item['image']?>">
                     <div class="over-back-film-item">
@@ -57,14 +57,14 @@
                         </div>
                     </div>
                 </div>
-
+                </a>
                 <div class="discription">
-                    <div class="film-name"><?=$item['title'].' '.$item['tv_title']?></div>
-                    <div class="film-gener">Жанр фильма</div>
+                    <div class="film-name"><a href="/anime/<?=$helper::renderUrl($item['id'], $item['alias'])?>"><?=$item['title'].' '.$item['tv_title']?></a></div>
+                    <div class="film-gener"><?=$helper::renderCat($item['cats'])?></div>
                 </div>
             </div>
             <?php endforeach; ?>
-            <?php endif; ?>
+
         </div>
     </div>
 
@@ -76,90 +76,26 @@
         </div>
 
         <div class="films">
+            <?php foreach ($newPosts as $val): ?>
             <div class="film-item">
+                <a href="/anime/<?=$helper::renderUrl($item['id'], $item['alias'])?>">
                 <div class="background-film-item">
-                    <img src="images/image (1).jpg">
+                    <img src="<?=$val['image']?>">
                     <div class="over-back-film-item">
                         <div class="circle">
-                            <span class="review">15 423</span>
+                            <span class="review"><?=$val['views']?></span>
                             <span>Просмотров</span>
                         </div>
                     </div>
                 </div>
-
+                </a>
                 <div class="discription">
-                    <div class="film-name">Название sdsadsd фильма</div>
-                    <div class="film-gener">Жанр фильма</div>
+                    <div class="film-name"><a href="/anime/<?=$helper::renderUrl($item['id'], $item['alias'])?>"><?=$val['title'].' '.$val['tv_title']?></a></div>
+                    <div class="film-gener"><?=$helper::renderCat($val['cats'])?></div>
                 </div>
             </div>
+            <?php endforeach; ?>
 
-            <div class="film-item">
-                <div class="background-film-item">
-                    <img src="images/image (2).jpg">
-                    <div class="over-back-film-item">
-                        <div class="circle">
-                            <span class="review">15 423</span>
-                            <span>Просмотров</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="discription">
-                    <div class="film-name">Название sdsadsd фильма</div>
-                    <div class="film-gener">Жанр фильма</div>
-                </div>
-            </div>
-
-            <div class="film-item">
-                <div class="background-film-item">
-                    <img src="images/image (3).jpg">
-                    <div class="over-back-film-item">
-                        <div class="circle">
-                            <span class="review">15 423</span>
-                            <span>Просмотров</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="discription">
-                    <div class="film-name">Название sdsadsd фильма</div>
-                    <div class="film-gener">Жанр фильма</div>
-                </div>
-            </div>
-
-            <div class="film-item">
-                <div class="background-film-item">
-                    <img src="images/image (4).jpg">
-                    <div class="over-back-film-item">
-                        <div class="circle">
-                            <span class="review">15 423</span>
-                            <span>Просмотров</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="discription">
-                    <div class="film-name">Название sdsadsd фильма</div>
-                    <div class="film-gener">Жанр фильма</div>
-                </div>
-            </div>
-
-            <div class="film-item">
-                <div class="background-film-item">
-                    <img src="images/image (5).jpg">
-                    <div class="over-back-film-item">
-                        <div class="circle">
-                            <span class="review">15 423</span>
-                            <span>Просмотров</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="discription">
-                    <div class="film-name">Название sdsadsd фильма</div>
-                    <div class="film-gener">Жанр фильма</div>
-                </div>
-            </div>
         </div>
     </div>
 

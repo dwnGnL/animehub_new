@@ -157,6 +157,16 @@ class Model
      return  $this->driver->row($sql,$params);
     }
 
+    public function getCatPostL2($id_post){
+        $sql = 'SELECT lite_cat.*
+                FROM lite_cat, lite_cat_post
+                WHERE lite_cat.id = lite_cat_post.id_cat
+                AND lite_cat_post.id_post = :id LIMIT 2';
+        $params = [
+            'id' =>$id_post
+        ];
+        return  $this->driver->row($sql,$params);
+    }
     public function getSeria($id_tv, $title){
         $sql = 'SELECT lite_anime.id, lite_anime.src, lite_anime.seria, lite_stud.title AS stud, lite_kach.title AS kach 
         FROM lite_anime, lite_kach, lite_stud, lite_title
@@ -209,4 +219,41 @@ class Model
      return  $this->driver->row($sql,$params);
     }
 
+    public function getOrderPosts($title){
+        $sql = 'SELECT lite_post.id, lite_post.alias, lite_post.title, lite_tv.title AS tv, lite_god_wip.title AS god
+                FROM lite_post, lite_tv, lite_god_wip
+                WHERE lite_post.id_tv = lite_tv.id
+                AND lite_post.id_god_wip = lite_god_wip.id
+                AND lite_post.title = :title
+                ORDER BY lite_god_wip.title ASC';
+
+        $params = [
+            'title' =>$title
+        ];
+
+        return $this->driver->row($sql,$params);
+    }
+
+    public function getPostL10(){
+        $sql = 'SELECT lite_post.id ,lite_post.alias, lite_post.title, lite_post.image,lite_tv.title AS tv_title, lite_post.views
+                FROM lite_post, lite_tv
+                WHERE lite_post.id_tv = lite_tv.id ORDER BY lite_post.date DESC LIMIT 10';
+        return $this->driver->row($sql);
+    }
+
+    public function getPostL5(){
+        $sql = 'SELECT lite_post.id ,lite_post.alias, lite_post.title, lite_post.image,lite_tv.title AS tv_title, lite_post.views
+                FROM lite_post, lite_tv
+                WHERE lite_post.id_tv = lite_tv.id ORDER BY lite_post.id DESC LIMIT 5';
+        return $this->driver->row($sql);
+    }
+
+    public function getNewSeria(){
+        $sql = 'SELECT lite_anime.seria, lite_post.id, lite_post.alias, lite_post.title, lite_anime.date
+                FROM lite_title, lite_post, lite_anime
+                WHERE lite_title.title = lite_post.title
+                AND lite_anime.id_title = lite_title.id
+                ORDER BY lite_anime.date DESC LIMIT 5';
+      return  $this->driver->row($sql);
+    }
 }

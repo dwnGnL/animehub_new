@@ -2,6 +2,8 @@
 
 
 namespace Controller;
+use Lib\Helper;
+
 defined('_Sdef') or  exit();
 
 abstract  class DisplayController extends Controller
@@ -25,10 +27,13 @@ abstract  class DisplayController extends Controller
 
     protected function getSidebar()
     {
+        $newSerii = $this->model->getNewSeria();
 
         return $this->app->view()->fetch('sidebar.tpl.php', [
             'app' => $this->app,
             'uri' => $this->uri,
+            'newSerii' => $newSerii,
+            'helper' => Helper::getInstance(),
         ]);
         // TODO: Implement getSidebar() method.
     }

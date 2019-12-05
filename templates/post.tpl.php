@@ -34,10 +34,9 @@
                 <li class="review-order">
                     <span>Порядок просмотра:</span>
                     <ol class="review-order-list">
-                        <li><a href="#">Tv-1</a></li>
-                        <li><a href="#">Tv-1</a></li>
-                        <li><a href="#">Tv-1</a></li>
-                        <li><a href="#">Tv-1</a></li>
+                        <?php foreach ($orderPosts as $value): ?>
+                        <li><a href="<?=$helper::renderUrl($value['id'], $value['alias'])?>"><?=$value['title'].' '.$value['tv'].' '.$value['god']?></a></li>
+                        <?php endforeach; ?>
                     </ol>
                 </li>
             </ul>
@@ -88,8 +87,9 @@
 
         <div class="films">
             <?php foreach ($similar as $value):?>
-            <a href="/anime/<?=$helper::renderUrl($value['id'],$value['alias'])?>">
+
             <div class="film-item">
+                <a href="/anime/<?=$helper::renderUrl($value['id'],$value['alias'])?>">
                 <div class="background-film-item">
                     <img src="<?=$value['image']?>">
                     <div class="over-back-film-item">
@@ -99,13 +99,13 @@
                         </div>
                     </div>
                 </div>
-
+                </a>
                 <div class="discription">
-                    <div class="film-name"><?=$value['title']?> <?=$value['tv_title']?></div>
-                    <div class="film-gener">Жанр фильма</div>
+                    <div class="film-name"><a href="/anime/<?=$helper::renderUrl($item['id'], $item['alias'])?>"><?=$value['title']?> <?=$value['tv_title']?></a></div>
+                    <div class="film-gener"><?=$helper::renderCat($value['cats'])?></div>
                 </div>
             </div>
-            </a>
+
             <?php endforeach; ?>
 
         </div>
@@ -220,7 +220,7 @@
                             <?=$val['login'].' '?><span style ="color:<?=$val['color']?>"><?=$val['status']?></span>
                         </div>
                         <div class="video-comment-date">
-                            <?=$val['date']?>
+                            <?=$helper::getWatch($val['date'])?>
                         </div>
                     </div>
 
