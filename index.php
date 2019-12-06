@@ -42,9 +42,8 @@ $app->add(new \Lib\CheckAuthMiddleware( \Lib\AuthClass::getInstance(new \Model\D
 
 $app->group('/ajax', function () use ($app){
 
-    $app->post('add/comment', function () {
-        $o = \Controller\Controller::getInstance('Ajax'); //AdminController
-        $o->execute();
+    $app->post('/add/comment', function () use ($app) {
+      ;
     })->name('addComment');
 
 });

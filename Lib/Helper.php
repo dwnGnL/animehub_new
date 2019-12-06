@@ -47,18 +47,4 @@ class  Helper
         return date('d.m.Y H:i:s', $result);
 
     }
-
-    public static function generateToken(){
-        $_SESSION['token']  =  md5(self::generateSalt(16));
-        return $_SESSION['token'];
-    }
-
-    public static function generateSalt($saltLength = 8)
-    {
-        $salt = '';
-        for($i=0; $i<$saltLength; $i++) {
-            $salt .= chr(mt_rand(33,126)); //символ из ASCII-table
-        }
-        return $salt;
-    }
 }

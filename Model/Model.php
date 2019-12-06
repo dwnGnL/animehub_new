@@ -80,14 +80,14 @@ class Model
                     break;
                 case 'type':
                     if ($alias == 'film'){
-                        $concat = 'lite_post.id_tv = lite_tv.id
+                        $concat = ' OR  lite_post.id_tv = lite_tv.id
                                     AND lite_type_post.id_type_post = lite_post.id_type_post
                                     AND lite_tv.title LIKE "%Фильм%"';
                     }
                     $from = 'lite_post, lite_tv, lite_type_post';
                     $where = 'lite_post.id_tv = lite_tv.id
                     AND lite_type_post.id_type_post = lite_post.id_type_post
-                    AND lite_tv.title LIKE :alias OR '.$concat.'
+                    AND lite_tv.title LIKE :alias '.$concat.'
                      ORDER BY date DESC';
 
                     $alias = '%'.$alias.'%';

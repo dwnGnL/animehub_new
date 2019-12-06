@@ -2,18 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6341c2f9-1102-484a-bdc9-098e620a8c13" name="Default Changelist" comment="Merge branch 'master' of https://github.com/dwnGnL/animehub_new&#10;&#10;# Conflicts:&#10;#&#9;Controller/PageController.php">
-      <change afterPath="$PROJECT_DIR$/Controller/CategoryController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/AjaxController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/AjaxController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/DisplayController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/DisplayController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/IndexController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/IndexController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/PageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/PageController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/Pager.php" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/Pager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Model.php" beforeDir="false" afterPath="$PROJECT_DIR$/Model/Model.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/Helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/Helper.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/menu.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/menu.tpl.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/page.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/page.tpl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/post.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/post.tpl.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

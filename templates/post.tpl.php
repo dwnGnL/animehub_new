@@ -220,7 +220,7 @@
                 alert(id_post)
                 alert(JSON.stringify({"comment":text}))
                 $.ajax({
-                    type: "POST",
+                    type: "post",
                     url: "/ajax/add/comment",
                     data: JSON.stringify({"comment":{"token":$("#token").val(),"body":text,"id_post":id_post}}),
                     dataType: "JSON",
