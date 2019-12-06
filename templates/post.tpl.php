@@ -182,6 +182,7 @@
 
         <!--Коментарий-->
         <form class="form-comment form">
+            <input type="text" id="token" hidden value="<?=$helper::generateToken()?>">
             <!-- <textarea class="form-control" name="comment"  id="textComment" cols="80" rows="10" placeholder="Оставить коментарий..." ></textarea> -->
             <textarea id="textComment" name="comment" class="form-control" placeholder="Оставить коментарий..."></textarea>
             <button class="btn btn-outline-secondary" type="button" id="sendComment">Оставить комментарий</button>
@@ -214,11 +215,14 @@
             $("#sendComment").click(function (e) { 
                 var text = CKEDITOR.instances['textComment'].getData();
                 CKEDITOR.instances['textComment'].setData('');
+                var id_post=document.location.pathname.split('/')
+                id_post=id_post[id_post.length-1].split('-')[0]
+                alert(id_post)
                 alert(JSON.stringify({"comment":text}))
                 $.ajax({
                     type: "POST",
                     url: "/ajax/add/comment",
-                    data: JSON.stringify({"comment":text}),
+                    data: JSON.stringify({"comment":{"token":$("#token").val(),"body":text,"id_post":id_post}}),
                     dataType: "JSON",
                     success: function (response) {
                         res=JSON.parse(response)
