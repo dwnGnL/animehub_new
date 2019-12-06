@@ -183,12 +183,12 @@
         <!--Коментарий-->
         <form class="form-comment form">
             <!-- <textarea class="form-control" name="comment"  id="textComment" cols="80" rows="10" placeholder="Оставить коментарий..." ></textarea> -->
-            <!-- <textarea id="textComment" name="comment" class="form-control" placeholder="Оставить коментарий..."></textarea> -->
+            <textarea id="textComment" name="comment" class="form-control" placeholder="Оставить коментарий..."></textarea>
             <button class="btn btn-outline-secondary" type="button" id="sendComment">Оставить комментарий</button>
         </form>
 
 
-        <script type="<?=$uri?>/templates/text/javascript">
+        <script>
             // var config1 = {
             //   height:'200',
             //   startupOutlineBlocks:true,
