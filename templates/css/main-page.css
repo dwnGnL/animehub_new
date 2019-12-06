@@ -36,6 +36,7 @@ form.search-block {
   background: #889CB5;
 }
 
+
 .head {
   display: flex;
   justify-content: space-between;
@@ -76,6 +77,11 @@ form.search-block {
 
 .film-name {
   cursor: pointer;
+}
+
+.film-name a {
+  color: inherit;
+  text-decoration: inherit;
 }
 
 .film-name:hover {

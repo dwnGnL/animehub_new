@@ -60,7 +60,6 @@ toRightSeries.onmouseup = toLeftSeries.onmouseup = function(){
 };
 
 function qrew(size) {
-  console.log('fadad');
   seriesList.style.transition = '.1s'
   scrollingSeries(size)
 }

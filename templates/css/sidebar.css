@@ -6,6 +6,11 @@
   padding: 30px 50px 30px 10px;
 }
 
+#sidebar a {
+  text-decoration: inherit;
+  color: inherit;
+}
+
 .sidebar-head {
   margin: 30px 0px;
   border-bottom: 1px solid #E3E3E3;
