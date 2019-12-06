@@ -1,4 +1,4 @@
-let sliderWidth = document.querySelector('#wrapper').clientWidth;
+let sliderWidth;
 let slides = document.querySelectorAll(".slide");
 let backgroundSlider = document.querySelector('.background-slider');
 let swrap	= document.querySelector(".slide-wrapper");
@@ -7,6 +7,13 @@ let parr = document.querySelector(".s-prev");
 let isSwitching = true;
 let prevpos = 0;
 let pos = 0;
+
+res()
+window.onresize = res;
+
+function res() {
+  sliderWidth = document.querySelector('#wrapper').clientWidth;
+}
 
 setInterval(nextSlide, 4000);
 

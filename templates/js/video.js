@@ -1,6 +1,5 @@
 let seriesList = document.querySelector('.series-list');
 let seriesItem = document.querySelectorAll('.series-item');
-let seriesNumber = document.querySelectorAll('.series-number');
 let seriesBlock = document.querySelector('.series-block');
 let toLeftSeries = document.querySelector('.to-left-series');
 let toRightSeries = document.querySelector('.to-right-series');
@@ -12,12 +11,12 @@ let seriesListWidth = 0;
 let previousSeries = 0;
 let presentSeries = 0;
 
-toRightSeries.addEventListener('click', () => scrollingSeries(seriesItem[0].offsetWidth + 10));
-toLeftSeries.addEventListener('click', () => scrollingSeries(-(seriesItem[0].offsetWidth + 10)));
+
+toRightSeries.addEventListener('click', () => scrollingSeries(-(seriesItem[0].offsetWidth + 10)));
+toLeftSeries.addEventListener('click', () => scrollingSeries(seriesItem[0].offsetWidth + 10));
 searchSeries.addEventListener('click', showHideSearch);
 
 seriesItem.forEach(function (elem, index) {
-  seriesNumber[index].innerHTML = index + 1;
   seriesListWidth += elem.offsetWidth + 10;
 
   elem.onclick = () => {
@@ -31,9 +30,58 @@ seriesItem.forEach(function (elem, index) {
 seriesList.style.width = `${seriesListWidth + 10}px`;
 
 
-function scrollingSeries(size) {
-  seriesBlock.scrollBy(size * 2, 0)
+
+// -----------------
+let sumSize = 0;
+
+let mousePressing;
+let mouseUnPressing;
+
+toRightSeries.onmousedown = function() {
+  mouseUnPressing = setTimeout(function() {
+    mousePressing = setInterval (function () {
+      qrew(-((seriesItem[0].offsetWidth * 2) + 10))
+    }, 100);
+  }, 500)
 };
+
+toLeftSeries.onmousedown = function() {
+  mouseUnPressing = setTimeout(function() {
+    mousePressing = setInterval (function () {
+      qrew((seriesItem[0].offsetWidth * 2) + 10)
+    }, 100);
+  }, 500)
+};
+
+toRightSeries.onmouseup = toLeftSeries.onmouseup = function(){
+  clearTimeout (mouseUnPressing);
+  clearInterval (mousePressing);
+  seriesList.style.transition = '.5s'
+};
+
+function qrew(size) {
+  console.log('fadad');
+  seriesList.style.transition = '.1s'
+  scrollingSeries(size)
+}
+
+
+function scrollingSeries(size) {
+  sumSize += size
+
+  if (sumSize <= -(seriesListWidth + 10) + seriesBlock.offsetWidth) {
+    sumSize = -(seriesListWidth + 10) + seriesBlock.offsetWidth;
+  }
+
+  if (sumSize > 0) {
+    sumSize = 0
+  }
+
+  seriesList.style.transform = `translateX(${sumSize}px)`;
+};
+
+// -----------------
+
 
 function showHideSearch() {
   searchInput.value == '' && !openSearch ? hideSearch() : showSearch();

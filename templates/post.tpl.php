@@ -1,4 +1,6 @@
 <link rel="stylesheet" href="<?=$uri?>/templates/css/film-page.css">
+<link rel="stylesheet" href="<?=$uri?>/templates/font-awesome/css/font-awesome.min.css">
+
 <script type="text/javascript" src="<?=$uri?>/templates/Admin/js/ckeditor/ckeditor.js"></script>
 
 <div id="film-content">
@@ -76,9 +78,14 @@
         <div class="search-series"><img src="<?=$uri?>/templates/images/search.png"></div>
     </div>
 
-    <!-- ____________________________ -->
 
-    <video src="videos/DEEP SPACE INDUSTRIES (DSI).mp4" controls></video>
+    <video src="" controls></video>
+
+    <div class="like">
+      <i class="fa fa-thumbs-o-down" aria-hidden="true"> <span>25</span></i>
+      <i class="fa fa-thumbs-o-up" aria-hidden="true"> <span>190</span></i>
+    </div>
+    <!-- ____________________________ -->
 
     <div class="all-anime-block">
         <div class="head">
@@ -236,4 +243,3 @@
 
 <script src="<?=$uri?>/templates/js/show-hide-text.js"></script>
 <script src="<?=$uri?>/templates/js/video.js"></script>
-

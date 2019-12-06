@@ -1,10 +1,18 @@
 let adviceSliderItem	= document.querySelector(".advice-slider-item");
 let adviceItem = document.querySelectorAll('.advice-item');
-let adviceItemWidth = adviceItem[0].clientWidth;
+// let adviceItemWidth = adviceItem[0].clientWidth;
+let adviceItemWidth;
 let dotsBlock = document.querySelector('.dots')
 let dotAdviceSlider;
 let prevposAdvice = 0;
 let posAdvice = 0;
+
+resi()
+window.onresize = resi;
+
+function resi() {
+  adviceItemWidth = adviceItem[0].clientWidth;
+}
 
 for (let i = 0; i < adviceItem.length; i++) {
   let dotItem = document.createElement('div');

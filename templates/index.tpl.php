@@ -126,7 +126,6 @@
 
 <script src="<?=$uri?>/templates/js/menu.js"></script>
 <script src="<?=$uri?>/templates/js/sign_in.js"></script>
-<script src="<?=$uri?>/templates/js/slider-sidebar.js"></script>
 <script src="<?=$uri?>/templates/js/short-text.js"></script>
 <script src="<?=$uri?>/templates/js/current-number.js"></script>
 </body>
