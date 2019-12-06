@@ -210,6 +210,45 @@
             }
 
             CKEDITOR.replace('textComment', config2);
+
+            $("#sendComment").click(function (e) { 
+                var text = CKEDITOR.instances['textComment'].getData();
+                CKEDITOR.instances['textComment'].setData('');
+                alert(JSON.stringify({"comment":text}))
+                $.ajax({
+                    type: "POST",
+                    url: "/ajax/add/comment",
+                    data: JSON.stringify({"comment":text}),
+                    dataType: "JSON",
+                    success: function (response) {
+                        res=JSON.parse(response)
+                        if (res.status==200) {
+                            var commentToPut=`  <div class="video-comment-item">
+                                                    <div class="video-comment-user-avatar">
+                                                        <img src="${res.img}">
+                                                    </div>
+                                                    <div class="video-comment-right" style="">
+                                                        <div class="comment-arrow"></div>
+                                                        <div class="top-video-comment-item">
+                                                            <div class="video-comment-user-name" style="font-family:;">
+                                                                ${res.login} <span style="color:${res.color}">${res.position}</span>
+                                                            </div>
+                                                            <div class="video-comment-date">
+                                                                ${res.date}                        
+                                                            </div>
+                                                        </div>
+                                                        <div class="video-comment-text">
+                                                        ${res.message}
+                                                        </div>
+                                                    </div>
+                                                </div>`
+                            $(".video-comments").prepend(commentToPut)
+                        }else{
+                            alert("что то пошло не так")
+                        }
+                    }
+                });
+            });
         </script>
 
         <div class="video-comments">

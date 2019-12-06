@@ -45,7 +45,7 @@ $app->group('/ajax', function () use ($app){
     $app->post('add/comment', function () {
         $o = \Controller\Controller::getInstance('Ajax'); //AdminController
         $o->execute();
-    })->name('aItems');
+    })->name('addComment');
 
 });
 

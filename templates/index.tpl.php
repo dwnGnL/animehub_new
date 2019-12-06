@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="<?=$uri?>/templates/css/sidebar.css">
     <link rel="stylesheet" href="<?=$uri?>/templates/css/main-page.css">
     <link rel="stylesheet" href="<?=$uri?>/templates/css/film-list.css">
+    <script src="<?=$uri?>/templates/js/jquery-3.3.1.min.js"></script>
 </head>
 <body>
 <!-- Backgrounds -->
