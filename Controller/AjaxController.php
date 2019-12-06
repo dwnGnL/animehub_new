@@ -6,7 +6,8 @@ namespace Controller;
 
 class AjaxController extends DisplayController
 {
-    public function response(){
-        echo 'Barzu Pidr';
+    public function execute($param = [])
+    {
+        echo 'Hello World';
     }
 }

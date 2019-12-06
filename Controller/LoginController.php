@@ -33,6 +33,7 @@ class LoginController extends DisplayController
             $this->app->deleteCookie('id');
             $this->app->redirect($this->app->urlFor('home'));
 
+
         }
         $this->app->redirect($this->app->urlFor('home'));
 

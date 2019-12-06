@@ -146,86 +146,41 @@ class Pager{
 
     public function render($route){
       $navigation = $this->get_navigation();
+
+
+      if ($this->get_total() > $this->post_number){
         $temp = '<ul class="switch-page">';
             if (!empty($navigation['previous'])){
                 if ($this->page > $this->number_link + 1){
-                    $temp .= '<li class="switch-page-item"><a href="'.$route.$navigation['last_page'].'">Туда</a></li>';
-                    $temp .= '<li class="switch-page-item"><a href="'.$route.$navigation['first'].'">'.$navigation['first'].'</a></li>';
+                    $temp .= '<a href="'.$route.$navigation['last_page'].'"><li class="switch-page-item">Туда</li></a>';
+                    $temp .= '<a href="'.$route.$navigation['first'].'"><li class="switch-page-item">'.$navigation['first'].'</li></a>';
                     $temp .= '<li class="switch-page-item disabled">...</li>';
                 }
                 foreach ($navigation['previous'] as $previous){
 
-                    $temp .= '<li class="switch-page-item "><a href="'.$route.$previous.'">'.$previous.'</a></li>';
+                    $temp .= '<a href="'.$route.$previous.'"><li class="switch-page-item ">'.$previous.'</li></a>';
                 }
             }
             $temp .= '<li class="switch-page-item switch-page-active">'.$navigation['current'].'</li>';
             if (!empty($navigation['next'])){
                 foreach ($navigation['next'] as $next){
-                    $temp .= '<li class="switch-page-item "><a href="'.$route.$next.'">'.$next.'</a></li>';
+                    $temp .= '<a href="'.$route.$next.'"><li class="switch-page-item ">'.$next.'</li></a>';
                 }
                 if ($navigation['end'] - $this->page > $this->number_link){
 
                     $temp .= '<li class="switch-page-item disabled">...</li>';
-                    $temp .= '<li class="switch-page-item"><a href="'.$route.$navigation['end'].'">'.$navigation['end'].'</a></li>';
-                    $temp .= '<li class="switch-page-item"><a href="'.$route.$navigation['next_pages'].'">Cюда</a></li>';
+                    $temp .= '<a href="'.$route.$navigation['end'].'"><li class="switch-page-item">'.$navigation['end'].'</li></a>';
+                    $temp .= '<a href="'.$route.$navigation['next_pages'].'"><li class="switch-page-item">Cюда</li></a>';
                 }
             }
             $temp .= '</ul>';
 
-//        $end = $navigation['end'] - $navigation['currnent'];
-//        $tmp = ' <ul class="switch-page">';
-//
-//       if ($navigation['current'] == 1 ){
-//        $tmp .= '<li class="switch-page switch-page-active disabled">'.$this->page.'</li>';
-//        $end = $navigation['end'] - $navigation['currnent'];
-//            foreach($navigation['next'] as $next){
-//                $tmp .=  ' <li class="switch-page-item">'.$next.'</li>';
-//
-//            }
-//            if($end > 0){
-//                $tmp .= ' <li class="switch-page-item disabled">...</li>';
-//                $tmp .= ' <li class="switch-page-item">'.$navigation['end'].'</li>';
-//            }
-//
-//            $tmp .= ' <li class="page-item"> <a class="page-link" href="#" aria-label="Next">
-//                        <span aria-hidden="true">&raquo;</span>
-//                         </a></li>';
-//       }
-//
-//       if($navigation['current'] > 1){
-//        $tmp .= ' <li class="page-item">
-//      <a class="page-link" href="#" aria-label="Previous">
-//        <span aria-hidden="true">&laquo;</span>
-//        <span class="sr-only">Previous</span>
-//      </a>
-//    </li>';
-//        if ($navigation['current'] - $this->number_link > 1){
-//            $tmp .= ' <li class="switch-page-item ">'.$navigation['first'].'</li>';
-//            $tmp .= ' <li class="switch-page-item disabled">...</li>';
-//        }
-//        foreach ($navigation['previous'] as $previous){
-//            $tmp .= ' <li class="switch-page-item ">'.$previous.'</li>';
-//        }
-//            $tmp .= ' <li class="switch-page-item switch-page-active disabled ">'.$navigation['current'].'</li>';
-//        if (!empty($navigation['next'])){
-//        foreach ($navigation['next'] as $next){
-//            $tmp .= ' <li class="switch-page-item ">'.$next.'</li>';
-//        }
-//        }
-//           if($end > 0){
-//               $tmp .= ' <li class="switch-page-item disabled">...</li>';
-//               $tmp .= ' <li class="switch-page-item">'.$navigation['end'].'</li>';
-//           }
-//
-//           $tmp .= ' <li class="page-item"> <a class="page-link" href="#" aria-label="Next">
-//                        <span aria-hidden="true">&raquo;</span>
-//                         </a></li>';
-//       }
-
-      
       return $temp;
       
     }
+      return false;
+        }
+
 }
 
 

@@ -11,6 +11,7 @@ abstract  class DisplayController extends Controller
 
     protected function getMenu()
     {
+        $years = $this->model->getGodWip();
         $pages = $this->model->getPages();
         $categories = $this->model->getCategories();
         $posts = $this->model->getNews();
@@ -19,6 +20,7 @@ abstract  class DisplayController extends Controller
                                                         'app' => $this->app,
                                                         'uri' => $this->uri,
                                                         'categories' => $categories,
+                                                        'years' => $years,
                                                             ]);
 
 

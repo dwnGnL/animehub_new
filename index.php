@@ -40,11 +40,43 @@ spl_autoload_register('my_autoload');
 $app->add(new \Lib\CheckAuthMiddleware( \Lib\AuthClass::getInstance(new \Model\Driver()))
 );
 
+$app->group('/ajax', function () use ($app){
+
+    $app->post('add/comment', function () {
+        $o = \Controller\Controller::getInstance('Ajax'); //AdminController
+        $o->execute();
+    })->name('aItems');
+
+});
+
+$app->get('/type/:alias(/:page)', function ($alias, $page = false) use($app){
+
+    $o = \Controller\Controller::getInstance('page'); //CategoryController
+    $o->allPost(['alias' => $alias, 'page' => $page, 'url' => 'type']);
+})->name('type');
+
+$app->get('/year/:alias(/:page)', function ($alias, $page = false) use($app){
+
+    $o = \Controller\Controller::getInstance('page'); //CategoryController
+    $o->allPost(['alias' => $alias, 'page' => $page, 'url' => 'year']);
+})->name('year');
+
+$app->get('/category/:alias(/:page)', function ($alias, $page = false) use($app){
+
+    $o = \Controller\Controller::getInstance('page'); //CategoryController
+    $o->allPost(['alias' => $alias, 'page' => $page, 'url' => 'category']);
+})->name('category');
+
 $app->get('/', function () use($app){
 
     $o = \Controller\Controller::getInstance('index'); //IndexController
     $o->execute();
 })->name('home');
+
+$app->get('/login/logout', function () use ($app){
+    $o = \Controller\Controller::getInstance('login'); //LoginController
+    $o->logout();
+})->name('logout');
 
 $app->get('/:alias(/:page)', function ($alias, $page = false) use($app){
 
@@ -58,11 +90,8 @@ $app->get('/:alias(/:page)', function ($alias, $page = false) use($app){
     $o->post(['alias' => $alias, 'page' => $page]);
 })->name('post');
 
-$app->get('/category/:alias(/:page)', function ($alias, $page = false) use($app){
 
-    $o = \Controller\Controller::getInstance('category'); //CategoryController
-    $o->execute(['alias' => $alias, 'page' => $page]);
-})->name('category');
+
 
 
 $app->post('/login', function () use ($app){
@@ -70,10 +99,7 @@ $app->post('/login', function () use ($app){
     $o->execute();
 })->name('login');
 
-$app->get('/login/logout', function () use ($app){
-    $o = \Controller\Controller::getInstance('login'); //LoginController
-    $o->logout();
-})->name('logout');
+
 
 $app->post('/ajax/comment', function () use ($app){
    $o = \Controller\Controller::getInstance('Ajax'); //AjaxController

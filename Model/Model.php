@@ -56,31 +56,58 @@ class Model
      * @param bool $alias
      * @return array
      */
-    public function getItems($page,$route, $alias = false){
+    public function getItems($page,$route, $alias, $url = false){
 
+        if ($url != false){
+            switch ($url){
+                case 'category':
+                    $from = 'lite_post, lite_tv, lite_type_post, lite_cat_post, lite_cat';
+                    $where = 'lite_post.id_tv = lite_tv.id 
+                            AND lite_type_post.id_type_post = lite_post.id_type_post 
+                            AND lite_type_post.id_type_post = "1" 
+                            AND lite_post.id = lite_cat_post.id_post
+                            AND lite_cat_post.id_cat = lite_cat.id
+                            AND lite_cat.title = :alias 
+                            ORDER BY lite_post.date DESC';
+                    break;
+                case 'year':
+                    $from = 'lite_post, lite_tv, lite_type_post, lite_god_wip';
+                    $where = 'lite_post.id_tv = lite_tv.id 
+                              AND lite_type_post.id_type_post = lite_post.id_type_post 
+                              AND lite_god_wip.id = lite_post.id_god_wip 
+                              AND lite_god_wip.title = :alias
+                              ORDER BY date DESC';
+                    break;
+                case 'type':
+                    if ($alias == 'film'){
+                        $concat = 'lite_post.id_tv = lite_tv.id
+                                    AND lite_type_post.id_type_post = lite_post.id_type_post
+                                    AND lite_tv.title LIKE "%Фильм%"';
+                    }
+                    $from = 'lite_post, lite_tv, lite_type_post';
+                    $where = 'lite_post.id_tv = lite_tv.id
+                    AND lite_type_post.id_type_post = lite_post.id_type_post
+                    AND lite_tv.title LIKE :alias OR '.$concat.'
+                     ORDER BY date DESC';
 
-            $params = [];
-            $where = '';
-            $from = '';
-            $fields = '';
-        if ($alias){
-            $params = [
-                'alias' => $alias
-                ];
-            $fields = 'lite_post.id, lite_post.alias, lite_type_post.title_type_post, lite_post.title, lite_post.image, lite_tv.title AS tv_title, lite_post.views ';
+                    $alias = '%'.$alias.'%';
+
+            }
+
+        }else{
             $from = 'lite_post, lite_tv, lite_type_post';
-            $where = 'lite_post.id_tv = lite_tv.id AND lite_type_post.id_type_post = lite_post.id_type_post AND lite_type_post.title_type_post = :alias ORDER BY date DESC';
-            $sql = 'SELECT '.$fields.' 
+            $where = 'lite_post.id_tv = lite_tv.id 
+                      AND lite_type_post.id_type_post = lite_post.id_type_post 
+                      AND lite_type_post.title_type_post = :alias 
+                      ORDER BY date DESC';
+        }
+        $fields = 'lite_post.id, lite_post.alias, lite_type_post.title_type_post, lite_post.title, lite_post.image, lite_tv.title AS tv_title, lite_post.views ';
+        $params = [
+            'alias' => $alias
+        ];
+        $sql = 'SELECT '.$fields.' 
                     FROM '.$from.'  
                     WHERE '.$where;
-        }else{
-            $fields = 'lite_post.id ,lite_post.alias, lite_post.title, lite_post.image,lite_tv.title AS tv_title, lite_post.views ';
-            $where = 'lite_post.id_tv = lite_tv.id ORDER BY date DESC';
-            $from = 'lite_post, lite_tv';
-            $sql = 'SELECT '.$fields.'  FROM '.$from.' WHERE '.$where;
-        }
-
-
 
         $pager = new \Lib\Pager(
                                 $fields,
@@ -132,16 +159,20 @@ class Model
         $this->driver->query($sql,$params);
     }
 
-    public function getPost($id){
+    public function getPost($id,$alias){
         $sql = 'SELECT  lite_users.id AS id_user, lite_post.id_tv As id_tv, lite_post.id AS id_post, lite_post.title, lite_post.image, lite_post.alias, lite_post.date, lite_post.body,
                 lite_tv.title AS tv, lite_god_wip.title AS god, lite_users.login
-                FROM lite_post, lite_god_wip, lite_tv, lite_users
+                FROM lite_post, lite_god_wip, lite_tv, lite_users, lite_type_post
                 WHERE lite_post.id_tv = lite_tv.id 
                 AND lite_users.id = lite_post.id_user 
                 AND lite_god_wip.id = lite_post.id_god_wip
+                AND lite_type_post.id_type_post = lite_post.id_type_post
+                AND lite_type_post.title_type_post = :alias
                 AND lite_post.id = :id';
         $params = [
+            'alias' => $alias,
             'id' => $id
+
         ];
       return $this->driver->column($sql,$params);
     }
@@ -255,5 +286,10 @@ class Model
                 AND lite_anime.id_title = lite_title.id
                 ORDER BY lite_anime.date DESC LIMIT 5';
       return  $this->driver->row($sql);
+    }
+
+    public function getGodWip(){
+        $sql = 'SELECT * FROM lite_god_wip ORDER BY lite_god_wip.title DESC';
+        return $this->driver->row($sql);
     }
 }

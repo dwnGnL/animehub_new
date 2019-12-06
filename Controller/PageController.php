@@ -23,9 +23,8 @@ class PageController extends DisplayController
 
     public function post($param = []){
 
-      preg_match('#\d+#', $param['page'], $matches);
-
-        $post = $this->model->getPost($matches[0]);
+        preg_match('#\d+#', $param['page'], $matches);
+        $post = $this->model->getPost($matches[0],$param['alias']);
         $cat = $this->model->getCatPost($post['id_post']);
         $similar = $this->model->getSimilarPosts($cat[1]['id'],$param['alias'],$matches[0]);
         foreach ($similar as $key => $val){
@@ -50,13 +49,14 @@ class PageController extends DisplayController
 
     public function allPost($param = []){
         $page = $param['page'];
+
         $this->page = $page ? $page : 1;
         $this->alias = $param['alias'];
         $path = $this->app->request->getPath();
         preg_match('#/\d+#', $path, $mathces);
         $path = str_replace($mathces[0], '', $path);
         $path .= '/';
-        $items = $this->model->getItems($this->page,$path,$this->alias);
+        $items = $this->model->getItems($this->page,$path,$this->alias,$param['url']);
         foreach ($items['items'] as $item){
             $row[] = $item;
         }
@@ -67,7 +67,6 @@ class PageController extends DisplayController
             'items' => $items['items'],
             'navigation' => $items['navigation'],
             'helper' => Helper::getInstance(),
-            'alias' => $param['alias'],
         ]);
     $this->display();
     }
