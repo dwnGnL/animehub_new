@@ -40,7 +40,7 @@ let mouseUnPressing;
 toRightSeries.onmousedown = function() {
   mouseUnPressing = setTimeout(function() {
     mousePressing = setInterval (function () {
-      qrew(-((seriesItem[0].offsetWidth * 2) + 10))
+      setScrolling(-((seriesItem[0].offsetWidth * 2) + 10))
     }, 100);
   }, 500)
 };
@@ -48,7 +48,7 @@ toRightSeries.onmousedown = function() {
 toLeftSeries.onmousedown = function() {
   mouseUnPressing = setTimeout(function() {
     mousePressing = setInterval (function () {
-      qrew((seriesItem[0].offsetWidth * 2) + 10)
+      setScrolling((seriesItem[0].offsetWidth * 2) + 10)
     }, 100);
   }, 500)
 };
@@ -59,7 +59,7 @@ toRightSeries.onmouseup = toLeftSeries.onmouseup = function(){
   seriesList.style.transition = '.5s'
 };
 
-function qrew(size) {
+function setScrolling(size) {
   seriesList.style.transition = '.1s'
   scrollingSeries(size)
 }
