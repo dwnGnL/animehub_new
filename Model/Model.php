@@ -292,4 +292,15 @@ class Model
         $sql = 'SELECT * FROM lite_god_wip ORDER BY lite_god_wip.title DESC';
         return $this->driver->row($sql);
     }
+
+    public function addComment($id_post, $id_user,$body){
+        $sql = 'INSERT INTO lite_comment(id_post, id_user,body, date) VALUES (:id_post,:id_user,:body,'.time().')';
+        $params = [
+            'id_post' => $id_post,
+            'id_user' => $id_user,
+            'body' => $body,
+        ];
+
+     return  $this->driver->query($sql,$params);
+    }
 }
