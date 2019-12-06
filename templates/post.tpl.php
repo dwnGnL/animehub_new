@@ -273,7 +273,7 @@
                             <?=$helper::getWatch($val['date'])?>
                         </div>
                     </div>
-
+                    <input type="text" value="<?php ?>">
                     <div class="video-comment-text">
                     <?=$val['body']?>
                     </div>

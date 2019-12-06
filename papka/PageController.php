@@ -4,6 +4,8 @@
 namespace Controller;
 
 
+use Lib\Helper;
+
 class PageController extends DisplayController
 {
     protected $page;
@@ -19,6 +21,7 @@ class PageController extends DisplayController
 
     protected function display()
     {
+
         $items = $this->model->getItems($this->page,$this->alias);
         foreach ($items['items'] as $item){
             $row[] = $item;
