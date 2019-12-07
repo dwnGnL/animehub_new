@@ -48,8 +48,11 @@ class  Helper
 
     }
 
-    public static function generateToken(){
-        $_SESSION['token']  =  md5(self::generateSalt(16));
+    public static  function generateToken(){
+        if (isset($_SESSION['token'])){
+            return $_SESSION['token'];
+        }
+        $_SESSION['token'] =  md5(self::generateSalt(16));
         return $_SESSION['token'];
     }
 

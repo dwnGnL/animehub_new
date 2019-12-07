@@ -182,7 +182,7 @@
 
         <!--Коментарий-->
         <form class="form-comment form">
-            <input type="text" id="token" hidden value="<?=$helper::generateToken()?>">
+            <input type="text" id="token" hidden value="<?=$_SESSION['token'] =$helper::generateToken()?>">
             <!-- <textarea class="form-control" name="comment"  id="textComment" cols="80" rows="10" placeholder="Оставить коментарий..." ></textarea> -->
             <textarea id="textComment" name="comment" class="form-control" placeholder="Оставить коментарий..."></textarea>
             <button class="btn btn-outline-secondary" type="button" id="sendComment">Оставить комментарий</button>
@@ -217,39 +217,39 @@
                 CKEDITOR.instances['textComment'].setData('');
                 var id_post=document.location.pathname.split('/')
                 id_post=id_post[id_post.length-1].split('-')[0]
-                alert(id_post)
-                alert(JSON.stringify({"comment":text}))
+
                 $.ajax({
                     type: "post",
                     url: "/ajax/add/comment",
-                    data: JSON.stringify({"comment":{"token":$("#token").val(),"body":text,"id_post":id_post}}),
-                    dataType: "JSON",
+                    data: ({"comment":{"token":$("#token").val(),"body":text,"id_post":id_post}}),
+                    dataType: "text",
                     success: function (response) {
-                        res=JSON.parse(response)
-                        if (res.status==200) {
+
+                        res= JSON.parse(response);
+                        if (res.status == 403){
+                            alert('Авторизуйтесь пожалуйста');
+                            return false;
+                        }
                             var commentToPut=`  <div class="video-comment-item">
                                                     <div class="video-comment-user-avatar">
                                                         <img src="${res.img}">
                                                     </div>
-                                                    <div class="video-comment-right" style="">
+                                                    <div class="video-comment-right" style="${res.back_fon}">
                                                         <div class="comment-arrow"></div>
                                                         <div class="top-video-comment-item">
-                                                            <div class="video-comment-user-name" style="font-family:;">
-                                                                ${res.login} <span style="color:${res.color}">${res.position}</span>
+                                                            <div class="video-comment-user-name" style="font-family:${res.font}; ${res.login_color}">
+                                                                ${res.login} <span style="color:${res.color}">${res.status}</span>
                                                             </div>
                                                             <div class="video-comment-date">
                                                                 ${res.date}                        
                                                             </div>
                                                         </div>
                                                         <div class="video-comment-text">
-                                                        ${res.message}
+                                                        ${res.body}
                                                         </div>
                                                     </div>
                                                 </div>`
                             $(".video-comments").prepend(commentToPut)
-                        }else{
-                            alert("что то пошло не так")
-                        }
                     }
                 });
             });
@@ -259,7 +259,7 @@
             <?php foreach($comments as $val): ?>
             <div class="video-comment-item">
                 <div class="video-comment-user-avatar">
-                    <img src="<?=$uri?>/templates/images/image (1).jpg">
+                    <img src="<?=$val['img']?>">
                 </div>
 
                 <div class="video-comment-right" style="<?=$val['back_fon']?>">
@@ -273,7 +273,7 @@
                             <?=$helper::getWatch($val['date'])?>
                         </div>
                     </div>
-                    <input type="text" value="<?php ?>">
+                    <input type="text" value="<?=$helper::generateToken()?>" hidden>
                     <div class="video-comment-text">
                     <?=$val['body']?>
                     </div>

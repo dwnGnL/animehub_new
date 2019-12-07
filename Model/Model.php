@@ -218,7 +218,7 @@ class Model
     }
 
     public function getComments($id_post){
-        $sql = 'SELECT lite_comment.body,lite_status.color, lite_status.title AS status, lite_comment.date, lite_users.login, lite_vip.login_color, lite_vip.back_fon, lite_vip.vip_status, lite_vip.font
+        $sql = 'SELECT lite_comment.body, lite_users.img, lite_status.color, lite_status.title AS status, lite_comment.date, lite_users.login, lite_vip.login_color, lite_vip.back_fon, lite_vip.vip_status, lite_vip.font
                 FROM lite_comment
                 LEFT JOIN lite_users ON lite_users.id = lite_comment.id_user
                 LEFT JOIN lite_vip ON lite_vip.id_user = lite_users.id AND lite_users.status != 0
@@ -302,5 +302,17 @@ class Model
         ];
 
      return  $this->driver->query($sql,$params);
+    }
+    public function getComment($id_comment){
+        $sql = 'SELECT lite_comment.body,lite_users.img, lite_status.color, lite_status.title AS status, lite_comment.date, lite_users.login, lite_vip.login_color, lite_vip.back_fon, lite_vip.vip_status, lite_vip.font
+                FROM lite_comment
+                LEFT JOIN lite_users ON lite_users.id = lite_comment.id_user
+                LEFT JOIN lite_vip ON lite_vip.id_user = lite_users.id AND lite_users.status != 0
+                LEFT JOIN lite_status ON lite_status.id = lite_users.status
+                WHERE lite_comment.id = :id';
+        $params = [
+            'id' => $id_comment
+        ];
+        return  $this->driver->row($sql, $params);
     }
 }
