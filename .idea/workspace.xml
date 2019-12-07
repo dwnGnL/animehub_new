@@ -6,6 +6,7 @@
       <change beforePath="$PROJECT_DIR$/Controller/AjaxController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/AjaxController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Model/Model.php" beforeDir="false" afterPath="$PROJECT_DIR$/Model/Model.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/js/profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/templates/js/profile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/profile.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile.tpl.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +104,7 @@
       <workItem from="1575709721486" duration="2010000" />
       <workItem from="1575715791037" duration="2302000" />
       <workItem from="1575721737703" duration="3527000" />
-      <workItem from="1575739630745" duration="2976000" />
+      <workItem from="1575739630745" duration="4343000" />
     </task>
     <servers />
   </component>

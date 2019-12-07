@@ -12,7 +12,7 @@
         <div class="profile-page-user-avatar"><img class="profile-page-user-avatar-img" src="<?=$user['img']?>"></div>
         <div class="choose-avatar"></div>
 
-        <div class="left-profile-user-name font-family-user-name" style="font-family:<?=$user['font']?>;<?=$user['login_color']?>"><?=$user['login']?></div>
+        <div class="left-profile-user-name font-family-user-name" style="font-family:<?=$user['font']?>; color:<?=$user['login_color']?>"><?=$user['login']?></div>
         <div class="left-profile-bottom"><b><?=$user['status']?></b></div>
     </div>
 
@@ -69,12 +69,13 @@
         <div class="profile-vip-setting-page">
             <div class="set-nickname-color">
             <div style="display:inline-block;">Цвет ника:</div>
-                <div id="colorSelector"><div style="background-<?=$user['login_color']?>"></div></div>
+                <div id="colorSelector"><div style="background-color:<?=$user['login_color']?>"></div></div>
             </div>
             
             <div class="change-font-family-user-name">
                 <div>Шрифт</div>
                 <select class="font-family-type">
+                    <option><?=$user['font']?></option>
                     <option>Arial</option>
                     <option>Times</option>
                     <option>Courier</option>

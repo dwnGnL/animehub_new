@@ -140,7 +140,7 @@ $("#save_profile").click(function () {
           alert('что то не так');
             return false;
         }
-        saveDate()
+        saveDate();
         alert("сохранено")
 
     }

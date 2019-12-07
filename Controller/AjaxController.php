@@ -15,8 +15,6 @@ class AjaxController extends DisplayController
     }
 
     public function saveVip(){
-
-
         if (isset($_SESSION['auth'])){
             if (hash_equals($_POST['token'],$_SESSION['token']) ){
 
@@ -27,20 +25,10 @@ class AjaxController extends DisplayController
                     $_POST['uved'] = 1;
                 }
                 $this->model->saveVip($_POST['color'], $_POST['uved'], $_POST['status'],$_POST['font'],1);
-                $vip = $this->model->getVip($id_vip);
-                echo json_encode($vip);
+                $response = 'success';
+                echo json_encode($response);
             }
         }
-//
-
-//
-//
-//
-//
-//
-//
-//            }
-//        }
     }
 
     public function addComment()
@@ -68,7 +56,7 @@ class AjaxController extends DisplayController
     public function saveProfile(){
         if (isset($_SESSION['auth'])){
             if (hash_equals($_POST['token'],$_SESSION['token']) ){
-                $this->model->saveProfile($_POST['age'],$_POST['id_pol'],$_POST['name'],$_POST['city'],$_SESSION['id']);
+                $this->model->saveProfile($_POST['age'],$_POST['id_pol'],$_POST['name'],$_POST['city'],$_POST['image'],$_SESSION['id']);
                 $profile = $this->model->getProfile($_SESSION['id']);
                 echo json_encode($profile);
             }
