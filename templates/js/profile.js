@@ -122,3 +122,23 @@ $('#colorSelector').ColorPicker({
 
 	}
 });
+
+$("save_profile").click(function () { 
+  $.ajax({
+    type: "post",
+    url: "/ajax/save/profile",
+    data: ({"token":$("#token").text(),"age":text,"id_post":id_post}),
+    dataType: "text",
+    success: function (response) {
+
+        res= JSON.parse(response);
+        if (res.status == 403){
+            alert('Авторизуйтесь пожалуйста');
+            $('.form .disable').css('display','none')
+            return false;
+        }
+            
+    }
+});
+  
+});

@@ -28,6 +28,7 @@
             <div class="about-profile">
                 <div class="about-profile-head">О профиле</div>
                 <div class="about-profile-data">
+                <div id="token" style="display:none;"><?=$_SESSION['token'] =$helper::generateToken()?></div>
                     <div class="about-profile-data-line">
                         <div class="about-profile-data-left">Имя:</div>
                         <div class="about-profile-data-right change-profile-data"><?=$user['nameUser']?></div>
@@ -59,7 +60,7 @@
             <?php if ($_SESSION['login'] == $user['login']): ?>
             <div class="save-change-button-place changed">
                 <div class="change-button change-save-button">Изменить</div>
-                <div class="save-button change-save-button">Сохранить</div>
+                <div id="save_profile" class="save-button change-save-button">Сохранить</div>
             </div>
             <?php endif; ?>
         </div>
@@ -93,7 +94,7 @@
 
             <textarea name="name" placeholder=""><?=$user['vip_status']?></textarea>
 
-            <div class="save-vip-button">Сохранить</div>
+            <div id="save_vip" class="save-vip-button">Сохранить</div>
         </div>
         <?php endif; ?>
     </div>
