@@ -134,7 +134,6 @@ $("#save_profile").click(function () {
     data: ({"token":$("#token").text(),"age":$("input[name='age']").val(),"id_pol":$("select[name='sex']").val(),"city":$("input[name='city']").val(),"name":$("input[name='name']").val()}),
     dataType: "text",
     success: function (response) {
-
         res= JSON.parse(response);
         if (res.status == 403){
           
@@ -156,13 +155,13 @@ $("#save_vip").click(function () {
     dataType: "text",
     data: ({"token":$("#token").text(),"color":$('.left-profile-user-name.font-family-user-name').css('color'),"uved":$("#notification-check").prop("checked"),"status":$("textarea[name='status']").text(),"font":$("select.font-family-type").val()}),
     success: function (response) {
-
         res= JSON.parse(response);
         if (res.status == 403){
             alert('Авторизуйтесь пожалуйста');
             $('.form .disable').css('display','none')
             return false;
         }
+        alert('Save');
 
     }
 });

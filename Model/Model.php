@@ -334,7 +334,7 @@ class Model
                 WHERE id = :id_user';
         $params = [
             'age'=>$age,
-            'pol'=>$pol,
+            'id_pol'=>$pol,
             'userName'=>$userName,
             'city' =>$city,
             'id_user'=>$id_user
@@ -363,15 +363,16 @@ class Model
 
     }
 
-    public function saveVip($login_color, $uved,$vip_status, $id_user, $font){
+    public function saveVip($login_color, $uved,$vip_status,  $font, $id_vip){
+
         $sql = 'Update lite_vip SET login_color = :color, update_anime = :uved, vip_status = :status, font = :font 
-                WHERE id_user = :id_user';
+                WHERE lite_vip.id = :id_vip';
         $params = [
-            'login_color' => $login_color,
+            'color' => $login_color,
             'uved' =>$uved,
-            'vip_status' => $vip_status,
+            'status' => $vip_status,
             'font' => $font,
-            'id_user' => $id_user
+            'id_vip' => $id_vip
         ];
         $this->driver->query($sql,$params);
     }
