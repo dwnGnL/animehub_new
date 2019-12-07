@@ -56,12 +56,12 @@ let changeProfileData = document.querySelectorAll('.change-profile-data');
 let changeProfileDataSelect = document.querySelector('.change-profile-data-select');
 let saveChangePlace = document.querySelector('.save-change-button-place');
 let changeButton = document.querySelector('.change-button');
-let saveChange = document.querySelector('.save-button');
+// let saveChange = document.querySelector('.save-button');
 let dataItem, dataSelectItem, select;
 let givedDate = [];
 
 changeButton.addEventListener('click', changeDate);
-saveChange.addEventListener('click', saveDate);
+// saveChange.addEventListener('click', saveDate);
 
 function changeDate() {
   for (let i = 0; i < changeProfileData.length; i++) {
@@ -75,8 +75,8 @@ function changeDate() {
 
   changeProfileDataSelect.innerHTML = `
     <select class="select">
-      <option>Мужской</option>
-      <option>Женский</option>
+      <option value="1">Мужской</option>
+      <option value="2">Женский</option>
     </select>`;
 
   select = document.querySelector('.select');
@@ -131,16 +131,18 @@ $("#save_profile").click(function () {
   $.ajax({
     type: "post",
     url: "/ajax/save/profile",
-    data: ({"token":$("#token").text(),"age":text,"id_post":id_post}),
+    data: ({"token":$("#token").text(),"age":$("input[name='age']").val(),"id_pol":$("select[name='sex']").val(),"city":$("input[name='city']").val(),"name":$("input[name='name']").val()}),
     dataType: "text",
     success: function (response) {
 
         res= JSON.parse(response);
         if (res.status == 403){
-            alert('Авторизуйтесь пожалуйста');
-            $('.form .disable').css('display','none')
+          
+          alert('что то не так');
             return false;
         }
+        saveDate()
+        alert("сохранено")
 
     }
 });
@@ -150,9 +152,9 @@ $("#save_profile").click(function () {
 $("#save_vip").click(function () {
   $.ajax({
     type: "post",
-    url: "/ajax/save/profile",
-    data: ({"token":$("#token").text(),"age":text,"id_post":id_post}),
+    url: "/ajax/save/vip",
     dataType: "text",
+    data: ({"token":$("#token").text(),"color":$('.left-profile-user-name.font-family-user-name').css('color'),"uved":$("#notification-check").prop("checked"),"status":$("textarea[name='status']").text(),"font":$("select.font-family-type").val()}),
     success: function (response) {
 
         res= JSON.parse(response);

@@ -86,14 +86,14 @@
                 <label for="notification-check">
                     <b>Показывать уведомления о новых сериях?</b>
                     <?php if ($user['update_anime'] == 1): ?>
-                    <input type="checkbox" id="notification-check checked">
+                    <input type="checkbox" id="notification-check" checked>
                     <?php else: ?>
-                    <input type="checkbox" id="notification-check ">
+                    <input type="checkbox" id="notification-check">
                     <?php endif; ?>
                 </label>
             </div>
 
-            <textarea name="name" placeholder=""><?=$user['vip_status']?></textarea>
+            <textarea name="status" placeholder=""><?=$user['vip_status']?></textarea>
 
             <div id="save_vip" class="save-vip-button">Сохранить</div>
         </div>
