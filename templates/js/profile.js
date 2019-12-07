@@ -69,6 +69,10 @@ function changeDate() {
     dataItem = document.querySelectorAll('.profile-data-input');
   };
 
+  dataItem[0].setAttribute('name', 'name');
+  dataItem[1].setAttribute('name', 'city');
+  dataItem[2].setAttribute('name', 'age');
+
   changeProfileDataSelect.innerHTML = `
     <select class="select">
       <option>Мужской</option>
@@ -76,7 +80,7 @@ function changeDate() {
     </select>`;
 
   select = document.querySelector('.select');
-
+  select.setAttribute('name', 'sex');
   saveChangePlace.classList.remove('changed');
   saveChangePlace.classList.add('saved');
 };
@@ -123,7 +127,7 @@ $('#colorSelector').ColorPicker({
 	}
 });
 
-$("#save_profile").click(function () { 
+$("#save_profile").click(function () {
   $.ajax({
     type: "post",
     url: "/ajax/save/profile",
@@ -137,13 +141,13 @@ $("#save_profile").click(function () {
             $('.form .disable').css('display','none')
             return false;
         }
-            
+
     }
 });
-  
+
 });
 
-$("#save_vip").click(function () { 
+$("#save_vip").click(function () {
   $.ajax({
     type: "post",
     url: "/ajax/save/profile",
@@ -157,8 +161,8 @@ $("#save_vip").click(function () {
             $('.form .disable').css('display','none')
             return false;
         }
-            
+
     }
 });
-  
+
 });

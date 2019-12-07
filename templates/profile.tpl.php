@@ -71,6 +71,7 @@
             <div style="display:inline-block;">Цвет ника:</div>
                 <div id="colorSelector"><div style="background-<?=$user['login_color']?>"></div></div>
             </div>
+            
             <div class="change-font-family-user-name">
                 <div>Шрифт</div>
                 <select class="font-family-type">
@@ -102,4 +103,3 @@
 
 
 <script src="<?=$uri?>/templates/js/profile.js"></script>
-
