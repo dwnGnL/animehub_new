@@ -51,12 +51,12 @@ $app->group('/ajax', function () use ($app){
     $app->post('/save/profile', function () use ($app) {
         $o = \Controller\Controller::getInstance('ajax'); //AjaxController
         $o->saveProfile();
-    })->name('addComment');
+    })->name('saveProfile');
 
     $app->post('/save/vip', function () use ($app) {
         $o = \Controller\Controller::getInstance('ajax'); //AjaxController
         $o->saveVip();
-    })->name('addComment');
+    })->name('saveVip');
 
 });
 
