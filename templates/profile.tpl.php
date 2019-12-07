@@ -1,4 +1,10 @@
 <link rel="stylesheet" href="<?=$uri?>/templates/css/profile-page.css">
+<link rel="stylesheet" href="<?=$uri?>/templates/css/colorpicker.css">
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="<?=$uri?>/templates/js/colorpicker.js"></script>
+<script type="text/javascript" src="<?=$uri?>/templates/js/eye.js"></script>
+<script type="text/javascript" src="<?=$uri?>/templates/js/utils.js"></script>
+<script type="text/javascript" src="<?=$uri?>/templates/js/layout.js?ver=1.0.2"></script>
 
 <div id="profile-page">
     <div class="left-profile">
@@ -60,6 +66,10 @@
 
         <?php if ($_SESSION['login'] == $user['login'] && $_SESSION['status'] != 'Анимешник'): ?>
         <div class="profile-vip-setting-page">
+            <div class="set-nickname-color">
+            <div style="display:inline-block;">Цвет ника:</div>
+                <div id="colorSelector"><div style="background-<?=$user['login_color']?>"></div></div>
+            </div>
             <div class="change-font-family-user-name">
                 <div>Шрифт</div>
                 <select class="font-family-type">
