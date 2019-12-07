@@ -9,10 +9,6 @@ use function FastRoute\TestFixtures\empty_options_cached;
 
 class AjaxController extends DisplayController
 {
-    public function execute($param = [])
-    {
-        echo 'Hello World';
-    }
 
     public function saveVip(){
         if (isset($_SESSION['auth'])){
@@ -24,7 +20,7 @@ class AjaxController extends DisplayController
                 }else{
                     $_POST['uved'] = 1;
                 }
-                $this->model->saveVip($_POST['color'], $_POST['uved'], $_POST['status'],$_POST['font'],1);
+                $this->model->saveVip($_POST['color'], $_POST['uved'], $_POST['status'],$_POST['font'],$id_vip);
                 $response = 'success';
                 echo json_encode($response);
             }
