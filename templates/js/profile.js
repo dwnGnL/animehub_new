@@ -2,7 +2,7 @@
 let chooseAvatarBlock = document.querySelector('.choose-avatar');
 
 for (var i = 0; i < 100; i++) {
-  chooseAvatarBlock.innerHTML += '<div class="choose-avatar-item"><img class="choose-avatar-img" src="images/avatar/' + (i + 1) + '.png"></div>';
+  chooseAvatarBlock.innerHTML += '<div class="choose-avatar-item"><img class="choose-avatar-img" src="'+location.origin+'/templates/images/avatar/' + (i + 1) + '.png"></div>';
 };
 
 let chooseAvatar = document.querySelector('.left-profile');
@@ -131,7 +131,7 @@ $("#save_profile").click(function () {
   $.ajax({
     type: "post",
     url: "/ajax/save/profile",
-    data: ({"token":$("#token").text(),"age":$("input[name='age']").val(),"id_pol":$("select[name='sex']").val(),"city":$("input[name='city']").val(),"name":$("input[name='name']").val()}),
+    data: ({"token":$("#token").text(),"image":$(".profile-page-user-avatar-img").prop("src"),"age":$("input[name='age']").val(),"id_pol":$("select[name='sex']").val(),"city":$("input[name='city']").val(),"name":$("input[name='name']").val()}),
     dataType: "text",
     success: function (response) {
         res= JSON.parse(response);
