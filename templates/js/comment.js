@@ -21,8 +21,12 @@ var config2 = {
 CKEDITOR.replace('textComment', config2);
 
 $("#sendComment").click(function (e) { 
-    $('.form .disable').css('display','flex')
     var text = CKEDITOR.instances['textComment'].getData();
+    if (text.length<10){
+        alert("сообщение похоже на спам")
+        return
+    }
+    $('.form .disable').css('display','flex')
     CKEDITOR.instances['textComment'].setData('');
     CKEDITOR.instances['textComment'].setReadOnly(true);
     var id_post=document.location.pathname.split('/')
