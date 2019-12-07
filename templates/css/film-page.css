@@ -35,12 +35,12 @@
   padding: 0;
 }
 
-.distinctio-list > li {
+.distinctio-list>li {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 }
 
-.review-order > * {
+.review-order>* {
   grid-column: 1/6;
 }
 
@@ -57,7 +57,7 @@
   position: relative;
   text-align: justify;
   overflow: hidden;
-  height: 200px;
+  max-height: 200px;
   margin: 20px 0;
   transition: height .5s;
 }
@@ -97,7 +97,8 @@
   box-sizing: border-box;
 }
 
-.arrow-series, .search-series {
+.arrow-series,
+.search-series {
   width: 50px;
   display: flex;
   justify-content: center;
@@ -106,7 +107,8 @@
   cursor: pointer;
 }
 
-.arrow-series:hover, .search-series:hover {
+.arrow-series:hover,
+.search-series:hover {
   background: #DDDDDD;
 }
 
@@ -183,6 +185,7 @@
 .series-block {
   width: calc(100% - 150px);
 }
+
 /* ----------------------------- */
 
 .seriesSide {
@@ -264,6 +267,7 @@ video {
 .fa:active {
   color: #E7E7E7;
 }
+
 /* ------------- */
 
 #film-content .left-head {
@@ -296,6 +300,118 @@ td {
 .video-comment-item {
   margin-top: 20px;
   display: grid;
+}
+
+.form-comment.form .disable {
+  position: absolute;
+  width: 100%;
+  background-color: rgba(0, 0, 0, .5);
+  height: calc(100% - 15px);
+  top: 0;
+  left: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  /* pointer-events: none; */
+}
+
+.disable .loader {
+  color:
+    #288af7;
+  font-size: 60px;
+  text-indent: -9999em;
+  overflow: hidden;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  margin: 72px auto;
+  position: relative;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation: load6 1.7s infinite ease, round 1.7s infinite ease;
+  animation: load6 1.7s infinite ease, round 1.7s infinite ease;
+}
+
+@-webkit-keyframes load6 {
+  0% {
+    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+  }
+
+  5%,
+  95% {
+    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+  }
+
+  10%,
+  59% {
+    box-shadow: 0 -0.83em 0 -0.4em, -0.087em -0.825em 0 -0.42em, -0.173em -0.812em 0 -0.44em, -0.256em -0.789em 0 -0.46em, -0.297em -0.775em 0 -0.477em;
+  }
+
+  20% {
+    box-shadow: 0 -0.83em 0 -0.4em, -0.338em -0.758em 0 -0.42em, -0.555em -0.617em 0 -0.44em, -0.671em -0.488em 0 -0.46em, -0.749em -0.34em 0 -0.477em;
+  }
+
+  38% {
+    box-shadow: 0 -0.83em 0 -0.4em, -0.377em -0.74em 0 -0.42em, -0.645em -0.522em 0 -0.44em, -0.775em -0.297em 0 -0.46em, -0.82em -0.09em 0 -0.477em;
+  }
+
+  100% {
+    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+  }
+}
+
+@keyframes load6 {
+  0% {
+    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+  }
+
+  5%,
+  95% {
+    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+  }
+
+  10%,
+  59% {
+    box-shadow: 0 -0.83em 0 -0.4em, -0.087em -0.825em 0 -0.42em, -0.173em -0.812em 0 -0.44em, -0.256em -0.789em 0 -0.46em, -0.297em -0.775em 0 -0.477em;
+  }
+
+  20% {
+    box-shadow: 0 -0.83em 0 -0.4em, -0.338em -0.758em 0 -0.42em, -0.555em -0.617em 0 -0.44em, -0.671em -0.488em 0 -0.46em, -0.749em -0.34em 0 -0.477em;
+  }
+
+  38% {
+    box-shadow: 0 -0.83em 0 -0.4em, -0.377em -0.74em 0 -0.42em, -0.645em -0.522em 0 -0.44em, -0.775em -0.297em 0 -0.46em, -0.82em -0.09em 0 -0.477em;
+  }
+
+  100% {
+    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+  }
+}
+
+@-webkit-keyframes round {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes round {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
 }
 
 .video-comment-user-avatar {
@@ -356,6 +472,7 @@ td {
 
 .form-comment {
   display: flex;
+  position: relative;
   flex-direction: column;
   border-bottom: 1px solid #E3E3E3;
 }
@@ -378,7 +495,7 @@ td {
 }
 
 
-@media screen and (min-width: 1200px)  {
+@media screen and (min-width: 1200px) {
   .film-discription-block {
     padding-bottom: 20px;
     margin-bottom: 30px;
@@ -398,7 +515,7 @@ td {
     margin: 7px 0;
   }
 
-  .distinctio-list > li {
+  .distinctio-list>li {
     padding: 12px 0px;
     font-size: 15px;
   }
@@ -407,7 +524,7 @@ td {
     margin-bottom: 8px;
   }
 
-  .review-order-list > li {
+  .review-order-list>li {
     margin: 0 0 5px 30px;
   }
 
@@ -415,7 +532,8 @@ td {
     font-size: 24px;
   }
 
-  .discription-text, #alltext {
+  .discription-text,
+  #alltext {
     font-size: 17px;
   }
 }
@@ -440,7 +558,7 @@ td {
     margin: 5px 0;
   }
 
-  .distinctio-list > li {
+  .distinctio-list>li {
     padding: 9px 0px;
     font-size: 13px;
   }
@@ -449,7 +567,7 @@ td {
     margin-bottom: 8px;
   }
 
-  .review-order-list > li {
+  .review-order-list>li {
     margin: 0 0 5px 30px;
   }
 
@@ -457,7 +575,8 @@ td {
     font-size: 20px;
   }
 
-  .discription-text, #alltext {
+  .discription-text,
+  #alltext {
     font-size: 14px;
   }
 }
@@ -482,7 +601,7 @@ td {
     margin: 7px 0;
   }
 
-  .distinctio-list > li {
+  .distinctio-list>li {
     padding: 17px 0px;
     font-size: 20px;
   }
@@ -491,7 +610,7 @@ td {
     margin-bottom: 17px;
   }
 
-  .review-order-list > li {
+  .review-order-list>li {
     margin: 0 0 10px 50px;
   }
 
@@ -499,7 +618,8 @@ td {
     font-size: 25px;
   }
 
-  .discription-text, #alltext {
+  .discription-text,
+  #alltext {
     font-size: 17px;
   }
 }
@@ -524,7 +644,7 @@ td {
     margin: 1vw 0;
   }
 
-  .distinctio-list > li {
+  .distinctio-list>li {
     font-size: 5.5vw;
     padding: 4.5vw 0;
   }
@@ -533,7 +653,7 @@ td {
     margin-bottom: 5vw;
   }
 
-  .review-order-list > li {
+  .review-order-list>li {
     margin: 0 0 3vw 15vw;
   }
 
@@ -541,7 +661,8 @@ td {
     font-size: 25px;
   }
 
-  .discription-text, #alltext {
+  .discription-text,
+  #alltext {
     font-size: 15px;
   }
 
