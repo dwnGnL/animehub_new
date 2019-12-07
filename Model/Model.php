@@ -328,4 +328,60 @@ class Model
         ];
        return $this->driver->column($sql,$params);
     }
+    public function saveProfile($age, $pol,$userName, $city,$id_user){
+        $sql = 'Update lite_users 
+                SET age = :age, id_pol = :id_pol, nameUser = :userName, city = :city  
+                WHERE id = :id_user';
+        $params = [
+            'age'=>$age,
+            'pol'=>$pol,
+            'userName'=>$userName,
+            'city' =>$city,
+            'id_user'=>$id_user
+        ];
+        $this->driver->query($sql,$params);
+    }
+    public function getProfile($id_user){
+        $sql = 'SELECT lite_users.login, lite_users.nameUser, lite_users.city, lite_users.id 
+                AS id_user, lite_users.img, lite_users.date, lite_users.age,  lite_status.title, lite_pol.title 
+                AS pol FROM lite_users, lite_status, lite_pol 
+                WHERE  lite_users.id_pol = lite_pol.id 
+                AND lite_status.id = lite_users.status 
+                AND lite_users.id = :id_user ';
+        $params = [
+            'id_user' => $id_user
+        ];
+        return $this->driver->column($sql,$params);
+    }
+
+    public function getIdVip($id_user){
+        $sql = 'SELECT lite_vip.id FROM lite_vip WHERE lite_vip.id_user = :id_user';
+        $params = [
+            'id_user' =>$id_user
+        ];
+       return $this->driver->column($sql,$params);
+
+    }
+
+    public function saveVip($login_color, $uved,$vip_status, $id_user, $font){
+        $sql = 'Update lite_vip SET login_color = :color, update_anime = :uved, vip_status = :status, font = :font 
+                WHERE id_user = :id_user';
+        $params = [
+            'login_color' => $login_color,
+            'uved' =>$uved,
+            'vip_status' => $vip_status,
+            'font' => $font,
+            'id_user' => $id_user
+        ];
+        $this->driver->query($sql,$params);
+    }
+
+    public  function getVip($id){
+        $sql = 'SELECT lite_vip.login_color AS color, lite_vip.update_anime AS uved, lite_vip.vip_status AS status, lite_vip.font AS font
+                FROM lite_vip WHERE lite_vip.id = :id ';
+        $params = [
+            'id' => $id
+        ];
+        return $this->driver->column($sql,$params);
+    }
 }

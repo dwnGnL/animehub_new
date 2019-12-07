@@ -48,6 +48,16 @@ $app->group('/ajax', function () use ($app){
         $o->addComment();
     })->name('addComment');
 
+    $app->post('/save/profile', function () use ($app) {
+        $o = \Controller\Controller::getInstance('ajax'); //AjaxController
+        $o->saveProfile();
+    })->name('addComment');
+
+    $app->post('/save/vip', function () use ($app) {
+        $o = \Controller\Controller::getInstance('ajax'); //AjaxController
+        $o->saveVip();
+    })->name('addComment');
+
 });
 
 
