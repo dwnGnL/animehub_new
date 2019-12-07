@@ -52,8 +52,8 @@ $app->group('/ajax', function () use ($app){
 
 
 $app->get('/profile(/:user)', function ($user) use ($app){
-    $o = \Controller\Controller::getInstance('user'); //UserController
-    $o->viewProfile($user);
+    $o = \Controller\Controller::getInstance('profile'); //ProfileController
+    $o->viewProfile(['login' => $user]);
 })->name('viewProfile');
 
 $app->get('/type/:alias(/:page)', function ($alias, $page = false) use($app){

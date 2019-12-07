@@ -9,10 +9,12 @@ use Lib\Helper;
 class ProfileController extends DisplayController
 {
     protected $index;
-    public function viewProfile(){
+    public function viewProfile($param = []){
+        $user = $this->model->getUser($param['login']);
         $this->index = $this->app->view()->fetch('profile.tpl.php',[
             'uri' => $this->uri,
-
+            'user' => $user,
+            'helper' => Helper::getInstance(),
         ]);
         $this->display();
     }
