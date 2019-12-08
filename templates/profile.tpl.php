@@ -1,10 +1,10 @@
-<link rel="stylesheet" href="<?=$uri?>/templates/css/profile-page.css">
-<link rel="stylesheet" href="<?=$uri?>/templates/css/colorpicker.css">
-<script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="<?=$uri?>/templates/js/colorpicker.js"></script>
-<script type="text/javascript" src="<?=$uri?>/templates/js/eye.js"></script>
-<script type="text/javascript" src="<?=$uri?>/templates/js/utils.js"></script>
-<script type="text/javascript" src="<?=$uri?>/templates/js/layout.js?ver=1.0.2"></script>
+<link rel="stylesheet" href="<?=$uri?>/templates/css/profile-page.css?<?=filemtime('templates/css/profile-page.css')?>">
+<link rel="stylesheet" href="<?=$uri?>/templates/css/colorpicker.css?<?=filemtime('templates/css/colorpicker.css')?>">
+<script type="text/javascript" src="<?=$uri?>/templates/js/jquery.js"></script>
+<script type="text/javascript" src="<?=$uri?>/templates/js/colorpicker.js?<?=filemtime('templates/js/colorpicker.js')?>"></script>
+<script type="text/javascript" src="<?=$uri?>/templates/js/eye.js?<?=filemtime('templates/js/eye.js')?>"></script>
+<script type="text/javascript" src="<?=$uri?>/templates/js/utils.js?<?=filemtime('templates/js/utils.js')?>"></script>
+<script type="text/javascript" src="<?=$uri?>/templates/js/layout.js?<?=filemtime('templates/js/layout.js')?>"></script>
 
 <div id="profile-page">
     <div class="left-profile">
@@ -103,4 +103,4 @@
 </div>
 
 
-<script src="<?=$uri?>/templates/js/profile.js"></script>
+<script src="<?=$uri?>/templates/js/profile.js?"<?=filemtime('templates/js/profile.js')?>></script>

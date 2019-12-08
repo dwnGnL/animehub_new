@@ -5,7 +5,7 @@ namespace Controller;
 
 
 use Lib\Helper;
-use function FastRoute\TestFixtures\empty_options_cached;
+
 
 class AjaxController extends DisplayController
 {

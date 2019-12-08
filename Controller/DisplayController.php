@@ -46,6 +46,7 @@ abstract  class DisplayController extends Controller
     }
     protected function display()
     {
+
         $menu = $this->getMenu();
         $sidebar = $this->getSidebar();
 

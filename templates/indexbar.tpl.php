@@ -1,5 +1,6 @@
 
-<link rel="stylesheet" href="<?=$uri?>/templates/css/slider.css">
+
+<link rel="stylesheet" href="<?=$uri?>/templates/css/slider.css?<?=filemtime('templates/css/slider.css')?>">
 
 <style>
     @media screen and (min-width: 992px) {
@@ -156,4 +157,4 @@
     <?php endif; ?>
 </div>
 
-<script src="<?=$uri?>/templates/js/slider.js"></script>
+<script src="<?=$uri?>/templates/js/slider.js?<?=filemtime('templates/js/slider.js')?>"></script>

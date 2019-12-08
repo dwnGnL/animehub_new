@@ -6,15 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content ="Аниме портал Таджикистана!">
     <link rel="shortcut icon" href="images/logo.png">
-    <link rel="stylesheet" href="<?=$uri?>/templates/css/main.css">
-    <link rel="stylesheet" href="<?=$uri?>/templates/css/header.css">
-    <link rel="stylesheet" href="<?=$uri?>/templates/css/footer.css">
-    <link rel="stylesheet" href="<?=$uri?>/templates/css/sign_in.css">
-    <link rel="stylesheet" href="<?=$uri?>/templates/css/profile.css">
-    <link rel="stylesheet" href="<?=$uri?>/templates/css/sidebar.css">
-    <link rel="stylesheet" href="<?=$uri?>/templates/css/main-page.css">
-    <link rel="stylesheet" href="<?=$uri?>/templates/css/film-list.css">
-    <script src="<?=$uri?>/templates/js/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="<?=$uri?>/templates/css/main.css?<?=filemtime('templates/css/main.css')?>">
+    <link rel="stylesheet" href="<?=$uri?>/templates/css/header.css?<?=filemtime('templates/css/header.css')?>">
+    <link rel="stylesheet" href="<?=$uri?>/templates/css/footer.css?<?=filemtime('templates/css/footer.css')?>">
+    <link rel="stylesheet" href="<?=$uri?>/templates/css/sign_in.css?<?=filemtime('templates/css/sign_in.css')?>">
+    <link rel="stylesheet" href="<?=$uri?>/templates/css/profile.css?<?=filemtime('templates/css/profile.css')?>">
+    <link rel="stylesheet" href="<?=$uri?>/templates/css/sidebar.css?<?=filemtime('templates/css/sidebar.css')?>">
+    <link rel="stylesheet" href="<?=$uri?>/templates/css/main-page.css?<?=filemtime('templates/css/main-page.css')?>">
+    <link rel="stylesheet" href="<?=$uri?>/templates/css/film-list.css?<?=filemtime('templates/css/film-list.css')?>">
+    <script src="<?=$uri?>/templates/js/jquery-3.3.1.min.js?<?=filemtime('templates/js/jquery-3.3.1.min.js')?>"></script>
 </head>
 <body>
 <!-- Backgrounds -->
@@ -125,9 +125,9 @@
     </div>
 </div>
 
-<script src="<?=$uri?>/templates/js/menu.js"></script>
-<script src="<?=$uri?>/templates/js/sign_in.js"></script>
-<script src="<?=$uri?>/templates/js/short-text.js"></script>
-<script src="<?=$uri?>/templates/js/current-number.js"></script>
+<script src="<?=$uri?>/templates/js/menu.js?<?=filemtime('templates/js/menu.js')?>"></script>
+<script src="<?=$uri?>/templates/js/sign_in.js?<?=filemtime('templates/js/sign_in.js')?>"></script>
+<script src="<?=$uri?>/templates/js/short-text.js?<?=filemtime('templates/js/short-text.js')?>"></script>
+<script src="<?=$uri?>/templates/js/current-number.js?<?=filemtime('templates/js/current-number.js')?>"></script>
 </body>
 </html>

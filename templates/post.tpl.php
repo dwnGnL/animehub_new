@@ -1,7 +1,7 @@
-<link rel="stylesheet" href="<?=$uri?>/templates/css/film-page.css">
-<link rel="stylesheet" href="<?=$uri?>/templates/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="<?=$uri?>/templates/css/film-page.css?<?=filemtime('templates/css/film-page.css')?>">
+<link rel="stylesheet" href="<?=$uri?>/templates/font-awesome/css/font-awesome.min.css?<?=filemtime('templates/font-awesome/css/font-awesome.min.css')?>">
 
-<script type="text/javascript" src="<?=$uri?>/templates/Admin/js/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="<?=$uri?>/templates/Admin/js/ckeditor/ckeditor.js?<?=filemtime('templates/Admin/js/ckeditor/ckeditor.js')?>"></script>
 
 <div id="film-content">
     <div class="film-discription-block">
@@ -192,7 +192,7 @@
         </form>
 
 
-        <script src="<?=$uri?>/templates/js/comment.js"></script>
+        <script src="<?=$uri?>/templates/js/comment.js?<?=filemtime('templates/js/menu.js')?>"></script>
         <?php endif;?>
         <div class="video-comments">
             <?php foreach($comments as $val): ?>
@@ -223,5 +223,5 @@
     </div>
 </div>
 
-<script src="<?=$uri?>/templates/js/show-hide-text.js"></script>
-<script src="<?=$uri?>/templates/js/video.js"></script>
+<script src="<?=$uri?>/templates/js/show-hide-text.js?<?=filemtime('templates/js/show-hide-text.js')?>"></script>
+<script src="<?=$uri?>/templates/js/video.js?<?=filemtime('templates/js/video.js')?>"></script>
