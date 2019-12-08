@@ -14,13 +14,14 @@ abstract  class DisplayController extends Controller
         $years = $this->model->getGodWip();
         $pages = $this->model->getPages();
         $categories = $this->model->getCategories();
-        $posts = $this->model->getNews();
+        $user = $this->model->getUser($_SESSION['login']);
         return $this->app->view()->fetch('menu.tpl.php', [
                                                         'pages' => $pages,
                                                         'app' => $this->app,
                                                         'uri' => $this->uri,
                                                         'categories' => $categories,
                                                         'years' => $years,
+                                                        'user' => $user
                                                             ]);
 
 
@@ -30,12 +31,16 @@ abstract  class DisplayController extends Controller
     protected function getSidebar()
     {
         $newSerii = $this->model->getNewSeria();
+        $articles = $this->model->getPostL10('articles', 5);
+        $comments = $this->model->getCommentL(5);
 
         return $this->app->view()->fetch('sidebar.tpl.php', [
             'app' => $this->app,
             'uri' => $this->uri,
             'newSerii' => $newSerii,
             'helper' => Helper::getInstance(),
+            'articles' => $articles,
+            'comments' => $comments
         ]);
         // TODO: Implement getSidebar() method.
     }

@@ -25,8 +25,17 @@ class PageController extends DisplayController
 
         preg_match('#\d+#', $param['page'], $matches);
         $post = $this->model->getPost($matches[0],$param['alias']);
+        if (empty($post)){
+            $this->app->notFound();
+        }
         $cat = $this->model->getCatPost($post['id_post']);
         $similar = $this->model->getSimilarPosts($cat[1]['id'],$param['alias'],$matches[0]);
+        $like = $this->model->getLikePost($post['id_post']);
+        $disLike  = $this->model->getDisLikePost($post['id_post']);
+        $rating = [
+            'like' => $like['total'],
+            'disLike' =>$disLike['total']
+        ];
         foreach ($similar as $key => $val){
             $similar[$key]['cats'] = $this->model->getCatPostL2($similar[$key]['id']);
         }
@@ -42,6 +51,7 @@ class PageController extends DisplayController
             'comments' => $comments,
             'helper' => Helper::getInstance(),
             'orderPosts' => $orderPosts,
+            'rating' => $rating
         ]);
 
         $this->display();
@@ -57,8 +67,14 @@ class PageController extends DisplayController
         $path = str_replace($mathces[0], '', $path);
         $path .= '/';
         $items = $this->model->getItems($this->page,$path,$this->alias,$param['url']);
+        if (empty($items['items'])){
+            $this->app->notFound();
+        }
+        $i = 0;
         foreach ($items['items'] as $item){
             $row[] = $item;
+            $row[$i]['cats'] = $this->model->getCatPostL2($row[$i]['id']);
+            $i++;
         }
         $items['items'] = $row;
         $this->index = $this->app->view()->fetch('page.tpl.php', [
@@ -67,6 +83,7 @@ class PageController extends DisplayController
             'items' => $items['items'],
             'navigation' => $items['navigation'],
             'helper' => Helper::getInstance(),
+            'title' => Helper::getTitle($this->alias),
         ]);
     $this->display();
     }

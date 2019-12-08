@@ -102,8 +102,8 @@
                         По вопросам рекламы:
                     </div>
                     <div class="direction">
-                        <a href="#">Пишите в ВК</a><br>
-                        <a href="#">На почту:</a>
+                        <a href="https://vk.com/animehub_tj">Пишите в ВК</a><br>
+                        На почту: desuhub@yandex.ru
                     </div>
                 </div>
             </div>
@@ -112,15 +112,15 @@
             <div class="to-left social">
                 <span>Мы в соц. сетях</span>
                 <div class="social-item">
-                    <div class="social-item-img"><a href="https://vk.com/animehub_tj" target="_blank"><img src="images/vk.png"></a></div>
-                    <div class="social-item-img"><a href="https://www.facebook.com/animehub.tj" target="_blank"><img src="images/facebook.png"></a></div>
-                    <div class="social-item-img"><a href="https://www.instagram.com/anime_hub_tj" target="_blank"><img src="images/instagram.png"></a></div>
+                    <div class="social-item-img"><a href="https://vk.com/animehub_tj" target="_blank"><img src="<?=$uri?>/templates/images/vk.png"></a></div>
+                    <div class="social-item-img"><a href="https://www.facebook.com/animehub.tj" target="_blank"><img src="<?=$uri?>/templates/images/facebook.png"></a></div>
+                    <div class="social-item-img"><a href="https://www.instagram.com/anime_hub_tj" target="_blank"><img src="<?=$uri?>/templates/images/instagram.png"></a></div>
                 </div>
             </div>
         </div>
 
         <div class="bottom-block">
-            &#169; 2018 - 2019 AnimeHub.tj
+            &#169; 2019 AnimeHub.tj
         </div>
     </div>
 </div>

@@ -23,10 +23,9 @@
     <div class="background-slider"></div>
 
     <div class="slide-wrapper">
-        <div class="slide"><img src="<?=$uri?>/templates/images/Dr_Stone_Banner.png"> </div>
-        <div class="slide"><img src="<?=$uri?>/templates/images/Fire_Force.png"> </div>
-        <div class="slide"><img src="<?=$uri?>/templates/images/klinok.png"> </div>
-        <div class="slide"><img src="<?=$uri?>/templates/images/Vinland-Banner.png"> </div>
+        <?php foreach ($slider as $slide):?>
+     <a href="/anime/<?=$helper::renderUrl($slide['id'], $slide['alias'])?>" >  <div class="slide"><img src="<?=$uri.$slide['img']?>"> </div></a>
+        <?php endforeach; ?>
     </div>
 </div>
 
@@ -41,7 +40,7 @@
     <div class="new-series-block">
         <div class="head">
             <div class="left-head">Новые серии аниме</div>
-            <div class="right-head">Смотреть все новинки</div>
+            <a href="/anime"><div class="right-head">Смотреть все новинки</div></a>
         </div>
 
         <div class="films">
@@ -72,7 +71,7 @@
     <div class="all-anime-block">
         <div class="head">
             <div class="left-head">Все аниме</div>
-            <div class="right-head">Смотреть все новинки</div>
+            <a href="/anime"><div class="right-head">Смотреть все</div></a>
         </div>
 
         <div class="films">
@@ -99,81 +98,62 @@
         </div>
     </div>
 
+    <div class="all-anime-block">
+        <div class="head">
+            <div class="left-head">Новые серии дорам</div>
+            <a href="/dorams"><div class="right-head">Смотреть все</div></a>
+        </div>
+
+        <div class="films">
+            <?php foreach ($dorams as $val): ?>
+                <div class="film-item">
+                    <a href="/anime/<?=$helper::renderUrl($item['id'], $item['alias'])?>">
+                        <div class="background-film-item">
+                            <img src="<?=$val['image']?>">
+                            <div class="over-back-film-item">
+                                <div class="circle">
+                                    <span class="review"><?=$val['views']?></span>
+                                    <span>Просмотров</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="discription">
+                        <div class="film-name"><a href="/anime/<?=$helper::renderUrl($item['id'], $item['alias'])?>"><?=$val['title'].' '.$val['tv_title']?></a></div>
+                        <div class="film-gener"><?=$helper::renderCat($val['cats'])?></div>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+
+        </div>
+    </div>
     <!-- News -->
+    <?php if (!empty($articles)): ?>
     <div class="news-block">
         <div class="head">
             <div class="left-head">Свежие статьи и новости</div>
-            <div class="right-head">Читать все</div>
+            <a href="/dorams"><div class="right-head">Читать все</div></a>
         </div>
 
         <div class="news">
+
+            <?php foreach ($articles as $val): ?>
             <div class="news-item">
                 <div class="background-news">
-                    <img src="images/image (1).jpg">
+                    <img src="<?=$val['image']?>">
                 </div>
 
                 <div class="right-block">
-                    <div class="news-discription">Стань киберспортсменом!</div>
-                    <div class="date">Статьи и Новости, 11.08.19</div>
+                    <div class="news-discription"><?=$val['title']?></div>
+                   <a href="/articles"><div class="date">Статьи и Новости, <?=$helper::getWatch($val['date'])?></div></a>
                 </div>
             </div>
+            <?php endforeach; ?>
 
-            <div class="news-item">
-                <div class="background-news">
-                    <img src="images/image (1).jpg">
-                </div>
 
-                <div class="right-block">
-                    <div class="news-discription">Стань киберспортсменом!</div>
-                    <div class="date">Статьи и Новости, 11.08.19</div>
-                </div>
-            </div>
-
-            <div class="news-item">
-                <div class="background-news">
-                    <img src="images/image (1).jpg">
-                </div>
-
-                <div class="right-block">
-                    <div class="news-discription">Стань киберспортсменом!</div>
-                    <div class="date">Статьи и Новости, 11.08.19</div>
-                </div>
-            </div>
-
-            <div class="news-item">
-                <div class="background-news">
-                    <img src="images/image (1).jpg">
-                </div>
-
-                <div class="right-block">
-                    <div class="news-discription">Стань киберспортсменом!</div>
-                    <div class="date">Статьи и Новости, 11.08.19</div>
-                </div>
-            </div>
-
-            <div class="news-item">
-                <div class="background-news">
-                    <img src="images/image (1).jpg">
-                </div>
-
-                <div class="right-block">
-                    <div class="news-discription">Стань киберспортсменом!</div>
-                    <div class="date">Статьи и Новости, 11.08.19</div>
-                </div>
-            </div>
-
-            <div class="news-item">
-                <div class="background-news">
-                    <img src="images/image (1).jpg">
-                </div>
-
-                <div class="right-block">
-                    <div class="news-discription">Бан нашей группы Вконтакте. Подписывайтесь на резервную!</div>
-                    <div class="date">Статьи и Новости, 11.08.19</div>
-                </div>
-            </div>
         </div>
     </div>
+    <?php endif; ?>
 </div>
 
 <script src="<?=$uri?>/templates/js/slider.js"></script>

@@ -20,9 +20,10 @@ class AjaxController extends DisplayController
                 }else{
                     $_POST['uved'] = 1;
                 }
-                $this->model->saveVip($_POST['color'], $_POST['uved'], $_POST['status'],$_POST['font'],$id_vip);
+                $this->model->saveVip('color: '.$_POST['color'], $_POST['uved'], $_POST['status'],$_POST['font'],$id_vip['id']);
                 $response = 'success';
                 echo json_encode($response);
+                exit();
             }
         }
     }
@@ -39,6 +40,7 @@ class AjaxController extends DisplayController
                    $response = $this->model->getComment($id_comment);
                    $response[0]['date'] = Helper::getWatch($response['0']['date']);
                    echo json_encode($response[0]);
+                   exit();
             }
 
         }
@@ -46,6 +48,7 @@ class AjaxController extends DisplayController
     }else{
             $response = ['status' => '403'];
             echo json_encode($response);
+            exit();
         }
     }
 
@@ -55,8 +58,29 @@ class AjaxController extends DisplayController
                 $this->model->saveProfile($_POST['age'],$_POST['id_pol'],$_POST['name'],$_POST['city'],$_POST['image'],$_SESSION['id']);
                 $profile = $this->model->getProfile($_SESSION['id']);
                 echo json_encode($profile);
+                exit();
             }
         }
+    }
+    public function rating(){
+        if (isset($_SESSION['auth'])){
+            if (hash_equals($_POST['token'],$_SESSION['token']) ){
+
+               $voted = $this->model->getVotedUser($_SESSION['id'],$_POST['id_post']);
+                if (empty($voted)){
+                    $this->model->addRating($_POST['id_post'], $_SESSION['id_user'], $_POST['type']);
+                    // Если успешно
+                    echo json_encode(['status' => '1']);
+                    exit();
+                }
+                // Если проголосовал уже
+                echo json_encode(['status' => '0']);
+                exit();
+            }
+        }
+        //Если не авторизован
+        echo json_encode(['status' => '403']);
+        exit();
     }
 
 }

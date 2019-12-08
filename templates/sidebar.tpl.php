@@ -34,83 +34,33 @@
     </ul>
   </div>
 
-
-
+    <?php if (!empty($articles)): ?>
   <div class="news-sidebar">
     <div class="sidebar-head">Новости и статьи</div>
-
+    <?php foreach ($articles as $article): ?>
     <div class="news-sidebar-item">
-      <div class="news-sidebar-text">Восстановление работы сайта и смена домена!</div>
-      <div class="news-sidebar-date">Статьи и Новости, 21 август 2019, Среда</div>
+      <div class="news-sidebar-text"><?=$article['title']?></div>
+    <a href="<?=$helper::generateUrl($article['id'],$article['alias'])?>" ><div class="news-sidebar-date">Статьи и Новости,<?=$helper::getWatch($article['date'])?></div></a>
     </div>
-
-    <div class="news-sidebar-item">
-      <div class="news-sidebar-text">Восстановление работы сайта и смена домена!</div>
-      <div class="news-sidebar-date">Статьи и Новости, 21 август 2019, Среда</div>
-    </div>
-
-    <div class="news-sidebar-item">
-      <div class="news-sidebar-text">Восстановление работы сайта и смена домена!</div>
-      <div class="news-sidebar-date">Статьи и Новости, 21 август 2019, Среда</div>
-    </div>
-
-    <div class="news-sidebar-item">
-      <div class="news-sidebar-text">Восстановление работы сайта и смена домена!</div>
-      <div class="news-sidebar-date">Статьи и Новости, 21 август 2019, Среда</div>
-    </div>
-
-    <div class="news-sidebar-item">
-      <div class="news-sidebar-text">Восстановление работы сайта и смена домена!</div>
-      <div class="news-sidebar-date">Статьи и Новости, 21 август 2019, Среда</div>
-    </div>
+      <?php endforeach; ?>
   </div>
+    <?php endif; ?>
 
   <div class="comments">
     <div class="sidebar-head">Комментарии</div>
-
+    <?php foreach ($comments as $comment): ?>
     <div class="comment-item">
-      <div class="comment-text">ffas  dsa  fasfa ds asdfasdfa asd fasd</div>
+      <div class="comment-text"><?=$comment['body']?></div>
 
       <div class="comment-user">
         <div class="user-avatar">
-          <img src="<?=$uri?>/templates/images/image (1).jpg">
+          <img src="<?=$comment['img']?>">
         </div>
-        <div class="comments-name-film">sdasdasd a fasd asd asdfasd</div>
+
+      <a href="/<?=$comment['type'].'/'?><?=$helper::renderUrl($comment['id'],$comment['alias'])?>"><div class="comments-name-film"><?=$comment['title'].' '.$comment['tv']?></div></a>
       </div>
     </div>
-
-    <div class="comment-item">
-      <div class="comment-text">ffas  dsa  fasfa ds asdfasdfa asd fasd</div>
-
-      <div class="comment-user">
-        <div class="user-avatar">
-          <img src="<?=$uri?>/templates/images/image (1).jpg">
-        </div>
-        <div class="comments-name-film">sdasdasd a fasd asd asdfasd</div>
-      </div>
-    </div>
-
-    <div class="comment-item">
-      <div class="comment-text">ffas  dsa  fasfa ds asdfasdfa asd fasd</div>
-
-      <div class="comment-user">
-        <div class="user-avatar">
-          <img src="<?=$uri?>/templates/images/image (1).jpg">
-        </div>
-        <div class="comments-name-film">sdasdasd a fasd asd asdfasd</div>
-      </div>
-    </div>
-
-    <div class="comment-item">
-      <div class="comment-text">ffas  dsa  fasfa ds asdfasdfa asd fasd</div>
-
-      <div class="comment-user">
-        <div class="user-avatar">
-          <img src="<?=$uri?>/templates/images/image (1).jpg">
-        </div>
-        <div class="comments-name-film">sdasdasd a fasd asd asdfasd</div>
-      </div>
-    </div>
+      <?php endforeach; ?>
   </div>
 </div>
 </div>

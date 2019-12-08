@@ -82,8 +82,9 @@
     <video src="" controls></video>
 
     <div class="like">
-      <i class="fa fa-thumbs-o-down" aria-hidden="true"> <span>25</span></i>
-      <i class="fa fa-thumbs-o-up" aria-hidden="true"> <span>190</span></i>
+        <i class="fa fa-thumbs-o-up" aria-hidden="true"> <span><?=$rating['like']?></span></i>
+      <i class="fa fa-thumbs-o-down" aria-hidden="true"> <span><?=$rating['disLike']?></span></i>
+
     </div>
     <!-- ____________________________ -->
 
@@ -181,7 +182,7 @@
         </div>
 
         <!--Коментарий-->
-        
+        <?php if(isset($_SESSION['auth'])):?>
         <form class="form-comment form">
             <div class="disable"><div class="loader">Loading...</div></div>
             <input type="text" id="token" hidden value="<?=$_SESSION['token'] =$helper::generateToken()?>">
@@ -192,7 +193,7 @@
 
 
         <script src="<?=$uri?>/templates/js/comment.js"></script>
-
+        <?php endif;?>
         <div class="video-comments">
             <?php foreach($comments as $val): ?>
             <div class="video-comment-item">
@@ -205,7 +206,7 @@
 
                     <div class="top-video-comment-item">
                         <div class="video-comment-user-name" style="font-family:<?=$val['font']?>;<?=$val['login_color']?>">
-                            <?=$val['login'].' '?><span style ="color:<?=$val['color']?>"><?=$val['status']?></span>
+                          <a href="/profile/<?=$val['login']?>"><?=$val['login'].' '?></a><span style ="color:<?=$val['color']?>"><?=$val['status']?></span>
                         </div>
                         <div class="video-comment-date">
                             <?=$helper::getWatch($val['date'])?>

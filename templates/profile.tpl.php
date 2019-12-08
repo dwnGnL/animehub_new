@@ -12,7 +12,7 @@
         <div class="profile-page-user-avatar"><img class="profile-page-user-avatar-img" src="<?=$user['img']?>"></div>
         <div class="choose-avatar"></div>
 
-        <div class="left-profile-user-name font-family-user-name" style="font-family:<?=$user['font']?>; color:<?=$user['login_color']?>"><?=$user['login']?></div>
+        <div class="left-profile-user-name font-family-user-name" style="font-family:<?=$user['font']?>;<?=$user['login_color']?>"><?=$user['login']?></div>
         <div class="left-profile-bottom"><b><?=$user['status']?></b></div>
     </div>
 

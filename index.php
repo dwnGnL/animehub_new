@@ -58,6 +58,11 @@ $app->group('/ajax', function () use ($app){
         $o->saveVip();
     })->name('saveVip');
 
+    $app->post('/voted/rating', function () use ($app) {
+        $o = \Controller\Controller::getInstance('ajax'); //AjaxController
+        $o->rating();
+    })->name('rating');
+
 });
 
 

@@ -39,7 +39,7 @@ class Driver
                     } else {
                         $type = PDO::PARAM_STR;
                     }
-                    $stmt->bindValue(':'.$key, $val);
+                    $stmt->bindValue(':'.$key, $val,$type);
                 }
             }
             $stmt->execute();

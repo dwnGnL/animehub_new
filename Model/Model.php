@@ -12,7 +12,7 @@ class Model
     }
 
     public function getPages(){
-        $sql = 'SELECT * FROM '.PREF.'pages';
+        $sql = 'SELECT * FROM lite_pages ORDER BY order_menu';
 
         if($this->driver instanceof Driver){
             $result = $this->driver->row($sql);
@@ -265,17 +265,26 @@ class Model
         return $this->driver->row($sql,$params);
     }
 
-    public function getPostL10(){
+    public function getPostL10($title, $lim){
         $sql = 'SELECT lite_post.id ,lite_post.alias, lite_post.title, lite_post.image,lite_tv.title AS tv_title, lite_post.views
-                FROM lite_post, lite_tv
-                WHERE lite_post.id_tv = lite_tv.id ORDER BY lite_post.date DESC LIMIT 10';
-        return $this->driver->row($sql);
+                FROM lite_post, lite_tv, lite_type_post
+                WHERE lite_post.id_tv = lite_tv.id
+                AND lite_type_post.id_type_post = lite_post.id_type_post
+                AND lite_type_post.title_type_post = :title
+                ORDER BY lite_post.date DESC LIMIT :lim';
+        $params = [
+            'title' => $title,
+            'lim' => $lim
+        ];
+        return $this->driver->row($sql,$params);
     }
 
     public function getPostL5(){
         $sql = 'SELECT lite_post.id ,lite_post.alias, lite_post.title, lite_post.image,lite_tv.title AS tv_title, lite_post.views
                 FROM lite_post, lite_tv
-                WHERE lite_post.id_tv = lite_tv.id ORDER BY lite_post.id DESC LIMIT 5';
+                WHERE lite_post.id_tv = lite_tv.id 
+                ORDER BY lite_post.id DESC LIMIT 5';
+
         return $this->driver->row($sql);
     }
 
@@ -383,6 +392,63 @@ class Model
                 FROM lite_vip WHERE lite_vip.id = :id ';
         $params = [
             'id' => $id
+        ];
+        return $this->driver->column($sql,$params);
+    }
+
+
+    public function getLikePost($id_post)
+    {
+        $query = 'SELECT COUNT(id) AS total FROM lite_rating WHERE id_post = :id_post AND type = "1";';
+        $params = [
+            'id_post' => $id_post
+        ];
+      return  $this->driver->column($query,$params);
+    }
+
+    public function getDisLikePost($id_post)
+    {
+        $query = 'SELECT COUNT(id) AS total FROM lite_rating WHERE id_post = :id_post AND type = "0";';
+        $params = [
+            'id_post' => $id_post
+        ];
+        return $this->driver->column($query,$params);
+
+    }
+
+    public function getSlider(){
+        $sql = 'SELECT lite_slider.img, lite_post.id, lite_post.alias FROM lite_slider, lite_post 
+                WHERE lite_slider.id_post = lite_post.id';
+        return $this->driver->row($sql);
+    }
+    public function getCommentL($lim){
+        $sql = 'SELECT lite_post.id, lite_post.alias, lite_post.title, lite_tv.title AS tv, lite_comment.body, lite_users.img, lite_type_post.title_type_post AS type
+               FROM lite_post, lite_comment, lite_tv, lite_users, lite_type_post
+               WHERE lite_post.id_tv = lite_tv.id
+               AND lite_post.id = lite_comment.id_post
+               AND lite_users.id = lite_comment.id_user
+               AND lite_type_post.id_type_post = lite_post.id_type_post
+               ORDER BY lite_comment.date DESC LIMIT :lim';
+        $params = [
+            'lim' => $lim
+        ];
+     return  $this->driver->row($sql,$params);
+    }
+
+    public function addRating($id_post,$id_user,$type){
+        $sql = 'INSERT INTO lite_rating VALUES (:id_post,:id_user,:type)';
+        $params  = [
+            'id_post' =>$id_post,
+            'id_user'=>$id_user,
+            'type'=>$type,
+        ];
+         $this->driver->query($sql,$params);
+    }
+    public function getVotedUser($id_user, $id_post){
+        $sql = 'SELECT id FROM lite_rating WHERE id_user = :id_user AND id_post = :id_post';
+        $params = [
+            'id_user' =>$id_user,
+            'id_post' =>$id_post,
         ];
         return $this->driver->column($sql,$params);
     }
