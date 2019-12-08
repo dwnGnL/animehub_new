@@ -30,46 +30,51 @@ seriesItem.forEach(function (elem, index) {
 seriesList.style.width = `${seriesListWidth + 10}px`;
 
 
-
-// -----------------
 let sumSize = 0;
+let maxTrans = -(seriesListWidth + 10) + seriesBlock.offsetWidth;
+let mousePressing, mouseUnPressing, posInt, positions, sumPos;
 
-let mousePressing;
-let mouseUnPressing;
 
-toRightSeries.onmousedown = function() {
-  mouseUnPressing = setTimeout(function() {
-    mousePressing = setInterval (function () {
-      setScrolling(-((seriesItem[0].offsetWidth * 2) + 10))
-    }, 100);
-  }, 500)
+toRightSeries.onmousedown = () => {
+  mouseUnPressing = setTimeout(() => {
+    setPosition();
+    mousePressing = setInterval (() => scrollingSeries(-sumPos), 100);
+  }, 50)
 };
 
-toLeftSeries.onmousedown = function() {
-  mouseUnPressing = setTimeout(function() {
-    mousePressing = setInterval (function () {
-      setScrolling((seriesItem[0].offsetWidth * 2) + 10)
-    }, 100);
-  }, 500)
+toLeftSeries.onmousedown = () => {
+  mouseUnPressing = setTimeout(() => {
+    setPosition();
+    mousePressing = setInterval (() => scrollingSeries(sumPos), 100);
+  }, 50);
 };
 
-toRightSeries.onmouseup = toLeftSeries.onmouseup = function(){
-  clearTimeout (mouseUnPressing);
-  clearInterval (mousePressing);
-  seriesList.style.transition = '.5s'
-};
+function setPosition() {
+  positions = 0;
+  sumPos = 0;
 
-function setScrolling(size) {
-  seriesList.style.transition = '.1s'
-  scrollingSeries(size)
+  setTimeout(() => {
+    seriesList.style.transition = '.2s'
+  }, 1500);
+
+  posInt = setInterval(() => {
+    positions++
+    sumPos += positions
+  }, 100);
 }
 
+toRightSeries.onmouseup = toLeftSeries.onmouseup = () => {
+  seriesList.style.transition = '.5s'
+  clearTimeout (mouseUnPressing);
+  clearInterval (mousePressing);
+  clearInterval (posInt);
+};
 
 function scrollingSeries(size) {
-  sumSize += size
+  sumSize += size;
 
-  if (sumSize <= -(seriesListWidth + 10) + seriesBlock.offsetWidth) {
-    sumSize = -(seriesListWidth + 10) + seriesBlock.offsetWidth;
+  if (sumSize <= maxTrans) {
+    sumSize = maxTrans;
   }
 
   if (sumSize > 0) {
@@ -78,9 +83,6 @@ function scrollingSeries(size) {
 
   seriesList.style.transform = `translateX(${sumSize}px)`;
 };
-
-// -----------------
-
 
 function showHideSearch() {
   searchInput.value == '' && !openSearch ? hideSearch() : showSearch();
@@ -102,7 +104,6 @@ function hideSearch() {
   }, 500);
 };
 
-
-seriesBlock.onmousewheel = seriesBlock.onwheel = seriesBlock.onMozMousePixelScroll = function (event) {
+seriesBlock.onmousewheel = seriesBlock.onwheel = seriesBlock.onMozMousePixelScroll = event => {
   seriesBlock.scrollBy(event.deltaX, 0)
 }
