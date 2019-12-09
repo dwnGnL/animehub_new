@@ -3,10 +3,35 @@
 }
 
 form.search-block {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background: #F8F8F8;
+}
+
+
+
+.ajax-search{
+  position: absolute;
+  top: 75px;
+  left: 0;
+  width: 100%;
+  min-height: 80px;
+  padding: 10px;
+  box-sizing: border-box;
+  z-index: 2;
+  background: #f8f8f8;
+}
+.ajax-search .name{
+  display: inline-block;
+  width: 70%;
+  background: #D81C27;
+}
+
+.ajax-search .right-img{
+  background: #889CB5;
+  display: inline-block;
 }
 
 .search-block input {

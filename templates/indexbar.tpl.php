@@ -32,10 +32,22 @@
 
 <!-- Content -->
 <div id="content">
-    <form class="search-block" action="index.html" method="post">
-        <input type="text" class="search" placeholder="Поиск аниме...">
-        <input type="button" value="Подобрать">
-    </form>
+    
+        <form class="search-block" action="index.html" method="post">
+            <input type="text" class="search" placeholder="Поиск аниме...">
+            <input type="button" value="Подобрать">
+            <div class="ajax-search">
+                <div class="ajax-block">
+                    <p class="name"></p>
+                    <img src="./images/arrow.png" width=50 alt="" class="right-img">
+                </div>
+            </div>
+        </form>
+       
+    
+    
+
+
 
     <!-- New series -->
     <div class="new-series-block">
