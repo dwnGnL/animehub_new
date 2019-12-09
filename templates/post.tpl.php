@@ -17,7 +17,6 @@
                 <li>
                     <span class="distinctio-list-left">Жанры:</span>
                     <span class="distinctio-list-right"><?=$cat?></span>
-
                 </li>
                 <li>
                     <span class="distinctio-list-left">Год:</span>
@@ -55,7 +54,6 @@
         <div class="show-all-text">Развернуть</div>
     </div>
 
-    <!-- ____________________________ -->
     <div class="top-video-block">
         <div class="search-series-input">
             <input id="search-input" type="text" placeholder="Поиск серии">
@@ -79,14 +77,12 @@
     </div>
 
 
-    <video src="" controls></video>
+    <video class="video" controls></video>
 
     <div class="like">
         <i class="fa fa-thumbs-o-up" aria-hidden="true"> <span><?=$rating['like']?></span></i>
-      <i class="fa fa-thumbs-o-down" aria-hidden="true"> <span><?=$rating['disLike']?></span></i>
-
+        <i class="fa fa-thumbs-o-down" aria-hidden="true"> <span><?=$rating['disLike']?></span></i>
     </div>
-    <!-- ____________________________ -->
 
     <div class="all-anime-block">
         <div class="head">
