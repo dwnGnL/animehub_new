@@ -64,4 +64,24 @@ class  Helper
         }
         return $salt;
     }
+
+    public static function getTitle($alias){
+        switch ($alias){
+            case 'anime':
+                  $alias = 'Аниме';
+                  break;
+            case 'dorams':
+                $alias = 'Дорамы';
+                break;
+            case 'articles':
+                $alias = 'Статьи и новости';
+                break;
+            case 'donate':
+                $alias = 'Помощь';
+                break;
+            case 'ongoings':
+               $alias = 'Онгоинги';
+        }
+        return $alias;
+    }
 }

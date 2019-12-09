@@ -1,7 +1,7 @@
-<link rel="stylesheet" href="<?=$uri?>/templates/css/film-page.css">
-<link rel="stylesheet" href="<?=$uri?>/templates/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="<?=$uri?>/templates/css/film-page.css?<?=filemtime('templates/css/film-page.css')?>">
+<link rel="stylesheet" href="<?=$uri?>/templates/font-awesome/css/font-awesome.min.css?<?=filemtime('templates/font-awesome/css/font-awesome.min.css')?>">
 
-<script type="text/javascript" src="<?=$uri?>/templates/Admin/js/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="<?=$uri?>/templates/Admin/js/ckeditor/ckeditor.js?<?=filemtime('templates/Admin/js/ckeditor/ckeditor.js')?>"></script>
 
 <div id="film-content">
     <div class="film-discription-block">
@@ -17,7 +17,6 @@
                 <li>
                     <span class="distinctio-list-left">Жанры:</span>
                     <span class="distinctio-list-right"><?=$cat?></span>
-
                 </li>
                 <li>
                     <span class="distinctio-list-left">Год:</span>
@@ -55,7 +54,6 @@
         <div class="show-all-text">Развернуть</div>
     </div>
 
-    <!-- ____________________________ -->
     <div class="top-video-block">
         <div class="search-series-input">
             <input id="search-input" type="text" placeholder="Поиск серии">
@@ -79,13 +77,12 @@
     </div>
 
 
-    <video src="" controls></video>
+    <video class="video" controls></video>
 
     <div class="like">
       <i class="fa fa-thumbs-o-down" id="like" aria-hidden="true"> <span>25</span></i>
       <i class="fa fa-thumbs-o-up" id="dislike" aria-hidden="true"> <span>190</span></i>
     </div>
-    <!-- ____________________________ -->
 
     <div class="all-anime-block">
         <div class="head">
@@ -181,7 +178,7 @@
         </div>
 
         <!--Коментарий-->
-        
+        <?php if(isset($_SESSION['auth'])):?>
         <form class="form-comment form">
             <div class="disable"><div class="loader">Loading...</div></div>
             <input type="text" id="token" hidden value="<?=$_SESSION['token'] =$helper::generateToken()?>">
@@ -191,8 +188,8 @@
         </form>
 
 
-        <script src="<?=$uri?>/templates/js/comment.js"></script>
-
+        <script src="<?=$uri?>/templates/js/comment.js?<?=filemtime('templates/js/menu.js')?>"></script>
+        <?php endif;?>
         <div class="video-comments">
             <?php foreach($comments as $val): ?>
             <div class="video-comment-item">
@@ -204,8 +201,8 @@
                     <div class="comment-arrow"></div>
 
                     <div class="top-video-comment-item">
-                        <div class="video-comment-user-name" style="font-family:<?=$val['font']?>;<?=$val['login_color']?>">
-                            <?=$val['login'].' '?><span style ="color:<?=$val['color']?>"><?=$val['status']?></span>
+                        <div class="video-comment-user-name" ">
+                          <a href="/profile/<?=$val['login']?>" style="font-family:<?=$val['font']?>;<?=$val['login_color']?>" ><?=$val['login'].' '?></a><span style ="color:<?=$val['color']?>;font-family:<?=$val['font']?>"><?=$val['status']?></span>
                         </div>
                         <div class="video-comment-date">
                             <?=$helper::getWatch($val['date'])?>
@@ -222,5 +219,5 @@
     </div>
 </div>
 
-<script src="<?=$uri?>/templates/js/show-hide-text.js"></script>
-<script src="<?=$uri?>/templates/js/video.js"></script>
+<script src="<?=$uri?>/templates/js/show-hide-text.js?<?=filemtime('templates/js/show-hide-text.js')?>"></script>
+<script src="<?=$uri?>/templates/js/video.js?<?=filemtime('templates/js/video.js')?>"></script>

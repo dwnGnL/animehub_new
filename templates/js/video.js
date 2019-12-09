@@ -6,11 +6,15 @@ let toRightSeries = document.querySelector('.to-right-series');
 let topVideoBlock = document.querySelector('.top-video-block');
 let searchSeries = document.querySelector('.search-series');
 let searchInput = document.getElementById('search-input');
+let videoLink = document.querySelector('.video');
 let openSearch = true;
 let seriesListWidth = 0;
 let previousSeries = 0;
 let presentSeries = 0;
 
+
+seriesItem[0].classList.add('series-item-active');
+videoLink.src = seriesItem[0].getAttribute('src');
 
 toRightSeries.addEventListener('click', () => scrollingSeries(-(seriesItem[0].offsetWidth + 10)));
 toLeftSeries.addEventListener('click', () => scrollingSeries(seriesItem[0].offsetWidth + 10));
@@ -24,6 +28,7 @@ seriesItem.forEach(function (elem, index) {
     presentSeries = index;
     seriesItem[previousSeries].classList.remove('series-item-active');
     seriesItem[presentSeries].classList.add('series-item-active');
+    videoLink.src = elem.getAttribute('src');
   };
 });
 

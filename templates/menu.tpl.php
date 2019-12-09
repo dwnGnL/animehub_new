@@ -2,7 +2,7 @@
 
     <div id="profile">
         <div class="top">
-            <div>Profile name</div>
+            <div>Профиль</div>
             <div class="exit-profile">
                 <div class="exit-line f-line"></div>
                 <div class="exit-line s-line"></div>
@@ -12,16 +12,16 @@
         <div class="main-sign-in-page">
             <div class="profile-data">
                 <div class="profile-avatar">
-                    <img src="<?=$uri?>/templates/images/image (1).jpg" alt="">
+                    <img src="<?=$user['img']?>" alt="">
                 </div>
 
-                <div class="profile-name">
+                <div class="profile-name" style="font-family: <?=$user['font']?>; <?=$user['login_color']?>">
                     <?=$_SESSION['login']?>
                 </div>
             </div>
 
             <div class="profile-bottom">
-                <div><a href="/profile/<?= $_SESSION['login']?>">Профиль</a></div>
+                <div><a href="/profile/<?= $_SESSION['login']?>" >Профиль</a></div>
                 <div>Закладки: (<span class="bookmark-quantity">0</span>)</div>
                 <div><a href="<?=$app->urlFor('logout')?>">Выйти</a> </div>
             </div>

@@ -11,6 +11,9 @@ class ProfileController extends DisplayController
     protected $index;
     public function viewProfile($param = []){
         $user = $this->model->getUser($param['login']);
+        if (empty($user)){
+            $this->app->notFound();
+        }
         $this->index = $this->app->view()->fetch('profile.tpl.php',[
             'uri' => $this->uri,
             'user' => $user,

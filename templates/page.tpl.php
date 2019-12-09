@@ -14,7 +14,7 @@
 <div id="film-list-content">
     <div class="all-anime-list-block">
         <div class="head">
-            <div class="left-head">Новые серии аниме</div>
+            <div class="left-head"><?=$title?></div>
         </div>
 
         <div class="films">
@@ -34,7 +34,7 @@
                 </a>
                 <div class="discription">
                     <div class="film-name"><a href="<?=$uri.$item['title_type_post']?>/<?=$helper::renderUrl($item['id'],$item['alias'])?>"><?=$item['title'].' '.$item['tv_title']?></a></div>
-                    <div class="film-gener">Жанр фильма</div>
+                    <div class="film-gener"><?=$helper::renderCat($item['cats'])?></div>
                 </div>
             </div>
             <?php endforeach; ?>
