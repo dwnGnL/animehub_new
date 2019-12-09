@@ -30,15 +30,15 @@ class AuthMiddleware extends Middleware {
 
             if (!isset($_SESSION['auth'])){
 
-                exit('Page not found 404');
+                $this->app->notFound();
 
             }
             $this->acl->setAllow('Анимешник','/admin(/:page)', ['GET','POST']);
             $this->acl->setAllow('_VIP_','/admin(/:page)', ['GET','POST']);
             if (!$this->acl->check($resource, $_SESSION['status'],$this->app->request->getMethod()))   {
-                exit('Страница не найдено ошибка: 404');
+                $this->app->notFound();
             }
-//       }
+
        return true;
     }
 }

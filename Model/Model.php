@@ -94,7 +94,17 @@ class Model
 
             }
 
-        }else{
+        }elseif ($alias == 'ongoings') {
+            $from = 'lite_post, lite_tv, lite_type_post, lite_cat_post, lite_cat';
+            $where = 'lite_post.id_tv = lite_tv.id 
+                            AND lite_type_post.id_type_post = lite_post.id_type_post 
+                            AND lite_type_post.id_type_post = "1" 
+                            AND lite_post.id = lite_cat_post.id_post
+                            AND lite_cat_post.id_cat = lite_cat.id
+                            AND lite_cat.title = :alias 
+                            ORDER BY lite_post.date DESC';
+            $alias = 'Онгоинг';
+        }else {
             $from = 'lite_post, lite_tv, lite_type_post';
             $where = 'lite_post.id_tv = lite_tv.id 
                       AND lite_type_post.id_type_post = lite_post.id_type_post 
