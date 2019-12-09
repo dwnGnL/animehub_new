@@ -124,8 +124,7 @@
         </div>
     </div>
 </div>
-<span id="token" style="display:none;"><?=$_SESSION['token'] =$helper::generateToken()?></span>
-
+<span id="token" style="display:none;"><?=$helper::generateToken()?></span>
 <script src="<?=$uri?>/templates/js/menu.js?<?=filemtime('templates/js/menu.js')?>"></script>
 <script src="<?=$uri?>/templates/js/sign_in.js?<?=filemtime('templates/js/sign_in.js')?>"></script>
 <script src="<?=$uri?>/templates/js/short-text.js?<?=filemtime('templates/js/short-text.js')?>"></script>
