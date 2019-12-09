@@ -82,8 +82,8 @@
     <video src="" controls></video>
 
     <div class="like">
-      <i class="fa fa-thumbs-o-down" aria-hidden="true"> <span>25</span></i>
-      <i class="fa fa-thumbs-o-up" aria-hidden="true"> <span>190</span></i>
+      <i class="fa fa-thumbs-o-down" id="like" aria-hidden="true"> <span>25</span></i>
+      <i class="fa fa-thumbs-o-up" id="dislike" aria-hidden="true"> <span>190</span></i>
     </div>
     <!-- ____________________________ -->
 

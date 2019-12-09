@@ -107,3 +107,51 @@ function hideSearch() {
 seriesBlock.onmousewheel = seriesBlock.onwheel = seriesBlock.onMozMousePixelScroll = event => {
   seriesBlock.scrollBy(event.deltaX, 0)
 }
+var id_post=document.location.pathname.split('/')
+    id_post=id_post[id_post.length-1].split('-')[0]
+
+$("#like").click(()=>{
+  switch (raiting(1,id_post)) {
+    case "1":
+      $("#like span").html(parseInt($("#like span").text())+1)
+      break;
+    case "0":
+      alert("вы уже голосовали")
+      break;
+    case "403":
+      alert("авторизуйтесь")
+      break;
+    default:
+      alert("что то пошло не так")
+      break;
+  }
+})
+
+$("#dislike").click(()=>{
+  switch (raiting(0,id_post)) {
+    case "1":
+      $("#dislike span").html(parseInt($("#like span").text())-1)
+      break;
+    case "0":
+      alert("вы уже голосовали")
+      break;
+    case "403":
+      alert("авторизуйтесь")
+      break;
+    default:
+      alert("что то пошло не так")
+      break;
+  }
+})
+
+function raiting(type,id){ 
+  $.ajax({
+    type: "post",
+    url: "/ajax/voted/rating",
+    data: ({"type":type,"id_post":id}),
+    dataType: "text",
+    success: function (response) {
+        return response.status
+    }
+  })
+ }
