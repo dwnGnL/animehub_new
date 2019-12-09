@@ -116,47 +116,42 @@ var id_post=document.location.pathname.split('/')
     id_post=id_post[id_post.length-1].split('-')[0]
 
 $("#like").click(()=>{
-  switch (raiting(1,id_post)) {
-    case "1":
-      $("#like span").html(parseInt($("#like span").text())+1)
-      break;
-    case "0":
-      alert("вы уже голосовали")
-      break;
-    case "403":
-      alert("авторизуйтесь")
-      break;
-    default:
-      alert("что то пошло не так")
-      break;
-  }
+  raiting(1,id_post)
 })
 
 $("#dislike").click(()=>{
-  switch (raiting(0,id_post)) {
-    case "1":
-      $("#dislike span").html(parseInt($("#like span").text())-1)
-      break;
-    case "0":
-      alert("вы уже голосовали")
-      break;
-    case "403":
-      alert("авторизуйтесь")
-      break;
-    default:
-      alert("что то пошло не так")
-      break;
-  }
+ raiting(0,id_post)
+
 })
 
 function raiting(type,id){ 
-  $.ajax({
+   $.ajax({
     type: "post",
     url: "/ajax/voted/rating",
-    data: ({"type":type,"id_post":id}),
+    data: ({"type":type,"id_post":id,"token":$("#token").text()}),
     dataType: "text",
     success: function (response) {
-        return response.status
+      switch (response.status) {
+        case 1:
+            (type)=>{
+              if(type==1){
+                $("#like span").html(parseInt($("#like span").text())+1)
+              }else{
+                $("#dislike span").html(parseInt($("#dislike span").text())-1)
+
+              }
+            }
+          break;
+        case 0:
+          alert("вы уже голосовали")
+          break;
+        case 403:
+          alert("авторизуйтесь")
+          break;
+        default:
+          alert("что то пошло не так")
+          break;
+      }
     }
   })
  }

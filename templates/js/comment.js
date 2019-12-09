@@ -36,7 +36,7 @@ $("#sendComment").click(function (e) {
     $.ajax({
         type: "post",
         url: "/ajax/add/comment",
-        data: ({"comment":{"token":$("#token").val(),"body":text,"id_post":id_post}}),
+        data: ({"comment":{"token":$("#token").text(),"body":text,"id_post":id_post}}),
         dataType: "text",
         success: function (response) {
 

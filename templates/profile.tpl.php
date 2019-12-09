@@ -28,7 +28,6 @@
             <div class="about-profile">
                 <div class="about-profile-head">О профиле</div>
                 <div class="about-profile-data">
-                <div id="token" style="display:none;"><?=$_SESSION['token'] =$helper::generateToken()?></div>
                     <div class="about-profile-data-line">
                         <div class="about-profile-data-left">Имя:</div>
                         <div class="about-profile-data-right change-profile-data"><?=$user['nameUser']?></div>
