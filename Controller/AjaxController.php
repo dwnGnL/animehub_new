@@ -83,4 +83,21 @@ class AjaxController extends DisplayController
         exit();
     }
 
+    public function searchAjax()
+    {
+        if ($_POST['token'] == $_SESSION['token']){
+            if (iconv_strlen(trim(isset($_POST['title'] ))) > 3){
+                $title = explode(' ',$_POST['title'] );
+                $result = $this->model->searchAjax($title);
+                foreach ($result as $key => $value){
+                    $result[$key]['title'] = $result[$key]['title'].' '.$result[$key]['tv'];
+                    $result[$key]['src'] = Helper::renderUrl($result[$key]['id'],$result[$key]['alias']);
+                }
+                $result[0]['count'] = count($result);
+                echo json_encode($result);
+            }
+
+        }
+    }
+
 }

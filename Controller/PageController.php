@@ -12,14 +12,6 @@ class PageController extends DisplayController
     protected $alias;
     protected $index;
 
-    public function execute($param = [])
-    {
-
-
-
-
-    }
-
 
     public function post($param = []){
 

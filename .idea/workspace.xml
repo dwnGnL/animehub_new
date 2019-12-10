@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6341c2f9-1102-484a-bdc9-098e620a8c13" name="Default Changelist" comment="">
+    <list default="true" id="6341c2f9-1102-484a-bdc9-098e620a8c13" name="Default Changelist" comment="Merge branch 'master' of https://github.com/dwnGnL/animehub_new&#10;&#10;# Conflicts:&#10;#&#9;Controller/DisplayController.php&#10;#&#9;templates/js/comment.js&#10;#&#9;templates/js/video.js">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/AjaxController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/AjaxController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/DisplayController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/DisplayController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controller/PageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/PageController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Model/Model.php" beforeDir="false" afterPath="$PROJECT_DIR$/Model/Model.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/js/comment.js" beforeDir="false" afterPath="$PROJECT_DIR$/templates/js/comment.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/js/video.js" beforeDir="false" afterPath="$PROJECT_DIR$/templates/js/video.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/post.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/post.tpl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/page.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/page.tpl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/search.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/search.tpl.php" afterDir="false" />
     </list>
     <list id="38dd605b-6083-45a6-9f6b-662038e1e815" name="Revert &quot;no message&quot;" comment="Revert &quot;no message&quot;&#10;&#10;This reverts commit 1b2b2056" />
     <list id="127eea75-a317-47c4-9d24-73bfa4d50c03" name="Проверь" comment="" />
@@ -139,7 +137,7 @@
       <workItem from="1575868099653" duration="1271000" />
       <workItem from="1575894934533" duration="1276000" />
       <workItem from="1575906271837" duration="468000" />
-      <workItem from="1575978589387" duration="3456000" />
+      <workItem from="1575978589387" duration="10865000" />
     </task>
     <task id="LOCAL-00001" summary="Merge branch 'master' of https://github.com/dwnGnL/animehub_new&#10;&#10;# Conflicts:&#10;#&#9;Controller/PageController.php">
       <created>1575814085998</created>
@@ -153,6 +151,16 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -169,7 +177,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Merge branch 'master' of https://github.com/dwnGnL/animehub_new&#10;&#10;# Conflicts:&#10;#&#9;Controller/PageController.php" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' of https://github.com/dwnGnL/animehub_new&#10;&#10;# Conflicts:&#10;#&#9;Controller/PageController.php" />
+    <MESSAGE value="Merge branch 'master' of https://github.com/dwnGnL/animehub_new&#10;&#10;# Conflicts:&#10;#&#9;Controller/DisplayController.php&#10;#&#9;templates/js/comment.js&#10;#&#9;templates/js/video.js" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' of https://github.com/dwnGnL/animehub_new&#10;&#10;# Conflicts:&#10;#&#9;Controller/DisplayController.php&#10;#&#9;templates/js/comment.js&#10;#&#9;templates/js/video.js" />
   </component>
   <component name="WindowStateProjectService">
     <state x="449" y="139" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1575305116984">
@@ -180,22 +189,26 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="166" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1575697325669" />
-    <state x="301" y="0" key="CommitChangelistDialog2" timestamp="1575814085387">
+    <state x="-2" y="0" width="1499" height="824" key="CommitChangelistDialog2" timestamp="1575985375217">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="301" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1575814085387" />
+    <state x="-2" y="0" width="1499" height="824" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1575985375217" />
+    <state x="126" y="64" width="1228" height="689" key="DiffContextDialog" timestamp="1575986433693">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="126" y="64" width="1228" height="689" key="DiffContextDialog/0.0.1536.824@0.0.1536.824" timestamp="1575986433693" />
     <state x="549" y="166" key="FileChooserDialogImpl" timestamp="1575827663811">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="166" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1575827663811" />
-    <state x="147" y="64" key="MergeDialog" timestamp="1575656252951">
+    <state x="147" y="64" key="MergeDialog" timestamp="1575986421879">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="147" y="64" key="MergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1575656252951" />
-    <state x="481" y="127" key="MultipleFileMergeDialog" timestamp="1575656252964">
+    <state x="147" y="64" key="MergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1575986421879" />
+    <state x="481" y="127" key="MultipleFileMergeDialog" timestamp="1575986421887">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="481" y="127" key="MultipleFileMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1575656252964" />
+    <state x="481" y="127" key="MultipleFileMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1575986421887" />
     <state x="591" y="226" key="NewPhpClassDialog" timestamp="1575697225223">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -204,10 +217,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="604" y="335" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1575696000384" />
-    <state x="361" y="144" key="Vcs.Push.Dialog.v2" timestamp="1575814164859">
+    <state x="361" y="144" key="Vcs.Push.Dialog.v2" timestamp="1575986355929">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="144" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1575814164859" />
+    <state x="361" y="144" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1575986355929" />
     <state x="462" y="149" width="611" height="526" key="find.popup" timestamp="1575692661195">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

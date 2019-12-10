@@ -76,6 +76,11 @@ $app->group('/ajax', function () use ($app){
         $o->rating();
     })->name('rating');
 
+    $app->post('/search/ajax', function () use ($app) {
+        $o = \Controller\Controller::getInstance('ajax'); //AjaxController
+        $o->searchAjax();
+    })->name('searchAjax');
+
 });
 
 

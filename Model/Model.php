@@ -452,4 +452,22 @@ class Model
         ];
       return  $this->driver->column($sql, $params);
     }
+
+    public function searchAjax($search){
+        $sql = '';
+        $params = [];
+        foreach ($search as $key => $val){
+            if ($key == 0){
+                $and = '';
+            }else{
+                $and = ' AND ';
+            }
+            $sql .= $and.'lite_post.id_tv = lite_tv.id AND CONCAT(lite_post.title, lite_post.alias, lite_tv.title) LIKE :'.$key;
+            $params[$key] = '%'.$val.'%';
+        }
+        $insert = 'SELECT lite_post.title, lite_tv.title AS tv, lite_post.id, lite_post.alias FROM lite_post, lite_tv
+                  WHERE  '.$sql;
+        return $this->driver->row($insert,$params);
+    }
+
 }
