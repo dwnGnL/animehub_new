@@ -10,29 +10,47 @@ form.search-block {
   background: #F8F8F8;
 }
 
-
-
-.ajax-search{
+/* ----------------------- */
+.ajax-search {
   position: absolute;
-  top: 75px;
-  left: 0;
-  width: 100%;
-  min-height: 80px;
-  padding: 10px;
+  top: 100%;
+  background: inherit;
+  width: 80%;
   box-sizing: border-box;
   z-index: 2;
-  background: #f8f8f8;
-}
-.ajax-search .name{
-  display: inline-block;
-  width: 70%;
-  background: #D81C27;
+  padding: 15px;
+  display: grid;
+  grid-gap: 10px;
+
 }
 
-.ajax-search .right-img{
-  background: #889CB5;
-  display: inline-block;
+.ajax-block {
+  border: 1px solid;
+  height: 70px;
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  grid-gap: 10px;
 }
+
+.search-img {
+  width: 70px;
+  height: 70px;
+  border: 1px solid;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-img img {
+  width: 100%;
+}
+
+.search-name {
+  border: 1px solid;
+  width: 100%;
+}
+/* ----------------------- */
 
 .search-block input {
   outline: none;
@@ -51,6 +69,7 @@ form.search-block {
 .search-block input[type='button'] {
   height: 75px;
   padding: 0px 30px;
+  width: 180px;
   font-size: 20px;
   color: #fff;
   background: #6882A1;
@@ -69,6 +88,11 @@ form.search-block {
   margin: 20px 0px;
   padding: 10px 0px;
   border-bottom: 1px solid #E3E3E3;
+}
+
+.head a {
+  text-decoration: inherit;
+  color: inherit;
 }
 
 .right-head {
