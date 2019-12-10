@@ -1,7 +1,7 @@
 $(".search-block .search").on("input",(e)=>{
     
     var text=$(".search-block .search").val()
-    if (text.length>3) {
+    if (text.length>2) {
         $(".search-block .loader").css("display","block")
         $.ajax({
             type: "post",
@@ -28,7 +28,13 @@ $(".search-block .search").on("input",(e)=>{
             }
         })
     }else{
+        $(".ajax-search").css("display","none")
         $(".search-block .loader").css("display","none")
         $(".search-block .cross").css("display","none")
     }
+})
+
+$(".search-block .cross").click(()=>{
+    $(".ajax-search").css("display","none")
+    $(".search-block .cross").css("display","none")
 })

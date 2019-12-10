@@ -2,55 +2,7 @@
   box-sizing: border-box;
 }
 
-form.search-block {
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #F8F8F8;
-}
 
-/* ----------------------- */
-.cross {
-  display: none;
-  position: absolute;
-  right: 177px;
-  width: 40px;
-  height: 40px;
-}
-
-.cross-line {
-  position: absolute;
-  top: calc(50% - 2.5px);
-  width: 30px;
-  height: 5px;
-  border-radius: 2px;
-  background: #898989;
-}
-
-.cross-line:nth-child(1) {
-  transform: rotate(45deg);
-}
-
-.cross-line:nth-child(2) {
-  transform: rotate(-45deg);
-}
-
-.loader {
-  display: none;
-  color: #898989;
-  font-size: 5px;
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  position: absolute;
-  right: 200px;
-  -webkit-animation: load4 1.3s infinite linear;
-  animation: load4 1.3s infinite linear;
-  -webkit-transform: translateZ(0);
-  -ms-transform: translateZ(0);
-  transform: translateZ(0);
-}
 
 @-webkit-keyframes load4 {
   0%,
@@ -109,81 +61,6 @@ form.search-block {
 
 
 /* ----------------- */
-
-
-.ajax-search {
-  position: absolute;
-  top: 100%;
-  background: inherit;
-  width: 100%;
-  box-sizing: border-box;
-  z-index: 2;
-  display: grid;
-  grid-gap: 10px;
-
-}
-
-.ajax-block {
-  padding: 5px 0;
-  /* margin: 0 15px; */
-  margin-left: 25px;
-  margin-right: 15px;
-  height: 70px;
-  display: block;
-  align-items: center;
-  border-top: 1px solid #DADADA;
-}
-
-.ajax-block:nth-child(1) {
-  border: none;
-  padding: 0;
-}
-
-.search-img {
-  width: 70px;
-  height: 70px;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.search-img img {
-  width: 100%;
-}
-
-.search-name {
-  width: calc(100% - 70px);
-}
-/* ----------------------- */
-
-.search-block input {
-  outline: none;
-  border: none;
-  box-sizing: border-box;
-}
-
-.search-block input[type='text'] {
-  margin: 15px;
-  padding-left: 20px;
-  height: 45px;
-  width: 100%;
-  font-size: 17px;
-}
-
-.search-block input[type='button'] {
-  height: 75px;
-  padding: 0px 30px;
-  width: 180px;
-  font-size: 20px;
-  color: #fff;
-  background: #6882A1;
-  cursor: pointer;
-}
-
-.search-block input[type='button']:hover {
-  background: #889CB5;
-}
 
 
 .head {
