@@ -1,7 +1,7 @@
 $(".search-block .search").on("input",(e)=>{
     
     var text=$(".search-block .search").val()
-    if (text.length>2) {
+    if (text.length>3) {
         $(".search-block .loader").css("display","block")
         $.ajax({
             type: "post",
@@ -10,6 +10,7 @@ $(".search-block .search").on("input",(e)=>{
             dataType: "text",
             success: function (response) {
                 response=JSON.parse(response)
+
                 let ajaxContent=""
                 for(var i=1;i<response.length;i++){
                     ajaxContent+=`<div class="ajax-block">

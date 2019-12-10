@@ -465,7 +465,7 @@ class Model
             $sql .= $and.'lite_post.id_tv = lite_tv.id AND CONCAT(lite_post.title, lite_post.alias, lite_tv.title) LIKE :'.$key;
             $params[$key] = '%'.$val.'%';
         }
-        $insert = 'SELECT lite_post.title, lite_tv.title AS tv, lite_post.id, lite_post.alias FROM lite_post, lite_tv
+        $insert = 'SELECT lite_post.title, lite_tv.title AS tv, lite_post.id, lite_post.alias, lite_post.image AS img FROM lite_post, lite_tv
                   WHERE  '.$sql;
         return $this->driver->row($insert,$params);
     }
