@@ -131,22 +131,22 @@ function raiting(type,id){
     data: ({"type":type,"id_post":id,"token":$("#token").text()}),
     dataType: "text",
     success: function (response) {
-      alert(response);
+      response=JSON.parse(response)
       switch (response.status) {
-        case 1:
-            (type)=>{
+        case "1":
+          
               if(type==1){
                 $("#like span").html(parseInt($("#like span").text())+1)
               }else{
                 $("#dislike span").html(parseInt($("#dislike span").text())-1)
 
               }
-            }
+            
           break;
-        case 0:
+        case "0":
           alert("вы уже голосовали")
           break;
-        case 403:
+        case "403":
           alert("авторизуйтесь")
           break;
         default:
