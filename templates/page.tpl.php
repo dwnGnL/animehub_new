@@ -10,6 +10,9 @@
         }
     }
 </style>
+
+
+<div id="film-list-content">
 <form class="search-block" action="index.html" method="post">
     <input type="text" class="search" placeholder="Поиск аниме...">
 
@@ -33,8 +36,6 @@
 
     </div>
 </form>
-
-<div id="film-list-content">
     <div class="all-anime-list-block">
         <div class="head">
             <div class="left-head"><?=$title?></div>
