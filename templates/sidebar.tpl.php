@@ -1,4 +1,3 @@
-
 <div id="sidebar">
   <div class="update-block">
     <div class="sidebar-head">Обновления</div>
