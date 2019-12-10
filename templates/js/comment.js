@@ -11,8 +11,8 @@
 var config2 = {
     height:'200',
     startupOutlineBlocks:true,
-    startupFocus : true,
-    scayt_autoStartup:true,
+    startupFocus : false,
+    scayt_autoStartup:false,
     toolbar: [
         { name: 'insert', items : [ 'HKemoji' ] }
     ]

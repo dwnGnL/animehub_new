@@ -3,9 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="6341c2f9-1102-484a-bdc9-098e620a8c13" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/AuthMiddleware.php" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/AuthMiddleware.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/AjaxController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/AjaxController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/DisplayController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/DisplayController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/PageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/PageController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Model/Model.php" beforeDir="false" afterPath="$PROJECT_DIR$/Model/Model.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/js/comment.js" beforeDir="false" afterPath="$PROJECT_DIR$/templates/js/comment.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/js/video.js" beforeDir="false" afterPath="$PROJECT_DIR$/templates/js/video.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/post.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/post.tpl.php" afterDir="false" />
     </list>
     <list id="38dd605b-6083-45a6-9f6b-662038e1e815" name="Revert &quot;no message&quot;" comment="Revert &quot;no message&quot;&#10;&#10;This reverts commit 1b2b2056" />
     <list id="127eea75-a317-47c4-9d24-73bfa4d50c03" name="Проверь" comment="" />
@@ -133,6 +137,9 @@
       <workItem from="1575827522214" duration="143000" />
       <workItem from="1575866281023" duration="847000" />
       <workItem from="1575868099653" duration="1271000" />
+      <workItem from="1575894934533" duration="1276000" />
+      <workItem from="1575906271837" duration="468000" />
+      <workItem from="1575978589387" duration="3456000" />
     </task>
     <task id="LOCAL-00001" summary="Merge branch 'master' of https://github.com/dwnGnL/animehub_new&#10;&#10;# Conflicts:&#10;#&#9;Controller/PageController.php">
       <created>1575814085998</created>

@@ -131,6 +131,7 @@ function raiting(type,id){
     data: ({"type":type,"id_post":id,"token":$("#token").text()}),
     dataType: "text",
     success: function (response) {
+      alert(response);
       switch (response.status) {
         case 1:
             (type)=>{

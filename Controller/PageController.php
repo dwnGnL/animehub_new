@@ -24,14 +24,14 @@ class PageController extends DisplayController
     public function post($param = []){
 
         preg_match('#\d+#', $param['page'], $matches);
+        $like = $this->model->getLikeCount($matches[0], 1);
+        $disLike = $this->model->getLikeCount($matches[0], 0);
         $post = $this->model->getPost($matches[0],$param['alias']);
         if (empty($post)){
             $this->app->notFound();
         }
         $cat = $this->model->getCatPost($post['id_post']);
         $similar = $this->model->getSimilarPosts($cat[1]['id'],$param['alias'],$matches[0]);
-        $like = $this->model->getLikePost($post['id_post']);
-        $disLike  = $this->model->getDisLikePost($post['id_post']);
         $rating = [
             'like' => $like['total'],
             'disLike' =>$disLike['total']
@@ -51,7 +51,7 @@ class PageController extends DisplayController
             'comments' => $comments,
             'helper' => Helper::getInstance(),
             'orderPosts' => $orderPosts,
-            'rating' => $rating
+            'rating' => $rating,
         ]);
 
         $this->display();

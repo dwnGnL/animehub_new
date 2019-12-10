@@ -80,8 +80,9 @@
     <video class="video" controls></video>
 
     <div class="like">
-      <i class="fa fa-thumbs-o-down" id="like" aria-hidden="true"> <span>25</span></i>
-      <i class="fa fa-thumbs-o-up" id="dislike" aria-hidden="true"> <span>190</span></i>
+        <i class="fa fa-thumbs-o-up" id="like" aria-hidden="true"> <span><?=$rating['like']?></span></i>
+      <i class="fa fa-thumbs-o-down" id="dislike" aria-hidden="true"> <span><?=$rating['disLike']?></span></i>
+
     </div>
 
     <div class="all-anime-block">
@@ -187,7 +188,7 @@
         </form>
 
 
-        <script src="<?=$uri?>/templates/js/comment.js?<?=filemtime('templates/js/menu.js')?>"></script>
+        <script src="<?=$uri?>/templates/js/comment.js?<?=filemtime('templates/js/comment.js')?>"></script>
         <?php endif;?>
         <div class="video-comments">
             <?php foreach($comments as $val): ?>

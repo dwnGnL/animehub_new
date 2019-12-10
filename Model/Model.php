@@ -407,25 +407,6 @@ class Model
     }
 
 
-    public function getLikePost($id_post)
-    {
-        $query = 'SELECT COUNT(id) AS total FROM lite_rating WHERE id_post = :id_post AND type = "1";';
-        $params = [
-            'id_post' => $id_post
-        ];
-      return  $this->driver->column($query,$params);
-    }
-
-    public function getDisLikePost($id_post)
-    {
-        $query = 'SELECT COUNT(id) AS total FROM lite_rating WHERE id_post = :id_post AND type = "0";';
-        $params = [
-            'id_post' => $id_post
-        ];
-        return $this->driver->column($query,$params);
-
-    }
-
     public function getSlider(){
         $sql = 'SELECT lite_slider.img, lite_post.id, lite_post.alias FROM lite_slider, lite_post 
                 WHERE lite_slider.id_post = lite_post.id';
@@ -446,11 +427,11 @@ class Model
     }
 
     public function addRating($id_post,$id_user,$type){
-        $sql = 'INSERT INTO lite_rating VALUES (:id_post,:id_user,:type)';
+        $sql = 'INSERT INTO lite_rating(id_post,id_user,type) VALUES (:id_post,:id_user,:pe)';
         $params  = [
             'id_post' =>$id_post,
             'id_user'=>$id_user,
-            'type'=>$type,
+            'pe'=>$type,
         ];
          $this->driver->query($sql,$params);
     }
@@ -461,5 +442,14 @@ class Model
             'id_post' =>$id_post,
         ];
         return $this->driver->column($sql,$params);
+    }
+
+    public function getLikeCount($id_post, $type){
+      $sql =  'SELECT COUNT(id) AS total FROM lite_rating WHERE id_post = :id_post AND type = :type';
+        $params = [
+            'id_post' => $id_post,
+            'type' => $type
+        ];
+      return  $this->driver->column($sql, $params);
     }
 }

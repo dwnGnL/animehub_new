@@ -68,7 +68,7 @@ class AjaxController extends DisplayController
 
                $voted = $this->model->getVotedUser($_SESSION['id'],$_POST['id_post']);
                 if (empty($voted)){
-                    $this->model->addRating($_POST['id_post'], $_SESSION['id_user'], $_POST['type']);
+                    $this->model->addRating($_POST['id_post'], $_SESSION['id'], $_POST['type']);
                     // Если успешно
                     echo json_encode(['status' => '1']);
                     exit();

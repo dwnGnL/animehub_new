@@ -21,7 +21,7 @@ abstract  class DisplayController extends Controller
                                                         'uri' => $this->uri,
                                                         'categories' => $categories,
                                                         'years' => $years,
-                                                        'user' => $user
+                                                        'user' => $user,
                                                             ]);
 
 
@@ -59,6 +59,7 @@ abstract  class DisplayController extends Controller
             'keywords' => $this->keywords,
             'description' => $this->description,
             'main' => $this->main,
+            'helper' => Helper::getInstance(),
         ]);
 
         // TODO: Implement display() method.
