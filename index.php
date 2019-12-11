@@ -83,7 +83,10 @@ $app->group('/ajax', function () use ($app){
 
 });
 
-
+$app->get('/search', function () use ($app) {
+    $o = \Controller\Controller::getInstance('page'); //PageController
+    $o->search($app->request->get('do'));
+})->name('search');
 $app->get('/profile(/:user)', function ($user) use ($app){
     $o = \Controller\Controller::getInstance('profile'); //ProfileController
     $o->viewProfile(['login' => $user]);

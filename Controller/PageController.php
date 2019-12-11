@@ -5,16 +5,44 @@ namespace Controller;
 
 
 use Lib\Helper;
+use Lib\Migration;
 
 class PageController extends DisplayController
 {
     protected $page;
     protected $alias;
     protected $index;
+    public function search($title){
+        if (iconv_strlen(trim($title)) > 3){
+            $post =  $this->model->search($title);
+            if (empty($post)){
+                $this->app->notFound();
+            }
+            $i = 0;
+            foreach ($post as $item){
+                $post[$i]['cats'] = $this->model->getCatPostL2($item['id']);
+                $i++;
+            }
+            $search = $this->getSearch();
+            $this->index = $this->app->view()->fetch('page.tpl.php', [
+                'uri' => $this->uri,
+                'app' => $this->app,
+                'items' => $post,
+                'navigation' => '',
+                'helper' => Helper::getInstance(),
+                'title' => Helper::getTitle($this->alias),
+                'search' => $search,
+            ]);
 
+          $this->display();
+
+        }else{
+            $this->app->notFound();
+        }
+
+    }
 
     public function post($param = []){
-
         preg_match('#\d+#', $param['page'], $matches);
         $like = $this->model->getLikeCount($matches[0], 1);
         $disLike = $this->model->getLikeCount($matches[0], 0);
@@ -51,7 +79,7 @@ class PageController extends DisplayController
 
     public function allPost($param = []){
         $page = $param['page'];
-
+        $search = $this->getSearch();
         $this->page = $page ? $page : 1;
         $this->alias = $param['alias'];
         $path = $this->app->request->getPath();
@@ -76,6 +104,7 @@ class PageController extends DisplayController
             'navigation' => $items['navigation'],
             'helper' => Helper::getInstance(),
             'title' => Helper::getTitle($this->alias),
+            'search' => $search,
         ]);
     $this->display();
     }

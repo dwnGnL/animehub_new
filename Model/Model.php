@@ -38,19 +38,6 @@ class Model
         return $result;
     }
 
-    public function getNews(){
-        $sql = 'SELECT * FROM '.PREF.'post';
-
-        if($this->driver instanceof Driver){
-            $result = $this->driver->row($sql);
-        }
-        if (!$result){
-            return false;
-        }
-
-        return $result;
-    }
-
     /**
      * @param $page
      * @param bool $alias
@@ -61,19 +48,21 @@ class Model
         if ($url != false){
             switch ($url){
                 case 'category':
-                    $from = 'lite_post, lite_tv, lite_type_post, lite_cat_post, lite_cat';
+                    $from = 'lite_post,lite_views, lite_tv, lite_type_post, lite_cat_post, lite_cat';
                     $where = 'lite_post.id_tv = lite_tv.id 
                             AND lite_type_post.id_type_post = lite_post.id_type_post 
                             AND lite_type_post.id_type_post = "1" 
                             AND lite_post.id = lite_cat_post.id_post
+                            AND lite_views.id_post = lite_post.id 
                             AND lite_cat_post.id_cat = lite_cat.id
                             AND lite_cat.title = :alias 
                             ORDER BY lite_post.date DESC';
                     break;
                 case 'year':
-                    $from = 'lite_post, lite_tv, lite_type_post, lite_god_wip';
+                    $from = 'lite_post, lite_tv,lite_views, lite_type_post, lite_god_wip';
                     $where = 'lite_post.id_tv = lite_tv.id 
                               AND lite_type_post.id_type_post = lite_post.id_type_post 
+                              AND lite_views.id_post = lite_post.id 
                               AND lite_god_wip.id = lite_post.id_god_wip 
                               AND lite_god_wip.title = :alias
                               ORDER BY date DESC';
@@ -84,8 +73,9 @@ class Model
                                     AND lite_type_post.id_type_post = lite_post.id_type_post
                                     AND lite_tv.title LIKE "%Фильм%"';
                     }
-                    $from = 'lite_post, lite_tv, lite_type_post';
+                    $from = 'lite_post, lite_tv,lite_views, lite_type_post';
                     $where = 'lite_post.id_tv = lite_tv.id
+                    AND lite_views.id_post = lite_post.id 
                     AND lite_type_post.id_type_post = lite_post.id_type_post
                     AND lite_tv.title LIKE :alias '.$concat.'
                      ORDER BY date DESC';
@@ -95,23 +85,25 @@ class Model
             }
 
         }elseif ($alias == 'ongoings') {
-            $from = 'lite_post, lite_tv, lite_type_post, lite_cat_post, lite_cat';
+            $from = 'lite_post, lite_tv,lite_views, lite_type_post, lite_cat_post, lite_cat';
             $where = 'lite_post.id_tv = lite_tv.id 
                             AND lite_type_post.id_type_post = lite_post.id_type_post 
                             AND lite_type_post.id_type_post = "1" 
                             AND lite_post.id = lite_cat_post.id_post
+                            AND lite_views.id_post = lite_post.id 
                             AND lite_cat_post.id_cat = lite_cat.id
                             AND lite_cat.title = :alias 
                             ORDER BY lite_post.date DESC';
             $alias = 'Онгоинг';
         }else {
-            $from = 'lite_post, lite_tv, lite_type_post';
-            $where = 'lite_post.id_tv = lite_tv.id 
+            $from = 'lite_post, lite_tv,lite_views, lite_type_post';
+            $where = 'lite_post.id_tv = lite_tv.id
+                      AND lite_views.id_post = lite_post.id 
                       AND lite_type_post.id_type_post = lite_post.id_type_post 
                       AND lite_type_post.title_type_post = :alias 
                       ORDER BY date DESC';
         }
-        $fields = 'lite_post.id, lite_post.alias, lite_type_post.title_type_post, lite_post.title, lite_post.image, lite_tv.title AS tv_title, lite_post.views ';
+        $fields = 'lite_post.id, lite_post.alias, lite_type_post.title_type_post, lite_post.title, lite_post.image, lite_tv.title AS tv_title, lite_views.views ';
         $params = [
             'alias' => $alias
         ];
@@ -242,9 +234,10 @@ class Model
     }
 
     public function getSimilarPosts($cat, $alias, $id){
-        $sql = 'SELECT  lite_post.id,lite_post.alias, lite_post.title, lite_post.image,lite_tv.title AS tv_title, lite_post.views
-                FROM lite_post, lite_tv, lite_cat_post, lite_type_post
+        $sql = 'SELECT  lite_post.id,lite_post.alias, lite_post.title, lite_post.image,lite_tv.title AS tv_title, lite_views.views
+                FROM lite_post, lite_tv, lite_cat_post, lite_type_post, lite_views
                 WHERE lite_post.id_tv = lite_tv.id
+                AND lite_views.id_post = lite_post.id 
                 AND lite_cat_post.id_post = lite_post.id
                 AND lite_cat_post.id_cat = :cat
                 AND lite_post.id_type_post =lite_type_post.id_type_post
@@ -276,9 +269,10 @@ class Model
     }
 
     public function getPostL10($title, $lim){
-        $sql = 'SELECT lite_post.id ,lite_post.alias, lite_post.title, lite_post.image,lite_tv.title AS tv_title, lite_post.views
-                FROM lite_post, lite_tv, lite_type_post
+        $sql = 'SELECT lite_post.id ,lite_post.alias, lite_post.title, lite_post.image,lite_tv.title AS tv_title, lite_views.views
+                FROM lite_post, lite_tv, lite_type_post, lite_views
                 WHERE lite_post.id_tv = lite_tv.id
+                AND lite_views.id_post = lite_post.id 
                 AND lite_type_post.id_type_post = lite_post.id_type_post
                 AND lite_type_post.title_type_post = :title
                 ORDER BY lite_post.date DESC LIMIT :lim';
@@ -290,9 +284,10 @@ class Model
     }
 
     public function getPostL5(){
-        $sql = 'SELECT lite_post.id ,lite_post.alias, lite_post.title, lite_post.image,lite_tv.title AS tv_title, lite_post.views
-                FROM lite_post, lite_tv
+        $sql = 'SELECT lite_post.id ,lite_post.alias, lite_post.title, lite_post.image,lite_tv.title AS tv_title, lite_views.views
+                FROM lite_post, lite_tv, lite_views
                 WHERE lite_post.id_tv = lite_tv.id 
+                AND lite_views.id_post = lite_post.id 
                 ORDER BY lite_post.id DESC LIMIT 5';
 
         return $this->driver->row($sql);
@@ -466,7 +461,40 @@ class Model
             $params[$key] = '%'.$val.'%';
         }
         $insert = 'SELECT lite_post.title, lite_tv.title AS tv, lite_post.id, lite_post.alias, lite_post.image AS img FROM lite_post, lite_tv
-                  WHERE  '.$sql;
+                  WHERE  '.$sql.' LIMIT 5';
+        return $this->driver->row($insert,$params);
+    }
+
+    public function search($search){
+        $sql = '';
+        $params = [];
+        if (is_array($search)){
+
+
+        foreach ($search as $key => $val){
+            if ($key == 0){
+                $and = '';
+            }else{
+                $and = ' AND ';
+            }
+            $sql .= $and.'lite_post.id_tv = lite_tv.id
+                    AND lite_views.id_post = lite_post.id 
+                    AND lite_type_post.id_type_post = lite_post.id_type_post
+                 	AND CONCAT(lite_post.title, lite_post.alias, lite_tv.title) LIKE :'.$key;
+            $params[$key] = '%'.$val.'%';
+        }
+        }else{
+            $sql .= 'lite_post.id_tv = lite_tv.id
+                    AND lite_views.id_post = lite_post.id 
+                    AND lite_type_post.id_type_post = lite_post.id_type_post
+                 	AND CONCAT(lite_post.title, lite_post.alias, lite_tv.title) LIKE :var';
+            $params['var'] = '%'.$search.'%';
+        }
+
+        $insert = 'SELECT lite_post.id ,lite_post.alias, lite_post.title,lite_type_post.title_type_post, lite_post.image,lite_tv.title AS tv_title, lite_views.views 
+                   FROM lite_post, lite_tv, lite_type_post, lite_views
+                   WHERE '.$sql.' ORDER BY lite_post.date DESC LIMIT 28';
+
         return $this->driver->row($insert,$params);
     }
 

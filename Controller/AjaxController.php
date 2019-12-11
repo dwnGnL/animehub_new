@@ -95,6 +95,7 @@ class AjaxController extends DisplayController
                 }
                 $result[0]['count'] = count($result);
                 echo json_encode($result);
+                exit();
             }
         }
         return false;

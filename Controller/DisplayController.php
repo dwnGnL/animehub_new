@@ -9,6 +9,20 @@ defined('_Sdef') or  exit();
 abstract  class DisplayController extends Controller
 {
 
+    protected function getSlider(){
+        $slider = $this->model->getSlider();
+        return $this->app->view()->fetch('slider.tpl.php',[
+            'slider' => $slider,
+            'uri' => $this->uri,
+            'helper' => Helper::getInstance(),
+        ]);
+    }
+
+    protected function getSearch(){
+       return $this->app->view()->fetch('search.tpl.php') ;
+    }
+
+
     protected function getMenu()
     {
         $years = $this->model->getGodWip();
@@ -47,8 +61,10 @@ abstract  class DisplayController extends Controller
     protected function display()
     {
 
+
         $menu = $this->getMenu();
         $sidebar = $this->getSidebar();
+
 
         $this->app->render('index.tpl.php',[
             'app' => $this->app,
@@ -60,8 +76,8 @@ abstract  class DisplayController extends Controller
             'description' => $this->description,
             'main' => $this->main,
             'helper'=> Helper::getInstance(),
-        ]);
 
+        ]);
         // TODO: Implement display() method.
     }
 }
