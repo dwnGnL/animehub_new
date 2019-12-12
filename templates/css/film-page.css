@@ -189,6 +189,7 @@
 
 .series-block {
   height: 35px;
+  overflow: hidden;
 }
 
 .series-list {
@@ -711,20 +712,11 @@ td {
     grid-template-columns: 1fr 2fr;
     grid-gap: 30px;
   }
-
-  .series-block {
-    overflow: hidden;
-  }
 }
 
 @media screen and (max-width: 992px) {
   #film-content {
     padding: 10px;
     grid-column: 1/13;
-  }
-
-  .series-block {
-    overflow-x: auto;
-    overflow-y: hidden;
   }
 }

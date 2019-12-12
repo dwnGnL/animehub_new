@@ -61,7 +61,7 @@ function setPosition() {
     positions++
     sumPos += positions
   }, 100);
-}
+};
 
 toRightSeries.onmouseup = toLeftSeries.onmouseup = toRightSeries.ontouchend = toLeftSeries.ontouchend = () => {
   seriesList.style.transition = '.5s'
@@ -99,19 +99,19 @@ function hideSearch() {
 
 
 var id_post = document.location.pathname.split('/')
-    id_post = id_post[id_post.length-1].split('-')[0]
+id_post = id_post[id_post.length-1].split('-')[0]
 
 $("#like").click(()=>{
-  raiting(1,id_post)
+  raiting(1, id_post)
 })
 
 $("#dislike").click(()=>{
- raiting(0,id_post)
+  raiting(0, id_post)
 
 })
 
-function raiting(type,id){
-   $.ajax({
+function raiting(type,id) {
+  $.ajax({
     type: "post",
     url: "/ajax/voted/rating",
     data: ({"type":type,"id_post":id,"token":$("#token").text()}),
@@ -121,24 +121,24 @@ function raiting(type,id){
       switch (response.status) {
         case "1":
 
-              if(type==1){
-                $("#like span").html(parseInt($("#like span").text())+1)
-              }else{
-                $("#dislike span").html(parseInt($("#dislike span").text())-1)
+        if (type==1) {
+          $("#like span").html(parseInt($("#like span").text())+1)
+        } else {
+          $("#dislike span").html(parseInt($("#dislike span").text())-1)
 
-              }
+        }
 
-          break;
+        break;
         case "0":
-          alert("вы уже голосовали")
-          break;
+        alert("вы уже голосовали")
+        break;
         case "403":
-          alert("авторизуйтесь")
-          break;
+        alert("авторизуйтесь")
+        break;
         default:
-          alert("что то пошло не так")
-          break;
+        alert("что то пошло не так")
+        break;
       }
     }
   })
- }
+}

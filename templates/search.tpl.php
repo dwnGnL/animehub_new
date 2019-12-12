@@ -10,6 +10,7 @@
 
     <div class="loader"></div>
 
+    <div class="back-search">←</div>
     <div class="show-all-search">Показать все</div>
     <div class="ajax-search"></div>
 
