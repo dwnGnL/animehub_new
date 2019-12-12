@@ -83,6 +83,10 @@ $app->group('/ajax', function () use ($app){
 
 });
 
+$app->get('/registration', function (){
+    $o = \Controller\Controller::getInstance('regist'); //RegistController
+    $o->formView();
+});
 $app->get('/search', function () use ($app) {
     $o = \Controller\Controller::getInstance('page'); //PageController
     $o->search($app->request->get('do'));

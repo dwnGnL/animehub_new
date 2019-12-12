@@ -50,6 +50,7 @@ class PageController extends DisplayController
         if (empty($post)){
             $this->app->notFound();
         }
+        $this->model->updateView($post['id_post']);
         $cat = $this->model->getCatPost($post['id_post']);
         $similar = $this->model->getSimilarPosts($cat[1]['id'],$param['alias'],$matches[0]);
         $rating = [

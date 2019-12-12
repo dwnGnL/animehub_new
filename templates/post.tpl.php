@@ -208,11 +208,11 @@
                             <?=$helper::getWatch($val['date'])?>
                         </div>
                     </div>
-                    <input type="text" value="<?=$helper::generateToken()?>" hidden>
                     <div class="video-comment-text">
                     <?=$val['body']?>
                     </div>
                 </div>
+
             </div>
             <?php endforeach; ?>
         </div>
