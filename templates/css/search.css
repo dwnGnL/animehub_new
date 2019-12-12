@@ -259,11 +259,9 @@ form.search-block {
     width: 0px;
     overflow: hidden;
     background: #000;
-    color: #fff;
-    font-size: 25px;
     display: flex;
     justify-content: center;
-    padding-top: 5px;
+    align-items: center;
     box-sizing: border-box;
     opacity: 0;
     z-index: 0;
@@ -279,6 +277,11 @@ form.search-block {
   .back-search:active {
     transition: opacity .3s 0s !important;
     opacity: .2 !important;
+  }
+
+  .back-search img {
+    width: 25px;
+    height: 25px;
   }
 
   form.search-block .show-all-search {

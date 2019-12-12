@@ -10,7 +10,9 @@
 
     <div class="loader"></div>
 
-    <div class="back-search">←</div>
+    <div class="back-search">
+      <img src="<?=$uri?>/templates/images/back-arrow.png" alt="">
+    </div>
     <div class="show-all-search">Показать все</div>
     <div class="ajax-search"></div>
 
