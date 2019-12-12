@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="<?=$uri?>/templates/css/film-list.css?<?=filemtime('templates/css/film-list.css')?>">
   <script src="<?=$uri?>/templates/js/jquery-3.3.1.min.js?<?=filemtime('templates/js/jquery-3.3.1.min.js')?>"></script>
 </head>
-<body>
+<body data-domen="<?=$uri?>">
   <!-- Backgrounds -->
   <div class="background background-menu"></div>
   <div class="background background-sign-in"></div>

@@ -2,23 +2,17 @@ let searchForm = document.querySelector('.search-block');
 let search = document.querySelector('.search');
 
 search.onfocus = () => {
-  searchForm.classList.add('search-focus')
-  
-  if (document.body.clientWidth < 767) {
-    document.body.style.overflow = 'hidden';
-  };
-
-  setTimeout(function () {
-    searchForm.classList.add('full-height')
-  }, 300);
+  searchForm.classList.add('search-focus');
+  if (document.body.clientWidth < 767) document.body.style.overflow = 'hidden';
+  setTimeout(() => searchForm.classList.add('full-height'), 300);
 };
 
 search.onblur = () => {
-  setTimeout(function () {
+  setTimeout(() => {
     if (search.value == '') {
-      searchForm.classList.remove('full-height')
+      searchForm.classList.remove('full-height');
       setTimeout(function () {
-        searchForm.classList.remove('search-focus')
+        searchForm.classList.remove('search-focus');
         document.body.style.overflow = 'auto';
       }, 1000);
     };
@@ -28,7 +22,8 @@ search.onblur = () => {
 searchPosition();
 
 function searchPosition() {
-  if (window.location.href == 'http://animehub/') {
+  console.log(document.body.dataset.domen);
+  if (window.location.href == document.body.dataset.domen) {
     if (document.body.clientWidth > 580  && document.body.clientWidth < 767) {
       searchForm.style.top = '42vw';
     };
@@ -44,9 +39,7 @@ function searchPosition() {
 };
 
 
-
 $(".search-block .search").on("input",(e)=>{
-
   var text=$(".search-block .search").val()
   if (text.length>2) {
     $(".search-block .loader").css("display","block")
