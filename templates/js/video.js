@@ -34,20 +34,18 @@ seriesItem.forEach(function (elem, index) {
 
 seriesList.style.width = `${seriesListWidth + 10}px`;
 
-
 let sumSize = 0;
 let maxTrans = -(seriesListWidth + 10) + seriesBlock.offsetWidth;
 let mousePressing, mouseUnPressing, posInt, positions, sumPos;
 
-
-toRightSeries.onmousedown = () => {
+toRightSeries.onmousedown = toRightSeries.ontouchstart = () => {
   mouseUnPressing = setTimeout(() => {
     setPosition();
     mousePressing = setInterval (() => scrollingSeries(-sumPos), 100);
   }, 50)
 };
 
-toLeftSeries.onmousedown = () => {
+toLeftSeries.onmousedown = toLeftSeries.ontouchstart = () => {
   mouseUnPressing = setTimeout(() => {
     setPosition();
     mousePressing = setInterval (() => scrollingSeries(sumPos), 100);
@@ -65,7 +63,7 @@ function setPosition() {
   }, 100);
 }
 
-toRightSeries.onmouseup = toLeftSeries.onmouseup = () => {
+toRightSeries.onmouseup = toLeftSeries.onmouseup = toRightSeries.ontouchend = toLeftSeries.ontouchend = () => {
   seriesList.style.transition = '.5s'
   clearTimeout (mouseUnPressing);
   clearInterval (mousePressing);
@@ -99,9 +97,6 @@ function hideSearch() {
   }, 500);
 };
 
-seriesBlock.onmousewheel = seriesBlock.onwheel = seriesBlock.onMozMousePixelScroll = event => {
-  seriesBlock.scrollBy(event.deltaX, 0)
-}
 
 var id_post = document.location.pathname.split('/')
     id_post = id_post[id_post.length-1].split('-')[0]
