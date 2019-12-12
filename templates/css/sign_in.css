@@ -27,7 +27,7 @@ body.sign-in-opacity .background {
   width: 300px;
   background: #fff;
   box-shadow: 0 0 0 10px rgba(0, 0, 0, .3);
-  z-index: 3;
+  z-index: 4;
   transition: .5s;
   opacity: 0;
 }
