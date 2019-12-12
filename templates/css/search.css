@@ -3,7 +3,7 @@ form.search-block {
   background: #fff;
   margin-top: 30px;
   top: 0;
-  transition: top .3s, height 1s;
+  transition: top .3s, height .3s;
 }
 
 .search-block input {

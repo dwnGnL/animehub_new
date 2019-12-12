@@ -14,9 +14,9 @@ search.onblur = () => {
       setTimeout(() => {
         searchForm.classList.remove('search-focus');
         document.body.style.overflow = 'auto';
-      }, 1000);
+      }, 300);
     };
-  }, 500);
+  }, 300);
 };
 
 searchPosition();
