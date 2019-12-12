@@ -31,7 +31,7 @@ function openSignIn() {
 
 function closeSignIn() {
   document.body.classList.remove('sign-in-opacity');
-  setTimeout(() => document.body.classList.remove('sign-in-opacity'), 500);
+  setTimeout(() => document.body.classList.remove('sign-in'), 500);
 };
 
 
