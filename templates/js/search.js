@@ -21,9 +21,24 @@ search.onblur = () => {
   }, 500);
 };
 
-if (window.location.href == 'http://animehub/') {
-  searchForm.style.top = '180px';
+searchPosition();
+
+function searchPosition() {
+  if (window.location.href == 'http://animehub/') {
+    if (document.body.clientWidth > 580  && document.body.clientWidth < 767) {
+      searchForm.style.top = '42vw';
+    };
+
+    if (document.body.clientWidth < 580  && document.body.clientWidth > 431) {
+      searchForm.style.top = '45vw';
+    };
+
+    if (document.body.clientWidth < 430) {
+      searchForm.style.top = '48vw';
+    };
+  };
 };
+
 
 
 $(".search-block .search").on("input",(e)=>{

@@ -30,7 +30,7 @@
 }
 
 .slide img {
-  height: 100%;
+  width: 74%;
 }
 
 .arrow-item {
@@ -113,3 +113,15 @@
     width: 100vw;
   }
 }
+
+/* @media screen and (min-width: 900px) {
+  .slide img {
+    width: 74%;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .slide img {
+    width: 75%;
+  }
+} */

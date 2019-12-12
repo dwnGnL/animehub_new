@@ -9,7 +9,11 @@ let prevpos = 0;
 let pos = 0;
 
 res()
-window.onresize = res;
+
+window.onresize = () => {
+  res()
+  searchPosition()
+};
 
 function res() {
   sliderWidth = document.querySelector('#wrapper').clientWidth;

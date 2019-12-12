@@ -201,10 +201,10 @@ form.search-block {
 }
 
 @media screen and (min-width: 767px) {
-  /* .search-block input {
-    width: 100%;
-    font-size: 17px;
-  } */
+  form.search-block {
+    top: 0 !important;
+  }
+
   .show-all-search {
     display: none;
   }
@@ -218,7 +218,6 @@ form.search-block {
   form.search-block {
     position: absolute;
     top: 90px;
-    /* top: 180px; */
     padding-top: 20px;
     width: 100vw;
     margin-left: -10px;
@@ -236,7 +235,7 @@ form.search-block {
 
   .search-block input {
     padding-left: 10px;
-    width: 95%;
+    width: 97.5%;
     left: 50%;
     transform: translateX(-50%);
   }
@@ -277,13 +276,3 @@ form.search-block {
     text-decoration: underline;
   }
 }
-
-
-
-
-
-
-/* width: 100vw;
-left: -10px;
-margin: 0;
-padding: 0; */
