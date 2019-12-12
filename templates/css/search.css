@@ -27,7 +27,6 @@ form.search-block {
   color: #7F7F7F;
 }
 
-/* ----------- */
 .search-focus .placeholder {
   font-size: 13px;
   top: -15px;
@@ -37,12 +36,9 @@ form.search-block {
 .search-focus input {
   border-bottom: 1px solid #D81C27 !important;
 }
-/* ----------- */
-
 
 .ajax-search {
   position: absolute;
-  /* top: 100%; */
   background: inherit;
   width: 100%;
   box-sizing: border-box;
@@ -96,17 +92,19 @@ form.search-block {
 .cross {
   display: none;
   position: absolute;
-  right: 0;
-  top: 2px;
-  width: 40px;
-  height: 40px;
+  right: 10px;
+  top: 0px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  z-index: 1;
 }
 
 .cross-line {
   position: absolute;
   top: calc(50% - 2.5px);
-  width: 30px;
-  height: 5px;
+  width: 25px;
+  height: 3px;
   border-radius: 2px;
   background: #7F7F7F;
 }
@@ -122,13 +120,13 @@ form.search-block {
 .loader {
   display: none;
   color: #7F7F7F;
-  font-size: 5px;
-  width: 5px;
-  height: 5px;
+  font-size: 3px;
+  width: 3px;
+  height: 3px;
   border-radius: 50%;
   position: absolute;
-  right: 22px;
-  top: 20px;
+  right: 17px;
+  top: 8px;
   -webkit-animation: load4 1.3s infinite linear;
   animation: load4 1.3s infinite linear;
   -webkit-transform: translateZ(0);
@@ -274,5 +272,21 @@ form.search-block {
   .show-all-search:hover {
     color: #D81C27 !important;
     text-decoration: underline;
+  }
+
+
+  .cross {
+    top: 23px;
+    width: 17px;
+    height: 17px;
+  }
+
+  .cross-line {
+    width: 20px;
+    height: 2px;
+  }
+
+  .loader {
+    top: 28px;
   }
 }
