@@ -57,10 +57,7 @@ toLeftSeries.onmousedown = () => {
 function setPosition() {
   positions = 0;
   sumPos = 0;
-
-  setTimeout(() => {
-    seriesList.style.transition = '.2s'
-  }, 1500);
+  setTimeout(() => seriesList.style.transition = '.2s', 1500);
 
   posInt = setInterval(() => {
     positions++
@@ -77,15 +74,8 @@ toRightSeries.onmouseup = toLeftSeries.onmouseup = () => {
 
 function scrollingSeries(size) {
   sumSize += size;
-
-  if (sumSize <= maxTrans) {
-    sumSize = maxTrans;
-  }
-
-  if (sumSize > 0) {
-    sumSize = 0
-  }
-
+  if (sumSize <= maxTrans) sumSize = maxTrans;
+  if (sumSize > 0) sumSize = 0
   seriesList.style.transform = `translateX(${sumSize}px)`;
 };
 
@@ -95,7 +85,7 @@ function showHideSearch() {
 
 function showSearch() {
   topVideoBlock.classList.add('show-search-series');
-  setTimeout(function () {
+  setTimeout(() => {
     topVideoBlock.classList.add('show-opacity-search-series');
     openSearch = false;
   }, 0);
@@ -103,7 +93,7 @@ function showSearch() {
 
 function hideSearch() {
   topVideoBlock.classList.remove('show-opacity-search-series');
-  setTimeout(function () {
+  setTimeout(() => {
     topVideoBlock.classList.remove('show-search-series');
     openSearch = true;
   }, 500);
@@ -112,8 +102,9 @@ function hideSearch() {
 seriesBlock.onmousewheel = seriesBlock.onwheel = seriesBlock.onMozMousePixelScroll = event => {
   seriesBlock.scrollBy(event.deltaX, 0)
 }
-var id_post=document.location.pathname.split('/')
-    id_post=id_post[id_post.length-1].split('-')[0]
+
+var id_post = document.location.pathname.split('/')
+    id_post = id_post[id_post.length-1].split('-')[0]
 
 $("#like").click(()=>{
   raiting(1,id_post)
@@ -124,7 +115,7 @@ $("#dislike").click(()=>{
 
 })
 
-function raiting(type,id){ 
+function raiting(type,id){
    $.ajax({
     type: "post",
     url: "/ajax/voted/rating",
@@ -134,14 +125,14 @@ function raiting(type,id){
       response=JSON.parse(response)
       switch (response.status) {
         case "1":
-          
+
               if(type==1){
                 $("#like span").html(parseInt($("#like span").text())+1)
               }else{
                 $("#dislike span").html(parseInt($("#dislike span").text())-1)
 
               }
-            
+
           break;
         case "0":
           alert("вы уже голосовали")

@@ -4,15 +4,15 @@ let exitProfile = document.querySelector('.exit-profile');
 let signIn = document.querySelector('#sign-in-button');
 let exitSignIn = document.querySelector('.exit-sign-in');
 
-if (profile){
+if (profile) {
   profile.addEventListener('click', openProfile);
   exitProfile.addEventListener('click', closeProfile);
-}
+};
 
-if (signIn){
+if (signIn) {
   signIn.addEventListener('click', openSignIn);
   exitSignIn.addEventListener('click', closeSignIn);
-}
+};
 
 function openProfile() {
   document.body.classList.add('open-profile');

@@ -25,11 +25,11 @@ window.addEventListener('click', () => {
 
 function openCooseAvatar() {
   chooseAvatar.classList.add('open-choose-avatar');
-  setTimeout(function () {chooseAvatar.classList.add('opacity-choose-avatar')}, 10);
+  setTimeout(() => {chooseAvatar.classList.add('opacity-choose-avatar')}, 10);
 };
 
 function closeCooseAvatar() {
-  setTimeout(function () {chooseAvatar.classList.remove('open-choose-avatar')}, 500);
+  setTimeout(() => {chooseAvatar.classList.remove('open-choose-avatar')}, 500);
   chooseAvatar.classList.remove('opacity-choose-avatar');
 };
 
@@ -44,10 +44,10 @@ vipSettingButton.addEventListener('click', () => togglePage('show-vip-setting', 
 function togglePage(presentPage, previousPage, presentOpacity, previousOpacity) {
   rightProfile.classList.remove(previousOpacity);
 
-  setTimeout(function () {
+  setTimeout(() => {
     rightProfile.classList.add(presentPage);
     rightProfile.classList.remove(previousPage);
-    setTimeout(function () {rightProfile.classList.add(presentOpacity)}, 10);
+    setTimeout(() => {rightProfile.classList.add(presentOpacity)}, 10);
   }, 300);
 };
 
@@ -107,7 +107,7 @@ saveVip.addEventListener('click', saveingVip);
 
 function saveingVip() {
   fontFamilyUserName.style.fontFamily = fontFamilyType.value;
-}
+};
 
 
 $('#colorSelector').ColorPicker({
@@ -136,7 +136,7 @@ $("#save_profile").click(function () {
     success: function (response) {
         res= JSON.parse(response);
         if (res.status == 403){
-          
+
           alert('что то не так');
             return false;
         }
