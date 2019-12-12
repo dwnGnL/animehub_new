@@ -10,8 +10,6 @@
 
     <div class="loader"></div>
 
-    <!-- <input type="button" value="Подобрать"> -->
-
     <div class="show-all-search">Показать все</div>
     <div class="ajax-search"></div>
 

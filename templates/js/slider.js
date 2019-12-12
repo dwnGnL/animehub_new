@@ -1,4 +1,5 @@
 let sliderWidth;
+let slider = document.querySelector('#slider')
 let slides = document.querySelectorAll(".slide");
 let backgroundSlider = document.querySelector('.background-slider');
 let swrap	= document.querySelector(".slide-wrapper");
@@ -20,6 +21,35 @@ function res() {
 }
 
 setInterval(nextSlide, 4000);
+
+
+// --------------
+// let slides = document.querySelector('#slider');
+let startContactSlider, endContactSlider;
+
+
+slider.addEventListener('touchstart', function(event) {
+  startContactSlider = event.targetTouches[0].pageX;
+  // console.log('Start: ' + startContactSlider);
+});
+
+slider.addEventListener('touchmove', function(event) {
+  endContactSlider = event.targetTouches[0].pageX;
+  // console.log('End: ' + endContactSlider);
+});
+
+slider.addEventListener('touchstart', function() {
+  setTimeout(function() {
+    if (startContactSlider > (endContactSlider + 50)) nextSlide();
+    if ((startContactSlider + 50) < endContactSlider) prevSlide();
+  }, 300);
+});
+// --------------
+
+
+
+
+
 
 narr.addEventListener('click', nextSlide);
 parr.addEventListener('click', prevSlide);

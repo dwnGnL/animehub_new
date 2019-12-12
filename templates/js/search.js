@@ -11,7 +11,7 @@ search.onblur = () => {
   setTimeout(() => {
     if (search.value == '') {
       searchForm.classList.remove('full-height');
-      setTimeout(function () {
+      setTimeout(() => {
         searchForm.classList.remove('search-focus');
         document.body.style.overflow = 'auto';
       }, 1000);
@@ -22,22 +22,12 @@ search.onblur = () => {
 searchPosition();
 
 function searchPosition() {
-  console.log(document.body.dataset.domen);
   if (window.location.href == document.body.dataset.domen) {
-    if (document.body.clientWidth > 580  && document.body.clientWidth < 767) {
-      searchForm.style.top = '42vw';
-    };
-
-    if (document.body.clientWidth < 580  && document.body.clientWidth > 431) {
-      searchForm.style.top = '45vw';
-    };
-
-    if (document.body.clientWidth < 430) {
-      searchForm.style.top = '48vw';
-    };
+    if (document.body.clientWidth > 580  && document.body.clientWidth < 767) searchForm.style.top = '42vw';
+    if (document.body.clientWidth < 580  && document.body.clientWidth > 431) searchForm.style.top = '45vw';
+    if (document.body.clientWidth < 430) searchForm.style.top = '48vw';
   };
 };
-
 
 $(".search-block .search").on("input",(e)=>{
   var text=$(".search-block .search").val()
