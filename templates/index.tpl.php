@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="<?=$uri?>/templates/css/sidebar.css?<?=filemtime('templates/css/sidebar.css')?>">
   <link rel="stylesheet" href="<?=$uri?>/templates/css/main-page.css?<?=filemtime('templates/css/main-page.css')?>">
   <link rel="stylesheet" href="<?=$uri?>/templates/css/film-list.css?<?=filemtime('templates/css/film-list.css')?>">
+  <link rel="shortcut icon" href="<?=$uri?>/templates/images/favoicon.png" type="image/png">
   <script src="<?=$uri?>/templates/js/jquery-3.3.1.min.js?<?=filemtime('templates/js/jquery-3.3.1.min.js')?>"></script>
 </head>
 <body data-domen="<?=$uri?>">
