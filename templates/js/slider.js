@@ -1,4 +1,4 @@
-let sliderWidth;
+let sliderWidth, startContactSlider, endContactSlider;
 let slider = document.querySelector('#slider')
 let slides = document.querySelectorAll(".slide");
 let backgroundSlider = document.querySelector('.background-slider');
@@ -9,47 +9,28 @@ let isSwitching = true;
 let prevpos = 0;
 let pos = 0;
 
-res()
+res();
 
 window.onresize = () => {
-  res()
-  searchPosition()
+  res();
+  searchPosition();
 };
 
 function res() {
   sliderWidth = document.querySelector('#wrapper').clientWidth;
-}
+};
 
 setInterval(nextSlide, 4000);
 
+slider.addEventListener('touchstart', event => startContactSlider = event.targetTouches[0].pageX);
+slider.addEventListener('touchmove', event => endContactSlider = event.targetTouches[0].pageX);
 
-// --------------
-// let slides = document.querySelector('#slider');
-let startContactSlider, endContactSlider;
-
-
-slider.addEventListener('touchstart', function(event) {
-  startContactSlider = event.targetTouches[0].pageX;
-  // console.log('Start: ' + startContactSlider);
-});
-
-slider.addEventListener('touchmove', function(event) {
-  endContactSlider = event.targetTouches[0].pageX;
-  // console.log('End: ' + endContactSlider);
-});
-
-slider.addEventListener('touchstart', function() {
-  setTimeout(function() {
+slider.addEventListener('touchstart', () => {
+  setTimeout(() => {
     if (startContactSlider > (endContactSlider + 50)) nextSlide();
     if ((startContactSlider + 50) < endContactSlider) prevSlide();
   }, 300);
 });
-// --------------
-
-
-
-
-
 
 narr.addEventListener('click', nextSlide);
 parr.addEventListener('click', prevSlide);
@@ -65,7 +46,7 @@ function nextSlide() {
 
 function prevSlide() {
   if (isSwitching) {
-    isSwitching = false
+    isSwitching = false;
     prevpos = pos;
     pos > 0 ? pos-- : pos = slides.length - 1;
     showSlide();
@@ -75,7 +56,7 @@ function prevSlide() {
 function showSlide() {
   backgroundSlider.style.transform = "translateX(-" + (pos * sliderWidth) / 3 + "px)";
   swrap.style.transform = "translateX(-" + pos * sliderWidth + "px)";
-  setTimeout(function () {
+  setTimeout(() => {
     isSwitching = true;
   }, 2000);
 };
