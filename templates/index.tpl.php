@@ -53,7 +53,7 @@
         </form>
         <div class="bottom">
           <div class="forget-password">Забыли пароль?</div>
-          <div class="registration"><a href="index.php?regist">Регистрация</a></div>
+          <div class="registration"><a href="/registration">Регистрация</a></div>
         </div>
       </div>
     </div>

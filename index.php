@@ -87,6 +87,11 @@ $app->get('/registration', function (){
     $o = \Controller\Controller::getInstance('regist'); //RegistController
     $o->formView();
 });
+
+$app->post('/registration', function (){
+    $o = \Controller\Controller::getInstance('regist'); //RegistController
+    $o->registration();
+});
 $app->get('/search', function () use ($app) {
     $o = \Controller\Controller::getInstance('page'); //PageController
     $o->search($app->request->get('do'));

@@ -507,4 +507,29 @@ class Model
 
     }
 
+    public function getCountUsersLoginOrEmail($login, $email){
+        $sql = 'SELECT COUNT(*) FROM lite_users WHERE login = :login OR email = :email';
+        $params = [
+            'login' =>$login,
+            'email' =>$email
+        ];
+
+        return $this->driver->column($sql,$params);
+    }
+
+    public function addNewUser($login,$email,$password,$date,$ip,$uri){
+        $img = $uri.'templates/images/avatar/2.png';
+        $query = "INSERT INTO lite_users(login, email, password, date, ip,img) VALUES(:login,:email,MD5(:password),:date,:ip,:img)";
+        $params = [
+            'login' =>$login,
+            'email'=>$email,
+            'password' =>$password,
+            'date' =>$date,
+            'ip' =>$ip,
+            'img' =>$img
+        ];
+
+        $this->driver->query($query,$params);
+    }
+
 }
