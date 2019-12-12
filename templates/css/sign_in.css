@@ -83,27 +83,13 @@ body.sign-in-opacity .background {
 }
 
 #sign-in input[type='text'], #sign-in input[type='password'] {
-  /* padding: 0px 20px;
-  background: #E8F0FE;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2) inset;
-  border-radius: 5px; */
+  position: relative;
   border-bottom: 1px solid #6882A1;
   height: 25px;
-  /* color: #6882A1; */
-  /* transition: .5s; */
-}
-
-#sign-in input[type='text']:focus::placeholder, #sign-in input[type='password']:focus::placeholder {
-  color: #D81C27;
-  /* transition: .5s; */
-}
-
-#sign-in input[type='text']:focus, #sign-in input[type='password']:focus {
-  /* padding: 0px 20px;
-  background: #E8F0FE;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2) inset;
-  border-radius: 5px; */
-  border-bottom: 1px solid #D81C27;
+  transition: .3s;
+  color: #7F7F7F;
+  background: rgba(255, 255, 255, 0);
+  z-index: 1;
 }
 
 #sign-in input[type=button] {
@@ -156,3 +142,33 @@ body.sign-in-opacity .background {
   color: inherit;
   text-decoration: inherit;
 }
+
+/* ------------- */
+.sign-in-input {
+  position: relative;
+}
+
+.sign-in-placeholder {
+  position: absolute;
+  top: 13px;
+  color: #7F7F7F;
+  transition: .3s;
+}
+
+.sign-in-input-focus input {
+  border-bottom: 1px solid #D81C27 !important;
+}
+
+.sign-in-input-focus .sign-in-placeholder {
+  top: -5px;
+  font-size: 13px;
+  color: #D81C27;
+}
+
+/* #sign-in input[type='text']:focus::placeholder, #sign-in input[type='password']:focus::placeholder {
+  color: #D81C27;
+} */
+
+/* #sign-in input[type='text']:focus, #sign-in input[type='password']:focus {
+  border-bottom: 1px solid #D81C27;
+} */

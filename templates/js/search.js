@@ -8,8 +8,6 @@ search.onblur = () => {
 };
 
 
-
-
 $(".search-block .search").on("input",(e)=>{
 
   var text=$(".search-block .search").val()

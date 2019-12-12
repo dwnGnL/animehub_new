@@ -14,7 +14,6 @@ if (signIn){
   exitSignIn.addEventListener('click', closeSignIn);
 }
 
-
 function openProfile() {
   document.body.classList.add('open-profile');
   setTimeout(function () {
@@ -42,3 +41,20 @@ function closeSignIn() {
     document.body.classList.remove('sign-in');
   }, 500);
 };
+
+
+
+let signInInput = document.querySelectorAll('.sign-in-input');
+let mainInput = document.querySelectorAll('.sign-in-input-item');
+
+mainInput.forEach((elem, index) => {
+  elem.onfocus = () => {
+    signInInput[index].classList.add('sign-in-input-focus')
+  };
+
+  elem.onblur = () => {
+    if (elem.value == '') {
+      signInInput[index].classList.remove('sign-in-input-focus')
+    }
+  };
+})
