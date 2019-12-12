@@ -376,19 +376,6 @@
     grid-gap: 25px;
   }
 
-  .search-block input[type='text'] {
-    margin: 5px;
-    padding-left: 10px;
-    height: 25px;
-    font-size: 10px;
-  }
-
-  .search-block input[type='button'] {
-    height: 35px;
-    padding: 0px 10px;
-    font-size: 15px;
-  }
-
   .films .background-film-item {
     height: 70vw;
   }

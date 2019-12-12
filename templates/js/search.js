@@ -1,10 +1,28 @@
 let searchForm = document.querySelector('.search-block');
-// let searchPlaceholder = document.querySelector('.placeholder');
 let search = document.querySelector('.search');
 
-search.onfocus = () => searchForm.classList.add('search-focus');
+search.onfocus = () => {
+  searchForm.classList.add('search-focus')
+  document.body.style.overflow = 'hidden';
+  setTimeout(function () {
+    searchForm.classList.add('full-height')
+  }, 300);
+};
+
 search.onblur = () => {
-  if (search.value == '') searchForm.classList.remove('search-focus')
+  setTimeout(function () {
+    if (search.value == '') {
+      searchForm.classList.remove('full-height')
+      setTimeout(function () {
+        searchForm.classList.remove('search-focus')
+        document.body.style.overflow = 'auto';
+      }, 1000);
+    };
+  }, 500);
+};
+
+if (window.location.href == 'http://animehub/') {
+  searchForm.style.top = '180px';
 };
 
 

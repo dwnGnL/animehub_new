@@ -143,7 +143,6 @@ body.sign-in-opacity .background {
   text-decoration: inherit;
 }
 
-/* ------------- */
 .sign-in-input {
   position: relative;
 }
@@ -164,11 +163,3 @@ body.sign-in-opacity .background {
   font-size: 13px;
   color: #D81C27;
 }
-
-/* #sign-in input[type='text']:focus::placeholder, #sign-in input[type='password']:focus::placeholder {
-  color: #D81C27;
-} */
-
-/* #sign-in input[type='text']:focus, #sign-in input[type='password']:focus {
-  border-bottom: 1px solid #D81C27;
-} */

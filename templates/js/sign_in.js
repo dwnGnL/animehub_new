@@ -43,7 +43,6 @@ function closeSignIn() {
 };
 
 
-
 let signInInput = document.querySelectorAll('.sign-in-input');
 let mainInput = document.querySelectorAll('.sign-in-input-item');
 

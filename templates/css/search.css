@@ -1,8 +1,10 @@
 form.search-block {
   position: relative;
   background: #fff;
+  margin-top: 30px;
+  top: 0;
+  transition: top .3s, height 1s;
 }
-
 
 .search-block input {
   position: relative;
@@ -10,23 +12,22 @@ form.search-block {
   border: none;
   border-bottom: 1px solid #7F7F7F;
   box-sizing: border-box;
-  height: 45px;
-  width: 100%;
-  font-size: 17px;
   transition: .3s;
   background: rgba(255,255,255, 0);
   color: #7F7F7F;
+  width: 100%;
+  font-size: 17px;
   z-index: 1;
 }
 
 .placeholder {
   position: absolute;
-  top: 13px;
+  top: 2px;
   transition: .3s;
   color: #7F7F7F;
-  /* z-index: 1; */
 }
 
+/* ----------- */
 .search-focus .placeholder {
   font-size: 13px;
   top: -15px;
@@ -36,12 +37,12 @@ form.search-block {
 .search-focus input {
   border-bottom: 1px solid #D81C27 !important;
 }
-
-
 /* ----------- */
+
+
 .ajax-search {
   position: absolute;
-  top: 100%;
+  /* top: 100%; */
   background: inherit;
   width: 100%;
   box-sizing: border-box;
@@ -190,3 +191,99 @@ form.search-block {
     box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
   }
 }
+
+
+
+@media screen and (min-width: 1200px) {
+}
+
+@media screen and (min-width: 767px) and (max-width: 992px) {
+}
+
+@media screen and (min-width: 767px) {
+  /* .search-block input {
+    width: 100%;
+    font-size: 17px;
+  } */
+  .show-all-search {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .all-anime-list-block {
+    margin-top: 80px;
+  }
+
+  form.search-block {
+    position: absolute;
+    top: 90px;
+    /* top: 180px; */
+    padding-top: 20px;
+    width: 100vw;
+    margin-left: -10px;
+    z-index: 3;
+    height: 30px;
+  }
+
+  form.search-focus {
+    top: -30px !important;
+  }
+
+  form.full-height {
+    height: 100vh;
+  }
+
+  .search-block input {
+    padding-left: 10px;
+    width: 95%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .search-focus input {
+    width: 100%;
+  }
+
+  .placeholder {
+    top: 22px;
+    left: 10px;
+  }
+
+  .search-focus .placeholder {
+    top: 5px;
+  }
+
+  form.search-block .show-all-search {
+    display: none;
+    opacity: 0;
+    transition: opacity .3s;
+    cursor: pointer;
+    text-align: center;
+    padding: 5px 0;
+    color: #7F7F7F;
+  }
+
+  form.search-focus .show-all-search {
+    display: block;
+  }
+
+  form.full-height .show-all-search {
+    opacity: 1;
+  }
+
+  .show-all-search:hover {
+    color: #D81C27 !important;
+    text-decoration: underline;
+  }
+}
+
+
+
+
+
+
+/* width: 100vw;
+left: -10px;
+margin: 0;
+padding: 0; */

@@ -3,6 +3,7 @@
   box-sizing: border-box;
   overflow: hidden;
   grid-column: 1/13;
+  margin-bottom: 30px;
 }
 
 .background-slider {
