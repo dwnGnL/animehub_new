@@ -1,4 +1,3 @@
-
 form.search-block {
     position: relative;
     display: flex;
@@ -6,7 +5,7 @@ form.search-block {
     align-items: center;
     background: #F8F8F8;
   }
-  
+
   /* ----------------------- */
   .cross {
     display: none;
@@ -15,7 +14,7 @@ form.search-block {
     width: 40px;
     height: 40px;
   }
-  
+
   .cross-line {
     position: absolute;
     top: calc(50% - 2.5px);
@@ -24,15 +23,15 @@ form.search-block {
     border-radius: 2px;
     background: #898989;
   }
-  
+
   .cross-line:nth-child(1) {
     transform: rotate(45deg);
   }
-  
+
   .cross-line:nth-child(2) {
     transform: rotate(-45deg);
   }
-  
+
   .loader {
     display: none;
     color: #898989;
@@ -48,7 +47,7 @@ form.search-block {
     -ms-transform: translateZ(0);
     transform: translateZ(0);
   }
-  
+
   @-webkit-keyframes load4 {
     0%,
     100% {
@@ -103,11 +102,11 @@ form.search-block {
       box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
     }
   }
-  
-  
+
+
   /* ----------------- */
-  
-  
+
+
   .ajax-search {
     position: absolute;
     top: 100%;
@@ -115,27 +114,40 @@ form.search-block {
     width: 100%;
     box-sizing: border-box;
     z-index: 2;
-    display: none;
+    /* display: none; */
     grid-gap: 10px;
-  
+
   }
-  
+
   .ajax-block {
     padding: 5px 0;
     /* margin: 0 15px; */
     margin-left: 25px;
     margin-right: 15px;
     height: 70px;
-    display: block;
+    /* display: block; */
+    display: flex;
     align-items: center;
     border-top: 1px solid #DADADA;
   }
-  
+
   .ajax-block:nth-child(1) {
     border: none;
-    padding: 0;
+    /* padding: 5; */
   }
-  
+
+  .ajax-block a {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    color: inherit;
+    text-decoration: inherit;
+  }
+
+  .ajax-block a:hover {
+    color: #D81C27;
+  }
+
   .search-img {
     width: 70px;
     height: 70px;
@@ -144,22 +156,22 @@ form.search-block {
     justify-content: center;
     align-items: center;
   }
-  
+
   .search-img img {
     width: 100%;
   }
-  
+
   .search-name {
     width: calc(100% - 70px);
   }
   /* ----------------------- */
-  
+
   .search-block input {
     outline: none;
     border: none;
     box-sizing: border-box;
   }
-  
+
   .search-block input[type='text'] {
     margin: 15px;
     padding-left: 20px;
@@ -167,7 +179,7 @@ form.search-block {
     width: 100%;
     font-size: 17px;
   }
-  
+
   .search-block input[type='button'] {
     height: 75px;
     padding: 0px 30px;
@@ -177,7 +189,7 @@ form.search-block {
     background: #6882A1;
     cursor: pointer;
   }
-  
+
   .search-block input[type='button']:hover {
     background: #889CB5;
   }
