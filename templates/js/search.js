@@ -1,3 +1,15 @@
+let searchForm = document.querySelector('.search-block');
+// let searchPlaceholder = document.querySelector('.placeholder');
+let search = document.querySelector('.search');
+
+search.onfocus = () => searchForm.classList.add('search-focus');
+search.onblur = () => {
+  if (search.value == '') searchForm.classList.remove('search-focus')
+};
+
+
+
+
 $(".search-block .search").on("input",(e)=>{
 
   var text=$(".search-block .search").val()
