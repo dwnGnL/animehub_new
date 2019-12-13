@@ -43,6 +43,7 @@ $("#postSave").click(function () {
 
     console.log($('#postForm').serialize());
     $('#postTitle').val('');
+    $('#postAlias').val('');
     $('#postGodWip').val('');
     $('#postImg').val('');
     $('#postJanr').val('');

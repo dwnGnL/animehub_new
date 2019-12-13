@@ -17,21 +17,21 @@
     <?php endforeach; ?>
   </div>
 
-  <div class="top-weak">
-    <div class="sidebar-head">Топ за неделю</div>
-
-    <div class="top-weak-img">
-      <img src="<?=$uri?>/templates/images/image (2).jpg">
-    </div>
-
-    <ul class="top-weak-films">
-      <li><div class="current-number current-number-active"></div><span class="top-weak-film-name">Ван пис</span></li>
-      <li><div class="current-number"></div><span class="top-weak-film-name">Доктор Стоун</span></li>
-      <li><div class="current-number"></div><span class="top-weak-film-name">Моя героическая академия 4</span></li>
-      <li><div class="current-number"></div><span class="top-weak-film-name">Семь смертных грехов: Гнев Богов</span></li>
-      <li><div class="current-number"></div><span class="top-weak-film-name">Мастер меча</span></li>
-    </ul>
-  </div>
+<!--  <div class="top-weak">-->
+<!--    <div class="sidebar-head">Топ за неделю</div>-->
+<!---->
+<!--    <div class="top-weak-img">-->
+<!--      <img src="--><?//=$uri?><!--/templates/images/image (2).jpg">-->
+<!--    </div>-->
+<!---->
+<!--    <ul class="top-weak-films">-->
+<!--      <li><div class="current-number current-number-active"></div><span class="top-weak-film-name">Ван пис</span></li>-->
+<!--      <li><div class="current-number"></div><span class="top-weak-film-name">Доктор Стоун</span></li>-->
+<!--      <li><div class="current-number"></div><span class="top-weak-film-name">Моя героическая академия 4</span></li>-->
+<!--      <li><div class="current-number"></div><span class="top-weak-film-name">Семь смертных грехов: Гнев Богов</span></li>-->
+<!--      <li><div class="current-number"></div><span class="top-weak-film-name">Мастер меча</span></li>-->
+<!--    </ul>-->
+<!--  </div>-->
 
     <?php if (!empty($articles)): ?>
   <div class="news-sidebar">

@@ -16,6 +16,7 @@
                             <?php } ?>
                         </select>
                         <input id="postTitle" type="text" class="form-control mr-2 mt-2 zapolnen" name="postTitle" placeholder="Название" >
+                        <input id="postAlias" type="text" class="form-control mr-2 mt-2 " name="postAlias" placeholder="Альтернативное название" >
                         <input id="postTv" type="text" class=" form-control mt-2" name="postTv" placeholder="Сезон" >
                         <input id="postImg" type="text" class=" form-control mt-2" name="postImg" placeholder="Картинка" >
                         <input id="postJanr" type="text" class=" form-control mt-2" name="postJanr" placeholder="Жанр: Приключение,Фэнтези,Экшн..." >

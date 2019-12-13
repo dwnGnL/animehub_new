@@ -125,7 +125,8 @@ if (isset($_POST['id_parse'])){
             $tv = $sort->saveSortTv($_POST['postTv']);
             $god = $sort->saveSortGod($_POST['postGodWip']);
             $userId = $m->getUserId($_POST['login']);
-            $m->addPost($god['id'],$_POST['postImg'], $_POST['postTitle'], $_POST['postOpisanie'], $tv['id'],$userId['id'],$_POST['post_type']);
+            $id_post =  $m->addPost($god['id'],$_POST['postImg'], $_POST['postTitle'], $_POST['postOpisanie'], $tv['id'],$userId['id'],$_POST['post_type'],$_POST['postAlias']);
+            $m->addPostViews($id_post);
             $postId = $m->getIdPost($_POST['postTitle'], $tv['id']);
             $cat = $_POST['postJanr'];
             $cat = explode(',', $cat);

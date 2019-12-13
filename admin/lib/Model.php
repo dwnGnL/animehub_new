@@ -8,7 +8,9 @@ require_once 'BD_info.php';
         public function __construct()
         {
             try {
+
                 $this->pdo = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME, DB_USER, DB_PASSWORD);
+                $this->pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES,TRUE);
                 $this->pdo->exec("set names utf8");
             } catch (Exception $e) {
                 echo 'Ошибка при подключении бд';
@@ -253,12 +255,21 @@ require_once 'BD_info.php';
 
         }
 
-        public function addPost($id_god_wip, $image, $title, $body, $id_tv, $id_user,$id_type_post)
+        public function addPost($id_god_wip, $image, $title, $body, $id_tv, $id_user,$id_type_post, $alias)
         {
+            $this->pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES,TRUE);
             $time = time();
-            $query = 'INSERT INTO lite_post(id_god_wip, image, title, date, body, id_tv, id_user,id_type_post) VALUES(?,?,?,?,?,?,?,?)';
+            $query = 'INSERT INTO lite_post(id_god_wip, image, title, date, body, id_tv, id_user,id_type_post, alias) VALUES(?,?,?,?,?,?,?,?,?)';
             $post = $this->pdo->prepare($query);
-            return $post->execute([$id_god_wip, $image, $title, $time, $body, $id_tv, $id_user, $id_type_post]);
+            $post->execute([$id_god_wip, $image, $title, $time, $body, $id_tv, $id_user, $id_type_post,$alias]);
+            return $this->pdo->lastInsertId();
+        }
+
+
+        public function addPostViews($id_post){
+            $query = 'INSERT INTO lite_views(id_post) VALUES(?)';
+            $views = $this->pdo->prepare($query);
+            return $views->execute([$id_post]);
         }
 
         public function getUserId($login)
