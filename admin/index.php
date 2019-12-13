@@ -16,7 +16,7 @@ if ($_SESSION['status'] == 'Анимешник' || !isset($_SESSION['auth']) || 
 <!--  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">-->
 <script src="https://kit.fontawesome.com/8859a7c0a5.js"></script>
   <!-- Bootstrap core CSS -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="../templates/css/bootstrap.min.css" rel="stylesheet">
   <!-- Material Design Bootstrap -->
   <link href="css/mdb.min.css" rel="stylesheet">
   <!-- Your custom styles (optional) -->
@@ -24,7 +24,7 @@ if ($_SESSION['status'] == 'Анимешник' || !isset($_SESSION['auth']) || 
     <link href="css/table.css" rel="stylesheet">
   <link rel="stylesheet" href="css/normilize.css">
 <!--	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>-->
-	<script src="js/jquery.js"></script>
+	<script src="../templates/js/jquery-3.3.1.min.js"></script>
 	<script src="js/side-bar-script.js"></script>
 	<link rel="stylesheet" href="css/side-bar-style.css">
     <link rel="stylesheet" href="css/form.css">
@@ -210,7 +210,7 @@ if ($_SESSION['status'] == 'Анимешник' || !isset($_SESSION['auth']) || 
 
   <!-- SCRIPTS -->
   <!-- JQuery -->
-  <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="../templates/js/jquery-3.3.1.min.js"></script>
   <!-- Bootstrap tooltips -->
   <script type="text/javascript" src="js/popper.min.js"></script>
   <!-- Bootstrap core JavaScript -->
