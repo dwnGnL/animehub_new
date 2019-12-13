@@ -97,17 +97,13 @@ let startSearch = document.querySelector('.start-search');
 startSearch.onclick = () => searchSeriesItem();
 
 function searchSeriesItem() {
-
   for (var i = 0; i < seriesItem.length; i++) {
     if (seriesItem[i].getAttribute('id-ser') == searchInput.value) break
   };
-  console.log(seriesItem[i].innerHTML);
 
-  // console.log(searchInput.value);
-
+  let sumScroll = seriesItem[i].getBoundingClientRect().x - toLeftSeries.getBoundingClientRect().right;
+  scrollingSeries(-sumScroll);
 };
-
-
 
 
 var id_post = document.location.pathname.split('/')
