@@ -1,4 +1,3 @@
-
 <?=$slider?>
 <!-- Content -->
 <div id="content">
