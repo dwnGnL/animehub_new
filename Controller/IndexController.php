@@ -22,6 +22,7 @@ class IndexController extends DisplayController
         foreach ($posts as $key => $val){
             $posts[$key]['cats'] = $this->model->getCatPostL2($posts[$key]['id']);
         }
+
         $newPosts = $this->model->getPostL5();
         foreach ($newPosts as $key => $val){
             $newPosts[$key]['cats'] = $this->model->getCatPostL2($newPosts[$key]['id']);

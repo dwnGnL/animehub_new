@@ -269,7 +269,7 @@ class Model
     }
 
     public function getPostL10($title, $lim){
-        $sql = 'SELECT lite_post.id ,lite_post.alias, lite_post.title, lite_post.image,lite_tv.title AS tv_title, lite_views.views
+        $sql = 'SELECT lite_post.id ,lite_post.alias,lite_type_post.title_type_post, lite_post.title, lite_post.image,lite_tv.title AS tv_title, lite_views.views
                 FROM lite_post, lite_tv, lite_type_post, lite_views
                 WHERE lite_post.id_tv = lite_tv.id
                 AND lite_views.id_post = lite_post.id 

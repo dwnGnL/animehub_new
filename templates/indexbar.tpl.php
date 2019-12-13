@@ -46,7 +46,7 @@
     <div class="films">
       <?php foreach ($newPosts as $val): ?>
         <div class="film-item">
-          <a href="/anime/<?=$helper::renderUrl($item['id'], $item['alias'])?>">
+          <a href="/anime/<?=$helper::renderUrl($val['id'], $val['alias'])?>">
             <div class="background-film-item">
               <img src="<?=$val['image']?>">
               <div class="over-back-film-item">
@@ -58,7 +58,7 @@
             </div>
           </a>
           <div class="discription">
-            <div class="film-name"><a href="/anime/<?=$helper::renderUrl($item['id'], $item['alias'])?>"><?=$val['title'].' '.$val['tv_title']?></a></div>
+            <div class="film-name"><a href="/anime/<?=$helper::renderUrl($val['id'], $val['alias'])?>"><?=$val['title'].' '.$val['tv_title']?></a></div>
             <div class="film-gener"><?=$helper::renderCat($val['cats'])?></div>
           </div>
         </div>
@@ -76,7 +76,7 @@
     <div class="films">
       <?php foreach ($dorams as $val): ?>
         <div class="film-item">
-          <a href="/anime/<?=$helper::renderUrl($item['id'], $item['alias'])?>">
+          <a href="/dorams/<?=$helper::renderUrl($val['id'], $val['alias'])?>">
             <div class="background-film-item">
               <img src="<?=$val['image']?>">
               <div class="over-back-film-item">
@@ -88,7 +88,7 @@
             </div>
           </a>
           <div class="discription">
-            <div class="film-name"><a href="/anime/<?=$helper::renderUrl($item['id'], $item['alias'])?>"><?=$val['title'].' '.$val['tv_title']?></a></div>
+            <div class="film-name"><a href="/dorams/<?=$helper::renderUrl($val['id'], $val['alias'])?>"><?=$val['title'].' '.$val['tv_title']?></a></div>
             <div class="film-gener"><?=$helper::renderCat($val['cats'])?></div>
           </div>
         </div>

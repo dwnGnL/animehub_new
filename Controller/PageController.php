@@ -42,15 +42,20 @@ class PageController extends DisplayController
 
     }
 
+
     public function post($param = []){
         preg_match('#\d+#', $param['page'], $matches);
         $like = $this->model->getLikeCount($matches[0], 1);
         $disLike = $this->model->getLikeCount($matches[0], 0);
         $post = $this->model->getPost($matches[0],$param['alias']);
+        if (!isset($_COOKIE[$matches[0]]) OR $_COOKIE[$matches[0]] != $matches[0]){
+            $this->model->updateView($post['id_post']);
+            $this->app->setCookie($matches[0], $matches[0],time() + 1440);
+        }
         if (empty($post)){
             $this->app->notFound();
         }
-        $this->model->updateView($post['id_post']);
+
         $cat = $this->model->getCatPost($post['id_post']);
         $similar = $this->model->getSimilarPosts($cat[1]['id'],$param['alias'],$matches[0]);
         $rating = [
@@ -74,8 +79,7 @@ class PageController extends DisplayController
             'orderPosts' => $orderPosts,
             'rating' => $rating,
         ]);
-
-        $this->display();
+           $this->display();
     }
 
     public function allPost($param = []){
@@ -107,7 +111,8 @@ class PageController extends DisplayController
             'title' => Helper::getTitle($this->alias),
             'search' => $search,
         ]);
-    $this->display();
+     $this->display();
+
     }
 
     protected function display()

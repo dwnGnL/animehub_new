@@ -131,9 +131,9 @@ $app->get('/login/logout', function () use ($app){
 })->name('logout');
 
 $app->get('/:alias(/:page)', function ($alias, $page = false) use($app){
-
     $o = \Controller\Controller::getInstance('page'); //PageController
     $o->allPost(['alias' => $alias, 'page' => $page]);
+
 })->conditions(['page' => '\d+'])->name('page');
 
 $app->get('/:alias(/:page)', function ($alias, $page = false) use($app){
