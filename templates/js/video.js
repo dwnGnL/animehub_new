@@ -12,10 +12,6 @@ let seriesListWidth = 0;
 let previousSeries = 0;
 let presentSeries = 0;
 
-
-seriesItem[0].classList.add('series-item-active');
-videoLink.src = seriesItem[0].getAttribute('src');
-
 toRightSeries.addEventListener('click', () => scrollingSeries(-(seriesItem[0].offsetWidth + 10)));
 toLeftSeries.addEventListener('click', () => scrollingSeries(seriesItem[0].offsetWidth + 10));
 searchSeries.addEventListener('click', showHideSearch);
@@ -96,6 +92,22 @@ function hideSearch() {
     openSearch = true;
   }, 500);
 };
+
+let startSearch = document.querySelector('.start-search');
+startSearch.onclick = () => searchSeriesItem();
+
+function searchSeriesItem() {
+
+  for (var i = 0; i < seriesItem.length; i++) {
+    if (seriesItem[i].getAttribute('id-ser') == searchInput.value) break
+  };
+  console.log(seriesItem[i].innerHTML);
+
+  // console.log(searchInput.value);
+
+};
+
+
 
 
 var id_post = document.location.pathname.split('/')
