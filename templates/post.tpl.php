@@ -69,7 +69,7 @@
       <ul class="series-list">
         <?php if(isset($player) && is_array($player)): ?>
           <?php foreach($player As $item): ?>
-            <li class="series-item" src="<?=$item['src']?>" id="<?=$item['id']?>"><?=''.$item['kach'].' '.$item['stud'].' '.$item['seria'].' серия'?></li>
+            <li class="series-item" src="<?=$item['src']?>" id-ser="<?=$item['seria']?>" id="<?=$item['id']?>"><?=''.$item['kach'].' '.$item['stud'].' '.$item['seria'].' серия'?></li>
           <?php endforeach; ?>
         <?php endif; ?>
       </ul>

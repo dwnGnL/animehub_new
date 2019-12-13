@@ -1,0 +1,33 @@
+#registration{
+    margin:40px 0; 
+}
+
+#registration form input[type="submit"] {
+    width: 150px;
+    height: 25px;
+    background: #0DB9DD;
+    border: none;
+    font-weight: bold;
+    color: #FFF;
+    float: none;
+  }
+
+  #registration input {
+    background: #f7f7f7;
+  }  
+  
+  #registration label{
+      display: block;
+  }
+
+  #registration form{
+      width: 300px;
+      /* margin-bottom: 40px; */
+  }
+
+  /* #registration:after{
+      display: flex;
+      content: "";
+      width: 100%;
+  } */
+ 

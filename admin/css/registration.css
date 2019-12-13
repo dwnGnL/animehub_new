@@ -1,0 +1,19 @@
+/* #registration form input[type="submit"] {
+  width: 150px;
+  height: 25px;
+  background: #0DB9DD;
+  border: none;
+  font-weight: bold;
+  color: #FFF;
+  float: none;
+} */
+#registration input {
+  background: #f7f7f7;
+  border-radius: 10px;
+}
+
+#registration form {
+  width: 400px;
+  padding-left: 40px;
+}
+
