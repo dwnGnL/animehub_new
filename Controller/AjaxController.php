@@ -105,7 +105,7 @@ class AjaxController extends DisplayController
         $error = [];
         if (isset($_SESSION['auth'])){
         if ($_POST['token'] == $_SESSION['token']){
-            $voted = $this->model->getVotedUserQA($_SESSION['id'], $_POST['id_answer']);
+            $voted = $this->model->votedUserQA($_SESSION['id'], $_POST['id_quest']);
             if (!empty($voted)){
                 // если уже голосовал
                 $error = ['status' => '500'];
@@ -116,6 +116,8 @@ class AjaxController extends DisplayController
         }
         if (empty($error)){
             $this->model->addVote($_SESSION['id'], $_POST['id_answer']);
+            // если успешно проголосовал
+            $error = ['status' => '502'];
         }else{
             // если не авторизован
            echo json_encode($error);

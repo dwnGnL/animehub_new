@@ -51,13 +51,13 @@ abstract  class DisplayController extends Controller
             $total = $this->model->getTotalVoted($answer[$key]['id_answers']);
             $answer[$key]['total'] = $total['total'];
             if (!empty($votedUser)){
+                $vote = $votedUser;
                 $answer[$key]['voted'] = $votedUser['id_voting'];
             }
         }
         $newSerii = $this->model->getNewSeria();
         $articles = $this->model->getPostL10('articles', 5);
         $comments = $this->model->getCommentL(5);
-
         return $this->app->view()->fetch('sidebar.tpl.php', [
             'app' => $this->app,
             'uri' => $this->uri,
@@ -67,6 +67,7 @@ abstract  class DisplayController extends Controller
             'comments' => $comments,
             'questions' => $quest,
             'answer' => $answer,
+            'votedUser' => $vote,
         ]);
         // TODO: Implement getSidebar() method.
     }

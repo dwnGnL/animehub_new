@@ -25,9 +25,9 @@
     <div class="sidebar-head">Опросник</div>
 
     <div class="questionnaire">
-      <div class="question"><?=$questions['title_questions']?></div>
+      <div class="question" id="<?=$questions['id_questions']?>"><?=$questions['title_questions']?></div>
       <div class="questionnaire-general-choose">Проголосовало: </div>
-      <div class="questionnaire-panel ">  <!--вот тут класс questionnaire-done надо добавить если чел зареган -->
+      <div class="questionnaire-panel <?=empty($votedUser) ? : 'questionnaire-done';?> ">  <!--вот тут класс questionnaire-done надо добавить если чел зареган -->
           <?php foreach ($answer as $value):?>
         <div class="questionnaire-panel-item <?=empty($value['voted'])? : 'questionnaire-choose'?>">
           <div class="questionnaire-panel-item-shadow"></div>
