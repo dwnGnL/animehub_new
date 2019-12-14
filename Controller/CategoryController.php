@@ -2,7 +2,7 @@
 
 
 namespace Controller;
-
+defined('_Sdef') or exit();
 
 class CategoryController extends DisplayController
 {

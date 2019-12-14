@@ -11,7 +11,6 @@
   <link rel="stylesheet" href="<?=$uri?>/templates/css/footer.css?<?=filemtime('templates/css/footer.css')?>">
   <link rel="stylesheet" href="<?=$uri?>/templates/css/sign_in.css?<?=filemtime('templates/css/sign_in.css')?>">
   <link rel="stylesheet" href="<?=$uri?>/templates/css/profile.css?<?=filemtime('templates/css/profile.css')?>">
-  <link rel="stylesheet" href="<?=$uri?>/templates/css/sidebar.css?<?=filemtime('templates/css/sidebar.css')?>">
   <link rel="stylesheet" href="<?=$uri?>/templates/css/main-page.css?<?=filemtime('templates/css/main-page.css')?>">
   <link rel="stylesheet" href="<?=$uri?>/templates/css/film-list.css?<?=filemtime('templates/css/film-list.css')?>">
   <link rel="shortcut icon" href="<?=$uri?>/templates/images/favoicon.png" type="image/png">

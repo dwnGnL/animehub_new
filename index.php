@@ -83,6 +83,15 @@ $app->group('/ajax', function () use ($app){
 
 });
 
+$app->post('/Question', function (){
+    $o = \Controller\Controller::getInstance('Widget'); //WidgetController
+    $o->addQuestionnaire();
+})->name('addQA');
+$app->get('/Question', function (){
+    $o = \Controller\Controller::getInstance('Widget'); //WidgetController
+    $o->viewQuestionnaire();
+});
+
 $app->get('/registration', function (){
     $o = \Controller\Controller::getInstance('regist'); //RegistController
     $o->formView();

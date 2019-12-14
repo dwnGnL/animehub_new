@@ -532,4 +532,40 @@ class Model
         $this->driver->query($query,$params);
     }
 
+    public function addQuestion($title){
+        $sql = 'INSERT INTO lite_questions(title_questions) VALUES(:title)';
+        $params = [
+            'title' =>$title
+        ];
+
+        $this->driver->query($sql,$params);
+        return $this->driver->lastInsertId();
+    }
+
+    public function addAnswers($id_question, $title){
+        $sql = 'INSERT INTO lite_answers(id_questions, title_answers) VALUES(:id,:title)';
+        $params = [
+            'id' => $id_question,
+            'title' =>$title
+        ];
+
+        $this->driver->query($sql,$params);
+    }
+    public function getVotedUserQA($id_user, $id_answer){
+        $sql = 'SELECT id_voting FROM lite_voting WHERE id_user = :id_user AND id_answer = :id_answer';
+        $params = [
+            'id_user' =>$id_user,
+            'id_answer' =>$id_answer
+        ];
+        return $this->driver->column($sql,$params);
+    }
+    public function addVote($id_user, $id_answer){
+        $sql = 'INSERT INTO lite_voting(id_user, id_answer) VALUES(:id_user,:id_answer)';
+        $params = [
+            'id_user' =>$id_user,
+            'id_answer' => $id_answer
+        ];
+        $this->driver->query($sql,$params);
+    }
+
 }
