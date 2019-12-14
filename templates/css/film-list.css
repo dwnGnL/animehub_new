@@ -12,6 +12,11 @@
   align-items: center;
 }
 
+.switch-page a{
+  text-decoration: none;
+  color: gray;
+}
+
 .switch-page li {
   display: flex;
   justify-content: center;
