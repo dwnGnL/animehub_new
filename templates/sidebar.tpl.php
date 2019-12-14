@@ -27,11 +27,11 @@
     <div class="questionnaire">
       <div class="question"><?=$questions['title_questions']?></div>
       <div class="questionnaire-general-choose">Проголосовало: </div>
-      <div class="questionnaire-panel">
+      <div class="questionnaire-panel ">  <!--вот тут класс questionnaire-done надо добавить если чел зареган -->
           <?php foreach ($answer as $value):?>
-        <div class="questionnaire-panel-item">
+        <div class="questionnaire-panel-item <?=empty($value['voted'])? : 'questionnaire-choose'?>">
           <div class="questionnaire-panel-item-shadow"></div>
-          <span class="questionnaire-item <?=empty($value['voted'])? : 'current'?>" id="<?=$value['id_answers']?>"><?=$value['title_answers']?></span>
+          <span class="questionnaire-item" id="<?=$value['id_answers']?>"><?=$value['title_answers']?></span>
           <span class="questionnaire-length" data-length="<?=$value['total']?>">Проголосовало</span>
         </div>
           <?php endforeach;?>
