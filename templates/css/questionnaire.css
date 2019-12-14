@@ -60,3 +60,7 @@
 .questionnaire-choose .questionnaire-item {
   color: #D81C27;
 }
+
+.questionnaire-done * {
+  cursor: auto;
+}

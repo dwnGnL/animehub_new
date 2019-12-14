@@ -114,11 +114,13 @@ body.opacity-sub-menu #sub-menu {
   left: 0%;
   opacity: 0;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 2fr;
   background: #fff;
   width: 0%;
   z-index: 2;
   transition: opacity .5s;
+  border-bottom: 1px solid #6882A1;
+  box-shadow: 0 0 5px #6882A1 inset;
   cursor: default;
   overflow: hidden;
 }
@@ -131,6 +133,15 @@ body.opacity-sub-menu #sub-menu {
 .sub-menu-header {
   color: #696B6E;
   font-size: 13px;
+}
+
+.right-part-sub-menu-block {
+  box-sizing: border-box;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 450px;
+  overflow-y: auto;
 }
 
 .middle-part-sub-menu {
