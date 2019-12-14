@@ -57,7 +57,7 @@ $app->group('/admin', $middle,function () use ($app){
 $app->group('/ajax', function () use ($app){
     $app->post('/add/vote', function (){
         $o = \Controller\Controller::getInstance('ajax'); //AjaxController
-        $o->addVote();
+        $o->addVoted();
     })->name('addVote');
     $app->post('/add/comment', function () use ($app) {
         $o = \Controller\Controller::getInstance('ajax'); //AjaxController
