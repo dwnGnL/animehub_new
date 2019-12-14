@@ -101,4 +101,25 @@ class AjaxController extends DisplayController
         return false;
     }
 
+    public function addVoted(){
+        $error = [];
+        if (isset($_SESSION['auth'])){
+        if ($_POST['token'] == $_SESSION['token']){
+            $voted = $this->model->getVotedUserQA($_SESSION['id'], $_POST['id_answer']);
+            if (!empty($voted)){
+                // если уже голосовал
+                $error = ['status' => '500'];
+            }
+        }
+        }else{
+            $error = ['status' => '501'];
+        }
+        if (empty($error)){
+            $this->model->addVote($_SESSION['id'], $_POST['id_answer']);
+        }else{
+            // если не авторизован
+           echo json_encode($error);
+        }
+    }
+
 }

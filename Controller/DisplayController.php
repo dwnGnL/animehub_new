@@ -44,6 +44,16 @@ abstract  class DisplayController extends Controller
 
     protected function getSidebar()
     {
+        $quest = $this->model->getQuestions();
+        $answer = $this->model->getAnswers($quest['id_questions']);
+        foreach ($answer as $key => $value){
+            $votedUser = $this->model->getVotedUserQA($_SESSION['id'], $answer[$key]['id_answers']);
+            $total = $this->model->getTotalVoted($answer[$key]['id_answers']);
+            $answer[$key]['total'] = $total['total'];
+            if (!empty($votedUser)){
+                $answer[$key]['voted'] = $votedUser['id_voting'];
+            }
+        }
         $newSerii = $this->model->getNewSeria();
         $articles = $this->model->getPostL10('articles', 5);
         $comments = $this->model->getCommentL(5);
@@ -54,7 +64,9 @@ abstract  class DisplayController extends Controller
             'newSerii' => $newSerii,
             'helper' => Helper::getInstance(),
             'articles' => $articles,
-            'comments' => $comments
+            'comments' => $comments,
+            'questions' => $quest,
+            'answer' => $answer,
         ]);
         // TODO: Implement getSidebar() method.
     }

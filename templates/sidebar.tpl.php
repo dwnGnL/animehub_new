@@ -25,33 +25,16 @@
     <div class="sidebar-head">Опросник</div>
 
     <div class="questionnaire">
-      <div class="question">Кто мудак?</div>
+      <div class="question"><?=$questions['title_questions']?></div>
       <div class="questionnaire-general-choose">Проголосовало: </div>
-
       <div class="questionnaire-panel">
+          <?php foreach ($answer as $value):?>
         <div class="questionnaire-panel-item">
           <div class="questionnaire-panel-item-shadow"></div>
-          <span class="questionnaire-item">Анушервон</span>
-          <span class="questionnaire-length" data-length="700">Проголосовало</span>
+          <span class="questionnaire-item <?=empty($value['voted'])? : 'current'?>" id="<?=$value['id_answers']?>"><?=$value['title_answers']?></span>
+          <span class="questionnaire-length" data-length="<?=$value['total']?>">Проголосовало</span>
         </div>
-
-        <div class="questionnaire-panel-item">
-          <div class="questionnaire-panel-item-shadow"></div>
-          <span class="questionnaire-item">Барзу</span>
-          <span class="questionnaire-length" data-length="800"></span>
-        </div>
-
-        <div class="questionnaire-panel-item">
-          <div class="questionnaire-panel-item-shadow"></div>
-          <span class="questionnaire-item">Бахтиер</span>
-          <span class="questionnaire-length" data-length="300"></span>
-        </div>
-
-        <div class="questionnaire-panel-item">
-          <div class="questionnaire-panel-item-shadow"></div>
-          <span class="questionnaire-item">Я</span>
-          <span class="questionnaire-length" data-length="900"></span>
-        </div>
+          <?php endforeach;?>
       </div>
     </div>
   </div>

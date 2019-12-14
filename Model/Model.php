@@ -568,4 +568,26 @@ class Model
         $this->driver->query($sql,$params);
     }
 
+    public function getQuestions(){
+        $sql = 'SELECT id_questions, title_questions FROM lite_questions ORDER BY RAND() LIMIT 1';
+        return  $this->driver->column($sql);
+    }
+
+    public function getAnswers($id_quest){
+        $sql = 'SELECT title_answers, id_answers FROM lite_answers WHERE id_questions = :id';
+        $params = [
+            'id' => $id_quest
+        ];
+       return $this->driver->row($sql,$params);
+    }
+
+    public function getTotalVoted($id){
+        $sql = 'SELECT COUNT(id_answer) AS total FROM lite_voting WHERE id_answer = :id';
+        $params = [
+            'id' => $id
+        ];
+        return $this->driver->column($sql,$params);
+    }
+
+
 }

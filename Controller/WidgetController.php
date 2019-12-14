@@ -10,6 +10,7 @@ class WidgetController extends DisplayController
 
 
     public function viewQuestionnaire(){
+
         $this->index = $this->app->view()->fetch('Admin/oprosnik.php', [
             'uri' => $this->uri,
             'app' => $this->app,
