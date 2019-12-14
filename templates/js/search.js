@@ -3,7 +3,10 @@ let search = document.querySelector('.search');
 
 search.onfocus = () => {
   searchForm.classList.add('search-focus');
-  if (document.body.clientWidth < 767) document.body.style.overflow = 'hidden';
+  if (document.body.clientWidth < 767) {
+    window.scrollTo(0, 0);
+    document.body.style.overflow = 'hidden';
+  };
   setTimeout(() => searchForm.classList.add('full-height'), 300);
 };
 

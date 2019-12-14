@@ -11,7 +11,7 @@
     <div class="loader"></div>
 
     <div class="back-search">
-      <img src="<?=$uri?>/templates/images/back-arrow.png" alt="">
+      <i class="fa fa-reply-all"></i>
     </div>
     <div class="show-all-search">Показать все</div>
     <div class="ajax-search"></div>

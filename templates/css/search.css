@@ -10,7 +10,7 @@ form.search-block {
   position: relative;
   outline: none;
   border: none;
-  border-bottom: 1px solid #7F7F7F;
+  border-bottom: 1px solid #6882A1;
   box-sizing: border-box;
   transition: .3s;
   background: rgba(255,255,255, 0);
@@ -79,10 +79,6 @@ form.search-block {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.search-img img {
-  width: 100%;
 }
 
 .search-name {
@@ -268,6 +264,12 @@ form.search-block {
     transition: opacity 1s .3s;
   }
 
+  .fa-reply-all {
+    position: absolute;
+    color: #fff;
+    font-size: 20px;
+  }
+
   .search-focus .back-search {
     width: 40px;
     opacity: .5;
@@ -277,11 +279,6 @@ form.search-block {
   .back-search:active {
     transition: opacity .3s 0s !important;
     opacity: .2 !important;
-  }
-
-  .back-search img {
-    width: 25px;
-    height: 25px;
   }
 
   form.search-block .show-all-search {

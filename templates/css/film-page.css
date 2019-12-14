@@ -156,7 +156,7 @@
   font-size: 17px;
   border: none;
   color: #898989;
-  border-bottom: 1px solid #898989;
+  border-bottom: 1px solid #6882A1;
   background: rgba(255, 255, 255, 0);
   transition: .3s;
   z-index: 1;
@@ -238,21 +238,21 @@ video {
   color: #6882A1;
 }
 
-.fa {
+.fa-thumbs-o-up, .fa-thumbs-o-down {
   cursor: pointer;
   font-size: 30px !important;
   margin-left: 30px;
 }
 
-.fa span {
+.fa-thumbs-o-up span, .fa-thumbs-o-down span {
   color: #6882A1 !important;
 }
 
-.fa:hover {
+.fa-thumbs-o-up:hover, .fa-thumbs-o-down:hover {
   color: #D81C27;
 }
 
-.fa:active {
+.fa-thumbs-o-up:active, .fa-thumbs-o-down:active {
   color: #E7E7E7;
 }
 
