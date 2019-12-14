@@ -30,8 +30,10 @@ questionnairePanelItem.forEach((elem, index) => {
         response=JSON.parse(response)
         if (response.status=="500") {
           alert("Вы уже голосовали")
+          return
         }else if(response.status=="501"){
           alert("зарегайся")
+          return
         }else{
           console.log("Все хорошо")
         }
