@@ -24,7 +24,7 @@ questionnairePanelItem.forEach((elem, index) => {
     $.ajax({
       type: "POST",
       url: "/ajax/add/vote",
-      data: {"id_answer":questionnairePanelItem[index].querySelector('.questionnaire-item').id,"token":$("#token").text()},
+      data: {"id_answer":questionnairePanelItem[index].querySelector('.questionnaire-item').id,"id_quest":$(".question").attr("id"),"token":$("#token").text()},
       dataType: "text",
       success: function (response) {
         response=JSON.parse(response)
