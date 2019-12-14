@@ -1,5 +1,4 @@
 <link rel="stylesheet" href="<?=$uri?>/templates/css/film-page.css?<?=filemtime('templates/css/film-page.css')?>">
-<link rel="stylesheet" href="<?=$uri?>/templates/font-awesome/css/font-awesome.min.css?<?=filemtime('templates/font-awesome/css/font-awesome.min.css')?>">
 
 <script type="text/javascript" src="<?=$uri?>/templates/Admin/js/ckeditor/ckeditor.js?<?=filemtime('templates/Admin/js/ckeditor/ckeditor.js')?>"></script>
 
@@ -59,8 +58,8 @@
 
   <div class="top-video-block">
     <div class="search-series-input">
-      <input id="search-input" type="text" placeholder="Поиск серии">
-      <div class="start-search">Поиск</div>
+      <input id="search-input" type="text" placeholder="">
+      <div class="search-placeholder">Поиск серии</div>
     </div>
 
     <div class="arrow-series to-left-series"><div></div></div>
@@ -118,107 +117,51 @@
     </div>
   </div>
 
-  <!-- <table cellspacing="0">
-  <caption>Ван пис</caption>
-  <thead>
-  <tr>
-  <th>Номер серии</th>
-  <th>Название</th>
-  <th>Дата выхода оригинала</th>
-  <th>Дата релиза</th>
-</tr>
-</thead>
 
-<tbody>
-<tr>
-<td>какая-та серия</td>
-<td> какое-то название</td>
-<td>какая-та дата</td>
-<td>какая-та дата</td>
-</tr>
+  <div class="video-comments-block">
+    <div class="head">
+      <div class="left-head">Комментарии</div>
+    </div>
 
-<tr>
-<td>какая-та серия</td>
-<td> какое-то название</td>
-<td>какая-та дата</td>
-<td>какая-та дата</td>
-</tr>
-
-<tr>
-<td>какая-та серия</td>
-<td> какое-то название</td>
-<td>какая-та дата</td>
-<td>какая-та дата</td>
-</tr>
-
-<tr>
-<td>какая-та серия</td>
-<td> какое-то название</td>
-<td>какая-та дата</td>
-<td>какая-та дата</td>
-</tr>
-
-<tr>
-<td>какая-та серия</td>
-<td> какое-то название</td>
-<td>какая-та дата</td>
-<td>какая-та дата</td>
-</tr>
-
-<tr>
-<td>какая-та серия</td>
-<td> какое-то название</td>
-<td>какая-та дата</td>
-<td>какая-та дата</td>
-</tr>
-</tbody>
-</table> -->
+    <!--Коментарий-->
+    <?php if(isset($_SESSION['auth'])):?>
+      <form class="form-comment form">
+        <div class="disable"><div class="loader">Loading...</div></div>
+        <!-- <textarea class="form-control" name="comment"  id="textComment" cols="80" rows="10" placeholder="Оставить коментарий..." ></textarea> -->
+        <textarea id="textComment" name="comment" class="form-control" placeholder="Оставить коментарий..."></textarea>
+        <button class="btn btn-outline-secondary" type="button" id="sendComment">Оставить комментарий</button>
+      </form>
 
 
-<div class="video-comments-block">
-  <div class="head">
-    <div class="left-head">Комментарии</div>
-  </div>
+      <script src="<?=$uri?>/templates/js/comment.js?<?=filemtime('templates/js/comment.js')?>"></script>
+    <?php endif;?>
+    <div class="video-comments">
+      <?php foreach($comments as $val): ?>
+        <div class="video-comment-item">
+          <div class="video-comment-user-avatar">
+            <img src="<?=$val['img']?>">
+          </div>
 
-  <!--Коментарий-->
-  <?php if(isset($_SESSION['auth'])):?>
-    <form class="form-comment form">
-      <div class="disable"><div class="loader">Loading...</div></div>
-      <!-- <textarea class="form-control" name="comment"  id="textComment" cols="80" rows="10" placeholder="Оставить коментарий..." ></textarea> -->
-      <textarea id="textComment" name="comment" class="form-control" placeholder="Оставить коментарий..."></textarea>
-      <button class="btn btn-outline-secondary" type="button" id="sendComment">Оставить комментарий</button>
-    </form>
+          <div class="video-comment-right" style="<?=$val['back_fon']?>">
+            <div class="comment-arrow"></div>
 
-
-    <script src="<?=$uri?>/templates/js/comment.js?<?=filemtime('templates/js/comment.js')?>"></script>
-  <?php endif;?>
-  <div class="video-comments">
-    <?php foreach($comments as $val): ?>
-      <div class="video-comment-item">
-        <div class="video-comment-user-avatar">
-          <img src="<?=$val['img']?>">
-        </div>
-
-        <div class="video-comment-right" style="<?=$val['back_fon']?>">
-          <div class="comment-arrow"></div>
-
-          <div class="top-video-comment-item">
-            <div class="video-comment-user-name" ">
-              <a href="/profile/<?=$val['login']?>" style="font-family:<?=$val['font']?>;<?=$val['login_color']?>" ><?=$val['login'].' '?></a><span style ="color:<?=$val['color']?>;font-family:<?=$val['font']?>"><?=$val['status']?></span>
+            <div class="top-video-comment-item">
+              <div class="video-comment-user-name" ">
+                <a href="/profile/<?=$val['login']?>" style="font-family:<?=$val['font']?>;<?=$val['login_color']?>" ><?=$val['login'].' '?></a><span style ="color:<?=$val['color']?>;font-family:<?=$val['font']?>"><?=$val['status']?></span>
+              </div>
+              <div class="video-comment-date">
+                <?=$helper::getWatch($val['date'])?>
+              </div>
             </div>
-            <div class="video-comment-date">
-              <?=$helper::getWatch($val['date'])?>
+            <div class="video-comment-text">
+              <?=$val['body']?>
             </div>
           </div>
-          <div class="video-comment-text">
-            <?=$val['body']?>
-          </div>
-        </div>
 
-      </div>
-    <?php endforeach; ?>
+        </div>
+      <?php endforeach; ?>
+    </div>
   </div>
-</div>
 </div>
 
 <script src="<?=$uri?>/templates/js/show-hide-text.js?<?=filemtime('templates/js/show-hide-text.js')?>"></script>

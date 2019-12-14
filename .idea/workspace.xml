@@ -2,22 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6341c2f9-1102-484a-bdc9-098e620a8c13" name="Default Changelist" comment="Merge branch 'master' of https://github.com/dwnGnL/animehub_new&#10;&#10;# Conflicts:&#10;#&#9;Controller/DisplayController.php&#10;#&#9;templates/js/comment.js&#10;#&#9;templates/js/video.js">
-      <change afterPath="$PROJECT_DIR$/Controller/WidgetController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Model/Admin.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/Admin/oprosnik.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/css/questionnaire.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/js/questionnaire.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/AjaxController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/AjaxController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/CategoryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/PageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/PageController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/ProfileController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/RegistController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/RegistController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Model.php" beforeDir="false" afterPath="$PROJECT_DIR$/Model/Model.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/css/film-page.css" beforeDir="false" afterPath="$PROJECT_DIR$/templates/css/film-page.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/css/footer.css" beforeDir="false" afterPath="$PROJECT_DIR$/templates/css/footer.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/css/questionnaire.css" beforeDir="false" afterPath="$PROJECT_DIR$/templates/css/questionnaire.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/css/search.css" beforeDir="false" afterPath="$PROJECT_DIR$/templates/css/search.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/css/slider.css" beforeDir="false" afterPath="$PROJECT_DIR$/templates/css/slider.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/images/Image (1).jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/images/Image (10).jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/images/Image (2).jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/images/Image (3).jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/images/Image (4).jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/images/Image (5).jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/images/Image (6).jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/images/Image (7).jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/images/Image (8).jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/images/Image (9).jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/images/arrow.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/images/back-arrow.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/index.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.tpl.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/indexbar.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/indexbar.tpl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/js/questionnaire.js" beforeDir="false" afterPath="$PROJECT_DIR$/templates/js/questionnaire.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/js/search.js" beforeDir="false" afterPath="$PROJECT_DIR$/templates/js/search.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/js/video.js" beforeDir="false" afterPath="$PROJECT_DIR$/templates/js/video.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/post.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/post.tpl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/search.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/search.tpl.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/sidebar.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sidebar.tpl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/slider.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/slider.tpl.php" afterDir="false" />
     </list>
     <list id="38dd605b-6083-45a6-9f6b-662038e1e815" name="Revert &quot;no message&quot;" comment="Revert &quot;no message&quot;&#10;&#10;This reverts commit 1b2b2056" />
     <list id="127eea75-a317-47c4-9d24-73bfa4d50c03" name="Проверь" comment="" />
@@ -164,6 +173,7 @@
       <workItem from="1576172838553" duration="3025000" />
       <workItem from="1576242127614" duration="4380000" />
       <workItem from="1576253776774" duration="7067000" />
+      <workItem from="1576304545000" duration="235000" />
     </task>
     <task id="LOCAL-00001" summary="Merge branch 'master' of https://github.com/dwnGnL/animehub_new&#10;&#10;# Conflicts:&#10;#&#9;Controller/PageController.php">
       <created>1575814085998</created>

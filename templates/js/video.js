@@ -7,6 +7,7 @@ let topVideoBlock = document.querySelector('.top-video-block');
 let searchSeries = document.querySelector('.search-series');
 let searchInput = document.getElementById('search-input');
 let videoLink = document.querySelector('.video');
+let searchSeriesInput = document.querySelector('.search-series-input');
 let openSearch = true;
 let seriesListWidth = 0;
 let previousSeries = 0;
@@ -74,7 +75,7 @@ function scrollingSeries(size) {
 };
 
 function showHideSearch() {
-  searchInput.value == '' && !openSearch ? hideSearch() : showSearch();
+  !openSearch ? hideSearch() : showSearch();
 };
 
 function showSearch() {
@@ -86,6 +87,8 @@ function showSearch() {
 };
 
 function hideSearch() {
+  searchInput.value = '';
+  searchInputBlur();
   topVideoBlock.classList.remove('show-opacity-search-series');
   setTimeout(() => {
     topVideoBlock.classList.remove('show-search-series');
@@ -93,18 +96,25 @@ function hideSearch() {
   }, 500);
 };
 
-let startSearch = document.querySelector('.start-search');
-startSearch.onclick = () => searchSeriesItem();
+searchInput.oninput = () => searchSeriesItem();
 
 function searchSeriesItem() {
   for (var i = 0; i < seriesItem.length; i++) {
-    if (seriesItem[i].getAttribute('id-ser') == searchInput.value) break
+    if (seriesItem[i].getAttribute('id-ser') >= searchInput.value) break
   };
 
   let sumScroll = seriesItem[i].getBoundingClientRect().x - toLeftSeries.getBoundingClientRect().right;
   scrollingSeries(-sumScroll);
 };
 
+// let searchSeriesInput = document.querySelector('.search-series-input');
+
+searchInput.onfocus = () => searchSeriesInput.classList.add('search-series-focus');
+searchInput.onblur = searchInputBlur;
+
+function searchInputBlur() {
+  searchInput.value == '' ? searchSeriesInput.classList.remove('search-series-focus') : elem;
+}
 
 var id_post = document.location.pathname.split('/')
 id_post = id_post[id_post.length-1].split('-')[0]

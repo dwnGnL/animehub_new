@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="<?=$uri?>/templates/css/profile.css?<?=filemtime('templates/css/profile.css')?>">
   <link rel="stylesheet" href="<?=$uri?>/templates/css/main-page.css?<?=filemtime('templates/css/main-page.css')?>">
   <link rel="stylesheet" href="<?=$uri?>/templates/css/film-list.css?<?=filemtime('templates/css/film-list.css')?>">
+  <link rel="stylesheet" href="<?=$uri?>/templates/font-awesome/css/font-awesome.min.css?<?=filemtime('templates/font-awesome/css/font-awesome.min.css')?>">
   <link rel="shortcut icon" href="<?=$uri?>/templates/images/favoicon.png" type="image/png">
   <script src="<?=$uri?>/templates/js/jquery-3.3.1.min.js?<?=filemtime('templates/js/jquery-3.3.1.min.js')?>"></script>
 </head>
@@ -121,9 +122,9 @@
           <div class="to-left social">
             <span>Мы в соц. сетях</span>
             <div class="social-item">
-              <div class="social-item-img"><a href="https://vk.com/animehub_tj" target="_blank"><img src="<?=$uri?>/templates/images/vk.png"></a></div>
-              <div class="social-item-img"><a href="https://www.facebook.com/animehub.tj" target="_blank"><img src="<?=$uri?>/templates/images/facebook.png"></a></div>
-              <div class="social-item-img"><a href="https://www.instagram.com/anime_hub_tj" target="_blank"><img src="<?=$uri?>/templates/images/instagram.png"></a></div>
+              <div class="social-item-img"><a href="https://vk.com/animehub_tj" target="_blank"><i class="fa fa-vk"></i></a></div>
+              <div class="social-item-img"><a href="https://www.facebook.com/animehub.tj" target="_blank"><i class="fa fa-facebook-square"></i></a></div>
+              <div class="social-item-img"><a href="https://www.instagram.com/anime_hub_tj" target="_blank"><i class="fa fa-instagram"></i></a></div>
             </div>
           </div>
         </div>

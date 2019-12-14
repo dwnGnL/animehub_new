@@ -60,10 +60,21 @@
   width: 30px;
   height: 30px;
   border-radius: 100px;
-  /* overflow: hidden; */
 }
 
-.social-item-img img {
+/* ------------- */
+.social-item .fa {
+  font-size: 30px;
+  color: #8FA3BA;
+}
+
+.social-item .fa:hover {
+  font-size: 30px;
+  color: #CFCFCF;
+}
+
+
+/* .social-item-img img {
   position: absolute;
   top: 0;
   left: 0;
@@ -73,4 +84,4 @@
 
 .social-item img:hover {
   opacity: .9;
-}
+} */

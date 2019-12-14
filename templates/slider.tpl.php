@@ -15,8 +15,13 @@
 
 <div id="slider">
     <div class="arrows">
-        <div class="arrow-item s-next"><img src="<?=$uri?>/templates/images/arrow.png" alt=""></div>
-        <div class="arrow-item s-prev"><img src="<?=$uri?>/templates/images/arrow.png" alt=""></div>
+        <div class="arrow-item s-next">
+          <i class="fa fa-angle-double-right"></i>
+        </div>
+
+        <div class="arrow-item s-prev">
+          <i class="fa fa-angle-double-left"></i>
+        </div>
     </div>
 
     <div class="background-slider"></div>

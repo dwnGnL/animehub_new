@@ -1,14 +1,15 @@
-
 .questionnaire {
   background: #F8F8F8;
   padding: 10px;
 }
 
-
+.questionnaire-general-choose {
+  font-size: 14px;
+  margin-top: 20px;
+}
 
 .questionnaire-panel {
-  margin-top: 20px;
-  /* border: 1px solid; */
+  margin-top: 10px;
 }
 
 .questionnaire-panel-item {
@@ -38,12 +39,24 @@
   height: 100%;
   display: flex;
   align-items: center;
+  font-size: 14px;
   padding-left: 10px;
+  transition: color .5s;
 }
 
 .questionnaire-length {
   position: absolute;
-  bottom: 0;
+  bottom: 3px;
   right: 10px;
-  font-size: 12px;
+  font-size: 11px;
+  opacity: 0;
+  transition: opacity .5s
+}
+
+.questionnaire-done .questionnaire-length {
+  opacity: 1;
+}
+
+.questionnaire-choose .questionnaire-item {
+  color: #D81C27;
 }

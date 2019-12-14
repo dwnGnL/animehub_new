@@ -26,30 +26,31 @@
 
     <div class="questionnaire">
       <div class="question">Кто мудак?</div>
+      <div class="questionnaire-general-choose">Проголосовало: </div>
 
       <div class="questionnaire-panel">
         <div class="questionnaire-panel-item">
           <div class="questionnaire-panel-item-shadow"></div>
           <span class="questionnaire-item">Анушервон</span>
-          <span class="questionnaire-length">700</span>
+          <span class="questionnaire-length" data-length="700">Проголосовало</span>
         </div>
 
         <div class="questionnaire-panel-item">
           <div class="questionnaire-panel-item-shadow"></div>
           <span class="questionnaire-item">Барзу</span>
-          <span class="questionnaire-length">800</span>
+          <span class="questionnaire-length" data-length="800"></span>
         </div>
 
         <div class="questionnaire-panel-item">
           <div class="questionnaire-panel-item-shadow"></div>
           <span class="questionnaire-item">Бахтиер</span>
-          <span class="questionnaire-length">300</span>
+          <span class="questionnaire-length" data-length="300"></span>
         </div>
 
         <div class="questionnaire-panel-item">
           <div class="questionnaire-panel-item-shadow"></div>
           <span class="questionnaire-item">Я</span>
-          <span class="questionnaire-length">900</span>
+          <span class="questionnaire-length" data-length="900"></span>
         </div>
       </div>
     </div>
