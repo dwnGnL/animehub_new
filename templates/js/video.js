@@ -96,18 +96,17 @@ function hideSearch() {
   }, 500);
 };
 
-searchInput.oninput = () => searchSeriesItem();
+searchInput.onchange = () => searchSeriesItem();
 
 function searchSeriesItem() {
   for (var i = 0; i < seriesItem.length; i++) {
-    if (seriesItem[i].getAttribute('id-ser') >= searchInput.value) break
+    if (seriesItem[i].getAttribute('id-ser') >= +searchInput.value) break
   };
 
   let sumScroll = seriesItem[i].getBoundingClientRect().x - toLeftSeries.getBoundingClientRect().right;
   scrollingSeries(-sumScroll);
 };
 
-// let searchSeriesInput = document.querySelector('.search-series-input');
 
 searchInput.onfocus = () => searchSeriesInput.classList.add('search-series-focus');
 searchInput.onblur = searchInputBlur;

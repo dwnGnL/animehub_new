@@ -54,25 +54,28 @@
           </ul>
         </div>
 
-        <ul class="middle-part-sub-menu gener-list">
-          <?php if (isset($categories) && is_array($categories)): ?>
-            <?php $middle = count($categories) / 2 ?>
-            <?php $i = 0; ?>
-            <?php foreach ($categories as $category ): ?>
+        <div class="right-part-sub-menu-block">
 
-              <?php if ($i != $middle): ?>
-                <li><a href="/category/<?=$category['title']?>"><?=$category['title']?></a></li>
-              <?php elseif($i == $middle): ?>
-              </ul>
-              <ul class="right-part-sub-menu gener-list">
-                <li><a href="/category/<?=$category['title']?>"><?=$category['title']?></a></li>
-              <?php else:  ?>
-                <li><a href="/category/<?=$category['title']?>"><?=$category['title']?></a></li>
-              <?php endif;  ?>
-              <?php $i++?>
-            <?php endforeach;  ?>
-          <?php endif;  ?>
-        </ul>
+          <ul class="middle-part-sub-menu gener-list">
+            <?php if (isset($categories) && is_array($categories)): ?>
+              <?php $middle = count($categories) / 2 ?>
+              <?php $i = 0; ?>
+              <?php foreach ($categories as $category ): ?>
+
+                <?php if ($i != $middle): ?>
+                  <li><a href="/category/<?=$category['title']?>"><?=$category['title']?></a></li>
+                <?php elseif($i == $middle): ?>
+                </ul>
+                <ul class="right-part-sub-menu gener-list">
+                  <li><a href="/category/<?=$category['title']?>"><?=$category['title']?></a></li>
+                <?php else:  ?>
+                  <li><a href="/category/<?=$category['title']?>"><?=$category['title']?></a></li>
+                <?php endif;  ?>
+                <?php $i++?>
+              <?php endforeach;  ?>
+            <?php endif;  ?>
+          </ul>
+        </div>
       </div>
     </li>
     <?php if (!empty($pages) && is_array($pages)): ?>
