@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="<?=$uri?>/templates/css/profile.css?<?=filemtime('templates/css/profile.css')?>">
   <link rel="stylesheet" href="<?=$uri?>/templates/css/main-page.css?<?=filemtime('templates/css/main-page.css')?>">
   <link rel="stylesheet" href="<?=$uri?>/templates/css/film-list.css?<?=filemtime('templates/css/film-list.css')?>">
+  <link rel="stylesheet" href="<?=$uri?>/templates/css/alert-message.css?<?=filemtime('templates/css/alert-message.css')?>">
   <link rel="stylesheet" href="<?=$uri?>/templates/font-awesome/css/font-awesome.min.css?<?=filemtime('templates/font-awesome/css/font-awesome.min.css')?>">
   <link rel="shortcut icon" href="<?=$uri?>/templates/images/favoicon.png" type="image/png">
   <meta name="description" content="Аниме портал Таджикистана! Дорамы смотреть онлайн, полностью внутренный трафик ">
@@ -23,6 +24,21 @@
   <!-- Backgrounds -->
   <div class="background background-menu"></div>
   <div class="background background-sign-in"></div>
+
+  <!-- <div class="alert-message-block show-alert">
+    <div class="alert-message-top">
+      <div class="message-name">Ошибка</div>
+
+      <div class="alert-cross">
+        <div class="alert-cross-line k"></div>
+        <div class="alert-cross-line"></div>
+      </div>
+    </div>
+
+    <div class="alert-message-body">
+        Ты ошибка, посмотри в зеркало
+    </div>
+  </div> -->
 
   <div id="wrapper">
     <!-- Sign in -->
