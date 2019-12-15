@@ -1,5 +1,7 @@
 let searchForm = document.querySelector('.search-block');
 let search = document.querySelector('.search');
+let backSearch = document.querySelector('.back-search');
+let ajaxSearch = document.querySelector('.ajax-search');
 
 search.onfocus = () => {
   searchForm.classList.add('search-focus');
@@ -8,6 +10,11 @@ search.onfocus = () => {
     document.body.style.overflow = 'hidden';
   };
   setTimeout(() => searchForm.classList.add('full-height'), 300);
+};
+
+backSearch.onclick = () => {
+  search.value = '';
+  ajaxSearch.innerHTML = '';
 };
 
 search.onblur = () => {
@@ -20,21 +27,13 @@ search.onblur = () => {
       }, 300);
     };
   }, 300);
-};
+}
 
-searchPosition();
+if (window.location.href == document.body.dataset.domen) document.body.classList.add('main-page');
 
-function searchPosition() {
-  if (window.location.href == document.body.dataset.domen) {
-    if (document.body.clientWidth > 580  && document.body.clientWidth < 767) searchForm.style.top = '42vw';
-    if (document.body.clientWidth < 580  && document.body.clientWidth > 431) searchForm.style.top = '45vw';
-    if (document.body.clientWidth < 430) searchForm.style.top = '48vw';
-  };
-};
-
-$(".search-block .search").on("input",(e)=>{
+$(".search-block .search").on("input",(e) => {
   var text=$(".search-block .search").val()
-  if (text.length>2) {
+  if (text.length > 2) {
     $(".search-block .loader").css("display","block")
     $.ajax({
       type: "post",

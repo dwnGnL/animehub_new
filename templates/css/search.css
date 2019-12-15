@@ -187,13 +187,6 @@ form.search-block {
 }
 
 
-
-@media screen and (min-width: 1200px) {
-}
-
-@media screen and (min-width: 767px) and (max-width: 992px) {
-}
-
 @media screen and (min-width: 767px) {
   form.search-block {
     top: 0 !important;
@@ -317,5 +310,25 @@ form.search-block {
 
   .loader {
     top: 28px;
+  }
+}
+
+
+
+@media screen and (min-width: 580px) and (max-width: 767px) {
+  .main-page form.search-block {
+    top: 42vw;
+  }
+}
+
+@media screen and (min-width: 430px) and (max-width: 580px) {
+  .main-page form.search-block {
+    top: 45vw;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .main-page form.search-block {
+    top: 48vw;
   }
 }
