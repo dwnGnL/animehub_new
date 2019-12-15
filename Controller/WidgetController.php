@@ -11,6 +11,11 @@ class WidgetController extends DisplayController
 
     public function viewQuestionnaire(){
 
+        if (!isset($_SESSION['auth'])){
+            $this->app->notFound();
+        }elseif($_SESSION['status'] != 'Админ'){
+            $this->app->notFound();
+        }
         $this->index = $this->app->view()->fetch('Admin/oprosnik.php', [
             'uri' => $this->uri,
             'app' => $this->app,

@@ -57,7 +57,7 @@ $model = new Model();
         $page = isset($_GET['page']) ? $_GET['page']: 1;
         $limit = 20;
         $offset = $limit * ($page - 1);
-        if($_SESSION['status'] == 1){
+        if($_SESSION['status'] == 'Админ'){
             if(isset($_GET['searchPosts'])){
                 $posts = $model->searchAllPostForViews($limit, $offset, $_GET['searchPosts']);
                 $get = '?searchPosts=';
@@ -65,7 +65,7 @@ $model = new Model();
         $posts = $model->getAllPostForViews($limit,$offset);
                 $get = '?posts=posts';
             }
-        }elseif ($_SESSION['status'] == 2){
+        }elseif ($_SESSION['status'] == 'Модератр'){
 
             if(isset($_GET['searchPosts'])){
                 $posts = $model->searchUserPostForViews($limit, $offset, $_SESSION['id'], $_GET['searchPosts']);
@@ -86,7 +86,7 @@ $model = new Model();
             <td class="comAdmin"><?=$post['rating']; ?></td>
             <td class="comAdmin"><?= $countComments['COUNT(lite_comment.id_post)']; ?></td>
             <td class="comAdmin"><?=date('d.m.Y H:i:s', Support::getWatch($post['date'])); ?></td>
-            <td class="comAdmin"><a class="btn-yellow" href="../index.php?edit=<?=$post['id'];?>">Edit</a> <button type="button" data-toggle="modal" data-target="#exampleModalCenter" delete-id="<?=$post['id'];?>" class="btn-red float-right delete">Delete</button></td>
+            <td class="comAdmin"><a class="btn-yellow" href="/admin/index.php?edit=<?=$post['id'];?>">Edit</a> <button type="button" data-toggle="modal" data-target="#exampleModalCenter" delete-id="<?=$post['id'];?>" class="btn-red float-right delete">Delete</button></td>
 
         </tr>
         <?php }?>
@@ -97,14 +97,14 @@ $model = new Model();
         </div>
     </div>
     <?php
-    if($_SESSION['status'] == 1){
+    if($_SESSION['status'] == 'Админ'){
     if(isset($_GET['searchPosts'])) {
         $pageNav = $model->searchCountPostForPageNavigation($_GET['searchPosts']);
     }else {
         $pageNav = $model->getCountPostForPageNavigationAll();
     }
 
-    }elseif ($_SESSION['status'] == 2){
+    }elseif ($_SESSION['status'] == 'Модератор'){
         if(isset($_GET['searchPosts'])){
             $pageNav = $model->searchCountUserPostForPageNavigation($_SESSION['id'], $_GET['searchPosts']);
         }else{
@@ -136,6 +136,6 @@ $model = new Model();
 
     ?>
 
-    <?php include 'nav.php' ?>
+    <?php include 'lib/nav.php' ?>
 
 </main>

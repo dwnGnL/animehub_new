@@ -45,10 +45,11 @@ $slider = $model->getAllSliderForEdit();
 
             <td class="comAdmin"><?=$value['title']?></td>
             <td class="comAdmin"><?=$value['img']?></td>
-            <td class="comAdmin"><a class="btn-yellow" href="../index.php?editSlider=<?=$value['id'];?>">Edit</a> <button type="button" data-toggle="modal" data-target="#exampleModalCenter" delete-id="<?=$value['id']?>" class="btn-red float-right delete">Delete</button></td>
+            <td class="comAdmin"><a class="btn-yellow" href="index.php?editSlider=<?=$value['id'];?>">Edit</a> <button type="button" data-toggle="modal" data-target="#exampleModalCenter" delete-id="<?=$value['id']?>" class="btn-red float-right delete">Delete</button></td>
 
         </tr>
         <?php } ?>
+        <?php $_S ?>
     </table>
 
 

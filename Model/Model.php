@@ -71,6 +71,7 @@ class Model
                     if ($alias == 'film'){
                         $concat = ' OR  lite_post.id_tv = lite_tv.id
                                     AND lite_type_post.id_type_post = lite_post.id_type_post
+                                    AND lite_views.id_post = lite_post.id 
                                     AND lite_tv.title LIKE "%Фильм%"';
                     }
                     $from = 'lite_post, lite_tv,lite_views, lite_type_post';
@@ -295,9 +296,11 @@ class Model
 
     public function getNewSeria(){
         $sql = 'SELECT lite_anime.seria, lite_post.id, lite_post.alias, lite_post.title, lite_anime.date
-                FROM lite_title, lite_post, lite_anime
-                WHERE lite_title.title = lite_post.title
-                AND lite_anime.id_title = lite_title.id
+                FROM lite_title, lite_post, lite_anime, lite_tv
+                WHERE lite_anime.id_title = lite_title.id
+                AND  lite_title.title = lite_post.title
+                AND lite_tv.id = lite_post.id_tv
+                AND lite_tv.id = lite_anime.id_tv
                 ORDER BY lite_anime.date DESC LIMIT 5';
       return  $this->driver->row($sql);
     }

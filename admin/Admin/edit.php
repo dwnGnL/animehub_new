@@ -16,7 +16,7 @@ if(isset($_GET['edit']))
 
 
                         <?php
-                        if($_SESSION['status'] == '1'){
+                        if($_SESSION['status'] == 'Админ'){
                         $post = $model->getPostForId($_GET['edit']);
                         $godWip = $model->getGodWip($post['id_god_wip']);
                         $getPostTv = $model->getPostTv($post['id_tv']);

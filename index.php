@@ -86,14 +86,14 @@ $app->group('/ajax', function () use ($app){
 
 });
 
-$app->post('/Question', function (){
+$app->post('/question', function (){
     $o = \Controller\Controller::getInstance('Widget'); //WidgetController
     $o->addQuestionnaire();
 })->name('addQA');
-$app->get('/Question', function (){
+$app->get('/question', function (){
     $o = \Controller\Controller::getInstance('Widget'); //WidgetController
     $o->viewQuestionnaire();
-});
+})->name('viewQuest');
 
 $app->get('/registration', function (){
     $o = \Controller\Controller::getInstance('regist'); //RegistController
