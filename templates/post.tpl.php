@@ -156,6 +156,8 @@
             <div class="video-comment-text">
               <?=$val['body']?>
             </div>
+            <hr>
+            <?=$val['vip_status']?>
           </div>
 
         </div>
