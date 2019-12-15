@@ -8,6 +8,7 @@ use Lib\Helper;
 use Lib\Migration;
 
 
+
 class PageController extends DisplayController
 {
     protected $page;

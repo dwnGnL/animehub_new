@@ -24,21 +24,8 @@
   <!-- Backgrounds -->
   <div class="background background-menu"></div>
   <div class="background background-sign-in"></div>
-
-  <!-- <div class="alert-message-block show-alert">
-    <div class="alert-message-top">
-      <div class="message-name">Ошибка</div>
-
-      <div class="alert-cross">
-        <div class="alert-cross-line k"></div>
-        <div class="alert-cross-line"></div>
-      </div>
-    </div>
-
-    <div class="alert-message-body">
-        Ты ошибка, посмотри в зеркало
-    </div>
-  </div> -->
+  <div class="message-place"></div>
+  <script src="<?=$uri?>/templates/js/alert-message.js?<?=filemtime('templates/js/alert-message.js')?>"></script>
 
   <div id="wrapper">
     <!-- Sign in -->
