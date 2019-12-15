@@ -3,6 +3,7 @@
 
 namespace Controller;
 use Lib\Helper;
+use Lib\Migration;
 
 defined('_Sdef') or exit();
 
@@ -17,7 +18,6 @@ class IndexController extends DisplayController
 
     protected function display()
     {
-
         $posts =  $this->model->getPostL10('anime',10);
         foreach ($posts as $key => $val){
             $posts[$key]['cats'] = $this->model->getCatPostL2($posts[$key]['id']);

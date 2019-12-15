@@ -89,7 +89,7 @@ $model = new Model();
     }
 
     ?>
-    <?php include 'nav.php' ?>
+    <?php include 'lib/nav.php' ?>
 
 
 </main>

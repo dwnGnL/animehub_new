@@ -63,6 +63,7 @@
           <ul class="middle-part-sub-menu gener-list">
             <?php if (isset($categories) && is_array($categories)): ?>
               <?php $middle = count($categories) / 2 ?>
+              <?php $middle = ceil($middle); ?>
               <?php $i = 0; ?>
               <?php foreach ($categories as $category ): ?>
 

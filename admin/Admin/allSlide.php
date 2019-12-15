@@ -49,6 +49,7 @@ $slider = $model->getAllSliderForEdit();
 
         </tr>
         <?php } ?>
+        <?php $_S ?>
     </table>
 
 
