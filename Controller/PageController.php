@@ -79,6 +79,7 @@ class PageController extends DisplayController
             'helper' => Helper::getInstance(),
             'orderPosts' => $orderPosts,
             'rating' => $rating,
+            'alias' => $param['alias'],
         ]);
            $this->display();
     }

@@ -288,6 +288,7 @@ class Model
         $sql = 'SELECT lite_post.id ,lite_post.alias, lite_post.title, lite_post.image,lite_tv.title AS tv_title, lite_views.views
                 FROM lite_post, lite_tv, lite_views
                 WHERE lite_post.id_tv = lite_tv.id 
+                AND lite_post.id_type_post = 1
                 AND lite_views.id_post = lite_post.id 
                 ORDER BY lite_post.id DESC LIMIT 5';
 

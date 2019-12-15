@@ -95,7 +95,7 @@
       <?php foreach ($similar as $value):?>
 
         <div class="film-item">
-          <a href="/anime/<?=$helper::renderUrl($value['id'],$value['alias'])?>">
+          <a href="/<?=$alias?>/<?=$helper::renderUrl($value['id'],$value['alias'])?>">
             <div class="background-film-item">
               <img src="<?=$value['image']?>">
               <div class="over-back-film-item">
@@ -107,7 +107,7 @@
             </div>
           </a>
           <div class="discription">
-            <div class="film-name"><a href="/anime/<?=$helper::renderUrl($item['id'], $item['alias'])?>"><?=$value['title']?> <?=$value['tv_title']?></a></div>
+            <div class="film-name"><a href="/<?=$alias?>/<?=$helper::renderUrl($item['id'], $item['alias'])?>"><?=$value['title']?> <?=$value['tv_title']?></a></div>
             <div class="film-gener"><?=$helper::renderCat($value['cats'])?></div>
           </div>
         </div>
