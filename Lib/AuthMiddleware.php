@@ -29,9 +29,7 @@ class AuthMiddleware extends Middleware {
 
 
             if (!isset($_SESSION['auth'])){
-
                 $this->app->notFound();
-
             }
             $this->acl->setAllow('Анимешник','/admin(/:page)', ['GET','POST']);
             $this->acl->setAllow('_VIP_','/admin(/:page)', ['GET','POST']);

@@ -71,6 +71,7 @@ class Model
                     if ($alias == 'film'){
                         $concat = ' OR  lite_post.id_tv = lite_tv.id
                                     AND lite_type_post.id_type_post = lite_post.id_type_post
+                                    AND lite_views.id_post = lite_post.id 
                                     AND lite_tv.title LIKE "%Фильм%"';
                     }
                     $from = 'lite_post, lite_tv,lite_views, lite_type_post';

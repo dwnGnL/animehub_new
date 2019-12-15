@@ -117,7 +117,7 @@ class AjaxController extends DisplayController
         if (empty($error)){
             $this->model->addVote($_SESSION['id'], $_POST['id_answer']);
             // если успешно проголосовал
-            $error = ['status' => '502'];
+            echo json_encode(['status' => '200']);
         }else{
             // если не авторизован
            echo json_encode($error);

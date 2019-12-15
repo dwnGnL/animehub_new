@@ -20,6 +20,10 @@
 
     <div class="profile-bottom">
       <div><a href="/profile/<?= $_SESSION['login']?>" >Профиль</a></div>
+        <?php if ($_SESSION['status'] == 'Админ'): ?>
+        <div><a href="/admin/">Админ панель</a></div>
+        <div><a href="<?=$app->urlFor('viewQuest')?>">Опросник</a></div>
+        <?php endif; ?>
       <div>Закладки: (<span class="bookmark-quantity">0</span>)</div>
       <div><a href="<?=$app->urlFor('logout')?>">Выйти</a> </div>
     </div>
