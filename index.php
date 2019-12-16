@@ -85,7 +85,6 @@ $app->group('/ajax', function () use ($app){
     })->name('searchAjax');
 
 });
-
 $app->post('/question', function (){
     $o = \Controller\Controller::getInstance('Widget'); //WidgetController
     $o->addQuestionnaire();

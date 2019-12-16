@@ -25,6 +25,7 @@ abstract  class DisplayController extends Controller
 
     protected function getMenu()
     {
+        $favorites = $this->model->getCountFavorites($_SESSION['id']);
         $years = $this->model->getGodWip();
         $pages = $this->model->getPages();
         $categories = $this->model->getCategories();
@@ -35,7 +36,8 @@ abstract  class DisplayController extends Controller
                                                         'uri' => $this->uri,
                                                         'categories' => $categories,
                                                         'years' => $years,
-                                                        'user' => $user
+                                                        'user' => $user,
+                                                        'favorites' => $favorites['total']
                                                             ]);
 
 

@@ -96,6 +96,14 @@ class Model
                             AND lite_cat.title = :alias 
                             ORDER BY lite_post.date DESC';
             $alias = 'Онгоинг';
+        }elseif ($alias == 'favorites') {
+            $from = 'lite_post, lite_tv,lite_views, lite_type_post, lite_favorites';
+            $where = 'lite_post.id = lite_favorites.id_post
+                        AND lite_post.id = lite_views.id_post
+                        AND lite_post.id_tv = lite_tv.id
+                        AND lite_post.id_type_post = lite_type_post.id_type_post
+                        AND lite_favorites.id_user = :alias';
+            $alias = $_SESSION['id'];
         }else {
             $from = 'lite_post, lite_tv,lite_views, lite_type_post';
             $where = 'lite_post.id_tv = lite_tv.id
@@ -602,5 +610,12 @@ class Model
         return $this->driver->column($sql,$params);
     }
 
+    public function getCountFavorites($id){
+        $sql = 'SELECT COUNT(lite_favorites.id) AS total FROM `lite_favorites` WHERE lite_favorites.id_user = :id';
+        $params = [
+            'id' => $id
+        ];
 
+        return $this->driver->column($sql,$params);
+    }
 }

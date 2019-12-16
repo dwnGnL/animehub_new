@@ -24,7 +24,7 @@
         <div><a href="/admin/">Админ панель</a></div>
         <div><a href="<?=$app->urlFor('viewQuest')?>">Опросник</a></div>
         <?php endif; ?>
-      <div>Закладки: (<span class="bookmark-quantity">0</span>)</div>
+     <div><a href="/favorites">Закладки: (<span class="bookmark-quantity"><?=$favorites?></span>)</a></div>
       <div><a href="<?=$app->urlFor('logout')?>">Выйти</a> </div>
     </div>
   </div>
