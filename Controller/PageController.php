@@ -93,7 +93,9 @@ class PageController extends DisplayController
         $path = $this->app->request->getPath();
         preg_match('#/\d+#', $path, $mathces);
         $path = str_replace($mathces[0], '', $path);
-        $path .= '/';
+        if ($param['url'] == 'year'){
+            $path .= '/'.$param['alias'].'/';
+        }
         $items = $this->model->getItems($this->page,$path,$this->alias,$param['url']);
         if (empty($items['items'])){
             $this->app->notFound();
