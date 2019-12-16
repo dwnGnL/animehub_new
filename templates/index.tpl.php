@@ -26,7 +26,9 @@
   <div class="background background-sign-in"></div>
   <div class="message-place"></div>
   <script src="<?=$uri?>/templates/js/alert-message.js?<?=filemtime('templates/js/alert-message.js')?>"></script>
-
+  <script>
+  showMessage("dsdsds","dsdsdsds",error)
+  </script>
   <div id="wrapper">
     <!-- Sign in -->
     <div id="sign-in">
