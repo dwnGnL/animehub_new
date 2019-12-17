@@ -55,6 +55,9 @@
     <div class="sidebar-head">Комментарии</div>
     <?php foreach ($comments as $comment): ?>
     <div class="comment-item">
+      <div class="user-name-comment">
+        Ник
+      </div>
       <div class="comment-text"><?=$comment['body']?></div>
 
       <div class="comment-user">
@@ -69,6 +72,5 @@
   </div>
 </div>
 </div>
-
 
 <script src="<?=$uri?>/templates/js/questionnaire.js?<?=filemtime('templates/js/questionnaire.js')?>"></script>

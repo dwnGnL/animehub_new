@@ -104,6 +104,8 @@ function searchSeriesItem() {
     if (seriesItem[i].getAttribute('id-ser') >= +searchInput.value) break
   };
 
+  if (i >= seriesItem.length) showMessage('Ошибка!', 'Серия не найдена', error);
+
   let sumScroll = seriesItem[i].getBoundingClientRect().x - toLeftSeries.getBoundingClientRect().right;
   scrollingSeries(-sumScroll);
 };
