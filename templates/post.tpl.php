@@ -146,7 +146,7 @@
             <div class="comment-arrow"></div>
 
             <div class="top-video-comment-item">
-              <div class="video-comment-user-name" ">
+              <div class="video-comment-user-name">
                 <a href="/profile/<?=$val['login']?>" style="font-family:<?=$val['font']?>;<?=$val['login_color']?>" ><?=$val['login'].' '?></a><span style ="color:<?=$val['color']?>;font-family:<?=$val['font']?>"><?=$val['status']?></span>
               </div>
               <div class="video-comment-date">
