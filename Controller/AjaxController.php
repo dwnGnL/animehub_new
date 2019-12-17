@@ -124,4 +124,33 @@ class AjaxController extends DisplayController
         }
     }
 
+    public function addFavPost(){
+        if (isset($_SESSION['auth'])){
+        if ($_SESSION['token'] == $_POST['token']){
+          $fav =  $this->model->favoritePost($_POST['id_post'], $_SESSION['id']);
+          if (empty($fav)){
+                $this->model->addFavorite($_POST['id_post'], $_SESSION['id']);
+                echo  ['status' => 200];
+          }
+
+        }
+        }else{
+            echo ['status' => 501];
+        }
+    }
+
+    public function deleteFavPost(){
+        if (isset($_SESSION['auth'])){
+            if ($_SESSION['token'] == $_POST['token']){
+                $fav =  $this->model->favoritePost($_POST['id_post'], $_SESSION['id']);
+                if (empty($fav)){
+                    $this->model->deleteFavorite($_POST['id_post'], $_SESSION['id']);
+                    echo  ['status' => 200];
+                }
+
+            }
+        }else{
+            echo ['status' => 501];
+        }
+    }
 }

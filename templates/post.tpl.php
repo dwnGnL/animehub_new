@@ -8,9 +8,9 @@
 
   <div class="film-discription-block">
     <div class="img-film-discription">
-      <div class="favorites">
+      <div class="favorites <?=$favorite['class']?>">
         <i class="fa fa-star"></i>
-        <div class="favorite-text">Добавить в избранное</div>
+        <div class="favorite-text"><?=$favorite['title']?></div>
       </div>
       <img src="<?=$post['image']?>">
     </div>

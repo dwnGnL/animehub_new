@@ -83,6 +83,16 @@ $app->group('/ajax', function () use ($app){
         $o->searchAjax();
     })->name('searchAjax');
 
+    $app->post('/favorites/add', function () use ($app) {
+        $o = \Controller\Controller::getInstance('ajax'); //AjaxController
+        $o->addFavPost();
+    })->name('addFavPost');
+
+    $app->post('/favorites/delete', function () use ($app) {
+        $o = \Controller\Controller::getInstance('ajax'); //AjaxController
+        $o->addFavPost();
+    })->name('deleteFavPost');
+
 });
 $app->post('/question', function (){
     $o = \Controller\Controller::getInstance('Widget'); //WidgetController

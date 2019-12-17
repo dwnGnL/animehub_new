@@ -50,6 +50,13 @@ class PageController extends DisplayController
         $like = $this->model->getLikeCount($matches[0], 1);
         $disLike = $this->model->getLikeCount($matches[0], 0);
         $post = $this->model->getPost($matches[0],$param['alias']);
+        $favorite = $this->model->favoritePost($matches[0], $_SESSION['id']);
+        if (empty($favorite)){
+            $favorite['title'] = 'Добавить в избанное';
+        }else{
+            $favorite['title'] = 'Удалить из избранного';
+            $favorite['class'] = 'choose';
+        }
         if (!isset($_COOKIE[$matches[0]]) OR $_COOKIE[$matches[0]] != $matches[0]){
             $this->model->updateView($post['id_post']);
             $this->app->setCookie($matches[0], $matches[0],time() + 1440);
@@ -81,6 +88,7 @@ class PageController extends DisplayController
             'orderPosts' => $orderPosts,
             'rating' => $rating,
             'alias' => $param['alias'],
+            'favorite' => $favorite,
         ]);
            $this->display();
     }
