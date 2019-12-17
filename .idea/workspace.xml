@@ -3,9 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="6341c2f9-1102-484a-bdc9-098e620a8c13" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/Admin/edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/Admin/edit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/BD_info.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/BD_info.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/Model.php" beforeDir="false" afterPath="$PROJECT_DIR$/Model/Model.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hub.rar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/sidebar.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sidebar.tpl.php" afterDir="false" />
     </list>
     <list id="38dd605b-6083-45a6-9f6b-662038e1e815" name="Revert &quot;no message&quot;" comment="Revert &quot;no message&quot;&#10;&#10;This reverts commit 1b2b2056" />
     <list id="127eea75-a317-47c4-9d24-73bfa4d50c03" name="Проверь" comment="" />
@@ -159,7 +159,7 @@
       <workItem from="1576409278941" duration="3008000" />
       <workItem from="1576504529699" duration="8742000" />
       <workItem from="1576562152029" duration="599000" />
-      <workItem from="1576571100939" duration="1662000" />
+      <workItem from="1576571100939" duration="6046000" />
     </task>
     <task id="LOCAL-00001" summary="Merge branch 'master' of https://github.com/dwnGnL/animehub_new&#10;&#10;# Conflicts:&#10;#&#9;Controller/PageController.php">
       <created>1575814085998</created>
@@ -247,10 +247,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="-2" y="0" width="1499" height="824" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1576409704959" />
-    <state x="126" y="64" width="1228" height="689" key="DiffContextDialog" timestamp="1575986433693">
+    <state x="126" y="64" width="1228" height="689" key="DiffContextDialog" timestamp="1576575384234">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="126" y="64" width="1228" height="689" key="DiffContextDialog/0.0.1536.824@0.0.1536.824" timestamp="1575986433693" />
+    <state x="126" y="64" width="1228" height="689" key="DiffContextDialog/0.0.1536.824@0.0.1536.824" timestamp="1576575384234" />
     <state x="549" y="166" key="FileChooserDialogImpl" timestamp="1575827663811">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -271,10 +271,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="604" y="335" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1576260231368" />
-    <state x="361" y="144" key="Vcs.Push.Dialog.v2" timestamp="1576409721835">
+    <state x="361" y="144" key="Vcs.Push.Dialog.v2" timestamp="1576575403686">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="144" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1576409721835" />
+    <state x="361" y="144" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1576575403686" />
     <state x="93" y="93" width="1350" height="638" key="dock-window-1" timestamp="1576174978101">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -291,9 +291,9 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1575800680958" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1576174865054">
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1576579045439">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1576174865054" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1576579045439" />
   </component>
 </project>

@@ -76,7 +76,8 @@ abstract  class DisplayController extends Controller
     protected function display()
     {
 
-
+        $this->keywords = 'аниме, онлайн, anime, online, бесплатно, без регистрации, русская озвучка, дорамы, внутренный трафик, таджикский';
+        $this->description = 'Аниме портал Таджикистана! Дорамы смотреть онлайн, полностью внутренный трафик';
         $menu = $this->getMenu();
         $sidebar = $this->getSidebar();
 

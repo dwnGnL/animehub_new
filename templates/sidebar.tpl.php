@@ -55,14 +55,15 @@
     <div class="sidebar-head">Комментарии</div>
     <?php foreach ($comments as $comment): ?>
     <div class="comment-item">
+        <a href="/profile/<?=$comment['login']?>">
       <div class="comment-user">
         <div class="user-avatar"><img src="<?=$comment['img']?>"></div>
-        <div class="user-name-comment">Ник</div>
+        <div class="user-name-comment" style="<?=$comment['login_color']?>; font-family: <?=$comment['font']?>"><?=$comment['login']?> <span style="color: <?=$comment['color']?>; font-family:<?=$comment['login']?> "><?=$comment['status']?></span></div>
       </div>
-
+        </a>
       <div class="comment-text"><?=$comment['body']?></div>
 
-      <a href="/<?=$comment['type'].'/'?><?=$helper::renderUrl($comment['id'],$comment['alias'])?>"><div class="comments-name-film"><?=$comment['title'].' '.$comment['tv']?></div></a>
+      <a href="/<?=$comment['type'].'/'?><?=$helper::renderUrl($comment['id_post'],$comment['alias'])?>"><div class="comments-name-film"><?=$comment['title'].' '.$comment['tv']?></div></a>
     </div>
       <?php endforeach; ?>
   </div>
