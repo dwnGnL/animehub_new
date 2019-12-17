@@ -33,6 +33,7 @@ if(isset($_GET['edit']))
                         ?>
                         <form   action="" method="post" name="postFormEdit" id="postForm">
                             <input id="postTitle" value="<?=$post['title'];?>" type="text" class="form-control mr-2 zapolnen" name="postTitleEdit" placeholder="Название аниме" >
+                            <input id="postAlias" value="<?=$post['alias'];?>" type="text" class="form-control mt-2 zapolnen" name="postAliasEdit" placeholder="Альтернативное название аниме" >
                             <input id="postTv" value="<?=$getPostTv['title'];?>" type="text" class=" form-control mt-2" name="postTvEdit" placeholder="Сезон" >
                             <input id="postImg" value="<?=$post['image'];?>" type="text" class=" form-control mt-2" name="postImgEdit" placeholder="Картинка" >
                             <input id="postPrichina" value="<?=$post['prichina'];?>" type="text" class=" form-control mt-2" name="postPrichinaEdit" placeholder="Причина обновления" >

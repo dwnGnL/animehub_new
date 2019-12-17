@@ -185,7 +185,7 @@ if(isset($_POST['postTitleEdit'])){
     $oldpost = $m->getPostForId($_POST['postIdEdit']);
     $oldTitle = $sort->saveSortTitle($oldpost['title']);
     $m->editTitleSer($titleId['id'],$tv['id'],$oldTitle['id'], $oldpost['id_tv']);
-    $m->updateEditPost($god['id'],$_POST['postImgEdit'], $_POST['postTitleEdit'], $_POST['postOpisanieEdit'], $tv['id'],$_POST['postPrichinaEdit'], $_POST['postIdEdit'], $_POST['postType']);
+    $m->updateEditPost($god['id'],$_POST['postImgEdit'], $_POST['postTitleEdit'], $_POST['postOpisanieEdit'], $tv['id'],$_POST['postPrichinaEdit'], $_POST['postIdEdit'], $_POST['postType'],$_POST['postAliasEdit']);
     $m->deletePostCat($postId['id']);
     $cat = $_POST['postJanrEdit'];
     $cat = explode(',', $cat);

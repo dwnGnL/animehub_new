@@ -19,7 +19,6 @@ $app = new \Slim\Slim([
 
 function my_autoload($className){
     $baseDir = __DIR__;
-
     $fileName = $baseDir.DIRECTORY_SEPARATOR;
     $namespace = '';
     if($lastNsPos = strripos($className, '\\')){

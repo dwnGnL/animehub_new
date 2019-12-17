@@ -281,11 +281,11 @@ require_once 'BD_info.php';
         }
 
         // Обновление поста
-        public function updateEditPost($id_god_wip, $image, $title, $body, $id_tv, $prichina, $id, $id_type)
+        public function updateEditPost($id_god_wip, $image, $title, $body, $id_tv, $prichina, $id, $id_type, $alias)
         {
-            $query = 'UPDATE lite_post SET id_god_wip = ?, image=?, title=?, body=?, id_tv=?, prichina = ?, id_type = ? WHERE id = ?';
+            $query = 'UPDATE lite_post SET id_god_wip = ?, image=?, title=?, body=?, id_tv=?, prichina = ?, id_type = ?, alias = ? WHERE id = ?';
             $post = $this->pdo->prepare($query);
-            return $post->execute([$id_god_wip, $image, $title, $body, $id_tv, $prichina, $id_type, $id]);
+            return $post->execute([$id_god_wip, $image, $title, $body, $id_tv, $prichina, $id_type,$alias, $id]);
         }
 
         public function updatePostCat($id_post, $id_cat, $id)
