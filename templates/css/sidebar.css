@@ -151,7 +151,6 @@
 .comment-user {
   display: flex;
   align-items: center;
-  margin: 10px 0;
 }
 
 .user-avatar {
@@ -159,6 +158,7 @@
   justify-content: center;
   align-items: center;
   border-radius: 30px;
+  margin-right: 10px;
   overflow: hidden;
 }
 
@@ -169,6 +169,7 @@
 .comments-name-film {
   color: #898989;
   cursor: pointer;
+  margin: 10px 0;
 }
 
 .comments-name-film:hover {
@@ -353,6 +354,12 @@
 
 @media screen and (max-width: 992px) {
   #sidebar {
-    display: none;
+    grid-column: 1/13;
+    padding: 30px 10px;
+  }
+  .user-avatar {
+    width: 35px;
+    height: 35px;
+    margin-right: 10px;
   }
 }

@@ -8,6 +8,10 @@
 
   <div class="film-discription-block">
     <div class="img-film-discription">
+      <div class="favorites">
+        <i class="fa fa-star"></i>
+        <div class="favorite-text">Добавить в избранное</div>
+      </div>
       <img src="<?=$post['image']?>">
     </div>
 
@@ -75,7 +79,10 @@
     </div>
 
     <div class="arrow-series to-right-series"><div></div></div>
-    <div class="search-series"><img src="<?=$uri?>/templates/images/search.png"></div>
+    <div class="search-series">
+      <i class="fa fa-search"></i>
+      <!-- <img src="<?=$uri?>/templates/images/search.png"> -->
+    </div>
   </div>
 
 

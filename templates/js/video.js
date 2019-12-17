@@ -7,11 +7,18 @@ let topVideoBlock = document.querySelector('.top-video-block');
 let searchSeries = document.querySelector('.search-series');
 let searchInput = document.getElementById('search-input');
 let videoLink = document.querySelector('.video');
+let favorite = document.querySelector('.favorites');
 let searchSeriesInput = document.querySelector('.search-series-input');
+let favoriteText = document.querySelector('.favorite-text');
 let openSearch = true;
 let seriesListWidth = 0;
 let previousSeries = 0;
 let presentSeries = 0;
+
+favorite.onclick = () => {
+  favorite.classList.toggle('choose');
+  favorite.classList.contains('choose') ? favoriteText.innerHTML = 'Удалить из избранного' : favoriteText.innerHTML = 'Добавить в избранное';
+};
 
 toRightSeries.addEventListener('click', () => scrollingSeries(-(seriesItem[0].offsetWidth + 10)));
 toLeftSeries.addEventListener('click', () => scrollingSeries(seriesItem[0].offsetWidth + 10));

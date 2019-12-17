@@ -10,7 +10,10 @@ let prevpos = 0;
 let pos = 0;
 
 res();
-window.onresize = res
+window.onresize = () => {
+  res();
+  resizeingShortingText();
+};
 
 function res() {
   sliderWidth = document.querySelector('#wrapper').clientWidth;
