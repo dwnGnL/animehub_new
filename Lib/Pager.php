@@ -146,8 +146,6 @@ class Pager{
 
     public function render($route){
       $navigation = $this->get_navigation();
-
-
       if ($this->get_total() > $this->post_number){
         $temp = '<ul class="switch-page">';
             if (!empty($navigation['previous'])){

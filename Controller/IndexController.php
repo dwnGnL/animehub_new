@@ -18,6 +18,9 @@ class IndexController extends DisplayController
 
     protected function display()
     {
+        $this->description = 'Аниме портал Таджикистана! Дорамы смотреть онлайн, полностью внутренный трафик';
+        $this->keywords = 'аниме, онлайн, anime, online, бесплатно, без регистрации, русская озвучка, дорамы, внутренный трафик, таджикский';
+        $this->title .= 'Таджикский аниме портал !';
         $posts =  $this->model->getPostL10('anime',10);
         foreach ($posts as $key => $val){
             $posts[$key]['cats'] = $this->model->getCatPostL2($posts[$key]['id']);

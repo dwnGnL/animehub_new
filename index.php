@@ -85,7 +85,6 @@ $app->group('/ajax', function () use ($app){
     })->name('searchAjax');
 
 });
-
 $app->post('/question', function (){
     $o = \Controller\Controller::getInstance('Widget'); //WidgetController
     $o->addQuestionnaire();
@@ -119,10 +118,10 @@ $app->get('/type/:alias(/:page)', function ($alias, $page = false) use($app){
 })->name('type');
 
 $app->get('/year/:alias(/:page)', function ($alias, $page = false) use($app){
-
     $o = \Controller\Controller::getInstance('page'); //CategoryController
     $o->allPost(['alias' => $alias, 'page' => $page, 'url' => 'year']);
-})->name('year');
+
+})->name('year')->conditions(['alias' => '\d+']);
 
 $app->get('/category/:alias(/:page)', function ($alias, $page = false) use($app){
 
