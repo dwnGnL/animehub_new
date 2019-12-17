@@ -25,6 +25,7 @@ seriesItem.forEach(function (elem, index) {
     presentSeries = index;
     seriesItem[previousSeries].classList.remove('series-item-active');
     seriesItem[presentSeries].classList.add('series-item-active');
+    document.title+=` - ${elem.textContent}`
     videoLink.src = elem.getAttribute('src');
   };
 });
