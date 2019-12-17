@@ -17,6 +17,35 @@
   border-bottom: 1px solid #E3E3E3;
 }
 
+.img-film-discription {
+  position: relative;
+}
+
+.favorites {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 50px;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  cursor: pointer;
+}
+
+.favorites .fa {
+  font-size: 25px;
+  padding-right: 10px;
+  color: #A5A29A;
+  transition: .3s;
+}
+
+.favorites.choose .fa {
+  color: #FCBC5B;
+}
+
 .img-film-discription img {
   width: 100%;
 }
@@ -115,6 +144,19 @@
   border-right: 2px solid;
   width: 18px;
   height: 18px;
+}
+
+.arrow-series:active > div {
+  border-top: 2px solid #D81C27;
+  border-right: 2px solid #D81C27;
+}
+
+.search-series .fa {
+  font-size: 27px;
+}
+
+.search-series:active .fa {
+  color: #D81C27;
 }
 
 .to-right-series div {
@@ -228,6 +270,7 @@
 video {
   width: 100%;
   height: 450px;
+  position: relative;
 }
 
 .like {

@@ -7,11 +7,18 @@ let topVideoBlock = document.querySelector('.top-video-block');
 let searchSeries = document.querySelector('.search-series');
 let searchInput = document.getElementById('search-input');
 let videoLink = document.querySelector('.video');
+let favorite = document.querySelector('.favorites');
 let searchSeriesInput = document.querySelector('.search-series-input');
+let favoriteText = document.querySelector('.favorite-text');
 let openSearch = true;
 let seriesListWidth = 0;
 let previousSeries = 0;
 let presentSeries = 0;
+
+favorite.onclick = () => {
+  favorite.classList.toggle('choose');
+  favorite.classList.contains('choose') ? favoriteText.innerHTML = 'Удалить из избранного' : favoriteText.innerHTML = 'Добавить в избранное';
+};
 
 toRightSeries.addEventListener('click', () => scrollingSeries(-(seriesItem[0].offsetWidth + 10)));
 toLeftSeries.addEventListener('click', () => scrollingSeries(seriesItem[0].offsetWidth + 10));
@@ -25,6 +32,7 @@ seriesItem.forEach(function (elem, index) {
     presentSeries = index;
     seriesItem[previousSeries].classList.remove('series-item-active');
     seriesItem[presentSeries].classList.add('series-item-active');
+    document.title+=` - ${elem.textContent}`
     videoLink.src = elem.getAttribute('src');
   };
 });
@@ -102,6 +110,8 @@ function searchSeriesItem() {
   for (var i = 0; i < seriesItem.length; i++) {
     if (seriesItem[i].getAttribute('id-ser') >= +searchInput.value) break
   };
+
+  if (i >= seriesItem.length) showMessage('Ошибка!', 'Серия не найдена', error);
 
   let sumScroll = seriesItem[i].getBoundingClientRect().x - toLeftSeries.getBoundingClientRect().right;
   scrollingSeries(-sumScroll);

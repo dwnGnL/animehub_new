@@ -12,7 +12,7 @@
           <div class="update-item">
             <div class="update-data"><?=$ser['date']?></div>
             <div class="update-bottom">
-              <div class="update-name"><?=$ser['title']?></div>
+              <div class="update-name"><?=$ser['title']?>вфыфы</div>
               <div class="update-series"><?=$ser['seria']?> серия</div>
             </div>
           </div>
@@ -55,20 +55,18 @@
     <div class="sidebar-head">Комментарии</div>
     <?php foreach ($comments as $comment): ?>
     <div class="comment-item">
+      <div class="comment-user">
+        <div class="user-avatar"><img src="<?=$comment['img']?>"></div>
+        <div class="user-name-comment">Ник</div>
+      </div>
+
       <div class="comment-text"><?=$comment['body']?></div>
 
-      <div class="comment-user">
-        <div class="user-avatar">
-          <img src="<?=$comment['img']?>">
-        </div>
-
       <a href="/<?=$comment['type'].'/'?><?=$helper::renderUrl($comment['id'],$comment['alias'])?>"><div class="comments-name-film"><?=$comment['title'].' '.$comment['tv']?></div></a>
-      </div>
     </div>
       <?php endforeach; ?>
   </div>
 </div>
 </div>
-
 
 <script src="<?=$uri?>/templates/js/questionnaire.js?<?=filemtime('templates/js/questionnaire.js')?>"></script>

@@ -8,6 +8,10 @@
 
   <div class="film-discription-block">
     <div class="img-film-discription">
+      <div class="favorites">
+        <i class="fa fa-star"></i>
+        <div class="favorite-text">Добавить в избранное</div>
+      </div>
       <img src="<?=$post['image']?>">
     </div>
 
@@ -75,7 +79,10 @@
     </div>
 
     <div class="arrow-series to-right-series"><div></div></div>
-    <div class="search-series"><img src="<?=$uri?>/templates/images/search.png"></div>
+    <div class="search-series">
+      <i class="fa fa-search"></i>
+      <!-- <img src="<?=$uri?>/templates/images/search.png"> -->
+    </div>
   </div>
 
 
@@ -146,7 +153,7 @@
             <div class="comment-arrow"></div>
 
             <div class="top-video-comment-item">
-              <div class="video-comment-user-name" ">
+              <div class="video-comment-user-name">
                 <a href="/profile/<?=$val['login']?>" style="font-family:<?=$val['font']?>;<?=$val['login_color']?>" ><?=$val['login'].' '?></a><span style ="color:<?=$val['color']?>;font-family:<?=$val['font']?>"><?=$val['status']?></span>
               </div>
               <div class="video-comment-date">
