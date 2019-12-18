@@ -15,10 +15,53 @@ let seriesListWidth = 0;
 let previousSeries = 0;
 let presentSeries = 0;
 
+favorite.classList.contains('choose') ? favoriteText.innerHTML = 'Удалить из избранного' : favoriteText.innerHTML = 'Добавить в избранное';
 favorite.onclick = () => {
-  favorite.classList.toggle('choose');
-  favorite.classList.contains('choose') ? favoriteText.innerHTML = 'Удалить из избранного' : favoriteText.innerHTML = 'Добавить в избранное';
-};
+ if (!favorite.classList.contains('choose')) {
+  $.ajax({
+    type: "post",
+    url: "/ajax/favorites/add",
+    data: ({"id_post":id_post,"token":$("#token").text()}),
+    dataType: "text",
+    success: function (response) {
+      response=JSON.parse(response)
+      switch (response.status) {
+        case "501":
+          showMessage("Ошибка","авторизуйтесь прежде чем добавлять в закладки",error)
+          break;
+        case "200":
+            favorite.classList.toggle('choose');
+            favorite.classList.contains('choose') ? favoriteText.innerHTML = 'Удалить из избранного' : favoriteText.innerHTML = 'Добавить в избранное';          
+        default:
+            showMessage("Ошибка","что то пошло не так",error)
+          break;
+      }
+    }
+    })
+ }else{
+  $.ajax({
+    type: "post",
+    url: "/ajax/favorites/delete",
+    data: ({"id_post":id_post,"token":$("#token").text()}),
+    dataType: "text",
+    success: function (response) {
+      response=JSON.parse(response)
+      switch (response.status) {
+        case "501":
+          showMessage("Ошибка","авторизуйтесь прежде чем добавлять в закладки",error)
+          break;
+        case "200":
+            favorite.classList.toggle('choose');
+            favorite.classList.contains('choose') ? favoriteText.innerHTML = 'Удалить из избранного' : favoriteText.innerHTML = 'Добавить в избранное';          
+        default:
+            showMessage("Ошибка","что то пошло не так",error)
+          break;
+      }
+    }
+    })
+ }
+  
+  };
 
 toRightSeries.addEventListener('click', () => scrollingSeries(-(seriesItem[0].offsetWidth + 10)));
 toLeftSeries.addEventListener('click', () => scrollingSeries(seriesItem[0].offsetWidth + 10));
