@@ -12,7 +12,7 @@
           <div class="update-item">
             <div class="update-data"><?=$ser['date']?></div>
             <div class="update-bottom">
-              <div class="update-name"><?=$ser['title']?>вфыфы</div>
+              <div class="update-name"><?=$ser['title']?> <?=$ser['tv']?></div>
               <div class="update-series"><?=$ser['seria']?> серия</div>
             </div>
           </div>

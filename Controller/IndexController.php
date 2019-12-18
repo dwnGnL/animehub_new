@@ -30,7 +30,7 @@ class IndexController extends DisplayController
         }
         $dorams =  $this->model->getPostL10('dorams',5);
         foreach ($dorams as $key => $val){
-            $dorams[$key]['cats'] = $this->model->getCatPostL2($posts[$key]['id']);
+            $dorams[$key]['cats'] = $this->model->getCatPostL2($dorams[$key]['id']);
         }
         $articles =  $this->model->getPostL10('articles',6);
         $search = $this->getSearch();

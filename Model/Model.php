@@ -304,7 +304,7 @@ class Model
     }
 
     public function getNewSeria(){
-        $sql = 'SELECT lite_anime.seria, lite_post.id, lite_post.alias, lite_post.title, lite_anime.date
+        $sql = 'SELECT lite_anime.seria, lite_post.id, lite_post.alias, lite_post.title, lite_anime.date, lite_tv.title AS tv
                 FROM lite_title, lite_post, lite_anime, lite_tv
                 WHERE lite_anime.id_title = lite_title.id
                 AND  lite_title.title = lite_post.title

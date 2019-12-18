@@ -3,12 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="6341c2f9-1102-484a-bdc9-098e620a8c13" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/AjaxController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/AjaxController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/PageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/PageController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/IndexController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/IndexController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Model/Model.php" beforeDir="false" afterPath="$PROJECT_DIR$/Model/Model.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/Model.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/Model.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/post.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/post.tpl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/sidebar.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sidebar.tpl.php" afterDir="false" />
     </list>
     <list id="38dd605b-6083-45a6-9f6b-662038e1e815" name="Revert &quot;no message&quot;" comment="Revert &quot;no message&quot;&#10;&#10;This reverts commit 1b2b2056" />
     <list id="127eea75-a317-47c4-9d24-73bfa4d50c03" name="Проверь" comment="" />
@@ -164,7 +161,8 @@
       <workItem from="1576562152029" duration="599000" />
       <workItem from="1576571100939" duration="6046000" />
       <workItem from="1576589978455" duration="722000" />
-      <workItem from="1576605265620" duration="2768000" />
+      <workItem from="1576605265620" duration="3570000" />
+      <workItem from="1576695143287" duration="481000" />
     </task>
     <task id="LOCAL-00001" summary="Merge branch 'master' of https://github.com/dwnGnL/animehub_new&#10;&#10;# Conflicts:&#10;#&#9;Controller/PageController.php">
       <created>1575814085998</created>
