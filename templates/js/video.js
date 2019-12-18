@@ -24,14 +24,15 @@ favorite.onclick = () => {
     data: ({"id_post":id_post,"token":$("#token").text()}),
     dataType: "text",
     success: function (response) {
-      response=JSON.parse(response)
+      response=JSON.parse(response);
       switch (response.status) {
         case "501":
           showMessage("Ошибка","авторизуйтесь прежде чем добавлять в закладки",error)
           break;
         case "200":
             favorite.classList.toggle('choose');
-            favorite.classList.contains('choose') ? favoriteText.innerHTML = 'Удалить из избранного' : favoriteText.innerHTML = 'Добавить в избранное';          
+            favorite.classList.contains('choose') ? favoriteText.innerHTML = 'Удалить из избранного' : favoriteText.innerHTML = 'Добавить в избранное';
+            break;
         default:
             showMessage("Ошибка","что то пошло не так",error)
           break;
@@ -45,14 +46,15 @@ favorite.onclick = () => {
     data: ({"id_post":id_post,"token":$("#token").text()}),
     dataType: "text",
     success: function (response) {
-      response=JSON.parse(response)
+      response=JSON.parse(response);
       switch (response.status) {
         case "501":
           showMessage("Ошибка","авторизуйтесь прежде чем добавлять в закладки",error)
           break;
         case "200":
             favorite.classList.toggle('choose');
-            favorite.classList.contains('choose') ? favoriteText.innerHTML = 'Удалить из избранного' : favoriteText.innerHTML = 'Добавить в избранное';          
+            favorite.classList.contains('choose') ? favoriteText.innerHTML = 'Удалить из избранного' : favoriteText.innerHTML = 'Добавить в избранное';
+            break;
         default:
             showMessage("Ошибка","что то пошло не так",error)
           break;

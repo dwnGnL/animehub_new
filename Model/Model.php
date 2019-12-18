@@ -645,7 +645,7 @@ class Model
     }
 
     public function deleteFavorite($id_post, $id_user){
-        $sql = 'DELETE FROM lite_favorite WHERE id_post = :id_post AND id_user = :id_user';
+        $sql = 'DELETE FROM lite_favorites WHERE id_post = :id_post AND id_user = :id_user';
         $params = [
             'id_post' => $id_post,
             'id_user' => $id_user

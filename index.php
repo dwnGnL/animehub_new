@@ -90,7 +90,7 @@ $app->group('/ajax', function () use ($app){
 
     $app->post('/favorites/delete', function () use ($app) {
         $o = \Controller\Controller::getInstance('ajax'); //AjaxController
-        $o->addFavPost();
+        $o->deleteFavPost();
     })->name('deleteFavPost');
 
 });

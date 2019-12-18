@@ -130,12 +130,12 @@ class AjaxController extends DisplayController
           $fav =  $this->model->favoritePost($_POST['id_post'], $_SESSION['id']);
           if (empty($fav)){
                 $this->model->addFavorite($_POST['id_post'], $_SESSION['id']);
-                echo  ['status' => 200];
+                echo  json_encode(['status' => '200']);
           }
 
         }
         }else{
-            echo ['status' => 501];
+            echo json_encode(['status' => '501']);
         }
     }
 
@@ -143,14 +143,14 @@ class AjaxController extends DisplayController
         if (isset($_SESSION['auth'])){
             if ($_SESSION['token'] == $_POST['token']){
                 $fav =  $this->model->favoritePost($_POST['id_post'], $_SESSION['id']);
-                if (empty($fav)){
+                if (!empty($fav)){
                     $this->model->deleteFavorite($_POST['id_post'], $_SESSION['id']);
-                    echo  ['status' => 200];
+                    echo  json_encode(['status' => '200']);
                 }
 
             }
         }else{
-            echo ['status' => 501];
+            echo json_encode(['status' => '501']);
         }
     }
 }
