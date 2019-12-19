@@ -7,18 +7,18 @@ let crossLength = [];
 let error = 'error-message';
 let successful = 'successful-message';
 
-function showMessage(name, discription, typeMessage) {
-  createMessage(name, discription, typeMessage)
 
+function showMessage(name, discription, typeMessage) {
+  createMessage(name, discription, typeMessage);
+
+  let alertMessageBlock = document.querySelectorAll('.alert-message-block')
   closeMessage = document.querySelectorAll('.alert-cross');
+
   closeMessage.forEach((elem, index) => {
     elem.onclick = () => {
-      let alertMessageBlock = document.querySelectorAll('.alert-message-block')
       alertMessageBlock[index].classList.remove('show-alert');
-      setTimeout(function () {
-
-        elem.parentNode.remove()
-      }, 500);
+      allMes = [];
+      setTimeout(() => elem.parentNode.remove(), 500);
     };
   });
 };
@@ -30,8 +30,8 @@ function createMessage(name, discription, typeMessage) {
   `
   <div class="alert-message-top"><div class="message-name">${name}</div></div>
   <div class="alert-cross">
-  <div class="alert-cross-line"></div>
-  <div class="alert-cross-line"></div>
+    <div class="alert-cross-line"></div>
+    <div class="alert-cross-line"></div>
   </div>
   <div class="alert-message-body">${discription}</div>
   `;
@@ -43,6 +43,14 @@ function createMessage(name, discription, typeMessage) {
   }, 0);
 
   allMes.push(mes);
+
+  let qwer = document.querySelectorAll('.alert-message-block');
+
+  if (allMes.length > 1) {
+    allMes.shift();
+    qwer[qwer.length - 1].classList.remove('show-alert');
+    setTimeout(() => qwer[qwer.length - 1].remove(), 500);
+  };
 
   for (let i = 0; i < allMes.length; i++) {
     messagePlace.append(allMes[i]);
