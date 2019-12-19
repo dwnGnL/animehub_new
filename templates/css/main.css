@@ -45,7 +45,7 @@ body {
   background: #000;
   opacity: 0;
   transition: .5s;
-  z-index: 4;
+  z-index: 5;
 }
 
 @media screen and (min-width: 1200px)  {

@@ -1,11 +1,10 @@
 let messagePlace = document.querySelector('.message-place');
-
 let closeMessage;
-let allMes = [];
-let crossLength = [];
-
+let allMes = new Array;
+let crossLength = new Array;
 let error = 'error-message';
 let successful = 'successful-message';
+
 
 
 function showMessage(name, discription, typeMessage) {

@@ -249,7 +249,7 @@ ul.gener-list li:hover {
     height: 100vh;
     overflow-y: auto;
     transition: .5s;
-    z-index: 4;
+    z-index: 5;
   }
 
   #menu > li {
