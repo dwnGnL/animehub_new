@@ -37,10 +37,10 @@ questionnairePanelItem.forEach((elem, index) => {
         response=JSON.parse(response)
 
         if (response.status=="500") {
-          alert("Вы уже голосовали")
+          showMessage("Error",'Вы уже голосовали',error)
           return
         }else if(response.status=="501"){
-          alert("зарегайся")
+          showMessage("Error",'Требуется авторизация',error)
           return
         }else{
           var n=questionnairePanelItem[index].querySelector('.questionnaire-length').getAttribute("data-length");
