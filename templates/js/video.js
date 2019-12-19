@@ -16,54 +16,54 @@ let previousSeries = 0;
 let presentSeries = 0;
 
 favorite.classList.contains('choose') ? favoriteText.innerHTML = 'Удалить из избранного' : favoriteText.innerHTML = 'Добавить в избранное';
+
 favorite.onclick = () => {
- if (!favorite.classList.contains('choose')) {
-  $.ajax({
-    type: "post",
-    url: "/ajax/favorites/add",
-    data: ({"id_post":id_post,"token":$("#token").text()}),
-    dataType: "text",
-    success: function (response) {
-      response=JSON.parse(response);
-      switch (response.status) {
-        case "501":
+  if (!favorite.classList.contains('choose')) {
+    $.ajax({
+      type: "post",
+      url: "/ajax/favorites/add",
+      data: ({"id_post":id_post,"token":$("#token").text()}),
+      dataType: "text",
+      success: function (response) {
+        response=JSON.parse(response);
+        switch (response.status) {
+          case "501":
           showMessage("Ошибка","авторизуйтесь прежде чем добавлять в закладки",error)
           break;
-        case "200":
-            favorite.classList.toggle('choose');
-            favorite.classList.contains('choose') ? favoriteText.innerHTML = 'Удалить из избранного' : favoriteText.innerHTML = 'Добавить в избранное';
-            break;
-        default:
-            showMessage("Ошибка","что то пошло не так",error)
+          case "200":
+          favorite.classList.toggle('choose');
+          favorite.classList.contains('choose') ? favoriteText.innerHTML = 'Удалить из избранного' : favoriteText.innerHTML = 'Добавить в избранное';
           break;
+          default:
+          showMessage("Ошибка","что то пошло не так",error)
+          break;
+        }
       }
-    }
     })
- }else{
-  $.ajax({
-    type: "post",
-    url: "/ajax/favorites/delete",
-    data: ({"id_post":id_post,"token":$("#token").text()}),
-    dataType: "text",
-    success: function (response) {
-      response=JSON.parse(response);
-      switch (response.status) {
-        case "501":
+  } else {
+    $.ajax({
+      type: "post",
+      url: "/ajax/favorites/delete",
+      data: ({"id_post":id_post,"token":$("#token").text()}),
+      dataType: "text",
+      success: function (response) {
+        response=JSON.parse(response);
+        switch (response.status) {
+          case "501":
           showMessage("Ошибка","авторизуйтесь прежде чем добавлять в закладки",error)
           break;
-        case "200":
-            favorite.classList.toggle('choose');
-            favorite.classList.contains('choose') ? favoriteText.innerHTML = 'Удалить из избранного' : favoriteText.innerHTML = 'Добавить в избранное';
-            break;
-        default:
-            showMessage("Ошибка","что то пошло не так",error)
+          case "200":
+          favorite.classList.toggle('choose');
+          favorite.classList.contains('choose') ? favoriteText.innerHTML = 'Удалить из избранного' : favoriteText.innerHTML = 'Добавить в избранное';
           break;
+          default:
+          showMessage("Ошибка", "что то пошло не так", error);
+          break;
+        }
       }
-    }
     })
- }
-  
-  };
+  }
+};
 
 toRightSeries.addEventListener('click', () => scrollingSeries(-(seriesItem[0].offsetWidth + 10)));
 toLeftSeries.addEventListener('click', () => scrollingSeries(seriesItem[0].offsetWidth + 10));
@@ -92,7 +92,7 @@ toRightSeries.onmousedown = toRightSeries.ontouchstart = () => {
   mouseUnPressing = setTimeout(() => {
     setPosition();
     mousePressing = setInterval (() => scrollingSeries(-sumPos), 100);
-  }, 50)
+  }, 50);
 };
 
 toLeftSeries.onmousedown = toLeftSeries.ontouchstart = () => {
@@ -108,8 +108,8 @@ function setPosition() {
   setTimeout(() => seriesList.style.transition = '.2s', 1500);
 
   posInt = setInterval(() => {
-    positions++
-    sumPos += positions
+    positions++;
+    sumPos += positions;
   }, 100);
 };
 
@@ -153,7 +153,7 @@ searchInput.onchange = () => searchSeriesItem();
 
 function searchSeriesItem() {
   for (var i = 0; i < seriesItem.length; i++) {
-    if (seriesItem[i].getAttribute('id-ser') >= +searchInput.value) break
+    if (seriesItem[i].getAttribute('id-ser') >= +searchInput.value) break;
   };
 
   if (i >= seriesItem.length) showMessage('Ошибка!', 'Серия не найдена', error);
@@ -168,7 +168,7 @@ searchInput.onblur = searchInputBlur;
 
 function searchInputBlur() {
   searchInput.value == '' ? searchSeriesInput.classList.remove('search-series-focus') : elem;
-}
+};
 
 var id_post = document.location.pathname.split('/')
 id_post = id_post[id_post.length-1].split('-')[0]
@@ -179,7 +179,6 @@ $("#like").click(()=>{
 
 $("#dislike").click(()=>{
   raiting(0, id_post)
-
 })
 
 function raiting(type,id) {
@@ -194,21 +193,19 @@ function raiting(type,id) {
         case "1":
 
         if (type==1) {
-          $("#like span").html(parseInt($("#like span").text())+1)
+          $("#like span").html(parseInt($("#like span").text()) + 1)
         } else {
-          $("#dislike span").html(parseInt($("#dislike span").text())-1)
-
+          $("#dislike span").html(parseInt($("#dislike span").text()) - 1)
         }
-
         break;
         case "0":
-        alert("вы уже голосовали")
+        alert("вы уже голосовали");
         break;
         case "403":
-        alert("авторизуйтесь")
+        alert("авторизуйтесь");
         break;
         default:
-        alert("что то пошло не так")
+        alert("что то пошло не так");
         break;
       }
     }
