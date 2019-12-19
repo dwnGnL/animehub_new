@@ -27,7 +27,7 @@
   <div class="message-place"></div>
   <script src="<?=$uri?>/templates/js/alert-message.js?<?=filemtime('templates/js/alert-message.js')?>"></script>
   <script>
-  
+
   </script>
   <div id="wrapper">
     <!-- Sign in -->
@@ -166,6 +166,5 @@ style="width:80px; height:31px; border:0;" alt="Яндекс.Метрика" tit
     <script src="<?=$uri?>/templates/js/menu.js?<?=filemtime('templates/js/menu.js')?>"></script>
     <script src="<?=$uri?>/templates/js/sign_in.js?<?=filemtime('templates/js/sign_in.js')?>"></script>
     <script src="<?=$uri?>/templates/js/short-text.js?<?=filemtime('templates/js/short-text.js')?>"></script>
-    <script src="<?=$uri?>/templates/js/current-number.js?<?=filemtime('templates/js/current-number.js')?>"></script>
   </body>
   </html>

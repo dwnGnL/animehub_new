@@ -6,7 +6,7 @@ let questionnaireGeneralChoose = document.querySelector('.questionnaire-general-
 let sumQuestionnaire = 0;
 
 
-function raschet(){
+function countVote(){
   sumQuestionnaire = 0;
   for (var i = 0; i < questionnaireLength.length; i++) {
     sumQuestionnaire += +questionnaireLength[i].dataset.length;
@@ -52,18 +52,12 @@ questionnairePanelItem.forEach((elem, index) => {
             questionnairePanelItemShadow[i].style.width = questionnaireLength[i].dataset.length / (sumQuestionnaire / 100) + '%';
             questionnaireLength[i].innerHTML = questionnaireLength[i].dataset.length + ' человек';
           };
-          raschet();
+          countVote();
           console.log("Все хорошо")
         }
       }
     });
-
-
-
   };
 });
 
-
-
-
-raschet();
+countVote();
