@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="<?=$uri?>/templates/css/main-page.css?<?=filemtime('templates/css/main-page.css')?>">
   <link rel="stylesheet" href="<?=$uri?>/templates/css/film-list.css?<?=filemtime('templates/css/film-list.css')?>">
   <link rel="stylesheet" href="<?=$uri?>/templates/css/alert-message.css?<?=filemtime('templates/css/alert-message.css')?>">
+  <link rel="stylesheet" href="<?=$uri?>/templates/css/notification.css?<?=filemtime('templates/css/notification.css')?>">
   <link rel="stylesheet" href="<?=$uri?>/templates/font-awesome/css/font-awesome.min.css?<?=filemtime('templates/font-awesome/css/font-awesome.min.css')?>">
   <link rel="shortcut icon" href="<?=$uri?>/templates/images/favoicon.png" type="image/png">
   <meta name="description" content="<?=$description?>">
@@ -26,9 +27,53 @@
   <div class="background background-sign-in"></div>
   <div class="message-place"></div>
   <script src="<?=$uri?>/templates/js/alert-message.js?<?=filemtime('templates/js/alert-message.js')?>"></script>
-  <script>
 
-  </script>
+  <div id="notification-page">
+    <div class="top-notification">
+      <div>Уведомления</div>
+
+      <div class="notification-cross">
+        <div class="notification-cross-line"></div>
+        <div class="notification-cross-line"></div>
+      </div>
+    </div>
+
+    <div class="main-notification">
+      <ul class="list-notification">
+        <li class="notification-item">
+          <div>
+            fasdfasd
+            <p>sd</p>
+            <p>sd</p>
+            <p>sd</p>
+            <p>sd</p>
+            <p>sd</p>
+          </div>
+
+          <i class="fa fa-trash"></i>
+        </li>
+
+        <li class="notification-item new-notification">
+          <div>
+            ffadsfasdfaksh
+          </div>
+
+          <i class="fa fa-trash"></i>
+        </li>
+
+        <li class="notification-item">
+          <div>
+            ffadsfasdfaksh
+          </div>
+
+          <i class="fa fa-trash"></i>
+        </li>
+      </ul>
+    </div>
+
+    <div class="bottom-notification">Удалить все</div>
+  </div>
+
   <div id="wrapper">
     <!-- Sign in -->
     <div id="sign-in">
@@ -163,6 +208,7 @@ style="width:80px; height:31px; border:0;" alt="Яндекс.Метрика" tit
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/53707954" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
+    <script src="<?=$uri?>/templates/js/notification.js?<?=filemtime('templates/js/notification.js')?>"></script>
     <script src="<?=$uri?>/templates/js/menu.js?<?=filemtime('templates/js/menu.js')?>"></script>
     <script src="<?=$uri?>/templates/js/sign_in.js?<?=filemtime('templates/js/sign_in.js')?>"></script>
     <script src="<?=$uri?>/templates/js/short-text.js?<?=filemtime('templates/js/short-text.js')?>"></script>
