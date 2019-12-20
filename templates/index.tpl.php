@@ -43,8 +43,16 @@
           <?php foreach ($notifications as $notification): ?>
         <li id="<?=$notification['id']?>" class="notification-item <?= $notification['view'] == 0 ? 'new-notification': '' ?>">
           <div class="notification-text">
-            <?=$notification['title'].' '.$helper::getWatch($notification['date']).' '.$notification['login']?>
-            <p><?=$notification['description']?></p>
+            <div class="qwer">
+              <div class="title-notification"><?=$notification['title']?></div>
+              <!-- <div class="author-notification"></div> -->
+              <div class="data-notification"><?=$helper::getWatch($notification['date'])?></div>
+            </div>
+
+            <p class="notification-description">
+              <?=$notification['description']?>
+              <div>Автор: <?=$notification['login']?></div>
+            </p>
           </div>
           <i class="fa fa-trash"></i>
         </li>

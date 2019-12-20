@@ -8,7 +8,8 @@ let showNotification = document.querySelectorAll('.notification-text');
 let trash = document.querySelectorAll('.fa-trash');
 let token = document.getElementById('token');
 
-
+let notificationDescription = document.querySelectorAll('.notification-description');
+// show-notification-description
 let prevNot, presNot = 0;
 
 notificationLength.innerHTML = `(${newNotification.length})`;
@@ -46,36 +47,25 @@ function viewNotification(elem, index) {
 
   if (prevNot != presNot) notificationItem[prevNot].classList.remove('open-notifications-item');
 
-  notificationItem[prevNot].classList.contains('open-notifications-item') ? notificationItem[prevNot].style.height = `${notificationItem[prevNot].scrollHeight - 20}px` : notificationItem[prevNot].style.height = `35px`;
-  notificationItem[index].classList.contains('open-notifications-item') ? notificationItem[index].style.height = `${notificationItem[index].scrollHeight - 20}px` : notificationItem[index].style.height = `35px`;
-}
+  if (notificationItem[prevNot].classList.contains('open-notifications-item')) {
+    notificationItem[prevNot].style.height = `${notificationItem[prevNot].scrollHeight - 20}px`;
+    notificationDescription[prevNot].classList.add('show-notification-description');
+  } else {
+    notificationItem[prevNot].style.height = `35px`
+    notificationDescription[prevNot].classList.remove('show-notification-description');
+  };
+
+  if (notificationItem[index].classList.contains('open-notifications-item')) {
+    notificationItem[index].style.height = `${notificationItem[index].scrollHeight - 20}px`;
+    notificationDescription[index].classList.add('show-notification-description');
+  } else {
+    notificationItem[index].style.height = `35px`
+    notificationDescription[index].classList.remove('show-notification-description');
+  };
+};
 
 trash.forEach((elem, index) => {
   elem.onclick = () => {
-    // let removeItemData = {
-    //   token: token.textContent,
-    //   type: 1,
-    //   id_not: notificationItem[index].id
-    // };
-
-    // let jsonItem = JSON.stringify(removeItemData);
-    // console.log(removeItemData);
-
-
-    // fetch('/ajax/notification/delete', {
-    //   method: 'POST',
-    //   body: JSON.stringify({
-    //     "token":token.textContent,
-    //     "type":1,
-    //     "id_not":notificationItem[index].id
-    //   }),
-    //   headers: {
-    //     'Content-Type': 'text/plain',
-    // }
-    // })
-    // .catch(err => {
-    //   alert('Произошла ошибка. Пожалуйста, повторите позже' + err)
-    // })
     $.ajax({
       type: "post",
       url: "/ajax/notification/delete",
@@ -103,21 +93,16 @@ deleteAllNotification.onclick=()=>{
       notificationItem.forEach((elem)=>{
         elem.remove();
       })
-      
+
         notificationLength.innerHTML = `(0)`;
       console.log(response)
       showMessage("удаленно", "Удалены все уведомления", successful);
     }
   })
-}
+};
 
 function updateNotification(elem, index) {
   if (!elem.parentNode.classList.contains('new-notification')) return
-
-  // let updateItemData = {
-  //   token: token.textContent,
-  //   id_not: notificationItem[index].id
-  // };
   $.ajax({
     type: "POST",
     url: "/ajax/notification/update",
@@ -127,5 +112,4 @@ function updateNotification(elem, index) {
       console.log(response)
     }
   })
- 
 };

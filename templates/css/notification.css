@@ -25,7 +25,6 @@
   opacity: 1;
 }
 
-/* ------------------ */
 body.open-notification {
   overflow: hidden;
 }
@@ -175,6 +174,24 @@ body.open-notification-opacity .background {
   background: red;
 }
 
+.notification-description {
+  opacity: 0;
+  transition: opacity .3s;
+}
+
+.show-notification-description {
+  opacity: 1;
+}
+
+.qwer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.data-notification {
+  display: flex;
+  justify-content: flex-end;
+}
 
 @media screen and (min-width: 767px) {
   #notification-page {
