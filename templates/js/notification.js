@@ -82,6 +82,7 @@ trash.forEach((elem, index) => {
       data: ({"type":1,"token":$("#token").text(),"id_not":notificationItem[index].id}),
       dataType: "text",
       success: function (response) {
+        alert(response);
         notificationItem[index].remove();
         console.log(response)
         showMessage("удаленно", "Удалено 1 уведомление", successful);

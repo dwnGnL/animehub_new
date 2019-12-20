@@ -668,7 +668,7 @@ class Model
     public function deleteNotification($id_user, $id_uved){
         $sql = 'DELETE FROM lite_uved_id_user 
                 WHERE lite_uved_id_user.id_user = :id_user 
-                AND lite_uved_id_user.id_uved = :id_uved';
+                AND lite_uved_id_user.id_nag = :id_uved';
         $params = [
             'id_user' => $id_user,
             'id_uved' => $id_uved
