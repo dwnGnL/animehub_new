@@ -1,4 +1,5 @@
 let notification = document.querySelector('#notification');
+let deleteAllNotification = document.querySelector('.bottom-notification');
 let notificationLength = document.querySelector('.notification-length');
 let closeNotification = document.querySelector('.notification-cross');
 let notificationItem = document.querySelectorAll('.notification-item');
@@ -61,20 +62,50 @@ trash.forEach((elem, index) => {
     // console.log(removeItemData);
 
 
-    fetch('/ajax/notification/delete', {
-      method: 'POST',
-      body: {
-        "token":token.textContent,
-        "type":1,
-        "id_not":notificationItem[index].id
+    // fetch('/ajax/notification/delete', {
+    //   method: 'POST',
+    //   body: JSON.stringify({
+    //     "token":token.textContent,
+    //     "type":1,
+    //     "id_not":notificationItem[index].id
+    //   }),
+    //   headers: {
+    //     'Content-Type': 'text/plain',
+    // }
+    // })
+    // .catch(err => {
+    //   alert('Произошла ошибка. Пожалуйста, повторите позже' + err)
+    // })
+    $.ajax({
+      type: "post",
+      url: "/ajax/notification/delete",
+      data: ({"type":1,"token":$("#token").text(),"id_not":notificationItem[index].id}),
+      dataType: "text",
+      success: function (response) {
+        notificationItem[index].remove();
+        console.log(response)
+        showMessage("удаленно", "Удалено 1 уведомление", successful);
       }
-    })
-    .catch(err => {
-      alert('Произошла ошибка. Пожалуйста, повторите позже' + err)
     })
   };
 });
 
+
+deleteAllNotification.onclick=()=>{
+  $.ajax({
+    type: "post",
+    url: "/ajax/notification/delete",
+    data: ({"type":2,"token":$("#token").text()}),
+    dataType: "text",
+    success: function (response) {
+      notificationItem.forEach((elem)=>{
+        elem.remove();
+      })
+      console.log(response)
+      showMessage("удаленно", "Удалены все уведомления", successful);
+    }
+  })
+}
 
 function updateNotification(elem, index) {
   if (!elem.parentNode.classList.contains('new-notification')) return
@@ -83,12 +114,14 @@ function updateNotification(elem, index) {
   //   token: token.textContent,
   //   id_not: notificationItem[index].id
   // };
-
-  fetch('/ajax/notification/update', {
-    method: 'POST',
-    body: {
-      "token":token.textContent,
-      "id_not":notificationItem[index].id
+  $.ajax({
+    type: "POST",
+    url: "/ajax/notification/update",
+    data: ({"token":$("#token").text(),"id_not":notificationItem[index].id}),
+    dataType: "text",
+    success: function (response) {
+      console.log(response)
     }
-  });
+  })
+ 
 };
