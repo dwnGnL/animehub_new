@@ -24,7 +24,7 @@
         <div><a href="/admin/">Админ панель</a></div>
         <div><a href="<?=$app->urlFor('viewQuest')?>">Опросник</a></div>
         <?php endif; ?>
-     <div><a href="/favorites">Закладки: (<span class="bookmark-quantity"><?=$favorites?></span>)</a></div>
+      <div><a href="/favorites">Закладки: (<span class="bookmark-quantity"><?=$favorites?></span>)</a></div>
       <div><a href="<?=$app->urlFor('logout')?>">Выйти</a> </div>
     </div>
   </div>
@@ -43,10 +43,10 @@
         <div class="left-part-sub-menu">
           <span class="sub-menu-header">По типу</span>
           <ul class="qualification-list">
-            <li> <a href="<?=$uri?>/type/tv">ТВ</a></li>
+            <li><a href="<?=$uri?>/type/tv">ТВ</a></li>
             <li><a href="<?=$uri?>/type/ova">OVA</a></li>
-            <li> <a href="<?=$uri?>/type/film">Фильм</a></li>
-            <li> <a href="<?=$uri?>/type/amv">AMV</a></li>
+            <li><a href="<?=$uri?>/type/film">Фильм</a></li>
+            <li><a href="<?=$uri?>/type/amv">AMV</a></li>
           </ul>
 
           <span class="sub-menu-header">По годам</span>
@@ -93,8 +93,7 @@
   <?php if (!isset($_SESSION['auth'])):?>
     <div id="sign-in-button">Войти</div>
   <?php else: ?>
-    <div id="notification"><i class="fa fa-bell"></i><span class="notification-length"></span></div>
-
+    <div id="notification"><span class="notification-length"></span><i class="fa fa-bell"></i></div>
     <div id="profile-button">Профиль</div>
   <?php endif; ?>
   <div id="menu-button">
