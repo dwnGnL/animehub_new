@@ -153,4 +153,32 @@ class AjaxController extends DisplayController
             echo json_encode(['status' => '501']);
         }
     }
+
+    public function deleteNotification(){
+        if (isset($_SESSION['auth'])){
+            if ($_SESSION['token'] == $_POST['token']){
+                    if ($_POST['type'] == 1){
+                        $this->model->deleteNotification($_SESSION['id'],$_POST['id_not']);
+                        echo json_encode(['status' => 200]);
+                    }else{
+                        $this->model->deleteNotifications($_SESSION['id']);
+                        echo json_encode(['status' => 200]);
+                    }
+            }
+        }else{
+            echo json_encode(['status' => '501']);
+        }
+    }
+    public function updateNot()
+    {
+        if (isset($_SESSION['auth'])) {
+            if ($_SESSION['token'] == $_POST['token']) {
+                $this->model->updateViewNotification($_POST['id_not'], $_SESSION['id']);
+                echo json_encode(['status' => 200]);
+            }
+
+        } else {
+            echo json_encode(['status' => '501']);
+        }
+    }
 }

@@ -1511,10 +1511,10 @@ require_once 'BD_info.php';
             return $user->execute([$age,$id_pol,$name,$city,$id]);
     }
 
-    public function addUved($title, $description, $date){
-            $query = 'INSERT INTO lite_uved(title,description,date) VALUES(?,?,?)';
+    public function addUved($title, $description, $date, $id_author){
+            $query = 'INSERT INTO lite_uved(title,description,date, id_author) VALUES(?,?,?,?)';
             $profile = $this->pdo->prepare($query);
-            return $profile->execute([$title,$description,$date]);
+            return $profile->execute([$title,$description,$date,$id_author]);
     }
     public function getUsersVip(){
             $query = 'SELECT id FROM lite_users WHERE STATUS != "0"';

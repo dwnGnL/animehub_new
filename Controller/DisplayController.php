@@ -80,8 +80,7 @@ abstract  class DisplayController extends Controller
         $this->description = 'Аниме портал Таджикистана! Дорамы смотреть онлайн, полностью внутренный трафик';
         $menu = $this->getMenu();
         $sidebar = $this->getSidebar();
-
-
+        $notifications = $this->model->getNotifications($_SESSION['id']);
         $this->app->render('index.tpl.php',[
             'app' => $this->app,
             'uri' => $this->uri,
@@ -92,6 +91,7 @@ abstract  class DisplayController extends Controller
             'description' => $this->description,
             'main' => $this->main,
             'helper'=> Helper::getInstance(),
+            'notifications' => $notifications,
 
         ]);
         // TODO: Implement display() method.

@@ -7,7 +7,7 @@
                 </h4>
 
 
-                    <img src="../img/gif/Load.gif" id="load" class="invisible" alt="#">
+                    <img src="img/gif/Load.gif" id="load" class="invisible" alt="#">
                         <select name="usersUved" class="form-control" id="Select" style="width:15%;height: 53px;">
                           <option value="1">Всем</option>
                           <option value="2">Vip</option>

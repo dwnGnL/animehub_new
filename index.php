@@ -93,6 +93,15 @@ $app->group('/ajax', function () use ($app){
         $o->deleteFavPost();
     })->name('deleteFavPost');
 
+    $app->post('/notification/delete', function () use ($app) {
+        $o = \Controller\Controller::getInstance('ajax'); //AjaxController
+        $o->deleteNotification();
+    })->name('deleteNotification');
+    $app->post('/notification/update', function () use ($app) {
+        $o = \Controller\Controller::getInstance('ajax'); //AjaxController
+        $o->updateNot();
+    })->name('updateNotification');
+
 });
 $app->post('/question', function (){
     $o = \Controller\Controller::getInstance('Widget'); //WidgetController

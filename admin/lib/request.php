@@ -246,7 +246,7 @@ if(isset($_POST['idNewsDelete'])){
 
 if(isset($_POST['typeUser']) && isset($_POST['titleUved']) && isset($_POST['descUved'])){
     $time = time();
-    $m->addUved($_POST['titleUved'], $_POST['descUved'], $time);
+    $m->addUved($_POST['titleUved'], $_POST['descUved'], $time,$_SESSION['id']);
     $id_uved = $m->getUvedId($time, $_POST['titleUved'], $_POST['descUved']);
     if($_POST['typeUser'] == 1){
         $users = $m->getUsersAll();
