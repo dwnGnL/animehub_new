@@ -7,8 +7,8 @@ let showNotification = document.querySelectorAll('.notification-text');
 let prevNot, presNot = 0;
 
 notificationLength.innerHTML = `(${newNotification.length})`;
-notification.onmouseenter = () => notification.style.left = `calc(100% - ${notification.clientWidth}px)`;
-notification.onmouseleave = () => notification.style.left = `calc(100% - 35px)`;
+notification.onmouseenter = () => notification.style.right = `calc(100% - ${notification.clientWidth}px)`;
+notification.onmouseleave = () => notification.style.right = `calc(100% - 35px)`;
 
 notification.onclick = () => {
   document.body.classList.add('open-notification');
@@ -25,7 +25,7 @@ showNotification.forEach((elem, index) => {
   elem.onclick = () => {
     prevNot = presNot;
     presNot = index;
-    
+
     notificationItem[index].classList.remove('new-notification');
     newNotification = document.querySelectorAll('.new-notification');
 

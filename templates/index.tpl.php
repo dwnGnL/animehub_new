@@ -46,7 +46,6 @@
             <?=$notification['title'].' '.$helper::getWatch($notification['date']).' '.$notification['login']?>
             <p><?=$notification['description']?></p>
           </div>
-
           <i class="fa fa-trash"></i>
         </li>
             <?php endforeach; ?>

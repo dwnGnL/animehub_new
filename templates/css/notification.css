@@ -1,14 +1,14 @@
 #notification {
   position: fixed;
   bottom: 100px;
-  left: calc(100% - 35px);
+  right: calc(100% - 35px);
   font-size: 25px;
   color: #fff;
   background: rgba(0, 0, 0, .5);
   opacity: .7;
-  border-radius: 5px 0 0 5px;
+  border-radius: 0 5px 5px 0;
   padding: 5px;
-  padding-right: 10px;
+  padding-left: 10px;
   z-index: 3;
   cursor: pointer;
   display: flex;
@@ -17,7 +17,7 @@
 
 #notification .fa {
   color: #F3C245;
-  margin-right: 10px;
+  margin-left: 10px;
   margin-top: 3px;
 }
 
