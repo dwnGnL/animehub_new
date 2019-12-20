@@ -100,9 +100,6 @@ body.open-notification-opacity .background {
   transform: rotate(-45deg);
 }
 
-
-
-
 .main-notification {
   height: 100%;
   overflow: hidden;
@@ -145,13 +142,9 @@ body.open-notification-opacity .background {
   box-shadow: 0 0 5px;
   background: #fff;
   cursor: pointer;
-  height: 27px;
+  height: 35px;
   overflow: hidden;
   transition: height .3s;
-}
-
-.notification-item:active {
-  opacity: .7;
 }
 
 .new-notification {
@@ -161,9 +154,6 @@ body.open-notification-opacity .background {
 .notification-item div {
   width: 95%;
 }
-
-
-
 
 .bottom-notification {
   font-size: 20px;
@@ -184,7 +174,6 @@ body.open-notification-opacity .background {
   padding: 10px;
   background: red;
 }
-
 
 
 @media screen and (min-width: 767px) {

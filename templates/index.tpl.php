@@ -41,8 +41,8 @@
     <div class="main-notification">
       <ul class="list-notification">
           <?php foreach ($notifications as $notification): ?>
-        <li id="<?=$notification['id']?>" class="notification-item <?= $notification['view'] == 0 ? 'New-notification': '' ?>">
-          <div>
+        <li id="<?=$notification['id']?>" class="notification-item <?= $notification['view'] == 0 ? 'new-notification': '' ?>">
+          <div class="notification-text">
             <?=$notification['title'].' '.$helper::getWatch($notification['date']).' '.$notification['login']?>
             <p><?=$notification['description']?></p>
           </div>
