@@ -9,7 +9,6 @@ let trash = document.querySelectorAll('.fa-trash');
 let token = document.getElementById('token');
 
 let notificationDescription = document.querySelectorAll('.notification-description');
-// show-notification-description
 let prevNot, presNot = 0;
 
 notificationLength.innerHTML = `(${newNotification.length})`;
@@ -81,7 +80,6 @@ trash.forEach((elem, index) => {
     })
   };
 });
-
 
 deleteAllNotification.onclick=()=>{
   $.ajax({

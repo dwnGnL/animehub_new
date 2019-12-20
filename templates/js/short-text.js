@@ -21,7 +21,6 @@ function resizeingShortingText() {
   };
 };
 
-
 function shortingText(elem, length) {
   for (let i = 0; i < elem.length; i++) {
     if (elem[i].innerHTML.length >= length) {

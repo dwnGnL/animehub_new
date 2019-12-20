@@ -45,7 +45,6 @@
           <div class="notification-text">
             <div class="qwer">
               <div class="title-notification"><?=$notification['title']?></div>
-              <!-- <div class="author-notification"></div> -->
               <div class="data-notification"><?=$helper::getWatch($notification['date'])?></div>
             </div>
 

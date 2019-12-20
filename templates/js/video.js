@@ -210,4 +210,4 @@ function raiting(type,id) {
       }
     }
   })
-}
+};

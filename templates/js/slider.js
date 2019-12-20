@@ -1,5 +1,5 @@
 let sliderWidth, startContactSlider, endContactSlider;
-let slider = document.querySelector('#slider')
+let slider = document.querySelector('#slider');
 let slides = document.querySelectorAll(".slide");
 let backgroundSlider = document.querySelector('.background-slider');
 let swrap	= document.querySelector(".slide-wrapper");

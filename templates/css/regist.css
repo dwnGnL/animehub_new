@@ -72,20 +72,6 @@
   background: #889CB5;
 }
 
-
-/* --------------------- */
-@media screen and (min-width: 1200px)  {
-
-}
-
-@media screen and (min-width: 992px) and (max-width: 1200px) {
-
-}
-
-@media screen and (min-width: 767px) and (max-width: 992px) {
-
-}
-
 @media screen and (max-width: 767px) {
   .registration-input {
     width: 100%;
@@ -94,16 +80,4 @@
   .registration-form-item span {
     display: none;
   }
-}
-
-@media screen and (min-width: 767px) {
-
-}
-
-@media screen and (min-width: 992px) {
-
-}
-
-@media screen and (max-width: 992px) {
-
 }

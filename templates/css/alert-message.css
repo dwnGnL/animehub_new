@@ -3,7 +3,7 @@
   transform: translate(-50%, -50%) rotateX(90deg);
   background: #fff;
   width: 400px;
-  z-index: 4;
+  z-index: 6;
   border-radius: 10px;
   transition: .5s;
   overflow: hidden;

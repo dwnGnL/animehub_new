@@ -155,11 +155,6 @@
 }
 
 #profile-page input[type="text"] {
-  /* padding: 5px;
-  border-radius: 5px;
-  width: 100%;
-  box-sizing: border-box;
-  outline: none; */
   width: 100%;
   color: #888888;
   border: none;
@@ -307,7 +302,6 @@
   color: #fff !important;
 }
 
-
 .account-opacity .profile-account-page {
   opacity: 1;
 }
@@ -316,14 +310,6 @@
   opacity: 1;
 }
 
-/* --------------------- */
-@media screen and (min-width: 1200px)  {
-
-}
-
-@media screen and (min-width: 992px) and (max-width: 1200px) {
-
-}
 
 @media screen and (min-width: 767px) and (max-width: 992px) {
   #profile-page {
@@ -384,7 +370,4 @@
 
     grid-template-columns: repeat(3, 1fr);
   }
-}
-
-@media screen and (max-width: 992px) {
 }

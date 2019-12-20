@@ -1,9 +1,3 @@
-/**
- *
- * Utilities
- * Author: Stefan Petre www.eyecon.ro
- * 
- */
 (function($) {
 EYE.extend({
 	getPosition : function(e, forceIt)
@@ -41,7 +35,7 @@ EYE.extend({
 				y -= document.body.offsetTop;
 			}
 			el = e.parentNode;
-			while (el && el.tagName.toUpperCase() != 'BODY' && el.tagName.toUpperCase() != 'HTML') 
+			while (el && el.tagName.toUpperCase() != 'BODY' && el.tagName.toUpperCase() != 'HTML')
 			{
 				if (jQuery.curCSS(el, 'display') != 'inline') {
 					x -= el.scrollLeft;
@@ -248,5 +242,5 @@ if (!$.easing.easeout) {
 		return -delta * ((n=n/duration-1)*n*n*n - 1) + firstNum;
 	};
 }
-	
+
 })(jQuery);

@@ -63,7 +63,7 @@
   padding: 0;
 }
 
-.distinctio-list>li {
+.distinctio-list > li {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 }
@@ -322,8 +322,7 @@ video {
 }
 
 .disable .loader {
-  color:
-    #288af7;
+  color: #288af7;
   font-size: 60px;
   text-indent: -9999em;
   overflow: hidden;
@@ -518,7 +517,7 @@ video {
     margin: 7px 0;
   }
 
-  .distinctio-list>li {
+  .distinctio-list > li {
     padding: 12px 0px;
     font-size: 15px;
   }
@@ -527,7 +526,7 @@ video {
     margin-bottom: 8px;
   }
 
-  .review-order-list>li {
+  .review-order-list > li {
     margin: 0 0 5px 30px;
   }
 
@@ -561,7 +560,7 @@ video {
     margin: 5px 0;
   }
 
-  .distinctio-list>li {
+  .distinctio-list > li {
     padding: 9px 0px;
     font-size: 13px;
   }
@@ -570,7 +569,7 @@ video {
     margin-bottom: 8px;
   }
 
-  .review-order-list>li {
+  .review-order-list > li {
     margin: 0 0 5px 30px;
   }
 
@@ -578,8 +577,7 @@ video {
     font-size: 20px;
   }
 
-  .discription-text,
-  #alltext {
+  .discription-text, #alltext {
     font-size: 14px;
   }
 }
@@ -604,7 +602,7 @@ video {
     margin: 7px 0;
   }
 
-  .distinctio-list>li {
+  .distinctio-list > li {
     padding: 17px 0px;
     font-size: 20px;
   }
@@ -613,7 +611,7 @@ video {
     margin-bottom: 17px;
   }
 
-  .review-order-list>li {
+  .review-order-list > li {
     margin: 0 0 10px 50px;
   }
 
@@ -621,8 +619,7 @@ video {
     font-size: 25px;
   }
 
-  .discription-text,
-  #alltext {
+  .discription-text, #alltext {
     font-size: 17px;
   }
 }
@@ -647,7 +644,7 @@ video {
     margin: 1vw 0;
   }
 
-  .distinctio-list>li {
+  .distinctio-list > li {
     font-size: 5.5vw;
     padding: 4.5vw 0;
   }
@@ -656,7 +653,7 @@ video {
     margin-bottom: 5vw;
   }
 
-  .review-order-list>li {
+  .review-order-list > li {
     margin: 0 0 3vw 15vw;
   }
 
@@ -664,21 +661,8 @@ video {
     font-size: 25px;
   }
 
-  .discription-text,
-  #alltext {
+  .discription-text, #alltext {
     font-size: 15px;
-  }
-
-  caption {
-    font-size: 5vw;
-  }
-
-  th {
-    font-size: 2.5vw;
-  }
-
-  td {
-    font-size: 2.5vw;
   }
 
   .video-comment-item {
@@ -696,18 +680,6 @@ video {
 }
 
 @media screen and (min-width: 767px) {
-  caption {
-    font-size: 20px;
-  }
-
-  th {
-    font-size: 15px;
-  }
-
-  td {
-    font-size: 15px;
-  }
-
   .video-comment-item {
     grid-template-columns: 60px 1fr;
   }

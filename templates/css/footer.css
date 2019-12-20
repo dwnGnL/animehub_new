@@ -62,7 +62,6 @@
   border-radius: 100px;
 }
 
-/* ------------- */
 .social-item .fa {
   font-size: 30px;
   color: #8FA3BA;
@@ -72,16 +71,3 @@
   font-size: 30px;
   color: #CFCFCF;
 }
-
-
-/* .social-item-img img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  cursor: pointer;
-}
-
-.social-item img:hover {
-  opacity: .9;
-} */
