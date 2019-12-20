@@ -1,12 +1,9 @@
 .alert-message-block {
   position: fixed;
-  top: 40%;
-  left: 50%;
   transform: translate(-50%, -50%) rotateX(90deg);
-
   background: #fff;
   width: 400px;
-  z-index: 3;
+  z-index: 4;
   border-radius: 10px;
   transition: .5s;
   overflow: hidden;
@@ -14,7 +11,7 @@
 }
 
 .alert-message-block.show-alert {
-  transform: translateY(100%) translate(-50%, -100%) rotateX(0deg);
+  transform: translateY(55%) translate(-50%, -50%) rotateX(0deg);
 }
 
 .alert-message-top {
@@ -57,4 +54,26 @@
 
 .alert-message-body {
   padding: 20px 10px;
+}
+
+@media screen and (min-width: 992px) {
+  .alert-message-block {
+    bottom: 150px;
+    right: -100px;
+  }
+}
+
+@media screen and (min-width: 767px) and (max-width: 992px) {
+  .alert-message-block {
+    bottom: 100px;
+    right: -150px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .alert-message-block {
+    top: 25vw;
+    left: 50%;
+    width: 80vw;
+  }
 }

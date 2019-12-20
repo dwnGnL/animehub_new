@@ -141,7 +141,7 @@ $("#save_profile").click(function () {
             return false;
         }
         saveDate();
-        alert("сохранено")
+        showMessage("OK",'Сохранено',successful)
 
     }
 });
@@ -161,7 +161,7 @@ $("#save_vip").click(function () {
             $('.form .disable').css('display','none')
             return false;
         }
-        alert('Save');
+        showMessage("OK",'Сохранено',successful)
 
     }
 });

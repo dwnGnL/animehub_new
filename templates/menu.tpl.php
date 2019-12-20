@@ -30,7 +30,6 @@
   </div>
 </div>
 
-
 <div id="header">
   <a href="<?=$app->urlFor('home')?>">
     <div class="logo main-logo">
@@ -94,6 +93,8 @@
   <?php if (!isset($_SESSION['auth'])):?>
     <div id="sign-in-button">Войти</div>
   <?php else: ?>
+    <div id="notification"><i class="fa fa-bell"></i><span class="notification-length"></span></div>
+
     <div id="profile-button">Профиль</div>
   <?php endif; ?>
   <div id="menu-button">

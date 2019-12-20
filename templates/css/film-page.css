@@ -85,12 +85,12 @@
   position: relative;
   text-align: justify;
   overflow: hidden;
-  max-height: 200px;
+  height: 160px;
   margin: 20px 0;
   transition: height .5s;
 }
 
-.discription-text::after {
+.big-description::after {
   content: '';
   position: absolute;
   z-index: 1;

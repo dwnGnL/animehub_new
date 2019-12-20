@@ -53,9 +53,7 @@
   <div class="main-discription">
     <div class="discription-header">Описание <span>аниме</span> <span>«<?=$post['title']?>»</span></div>
 
-    <div class="discription-text">
-      <?=$post['body']?>
-    </div>
+    <div class="discription-text"><?=$post['body']?></div>
 
     <div class="show-all-text">Развернуть</div>
   </div>

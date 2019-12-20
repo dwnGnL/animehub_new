@@ -42,6 +42,7 @@
 
           res= JSON.parse(response);
           if (res.status == 403){
+            showMessage("Ошибка",'Авторизуйтесь пожалуйста',"error-message")
             alert('Авторизуйтесь пожалуйста');
             $('.form .disable').css('display','none')
             return false;
