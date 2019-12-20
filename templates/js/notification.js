@@ -82,9 +82,10 @@ trash.forEach((elem, index) => {
       data: ({"type":1,"token":$("#token").text(),"id_not":notificationItem[index].id}),
       dataType: "text",
       success: function (response) {
-        alert(response);
         notificationItem[index].remove();
         console.log(response)
+        let newNotification=document.querySelectorAll('.new-notification')
+        notificationLength.innerHTML = `(${newNotification.length})`;
         showMessage("удаленно", "Удалено 1 уведомление", successful);
       }
     })
@@ -102,6 +103,8 @@ deleteAllNotification.onclick=()=>{
       notificationItem.forEach((elem)=>{
         elem.remove();
       })
+      
+        notificationLength.innerHTML = `(0)`;
       console.log(response)
       showMessage("удаленно", "Удалены все уведомления", successful);
     }
