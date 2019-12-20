@@ -32,7 +32,7 @@ $model = new Model();
                 <h4 class="mb-2 mb-sm-0 pt-1" id="otvet">
                 </h4>
 
-                <form method="get" name="searchPost" action="AnimeAdmin.php" style="display: inline-flex;">
+                <form method="get" name="searchPost" action="index.php" style="display: inline-flex;">
                     <img src="../img/gif/Load.gif" id="load" class="invisible" alt="#">
                     <input type="search" name="searchPosts" class="form-control" id="titleAnime" placeholder="Поиск" style="width:90%;">
                     <button id="sendSearch" type="submit" class="btn btn-primary btn-sm my-0 p" name="btn"><i class="fa fa-search" aria-hidden="true"></i></button>

@@ -114,7 +114,7 @@
             </div>
           </a>
           <div class="discription">
-            <div class="film-name"><a href="/<?=$alias?>/<?=$helper::renderUrl($item['id'], $item['alias'])?>"><?=$value['title']?> <?=$value['tv_title']?></a></div>
+            <div class="film-name"><a href="/<?=$alias?>/<?=$helper::renderUrl($value['id'], $value['alias'])?>"><?=$value['title']?> <?=$value['tv_title']?></a></div>
             <div class="film-gener"><?=$helper::renderCat($value['cats'])?></div>
           </div>
         </div>
