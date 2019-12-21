@@ -18,6 +18,7 @@ body {
 }
 
 .main-logo {
+  position: relative;
   margin: 10px;
 }
 

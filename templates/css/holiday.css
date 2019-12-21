@@ -4,3 +4,7 @@ body.new-year {
   background-size: 100%;
   background-attachment: fixed;
 }
+
+body.new-year .background-slider {
+  background: url(../images/holidays/snow-slider.png);
+}
