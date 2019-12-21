@@ -61,7 +61,7 @@ $(".search-block .search").on("input",(e) => {
         } else {
           $('.ajax-block').remove();
         };
-      };
+      }
     });
   } else {
     $(".ajax-search").css("display","none");
