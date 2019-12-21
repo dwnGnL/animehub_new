@@ -4,6 +4,12 @@ body {
   margin: 0;
   box-sizing: border-box;
   background: #F8F8F8;
+  position: relative;
+}
+
+.qwer {
+  position: absolute;
+  bottom: 0;
 }
 
 #wrapper {
