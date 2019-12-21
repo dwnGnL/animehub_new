@@ -177,12 +177,12 @@ body.open-notification-opacity .background {
   opacity: 1;
 }
 
-.qwer {
+.notification-data {
   display: flex;
   justify-content: space-between;
 }
 
-.data-notification {
+.date-notification {
   display: flex;
   justify-content: flex-end;
 }

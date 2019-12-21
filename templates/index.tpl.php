@@ -44,9 +44,9 @@
           <?php foreach ($notifications as $notification): ?>
         <li id="<?=$notification['id']?>" class="notification-item <?= $notification['view'] == 0 ? 'new-notification': '' ?>">
           <div class="notification-text">
-            <div class="qwer">
+            <div class="notification-data">
               <div class="title-notification"><?=$notification['title']?></div>
-              <div class="data-notification"><?=$helper::getWatch($notification['date'])?></div>
+              <div class="date-notification"><?=$helper::getWatch($notification['date'])?></div>
             </div>
 
             <p class="notification-description">
@@ -177,7 +177,7 @@
     </div>
     <span id="token" style="display:none;"><?=$helper::generateToken()?></span>
     <!-- Yandex.Metrika informer -->
-<a class="qwer" href="https://metrika.yandex.ru/stat/?id=53707954&amp;from=informer"
+<a class="metrika" href="https://metrika.yandex.ru/stat/?id=53707954&amp;from=informer"
 target="_blank" rel="nofollow"><img src="https://informer.yandex.ru/informer/53707954/2_1_8C959DFF_6C757DFF_1_uniques"
 style="width:80px; height:31px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (уникальные посетители)" class="ym-advanced-informer" data-cid="53707954" data-lang="ru" /></a>
 <!-- /Yandex.Metrika informer -->
