@@ -1,0 +1,125 @@
+#film-list-content {
+  padding: 30px 50px;
+  grid-column: 1/10;
+}
+
+.switch-page {
+  margin: 50px 0;
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.switch-page a{
+  text-decoration: none;
+  color: gray;
+}
+
+.switch-page li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.switch-page-item {
+  background: #F8F8F8;
+  cursor: pointer;
+  padding: 2px;
+  box-sizing: border-box;
+}
+
+.switch-page-item a{
+  text-decoration: none;
+  color:black;
+}
+
+.switch-page-active {
+  background: #6882A1;
+  color: #fff;
+}
+
+.switch-page-item:hover {
+  background: #889CB5;
+  color: #fff;
+}
+
+@media screen and (min-width: 1200px)  {
+  #film-list-content .films {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  #film-list-content .films .background-film-item {
+    height: 260px;
+  }
+
+  .circle {
+    border: 2px solid #fff;
+    border-radius: 90px;
+    height: 110px;
+    width: 110px;
+    font-size: 15px;
+  }
+
+  .switch-page li {
+    width: 40px;
+    height: 40px;
+    margin: 0 5px;
+  }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+  .switch-page li {
+    width: 35px;
+    height: 35px;
+    margin: 0 5px;
+  }
+}
+
+@media screen and (min-width: 767px) and (max-width: 992px) {
+  #film-list-content .films {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  #film-list-content .films .background-film-item {
+    height: 45vw;
+  }
+
+  .circle {
+    border: .3vw solid #fff;
+    border-radius: 15vw;
+    height: 20vw;
+    width: 20vw;
+    font-size: 3vw;
+  }
+
+  .switch-page li {
+    width: 35px;
+    height: 35px;
+    margin: 0 5px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .switch-page li {
+    width: 5vw;
+    height: 5vw;
+    margin: 0 .5vw;
+    font-size: 2.7vw;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  #film-list-content {
+    padding: 30px 50px;
+    grid-column: 1/10;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  #film-list-content {
+    padding: 10px;
+    grid-column: 1/13;
+  }
+}
