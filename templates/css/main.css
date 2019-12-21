@@ -6,13 +6,6 @@ body {
   background: #F8F8F8;
 }
 
-body.new-year {
-  background-image: url(../images/holidays/snow.gif);
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-attachment: fixed;
-}
-
 #wrapper {
   background: #fff;
   margin: auto;
