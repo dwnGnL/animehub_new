@@ -199,13 +199,13 @@ function raiting(type,id) {
         }
         break;
         case "0":
-        alert("вы уже голосовали");
-        break;
+			showMessage("Ошибка", "Вы уже голосовали", error);      
+          break;
         case "403":
-        alert("авторизуйтесь");
+          showMessage("Ошибка", "Авторизуйтесь", error);
         break;
         default:
-        alert("что то пошло не так");
+          showMessage("Ошибка", "что то пошло не так", error);
         break;
       }
     }
