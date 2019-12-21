@@ -14,7 +14,7 @@ let openSearch = true;
 let seriesListWidth = 0;
 let previousSeries = 0;
 let presentSeries = 0;
-
+let title=document.title;
 favorite.classList.contains('choose') ? favoriteText.innerHTML = 'Удалить из избранного' : favoriteText.innerHTML = 'Добавить в избранное';
 
 favorite.onclick = () => {
@@ -77,7 +77,7 @@ seriesItem.forEach(function (elem, index) {
     presentSeries = index;
     seriesItem[previousSeries].classList.remove('series-item-active');
     seriesItem[presentSeries].classList.add('series-item-active');
-    document.title+=` - ${elem.textContent}`
+    document.title=`${title} ${$(".film-discription-header").text()} | ${elem.textContent}`
     videoLink.src = elem.getAttribute('src');
   };
 });
