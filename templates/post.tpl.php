@@ -79,7 +79,6 @@
     <div class="arrow-series to-right-series"><div></div></div>
     <div class="search-series">
       <i class="fa fa-search"></i>
-      <!-- <img src="<?=$uri?>/templates/images/search.png"> -->
     </div>
   </div>
 
@@ -138,7 +137,7 @@
       </form>
 
 
-      
+
     <?php endif;?>
     <div class="video-comments">
       <?php foreach($comments as $val): ?>
@@ -160,9 +159,8 @@
             </div>
             <div class="video-comment-text">
               <?=$val['body']?>
-              <button class="otvet">Ответить</button>
+              <div class="answer-comment"><i class="fa fa-reply"></i></div>
             </div>
-            <hr>
             <?=$val['vip_status']?>
           </div>
 
