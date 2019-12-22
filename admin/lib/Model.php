@@ -421,11 +421,11 @@ require_once 'BD_info.php';
         return $total->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function deleteAnimeExcess($src)
+    public function deleteAnimeExcess($title)
     {
         $query = 'DELETE FROM lite_parse WHERE title = ? and status = "0"';
         $excess = $this->pdo->prepare($query);
-        return $excess->execute([$src]);
+        return $excess->execute([$title]);
     }
 
     public function deleteAnimeExcessWithTitle($title)
@@ -438,11 +438,11 @@ require_once 'BD_info.php';
             $query = 'DELETE FROM `lite_anime` WHERE id_tv = "80"';
             return $del = $this->pdo->query($query);
     }
-    public function updateAnimeStatusFirst($date)
+    public function updateAnimeStatusFirst($rly_path)
     {
-        $query = 'UPDATE lite_parse set status = 0 WHERE date LIKE ? and status = "1"';
+        $query = 'UPDATE lite_parse set status = 0 WHERE rly_path = ? and status = "1"';
         $excess = $this->pdo->prepare($query);
-        return $excess->execute(["%$date%"]);
+        return $excess->execute([$rly_path]);
     }
 
 
