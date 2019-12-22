@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="<?=$uri?>/templates/css/film-list.css?<?=filemtime('templates/css/film-list.css')?>">
   <link rel="stylesheet" href="<?=$uri?>/templates/css/alert-message.css?<?=filemtime('templates/css/alert-message.css')?>">
   <link rel="stylesheet" href="<?=$uri?>/templates/css/notification.css?<?=filemtime('templates/css/notification.css')?>">
+  <link rel="stylesheet" href="<?=$uri?>/templates/css/holiday.css?<?=filemtime('templates/css/holiday.css')?>">
   <link rel="stylesheet" href="<?=$uri?>/templates/font-awesome/css/font-awesome.min.css?<?=filemtime('templates/font-awesome/css/font-awesome.min.css')?>">
   <link rel="shortcut icon" href="<?=$uri?>/templates/images/favoicon.png" type="image/png">
   <meta name="description" content="<?=$description?>">
@@ -43,8 +44,15 @@
           <?php foreach ($notifications as $notification): ?>
         <li id="<?=$notification['id']?>" class="notification-item <?= $notification['view'] == 0 ? 'new-notification': '' ?>">
           <div class="notification-text">
-            <?=$notification['title'].' '.$helper::getWatch($notification['date']).' '.$notification['login']?>
-            <p><?=$notification['description']?></p>
+            <div class="notification-data">
+              <div class="title-notification"><?=$notification['title']?></div>
+              <div class="date-notification"><?=$helper::getWatch($notification['date'])?></div>
+            </div>
+
+            <p class="notification-description">
+              <?=$notification['description']?>
+              <div>Автор: <?=$notification['login']?></div>
+            </p>
           </div>
           <i class="fa fa-trash"></i>
         </li>
@@ -169,7 +177,7 @@
     </div>
     <span id="token" style="display:none;"><?=$helper::generateToken()?></span>
     <!-- Yandex.Metrika informer -->
-<a href="https://metrika.yandex.ru/stat/?id=53707954&amp;from=informer"
+<a class="metrika" href="https://metrika.yandex.ru/stat/?id=53707954&amp;from=informer"
 target="_blank" rel="nofollow"><img src="https://informer.yandex.ru/informer/53707954/2_1_8C959DFF_6C757DFF_1_uniques"
 style="width:80px; height:31px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (уникальные посетители)" class="ym-advanced-informer" data-cid="53707954" data-lang="ru" /></a>
 <!-- /Yandex.Metrika informer -->
@@ -193,5 +201,6 @@ style="width:80px; height:31px; border:0;" alt="Яндекс.Метрика" tit
     <script src="<?=$uri?>/templates/js/menu.js?<?=filemtime('templates/js/menu.js')?>"></script>
     <script src="<?=$uri?>/templates/js/sign_in.js?<?=filemtime('templates/js/sign_in.js')?>"></script>
     <script src="<?=$uri?>/templates/js/short-text.js?<?=filemtime('templates/js/short-text.js')?>"></script>
+    <script src="<?=$uri?>/templates/js/holiday.js?<?=filemtime('templates/js/holiday.js')?>"></script>
   </body>
   </html>

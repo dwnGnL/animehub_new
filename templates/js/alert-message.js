@@ -6,7 +6,6 @@ let error = 'error-message';
 let successful = 'successful-message';
 
 
-
 function showMessage(name, discription, typeMessage) {
   createMessage(name, discription, typeMessage);
 
@@ -27,12 +26,12 @@ function createMessage(name, discription, typeMessage) {
   mes.classList.add('alert-message-block');
   mes.innerHTML =
   `
-  <div class="alert-message-top"><div class="message-name">${name}</div></div>
-  <div class="alert-cross">
-    <div class="alert-cross-line"></div>
-    <div class="alert-cross-line"></div>
-  </div>
-  <div class="alert-message-body">${discription}</div>
+    <div class="alert-message-top"><div class="message-name">${name}</div></div>
+    <div class="alert-cross">
+      <div class="alert-cross-line"></div>
+      <div class="alert-cross-line"></div>
+    </div>
+    <div class="alert-message-body">${discription}</div>
   `;
 
   setTimeout(() => {

@@ -56,12 +56,10 @@ let changeProfileData = document.querySelectorAll('.change-profile-data');
 let changeProfileDataSelect = document.querySelector('.change-profile-data-select');
 let saveChangePlace = document.querySelector('.save-change-button-place');
 let changeButton = document.querySelector('.change-button');
-// let saveChange = document.querySelector('.save-button');
 let dataItem, dataSelectItem, select;
 let givedDate = [];
 
 changeButton.addEventListener('click', changeDate);
-// saveChange.addEventListener('click', saveDate);
 
 function changeDate() {
   for (let i = 0; i < changeProfileData.length; i++) {
@@ -92,7 +90,6 @@ function saveDate() {
   };
 
   changeProfileDataSelect.innerHTML = select.value;
-
   saveChangePlace.classList.remove('saved');
   saveChangePlace.classList.add('changed');
 };
@@ -109,22 +106,20 @@ function saveingVip() {
   fontFamilyUserName.style.fontFamily = fontFamilyType.value;
 };
 
-
 $('#colorSelector').ColorPicker({
-	color: '#0000ff',
-	onShow: function (colpkr) {
-		$(colpkr).fadeIn(500);
-		return false;
-	},
-	onHide: function (colpkr) {
-		$(colpkr).fadeOut(500);
-		return false;
-	},
-	onChange: function (hsb, hex, rgb) {
+  color: '#0000ff',
+  onShow: function (colpkr) {
+    $(colpkr).fadeIn(500);
+    return false;
+  },
+  onHide: function (colpkr) {
+    $(colpkr).fadeOut(500);
+    return false;
+  },
+  onChange: function (hsb, hex, rgb) {
     $('#colorSelector div').css('backgroundColor', '#' + hex);
     $('.left-profile-user-name.font-family-user-name').css('color', '#' + hex);
-
-	}
+  }
 });
 
 $("#save_profile").click(function () {
@@ -134,18 +129,16 @@ $("#save_profile").click(function () {
     data: ({"token":$("#token").text(),"image":$(".profile-page-user-avatar-img").prop("src"),"age":$("input[name='age']").val(),"id_pol":$("select[name='sex']").val(),"city":$("input[name='city']").val(),"name":$("input[name='name']").val()}),
     dataType: "text",
     success: function (response) {
-        res= JSON.parse(response);
-        if (res.status == 403){
+      res= JSON.parse(response);
+      if (res.status == 403){
 
-          alert('что то не так');
-            return false;
-        }
-        saveDate();
-        showMessage("OK",'Сохранено',successful)
-
+        alert('что то не так');
+        return false;
+      }
+      saveDate();
+      showMessage("OK",'Сохранено',successful)
     }
-});
-
+  });
 });
 
 $("#save_vip").click(function () {
@@ -155,15 +148,13 @@ $("#save_vip").click(function () {
     dataType: "text",
     data: ({"token":$("#token").text(),"color":$('.left-profile-user-name.font-family-user-name').css('color'),"uved":$("#notification-check").prop("checked"),"status":$("textarea[name='status']").val(),"font":$("select.font-family-type").val()}),
     success: function (response) {
-        res= JSON.parse(response);
-        if (res.status == 403){
-            alert('Авторизуйтесь пожалуйста');
-            $('.form .disable').css('display','none')
-            return false;
-        }
-        showMessage("OK",'Сохранено',successful)
-
+      res= JSON.parse(response);
+      if (res.status == 403){
+        alert('Авторизуйтесь пожалуйста');
+        $('.form .disable').css('display','none')
+        return false;
+      }
+      showMessage("OK",'Сохранено',successful)
     }
-});
-
+  });
 });

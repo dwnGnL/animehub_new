@@ -68,7 +68,6 @@
 }
 
 
-
 @media screen and (min-width: 1200px)  {
   #slider {
     height: 400px;
@@ -184,7 +183,6 @@
     box-shadow: 0 0 5px #000 inset;
   }
 }
-
 
 @media screen and (max-width: 992px) {
   #slider {

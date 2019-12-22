@@ -187,7 +187,6 @@ form.search-block {
 }
 
 
-
 @media screen and (min-width: 767px) {
   form.search-block {
     top: 0 !important;
@@ -332,4 +331,3 @@ form.search-block {
     top: 48vw;
   }
 }
-

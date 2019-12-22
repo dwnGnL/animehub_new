@@ -27,7 +27,7 @@ search.onblur = () => {
       }, 300);
     };
   }, 300);
-}
+};
 
 if (window.location.href == document.body.dataset.domen) document.body.classList.add('main-page');
 
@@ -53,25 +53,24 @@ $(".search-block .search").on("input",(e) => {
               </a>
             </div>
             `
-          }
-          $(".ajax-search").html(ajaxContent)
-          $(".search-block .loader").css("display", "none")
-          $(".search-block .cross").css("display", "block")
-          $(".ajax-search").css("display", "grid")
+          };
+          $(".ajax-search").html(ajaxContent);
+          $(".search-block .loader").css("display", "none");
+          $(".search-block .cross").css("display", "block");
+          $(".ajax-search").css("display", "grid");
         } else {
           $('.ajax-block').remove();
-        }
+        };
       }
-    })
+    });
   } else {
-    $(".ajax-search").css("display","none")
-    $(".search-block .loader").css("display","none")
-    $(".search-block .cross").css("display","none")
-  }
+    $(".ajax-search").css("display","none");
+    $(".search-block .loader").css("display","none");
+    $(".search-block .cross").css("display","none");
+  };
+});
 
-})
-
-$(".search-block .cross").click(()=>{
-  $(".ajax-search").css("display","none")
-  $(".search-block .cross").css("display","none")
-})
+$(".search-block .cross").click(() => {
+  $(".ajax-search").css("display","none");
+  $(".search-block .cross").css("display","none");
+});

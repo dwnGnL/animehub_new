@@ -1,10 +1,3 @@
-/*
-1200
-992
-767
-550
-*/
-
 body.open-menu {
   overflow: hidden;
 }
@@ -24,7 +17,6 @@ body.open-sub-menu #sub-menu {
 body.opacity-sub-menu #sub-menu {
   opacity: 1;
 }
-
 
 #header {
   position: relative;
@@ -95,7 +87,6 @@ body.opacity-sub-menu #sub-menu {
   display: grid;
   grid-template-rows: 1fr 1fr 1fr;
   grid-gap: 4px;
-
   width: 25px;
   height: 20px;
 }
@@ -199,16 +190,6 @@ ul.gener-list li:hover {
 }
 
 @media screen and (min-width: 992px) {
-  /* .active-top-menu-item {
-    background: #D81C27;
-    cursor: pointer;
-  }
-
-  .active-top-menu-item a  span {
-    color: #fff !important;
-  } */
-  /* --------------- */
-
   #menu > li {
     margin: 0px 10px;
     padding: 30px 20px;

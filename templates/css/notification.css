@@ -25,7 +25,6 @@
   opacity: 1;
 }
 
-/* ------------------ */
 body.open-notification {
   overflow: hidden;
 }
@@ -53,13 +52,7 @@ body.open-notification-opacity .background {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  /* width: 50vw;
-  height: 80vh;
-
-  width: 100vw;
-  height: 100vh; */
   z-index: 5;
-  /* display: flex; */
   flex-direction: column;
   justify-content: space-between;
   background: #fff;
@@ -175,6 +168,24 @@ body.open-notification-opacity .background {
   background: red;
 }
 
+.notification-description {
+  opacity: 0;
+  transition: opacity .3s;
+}
+
+.show-notification-description {
+  opacity: 1;
+}
+
+.notification-data {
+  display: flex;
+  justify-content: space-between;
+}
+
+.date-notification {
+  display: flex;
+  justify-content: flex-end;
+}
 
 @media screen and (min-width: 767px) {
   #notification-page {

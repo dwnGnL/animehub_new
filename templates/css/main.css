@@ -4,7 +4,12 @@ body {
   margin: 0;
   box-sizing: border-box;
   background: #F8F8F8;
-  /* background: #FFFCF4; */
+  position: relative;
+}
+
+.metrika {
+  position: absolute;
+  bottom: 0;
 }
 
 #wrapper {
@@ -19,6 +24,7 @@ body {
 }
 
 .main-logo {
+  position: relative;
   margin: 10px;
 }
 

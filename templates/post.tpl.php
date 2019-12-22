@@ -138,7 +138,7 @@
       </form>
 
 
-      <script src="<?=$uri?>/templates/js/comment.js?<?=filemtime('templates/js/comment.js')?>"></script>
+      
     <?php endif;?>
     <div class="video-comments">
       <?php foreach($comments as $val): ?>
@@ -160,6 +160,7 @@
             </div>
             <div class="video-comment-text">
               <?=$val['body']?>
+              <button class="otvet">Ответить</button>
             </div>
             <hr>
             <?=$val['vip_status']?>
@@ -170,6 +171,6 @@
     </div>
   </div>
 </div>
-
+<script src="<?=$uri?>/templates/js/comment.js?<?=filemtime('templates/js/comment.js')?>"></script>
 <script src="<?=$uri?>/templates/js/show-hide-text.js?<?=filemtime('templates/js/show-hide-text.js')?>"></script>
 <script src="<?=$uri?>/templates/js/video.js?<?=filemtime('templates/js/video.js')?>"></script>

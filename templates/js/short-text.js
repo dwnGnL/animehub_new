@@ -1,6 +1,7 @@
 let updateName = document.querySelectorAll('.update-name');
 let topWeakFilmName = document.querySelectorAll('.top-weak-film-name');
 let commentsNameFilm = document.querySelectorAll('.comments-name-film');
+let titleNotification = document.querySelectorAll('.title-notification');
 
 resizeingShortingText();
 
@@ -17,9 +18,8 @@ function resizeingShortingText() {
   } else if (document.body.clientWidth < 550) {
     shortingText(updateName, 18);
     shortingText(commentsNameFilm, 35);
-  }
+  };
 };
-
 
 function shortingText(elem, length) {
   for (let i = 0; i < elem.length; i++) {

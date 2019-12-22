@@ -1,9 +1,3 @@
-/**
- *
- * Zoomimage
- * Author: Stefan Petre www.eyecon.ro
- * 
- */
 (function($){
 	var EYE = window.EYE = function() {
 		var _registered = {
