@@ -1,3 +1,4 @@
+let otvet=document.querySelectorAll("button.otvet")
 // var config1 = {
   //   height:'200',
   //   startupOutlineBlocks:true,
@@ -75,3 +76,15 @@
         }
       });
     });
+otvet.forEach((elem, index) => {
+  elem.onclick=()=>{
+    var nickname =otvet[index].parentNode.parentNode
+    nickname=nickname.querySelector(".video-comment-user-name a").textContent// $(this).closest('.video-comment-right').find('.video-comment-user-name').text();
+    CKEDITOR.instances['textComment'].setData("<strong>"+nickname+"</strong>,");
+    $(document).ready(function () {
+    var destination = $("#cke_textComment").offset().top;
+    $('html').animate({ scrollTop: destination }, 500);   
+  });
+  }
+
+});
