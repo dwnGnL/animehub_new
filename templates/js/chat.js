@@ -1,27 +1,28 @@
 let chat = document.querySelector('.chat-block');
 let chatHeader = document.querySelector('.chat-header');
-
 let showChat = document.querySelector('.show-chat');
 let crossChat = document.querySelector('.cross-chat');
 
 
-
 showChat.onclick = () => {
   chat.style.transform = 'translateX(0)';
-  chat.style.top = window.pageYOffset + 50 + 'px';
-}
+  if (document.body.clientWidth >= 767) chat.style.top = window.pageYOffset + 50 + 'px';
+  if (document.body.clientWidth < 767) document.body.style.overflow = 'hidden';
+};
 
 crossChat.onclick = () => {
   chat.style.transition = '.5s';
   chat.style.left = 0;
   setTimeout(() => {
-    chat.style.transform = 'translateX(-350px)';
+    chat.style.transform = `translateX(-${chat.clientWidth}px)`;
     chat.style.transition = 'transform .5s';
   }, 400);
+  document.body.style.overflow = 'auto';
 };
 
-
 chatHeader.onmousedown = event => {
+  if (document.body.clientWidth < 767) return;
+
   let shiftX = event.clientX - chat.getBoundingClientRect().left;
   let shiftY = event.clientY - chat.getBoundingClientRect().top;
 
@@ -30,11 +31,11 @@ chatHeader.onmousedown = event => {
   function moveAt(pageX, pageY) {
     chat.style.left = pageX - shiftX + 'px';
     chat.style.top = pageY - shiftY + 'px';
-  }
+  };
 
   function onMouseMove(event) {
     moveAt(event.pageX, event.pageY);
-  }
+  };
 
   document.addEventListener('mousemove', onMouseMove);
 
@@ -42,7 +43,6 @@ chatHeader.onmousedown = event => {
     document.removeEventListener('mousemove', onMouseMove);
     chat.onmouseup = null;
   };
-
 };
 
 chat.ondragstart = function() {

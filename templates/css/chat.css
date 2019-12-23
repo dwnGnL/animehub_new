@@ -23,14 +23,13 @@
 }
 
 .chat-block {
-  position: absolute;
-  top: 50px;
+  /* position: absolute; */
+  /* top: 50px; */
   /* transform: translateX(-350px); */
   z-index: 4;
-  width: 350px;
+  /* width: 350px; */
   transition: transform .5s;
   background: #F8F8F8;
-  /* display: none; */
 }
 
 .chat-header {
@@ -134,13 +133,23 @@
 
 
 
+@media screen and (min-width: 767px) {
+  .chat-block {
+    position: absolute;
+    top: 50px;
+    transform: translateX(-350px);
+    width: 350px;
+  }
+}
+
+
 @media screen and (max-width: 767px) {
   .chat-block {
-    position: fixed;
+    position: fixed !important;
     top: 0;
     width: 100vw;
     height: 100vh;
-    transform: translateX(0);
+    transform: translateX(-100vw);
   }
 }
 /* -------------------- */
