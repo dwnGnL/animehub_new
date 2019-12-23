@@ -1,3 +1,36 @@
+let chat = document.querySelector('.chat-block');
+let chatHeader = document.querySelector('.chat-header');
+
+chatHeader.onmousedown = event => {
+  let shiftX = event.clientX - chat.getBoundingClientRect().left;
+  let shiftY = event.clientY - chat.getBoundingClientRect().top;
+
+  moveAt(event.pageX, event.pageY);
+
+  function moveAt(pageX, pageY) {
+    chat.style.left = pageX - shiftX + 'px';
+    chat.style.top = pageY - shiftY + 'px';
+  }
+
+  function onMouseMove(event) {
+    moveAt(event.pageX, event.pageY);
+  }
+
+  document.addEventListener('mousemove', onMouseMove);
+
+  chat.onmouseup = function() {
+    document.removeEventListener('mousemove', onMouseMove);
+    chat.onmouseup = null;
+  };
+
+};
+
+chat.ondragstart = function() {
+  return false;
+};
+
+// ----------------------------------
+
 $(document).ready(function(){
 
     function getCookie(name) {
@@ -12,11 +45,11 @@ $(document).ready(function(){
 /*
 * В genarationString генерируется уникальная строка, которая будет идентификатором пользователя
 *
-*/    
+*/
     function genarationString()
     {
         var rnd = '';
-        while (rnd.length < 10) 
+        while (rnd.length < 10)
             rnd += Math.random().toString(36).substring(2);
         uniqueId = rnd.substring(0, 10);
         return uniqueId;
@@ -25,7 +58,7 @@ $(document).ready(function(){
 /*
 * В genarationColor выбирается цвет для пользователя рандомным образом
 *
-*/  
+*/
     function genarationColor()
     {
         var arr = ['red', 'black', 'orange', 'pink'];
@@ -50,7 +83,7 @@ $(document).ready(function(){
 
 
     websocket.onopen = function(ev) {
-        template('#system_msg', "td", ['Вы подключены!'])            
+        template('#system_msg', "td", ['Вы подключены!'])
             uniqueId = genarationString();
             userColor = genarationColor();
     }
@@ -98,7 +131,7 @@ $(document).ready(function(){
             template('#mymsg', "span", [utime+' : ', uname+' : ', umsg], '.myName', msg.userColor)
         } else {
             template('#usersmsg', "span", [utime+' : ', uname+' : ', umsg], '.userName', msg.userColor)
-        }  
+        }
     };
 
     websocket.onerror   = function(ev) {
