@@ -30,9 +30,16 @@
   <div class="message-place"></div>
   <script src="<?=$uri?>/templates/js/alert-message.js?<?=filemtime('templates/js/alert-message.js')?>"></script>
 
+  <div class="show-chat">Открыть чат <i class="fa fa-comments"></i></div>
+
   <div class="chat-block">
     <div class="chat-header">
-      Чат
+      <div class="">Чат <i class="fa fa-comments"></i></div>
+
+      <div class="cross-chat">
+        <div class="cross-chat-line"></div>
+        <div class="cross-chat-line"></div>
+      </div>
     </div>
     <div id="chat" draggable="true">
       <div class="chat-item">
@@ -70,6 +77,34 @@
 
         <div class="chat-text">fasdfasd</div>
       </div>
+
+      <div class="chat-item">
+        <div class="chat-user">
+          <div class="chat-user-avatar"><img src="<?=$uri?>/templates/images/avatar/1.png"></div>
+          <div class="chat-user-right">
+            <div class="chat-user-name">user-name</div>
+            <div class="chat-date">12:00</div>
+          </div>
+        </div>
+
+        <div class="chat-text">fasdfasd</div>
+      </div>
+
+      <div class="chat-item">
+        <div class="chat-user">
+          <div class="chat-user-avatar"><img src="<?=$uri?>/templates/images/avatar/1.png"></div>
+          <div class="chat-user-right">
+            <div class="chat-user-name">user-name</div>
+            <div class="chat-date">12:00</div>
+          </div>
+        </div>
+
+        <div class="chat-text">fasdfasd</div>
+      </div>
+    </div>
+
+    <div class="control-chat">
+
     </div>
   </div>
 

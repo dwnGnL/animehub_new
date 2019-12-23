@@ -1,5 +1,6 @@
 #notification {
   position: fixed;
+  /* bottom: 5vw; */
   bottom: 100px;
   right: calc(100% - 35px);
   font-size: 25px;

@@ -1,6 +1,26 @@
 let chat = document.querySelector('.chat-block');
 let chatHeader = document.querySelector('.chat-header');
 
+let showChat = document.querySelector('.show-chat');
+let crossChat = document.querySelector('.cross-chat');
+
+
+
+showChat.onclick = () => {
+  chat.style.transform = 'translateX(0)';
+  chat.style.top = window.pageYOffset + 50 + 'px';
+}
+
+crossChat.onclick = () => {
+  chat.style.transition = '.5s';
+  chat.style.left = 0;
+  setTimeout(() => {
+    chat.style.transform = 'translateX(-350px)';
+    chat.style.transition = 'transform .5s';
+  }, 400);
+};
+
+
 chatHeader.onmousedown = event => {
   let shiftX = event.clientX - chat.getBoundingClientRect().left;
   let shiftY = event.clientY - chat.getBoundingClientRect().top;
