@@ -45,6 +45,11 @@ $middle = function (){
     );
     return $obj->onBeforeDispatch();
 };
+$app->get('/ws/test', function () use ($app){
+    $o = \Controller\Controller::getInstance('page'); //AdminController
+    $o->chat();
+
+});
 $app->group('/admin', $middle,function () use ($app){
 
     $app->get('(/:page)', function ($page = 1) {
@@ -53,6 +58,8 @@ $app->group('/admin', $middle,function () use ($app){
     })->conditions(['page' => '\d+'])->name('aItems');
 
 });
+
+
 $app->group('/ajax', function () use ($app){
     $app->post('/add/vote', function (){
         $o = \Controller\Controller::getInstance('ajax'); //AjaxController

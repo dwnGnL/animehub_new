@@ -14,6 +14,14 @@ class PageController extends DisplayController
     protected $page;
     protected $alias;
     protected $index;
+    public function chat(){
+
+        $this->index = $this->app->view()->fetch('template.tpl.php',[
+            'uri' => $this->uri,
+        ]);
+
+        $this->display();
+    }
     public function search($title){
         if (iconv_strlen(trim($title)) > 3){
             $post =  $this->model->search($title);
