@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="<?=$uri?>/templates/css/film-list.css?<?=filemtime('templates/css/film-list.css')?>">
   <link rel="stylesheet" href="<?=$uri?>/templates/css/alert-message.css?<?=filemtime('templates/css/alert-message.css')?>">
   <link rel="stylesheet" href="<?=$uri?>/templates/css/notification.css?<?=filemtime('templates/css/notification.css')?>">
+  <link rel="stylesheet" href="<?=$uri?>/templates/css/chat.css?<?=filemtime('templates/css/chat.css')?>">
   <link rel="stylesheet" href="<?=$uri?>/templates/css/holiday.css?<?=filemtime('templates/css/holiday.css')?>">
   <link rel="stylesheet" href="<?=$uri?>/templates/font-awesome/css/font-awesome.min.css?<?=filemtime('templates/font-awesome/css/font-awesome.min.css')?>">
   <link rel="shortcut icon" href="<?=$uri?>/templates/images/favoicon.png" type="image/png">
@@ -28,6 +29,50 @@
   <div class="background background-sign-in"></div>
   <div class="message-place"></div>
   <script src="<?=$uri?>/templates/js/alert-message.js?<?=filemtime('templates/js/alert-message.js')?>"></script>
+
+  <div class="chat-block">
+    <div class="chat-header">
+      Чат
+    </div>
+    <div id="chat" draggable="true">
+      <div class="chat-item">
+        <div class="chat-user">
+          <div class="chat-user-avatar"><img src="<?=$uri?>/templates/images/avatar/1.png"></div>
+          <div class="chat-user-right">
+            <div class="chat-user-name">user-name</div>
+            <div class="chat-date">12:00</div>
+          </div>
+        </div>
+
+        <div class="chat-text">fasdfasd</div>
+      </div>
+
+      <div class="chat-item chat-item-self">
+        <div class="chat-user">
+          <div class="chat-user-avatar"><img src="<?=$uri?>/templates/images/avatar/1.png"></div>
+          <div class="chat-user-right">
+            <div class="chat-user-name">user-name</div>
+            <div class="chat-date">12:00</div>
+          </div>
+        </div>
+
+        <div class="chat-text">fasdfasd</div>
+      </div>
+
+      <div class="chat-item">
+        <div class="chat-user">
+          <div class="chat-user-avatar"><img src="<?=$uri?>/templates/images/avatar/1.png"></div>
+          <div class="chat-user-right">
+            <div class="chat-user-name">user-name</div>
+            <div class="chat-date">12:00</div>
+          </div>
+        </div>
+
+        <div class="chat-text">fasdfasd</div>
+      </div>
+    </div>
+  </div>
+
 
   <div id="notification-page">
     <div class="top-notification">
@@ -201,6 +246,7 @@ style="width:80px; height:31px; border:0;" alt="Яндекс.Метрика" tit
     <script src="<?=$uri?>/templates/js/menu.js?<?=filemtime('templates/js/menu.js')?>"></script>
     <script src="<?=$uri?>/templates/js/sign_in.js?<?=filemtime('templates/js/sign_in.js')?>"></script>
     <script src="<?=$uri?>/templates/js/short-text.js?<?=filemtime('templates/js/short-text.js')?>"></script>
+    <script src="<?=$uri?>/templates/js/chat.js?<?=filemtime('templates/js/chat.js')?>"></script>
     <script src="<?=$uri?>/templates/js/holiday.js?<?=filemtime('templates/js/holiday.js')?>"></script>
   </body>
   </html>
