@@ -23,13 +23,14 @@
 }
 
 .chat-block {
-  /* position: absolute; */
-  /* top: 50px; */
-  /* transform: translateX(-350px); */
-  z-index: 4;
-  /* width: 350px; */
-  transition: transform .5s;
   background: #F8F8F8;
+  transition: transform .5s;
+  box-shadow: 0 0 10px #000;
+  z-index: 4;
+  height: 520px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .chat-header {
@@ -45,8 +46,7 @@
 
 #chat {
   padding: 10px;
-  border: 1px solid;
-  height: 400px;
+  height: 100%;
   overflow-x: auto;
 }
 
@@ -126,12 +126,49 @@
   transform: rotate(-45deg);
 }
 
+
+
+/* ----------- */
 .control-chat {
-  border: 1px solid;
-  height: 50px;
+  position: relative;
+  height: 70px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #C4C4C4;
 }
 
+.control-chat textarea {
+  width: 100%;
+  height: 100%;
+  resize: none;
+  font-family: arial;
+  font-size: 17px;
+  box-sizing: border-box;
+  background: none;
+  border: none;
+  outline: none;
+  padding: 10px;
+}
 
+.control-chat .fa-smile {
+  /* position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate(-50%, -50%); */
+
+  margin: 0 10px;
+  color: #6882A1;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.control-chat .fa-smile:hover {
+  color: #D81C27;
+}
+
+/* ----------- */
 
 @media screen and (min-width: 767px) {
   .chat-block {
@@ -149,7 +186,7 @@
     top: 0;
     width: 100vw;
     height: 100vh;
-    transform: translateX(-100vw);
+    transform: translateX(calc(-100vw - 15px));
   }
 }
 /* -------------------- */

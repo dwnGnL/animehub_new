@@ -62,12 +62,12 @@
   border-radius: 100px;
 }
 
-.social-item .fa {
+.social-item .fab {
   font-size: 30px;
   color: #8FA3BA;
 }
 
-.social-item .fa:hover {
+.social-item .fab:hover {
   font-size: 30px;
   color: #CFCFCF;
 }

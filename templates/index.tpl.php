@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="<?=$uri?>/templates/css/notification.css?<?=filemtime('templates/css/notification.css')?>">
   <link rel="stylesheet" href="<?=$uri?>/templates/css/chat.css?<?=filemtime('templates/css/chat.css')?>">
   <link rel="stylesheet" href="<?=$uri?>/templates/css/holiday.css?<?=filemtime('templates/css/holiday.css')?>">
-  <link rel="stylesheet" href="<?=$uri?>/templates/font-awesome/css/font-awesome.min.css?<?=filemtime('templates/font-awesome/css/font-awesome.min.css')?>">
+  <link rel="stylesheet" href="<?=$uri?>/templates/font-awesome/css/all.css?<?=filemtime('templates/font-awesome/css/all.css')?>">
   <link rel="shortcut icon" href="<?=$uri?>/templates/images/favoicon.png" type="image/png">
   <meta name="description" content="<?=$description?>">
   <meta name="keywords" content="<?=$keywords?>">
@@ -104,7 +104,8 @@
     </div>
 
     <div class="control-chat">
-
+      <textarea name="chat">fadfasd</textarea>
+      <i class="far fa-smile"></i>
     </div>
   </div>
 
@@ -243,9 +244,9 @@
           <div class="to-left social">
             <span>Мы в соц. сетях</span>
             <div class="social-item">
-              <div class="social-item-img"><a href="https://vk.com/animehub_tj" target="_blank"><i class="fa fa-vk"></i></a></div>
-              <div class="social-item-img"><a href="https://www.facebook.com/animehub.tj" target="_blank"><i class="fa fa-facebook-square"></i></a></div>
-              <div class="social-item-img"><a href="https://www.instagram.com/anime_hub_tj" target="_blank"><i class="fa fa-instagram"></i></a></div>
+              <div class="social-item-img"><a href="https://vk.com/animehub_tj" target="_blank"><i class="fab fa-vk"></i></a></div>
+              <div class="social-item-img"><a href="https://www.facebook.com/animehub.tj" target="_blank"><i class="fab fa-facebook-square"></i></a></div>
+              <div class="social-item-img"><a href="https://www.instagram.com/anime_hub_tj" target="_blank"><i class="fab fa-instagram"></i></a></div>
             </div>
           </div>
         </div>
