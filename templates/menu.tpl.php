@@ -10,7 +10,7 @@
   <div class="main-sign-in-page">
     <div class="profile-data">
       <div class="profile-avatar">
-        <img src="<?=$user['img']?>" alt="">
+        <img src="<?=$user['img']?>">
       </div>
 
       <div class="profile-name" style="font-family: <?=$user['font']?>; <?=$user['login_color']?>">
@@ -32,9 +32,7 @@
 
 <div id="header">
   <a href="<?=$app->urlFor('home')?>">
-    <div class="logo main-logo">
-      <img class="logo-img" src="<?=$uri?>/templates/images/logo.png">
-    </div>
+    <div class="logo main-logo"><img draggable="false" class="logo-img" src="<?=$uri?>/templates/images/logo.png"></div>
   </a>
   <ul id="menu">
     <li class="active sub-menu top-menu">

@@ -1,4 +1,4 @@
-let otvet=document.querySelectorAll("button.otvet")
+let otvet=document.querySelectorAll("div.answer-comment")
 // var config1 = {
   //   height:'200',
   //   startupOutlineBlocks:true,
