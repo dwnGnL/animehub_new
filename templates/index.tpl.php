@@ -19,6 +19,8 @@
   <link rel="stylesheet" href="<?=$uri?>/templates/css/holiday.css?<?=filemtime('templates/css/holiday.css')?>">
   <link rel="stylesheet" href="<?=$uri?>/templates/font-awesome/css/all.css?<?=filemtime('templates/font-awesome/css/all.css')?>">
   <link rel="shortcut icon" href="<?=$uri?>/templates/images/favoicon.png" type="image/png">
+  <script type="text/javascript" src="<?=$uri?>/templates/Admin/js/ckeditor/ckeditor.js?<?=filemtime('templates/Admin/js/ckeditor/ckeditor.js')?>"></script>
+
   <meta name="description" content="<?=$description?>">
   <meta name="keywords" content="<?=$keywords?>">
   <script src="<?=$uri?>/templates/js/jquery-3.3.1.min.js?<?=filemtime('templates/js/jquery-3.3.1.min.js')?>"></script>
@@ -104,8 +106,9 @@
     </div>
 
     <div class="control-chat">
-      <textarea name="chat">fadfasd</textarea>
+      <textarea id="redactor" name="chat"></textarea>
       <i class="far fa-smile"></i>
+      <button id="sendChat">dsd</button>
     </div>
   </div>
 

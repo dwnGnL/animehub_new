@@ -4,6 +4,19 @@ let showChat = document.querySelector('.show-chat');
 let crossChat = document.querySelector('.cross-chat');
 
 
+var config2 = {
+    height:'69',
+    width:'300',
+    toolbarStartupExpanded : false, 
+    contentsCss : 'body{background:#f8f8f8;}',
+    toolbar: [],
+    enterMode: ()=>alert("dsds")
+  }
+
+  CKEDITOR.replace('redactor', config2);
+
+
+
 showChat.onclick = () => {
   chat.style.transform = 'translateX(0)';
   if (document.body.clientWidth >= 767) chat.style.top = window.pageYOffset + 50 + 'px';
@@ -66,6 +79,7 @@ $(document).ready(function(){
 
             }else {
                 // если юзер не авторизован тут выводи какиую нибудь ошибку, чтоб авторизовался для того что бы пользоваться чатом
+
                 localStorage.clear();
             }
 
@@ -75,70 +89,36 @@ $(document).ready(function(){
     // Создаем экземпляр класса вебсокет
     websocket = new WebSocket("ws://127.0.0.1:8000");
 
-<<<<<<< HEAD
-    function template(selector, selectorAll, textArray, object, color, font)
-=======
-/*
-* В genarationString генерируется уникальная строка, которая будет идентификатором пользователя
-*
-*/
-    function genarationString()
+    function template(avatar, username, date, mess, color, font)
     {
-        var rnd = '';
-        while (rnd.length < 10)
-            rnd += Math.random().toString(36).substring(2);
-        uniqueId = rnd.substring(0, 10);
-        return uniqueId;
-    };
+        var message=`<div class="chat-item" style="display:none">
+        <div class="chat-user">
+          <div class="chat-user-avatar"><img src="${avatar}"></div>
+          <div class="chat-user-right">
+            <div class="chat-user-name" style="color:'${color}';font-family:'${font}'">${username}</div>
+            <div class="chat-date">${date}</div>
+          </div>
+        </div>
 
-/*
-* В genarationColor выбирается цвет для пользователя рандомным образом
-*
-*/
-    function genarationColor()
-    {
-        var arr = ['red', 'black', 'orange', 'pink'];
-        var rand = Math.floor(Math.random() * arr.length);
-        return arr[rand];
-    };
+        <div class="chat-text">${mess}</div>
+      </div>`
 
-    function template(selector, selectorAll, textArray, object, color)
->>>>>>> a88a13b89a40af8ad8a549b250089af8ffe3c1eb
-    {
-        var t = document.querySelector(selector);
-        td = t.content.querySelectorAll(selectorAll);
-        $(td[1]).attr('style', color + '; font-family:' + font);
-
-
-        for (var i = 0; i < textArray.length; i++) {
-            td[i].textContent = textArray[i];
-        };
-
-        var div = document.getElementById('message_box');
-        var clone = t.content.cloneNode(true);
-        div.appendChild(clone);
+      $("#chat").append(message)
+      $('#chat .chat-item:last-child').slideDown('slow')
     };
 
 
     websocket.onopen = function(ev) {
-<<<<<<< HEAD
-        template('#system_msg', "td", ['Вы подключены!'])            
-
+        template('/templates/images/avatar/1.png', "ngnl", "dsds","hello","red","")            
     };
-=======
-        template('#system_msg', "td", ['Вы подключены!'])
-            uniqueId = genarationString();
-            userColor = genarationColor();
-    }
->>>>>>> a88a13b89a40af8ad8a549b250089af8ffe3c1eb
 
-    $('#send-btn').click(function() {
+    $('#sendChat').click(function() {
 
                 var user = JSON.parse(localStorage.getItem('user'));
 
-                var mymessage = $('#message').val();
+                var mymessage = CKEDITOR.instances['redactor'].getData();;
                 if(mymessage == "") {
-                    alert("Введите ваше сообщение!");
+                    showMessage("error","Введите ваше сообщение!",error);
                     return;
                 }
 
@@ -164,40 +144,21 @@ $(document).ready(function(){
 */
     websocket.onmessage = function(ev) {
         var msg = JSON.parse(ev.data);
+        template('/templates/images/avatar/1.png', "ngnl", "dsds","hello","red","")            
 
         var umsg = msg.message;
         var uname = msg.login;
         var utime = msg.time;
 
-        if (msg.service) {
-            template('#system_msg', "td", [msg.service], 'td.system_msg', '#BDBDBD');
-            return;
-        }
-
-        if (msg.dialog) {
-            for (var i = 0; i < msg.dialog.length; i++) {
-                template('#usersmsg', "span", [msg.dialog[i].date.substring(11)+' : ', msg.dialog[i].login+' : ', msg.dialog[i].text], '.userName', msg.dialog[i].login_color, msg.dialog[i].font)
-            };
-            return;
-        }
-
-        if(umsg) {
-<<<<<<< HEAD
-            template('#usersmsg', "span", [utime+' : ', uname+' : ', umsg], '.myName', msg.login_color, msg.font)
-=======
-            template('#mymsg', "span", [utime+' : ', uname+' : ', umsg], '.myName', msg.userColor)
-        } else {
-            template('#usersmsg', "span", [utime+' : ', uname+' : ', umsg], '.userName', msg.userColor)
->>>>>>> a88a13b89a40af8ad8a549b250089af8ffe3c1eb
-        }
+       
     };
 
     websocket.onerror   = function(ev) {
-        template('#system_msg', "td", ["Ошибка при подключении!"], 'td.system_msg', '#BDBDBD')
+        template('#chat', "td", ["Ошибка при подключении!"], 'td.system_msg', '#BDBDBD')
     };
 
     websocket.onclose   = function(ev) {
-        template('#system_msg', "td", ["Подключение закрыто!"], 'td.system_msg', '#BDBDBD')
+        template('#chat', "td", ["Подключение закрыто!"], 'td.system_msg', '#BDBDBD')
     };
 
 });

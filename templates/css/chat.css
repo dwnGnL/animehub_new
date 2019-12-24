@@ -12,10 +12,22 @@
   cursor: pointer;
   transition: .5s;
 }
+/* CKEDITOR */
+.chat-block .cke_top {
+    display: none !important;
+} 
 
+.chat-block .cke_bottom {
+  display: none !important;
+}
+
+.chat-block .cke_chrome {
+  border: none;
+}
 .show-chat:hover {
   opacity: 1;
 }
+
 
 
 .chat-block .sidebar-head {
