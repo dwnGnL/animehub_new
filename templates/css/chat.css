@@ -42,6 +42,7 @@
   padding: 10px;
   text-align: center;
   color: #F8F8F8;
+  user-select: none;
 }
 
 #chat {
@@ -174,11 +175,10 @@
   .chat-block {
     position: absolute;
     top: 50px;
-    transform: translateX(-350px);
+    transform: translateX(-365px);
     width: 350px;
   }
 }
-
 
 @media screen and (max-width: 767px) {
   .chat-block {
@@ -189,6 +189,7 @@
     transform: translateX(calc(-100vw - 15px));
   }
 }
+
 /* -------------------- */
 .chat_wrapper {
     width: 500px;

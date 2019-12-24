@@ -14,7 +14,7 @@ crossChat.onclick = () => {
   chat.style.transition = '.5s';
   chat.style.left = 0;
   setTimeout(() => {
-    chat.style.transform = `translateX(-${chat.clientWidth}px)`;
+    chat.style.transform = `translateX(-${chat.clientWidth + 15}px)`;
     chat.style.transition = 'transform .5s';
   }, 400);
   document.body.style.overflow = 'auto';
