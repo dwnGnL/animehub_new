@@ -693,4 +693,19 @@ class Model
         $this->driver->query($sql,$params);
     }
 
+    public function getUsersProperties($salt, $id){
+        $sql = 'SELECT lite_users.img,lite_users.id, lite_status.color, lite_status.title 
+                AS status, lite_users.login, lite_vip.login_color,  lite_vip.vip_status, lite_vip.font
+                FROM lite_users
+                LEFT JOIN lite_status ON lite_status.id = lite_users.status
+                LEFT JOIN lite_vip ON lite_vip.id_user = lite_users.id AND lite_users.status != 0
+                WHERE lite_users.salt = :salt AND lite_users.id = :id';
+        $params = [
+            'salt' => $salt,
+            'id' => $id
+        ];
+
+        return $this->driver->column($sql, $params);
+    }
+
 }

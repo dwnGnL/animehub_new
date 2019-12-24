@@ -50,6 +50,11 @@ $app->get('/ws/test', function () use ($app){
     $o->chat();
 
 });
+$app->get('/ws/login', function () use ($app){
+    $o = \Controller\Controller::getInstance('login'); //AdminController
+    $o->getLogin();
+
+});
 $app->group('/admin', $middle,function () use ($app){
 
     $app->get('(/:page)', function ($page = 1) {

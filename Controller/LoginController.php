@@ -13,17 +13,7 @@ class LoginController extends DisplayController
     public function execute($param = [])
     {
 
-
-
           return  $this->login();
-
-       // $auth = \Lib\Authclass;
-
-//        if (FALSE){
-//
-//        }else{
-//
-//        }
     }
 
     public function logout(){
@@ -73,6 +63,21 @@ class LoginController extends DisplayController
         }else{
             $this->app->redirect($this->app->urlFor('home'));
         }
+    }
+    public function getLogin(){
+        if (isset($_SESSION['auth'])){
+            $user = $this->model->getUsersProperties($_COOKIE['key'], $_COOKIE['id']);
+            $result = [
+                'info' => $user,
+                'status' => 200
+            ];
+            echo json_encode($result);
+            exit();
+        }
+        echo ['status' => 501];
+        exit();
+
+
     }
 
 }

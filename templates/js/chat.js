@@ -1,43 +1,33 @@
 $(document).ready(function(){
 
-    function getCookie(name) {
-        let matches = document.cookie.match(new RegExp(
-            "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
-        ));
-        return matches ? decodeURIComponent(matches[1]) : undefined;
+    // Тут с базы в локал сторейг берет данные о юзере
+    if (localStorage.getItem('user') === null) {
+        $.ajax({
+            url: '/ws/login',
+            method: 'GET',
+            success: function (data) {
+                var user = JSON.parse(data);
+            if (user.status == 200){
+                // Если чел авторизован и все успешно, его инфа в локал сохраняем
+                localStorage.setItem('user', JSON.stringify(user.info));
+
+            }else {
+                // если юзер не авторизован тут выводи какиую нибудь ошибку, чтоб авторизовался для того что бы пользоваться чатом
+                localStorage.clear();
+            }
+
+            }
+        });
     }
-    var id_user = getCookie('id');
+    // Создаем экземпляр класса вебсокет
     websocket = new WebSocket("ws://127.0.0.1:8000");
 
-/*
-* В genarationString генерируется уникальная строка, которая будет идентификатором пользователя
-*
-*/    
-    function genarationString()
-    {
-        var rnd = '';
-        while (rnd.length < 10) 
-            rnd += Math.random().toString(36).substring(2);
-        uniqueId = rnd.substring(0, 10);
-        return uniqueId;
-    };
-
-/*
-* В genarationColor выбирается цвет для пользователя рандомным образом
-*
-*/  
-    function genarationColor()
-    {
-        var arr = ['red', 'black', 'orange', 'pink'];
-        var rand = Math.floor(Math.random() * arr.length);
-        return arr[rand];
-    };
-
-    function template(selector, selectorAll, textArray, object, color)
+    function template(selector, selectorAll, textArray, object, color, font)
     {
         var t = document.querySelector(selector);
         td = t.content.querySelectorAll(selectorAll);
-        $(td[1]).attr('style', 'color:'+color);
+        $(td[1]).attr('style', color + '; font-family:' + font);
+
 
         for (var i = 0; i < textArray.length; i++) {
             td[i].textContent = textArray[i];
@@ -51,25 +41,34 @@ $(document).ready(function(){
 
     websocket.onopen = function(ev) {
         template('#system_msg', "td", ['Вы подключены!'])            
-            uniqueId = genarationString();
-            userColor = genarationColor();
-    }
+
+    };
 
     $('#send-btn').click(function() {
-        var mymessage = $('#message').val();
 
-        if(mymessage == "") {
-            alert("Введите ваше сообщение!");
-            return;
-        }
+                var user = JSON.parse(localStorage.getItem('user'));
 
-        var msg = {
-            message: mymessage,
-            id_user: id_user
-        };
+                var mymessage = $('#message').val();
+                if(mymessage == "") {
+                    alert("Введите ваше сообщение!");
+                    return;
+                }
 
-        websocket.send(JSON.stringify(msg));
-    });
+                var msg = {
+                    message: mymessage,
+                    id_user: user.id,
+                    login: user.login,
+                    login_color: user.login_color,
+                    font: user.font
+                };
+
+                websocket.send(JSON.stringify(msg));
+
+            });
+
+
+
+
 
 /*
 * При получении сообщения оно пишется или в сервисный блок, или в блок текущего пользователя,
@@ -77,28 +76,26 @@ $(document).ready(function(){
 */
     websocket.onmessage = function(ev) {
         var msg = JSON.parse(ev.data);
-        console.log(ev.data);
+
         var umsg = msg.message;
-        var uname = msg.id_user;
+        var uname = msg.login;
         var utime = msg.time;
-        console.log(umsg);
+
         if (msg.service) {
-            template('#system_msg', "td", [msg.service], 'td.system_msg', '#BDBDBD')
+            template('#system_msg', "td", [msg.service], 'td.system_msg', '#BDBDBD');
             return;
         }
 
         if (msg.dialog) {
             for (var i = 0; i < msg.dialog.length; i++) {
-                template('#usersmsg', "span", [msg.dialog[i].date+' : ', msg.dialog[i].login+' : ', msg.dialog[i].text], '.userName', msg.dialog[i].login_color)
+                template('#usersmsg', "span", [msg.dialog[i].date.substring(11)+' : ', msg.dialog[i].login+' : ', msg.dialog[i].text], '.userName', msg.dialog[i].login_color, msg.dialog[i].font)
             };
             return;
         }
 
         if(umsg) {
-            template('#mymsg', "span", [utime+' : ', uname+' : ', umsg], '.myName', msg.userColor)
-        } else {
-            template('#usersmsg', "span", [utime+' : ', uname+' : ', umsg], '.userName', msg.userColor)
-        }  
+            template('#usersmsg', "span", [utime+' : ', uname+' : ', umsg], '.myName', msg.login_color, msg.font)
+        }
     };
 
     websocket.onerror   = function(ev) {

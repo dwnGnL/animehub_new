@@ -1,15 +1,14 @@
 
-<link rel="stylesheet" href="<?=$uri?>/templates/css/chat.css" type="text/css"/>
+<link rel="stylesheet" href="<?=$uri?>/templates/css/chat.css?<?=filemtime('templates/css/chat.css')?>" type="text/css"/>
 
 
 <body>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-<script src="<?=$uri?>/templates/js/chat.js"></script>
+<script src="<?=$uri?>/templates/js/chat.js?<?=filemtime('templates/js/chat.js')?>"></script>
 
 <div class="chat_wrapper">
     <div class="message_box" id="message_box"></div>
     <div class="panel">
-        <input type="text" name="name" id="name" placeholder="Your Name" maxlength="10" />
         <input type="text" name="message" id="message" placeholder="Message" maxlength="80" />
         <button id="send-btn">Send</button>
     </div>
