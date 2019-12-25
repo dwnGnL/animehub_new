@@ -91,14 +91,15 @@ $(document).ready(function(){
     }
     // Создаем экземпляр класса вебсокет
     websocket = new WebSocket("ws://127.0.0.1:8000");
-
+    var parse=JSON.parse(localStorage.getItem('user'))
+   
     function template(avatar, username, date, mess, color, font)
     {
         var message=`<div class="chat-item" style="display:none">
         <div class="chat-user">
           <div class="chat-user-avatar"><img src="${avatar}"></div>
           <div class="chat-user-right">
-            <div class="chat-user-name" style="color:'${color}';font-family:'${font}'">${username}</div>
+            <div class="chat-user-name" style="color:${color};font-family:'${font}'">${username}</div>
             <div class="chat-date">${date}</div>
           </div>
         </div>
@@ -107,6 +108,11 @@ $(document).ready(function(){
       </div>`
 
       $("#chat").append(message)
+      
+      if(username==parse.login){
+        
+        $('#chat .chat-item:last-child').addClass("chat-item-self")
+        }
       $('#chat .chat-item:last-child').slideDown('slow')
     };
 
@@ -147,13 +153,28 @@ $(document).ready(function(){
 */
     websocket.onmessage = function(ev) {
         var msg = JSON.parse(ev.data);
+<<<<<<< HEAD
         template('/templates/images/avatar/1.png', "ngnl", "dsds","hello","red","")
+=======
+>>>>>>> 56804e37c064510aba3c5e5113ef6e47062d7bb8
 
         var umsg = msg.message;
         var uname = msg.login;
         var utime = msg.time;
+<<<<<<< HEAD
 
 
+=======
+        console.log(msg)
+        template('/templates/images/avatar/1.png', uname, utime,umsg,parse.login_color.slice(6,parse.login_color.length),msg.font)            
+      console.log(msg.dialog)
+      if (msg.dialog) {
+            for (var i = 0; i < msg.dialog.length; i++) {
+                template(msg.dialog[i].img, msg.dialog[i].login, msg.dialog[i].date, msg.dialog[i].text, msg.dialog[i].login_color, msg.dialog[i].font)
+            };
+            return;
+        } 
+>>>>>>> 56804e37c064510aba3c5e5113ef6e47062d7bb8
     };
 
     websocket.onerror   = function(ev) {
