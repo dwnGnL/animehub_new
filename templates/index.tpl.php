@@ -44,71 +44,13 @@
       </div>
     </div>
     <div id="chat" draggable="true">
-      <div class="chat-item">
-        <div class="chat-user">
-          <div class="chat-user-avatar"><img src="<?=$uri?>/templates/images/avatar/1.png"></div>
-          <div class="chat-user-right">
-            <div class="chat-user-name">user-name</div>
-            <div class="chat-date">12:00</div>
-          </div>
-        </div>
-
-        <div class="chat-text">fasdfasd</div>
-      </div>
-
-      <div class="chat-item chat-item-self">
-        <div class="chat-user">
-          <div class="chat-user-avatar"><img src="<?=$uri?>/templates/images/avatar/1.png"></div>
-          <div class="chat-user-right">
-            <div class="chat-user-name">user-name</div>
-            <div class="chat-date">12:00</div>
-          </div>
-        </div>
-
-        <div class="chat-text">fasdfasd</div>
-      </div>
-
-      <div class="chat-item">
-        <div class="chat-user">
-          <div class="chat-user-avatar"><img src="<?=$uri?>/templates/images/avatar/1.png"></div>
-          <div class="chat-user-right">
-            <div class="chat-user-name">user-name</div>
-            <div class="chat-date">12:00</div>
-          </div>
-        </div>
-
-        <div class="chat-text">fasdfasd</div>
-      </div>
-
-      <div class="chat-item">
-        <div class="chat-user">
-          <div class="chat-user-avatar"><img src="<?=$uri?>/templates/images/avatar/1.png"></div>
-          <div class="chat-user-right">
-            <div class="chat-user-name">user-name</div>
-            <div class="chat-date">12:00</div>
-          </div>
-        </div>
-
-        <div class="chat-text">fasdfasd</div>
-      </div>
-
-      <div class="chat-item">
-        <div class="chat-user">
-          <div class="chat-user-avatar"><img src="<?=$uri?>/templates/images/avatar/1.png"></div>
-          <div class="chat-user-right">
-            <div class="chat-user-name">user-name</div>
-            <div class="chat-date">12:00</div>
-          </div>
-        </div>
-
-        <div class="chat-text">fasdfasd</div>
-      </div>
+      
     </div>
 
     <div class="control-chat">
       <textarea id="redactor" name="chat"></textarea>
       <i class="far fa-smile"></i>
-      <button id="sendChat"><i class="far fa-arrow-alt-circle-right"></i></button>
+      <i id="sendChat" class="far fa-arrow-alt-circle-right"></i>
     </div>
   </div>
 
