@@ -114,6 +114,11 @@ $app->group('/ajax', function () use ($app){
         $o->updateNot();
     })->name('updateNotification');
 
+    $app->post('/check/auth', function () use ($app) {
+        $o = \Controller\Controller::getInstance('login'); //AjaxController
+        $o->checkAuth();
+    })->name('checkAuth');
+
 });
 $app->post('/question', function (){
     $o = \Controller\Controller::getInstance('Widget'); //WidgetController

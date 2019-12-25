@@ -79,5 +79,13 @@ class LoginController extends DisplayController
 
 
     }
+    public function checkAuth(){
+        if (isset($_SESSION['auth'])){
+            echo json_encode(['status' => 200]);
+            exit();
+        }
+        echo json_encode(['status' => 501]);
+        exit();
+    }
 
 }
