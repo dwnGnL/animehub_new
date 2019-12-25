@@ -96,7 +96,7 @@ $(document).ready(function(){
         <div class="chat-user">
           <div class="chat-user-avatar"><img src="${avatar}"></div>
           <div class="chat-user-right">
-            <div class="chat-user-name" style="color:${color};font-family:'${font}'">${username}</div>
+            <div class="chat-user-name" style="${color};font-family:'${font}'">${username}</div>
             <div class="chat-date">${date}</div>
           </div>
         </div>
@@ -154,9 +154,9 @@ $(document).ready(function(){
         var umsg = msg.message;
         var uname = msg.login;
         var utime = msg.time;
-        console.log(msg)
-        template('/templates/images/avatar/1.png', uname, utime,umsg,parse.login_color.slice(6,parse.login_color.length),msg.font)            
-      console.log(msg.dialog)
+        console.log(msg);
+        template('/templates/images/avatar/1.png', uname, utime,umsg,msg.login_color,msg.font);
+      console.log(msg.dialog);
       if (msg.dialog) {
             for (var i = 0; i < msg.dialog.length; i++) {
                 template(msg.dialog[i].img, msg.dialog[i].login, msg.dialog[i].date, msg.dialog[i].text, msg.dialog[i].login_color, msg.dialog[i].font)

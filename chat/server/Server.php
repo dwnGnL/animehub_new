@@ -51,7 +51,7 @@ class Server
 */
         $this->ws_worker->onMessage = function($connection, $data) use (&$users) {
             $data = json_decode($data);
-            $time = date("H:i:s");
+            $time = date("d.m.Y H:i:s");
             $data->time = $time;
 
 //            $findUser = $this->db->select('chat','uniqueId', null, 'uniqueId', $data->uniqueId);  // ищем пользователя по уникальному ИД в базе

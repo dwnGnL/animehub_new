@@ -3,11 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="6341c2f9-1102-484a-bdc9-098e620a8c13" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Model.php" beforeDir="false" afterPath="$PROJECT_DIR$/Model/Model.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat/server/Server.php" beforeDir="false" afterPath="$PROJECT_DIR$/chat/server/Server.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/js/chat.js" beforeDir="false" afterPath="$PROJECT_DIR$/templates/js/chat.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/template.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/template.tpl.php" afterDir="false" />
     </list>
     <list id="38dd605b-6083-45a6-9f6b-662038e1e815" name="Revert &quot;no message&quot;" comment="Revert &quot;no message&quot;&#10;&#10;This reverts commit 1b2b2056" />
     <list id="127eea75-a317-47c4-9d24-73bfa4d50c03" name="Проверь" comment="" />
@@ -191,7 +188,10 @@
       <workItem from="1577082012110" duration="951000" />
       <workItem from="1577088394418" duration="10075000" />
       <workItem from="1577104195063" duration="1000000" />
-      <workItem from="1577174951010" duration="9335000" />
+      <workItem from="1577174951010" duration="10147000" />
+      <workItem from="1577207320376" duration="1032000" />
+      <workItem from="1577243659947" duration="1072000" />
+      <workItem from="1577245687928" duration="1471000" />
     </task>
     <task id="LOCAL-00001" summary="Merge branch 'master' of https://github.com/dwnGnL/animehub_new&#10;&#10;# Conflicts:&#10;#&#9;Controller/PageController.php">
       <created>1575814085998</created>
