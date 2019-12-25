@@ -96,7 +96,7 @@ $(document).ready(function(){
         <div class="chat-user">
           <div class="chat-user-avatar"><img src="${avatar}"></div>
           <div class="chat-user-right">
-            <div class="chat-user-name" style="${color};font-family:'${font}'">${username}</div>
+            <div class="chat-user-name" style="color:${color};font-family:'${font}'">${username}</div>
             <div class="chat-date">${date}</div>
           </div>
         </div>
@@ -113,9 +113,9 @@ $(document).ready(function(){
       $('#chat .chat-item:last-child').slideDown('slow')
     };
 
-
+    
     websocket.onopen = function(ev) {
-        template('/templates/images/avatar/1.png', "ngnl", "dsds","hello","red","")            
+       
     };
 
     $('#sendChat').click(function() {
@@ -155,7 +155,7 @@ $(document).ready(function(){
         var uname = msg.login;
         var utime = msg.time;
         console.log(msg);
-        template('/templates/images/avatar/1.png', uname, utime,umsg,msg.login_color,msg.font);
+        template(msg.img, uname, utime,umsg,msg.login_color,msg.font);
       console.log(msg.dialog);
       if (msg.dialog) {
             for (var i = 0; i < msg.dialog.length; i++) {
@@ -166,11 +166,24 @@ $(document).ready(function(){
     };
 
     websocket.onerror   = function(ev) {
-        template('#chat', "td", ["Ошибка при подключении!"], 'td.system_msg', '#BDBDBD')
+      var errorMes=`<hr><p>ошибка подключения</p><hr>`
+      $("#chat").append(errorMes)
     };
 
     websocket.onclose   = function(ev) {
-        template('#chat', "td", ["Подключение закрыто!"], 'td.system_msg', '#BDBDBD')
+      var errorMes=`<hr><p>Соединение выключенно</p><hr>`
+      $("#chat").append(errorMes)
+        
     };
 
+    $.ajax({
+      type: "post",
+      url: "/ajax/check/auth",
+      success: function (response) {
+        response = JSON.parse(response);
+        if(response.status==501){
+          localStorage.removeItem("user")
+        }
+      }
+    })      
 });
