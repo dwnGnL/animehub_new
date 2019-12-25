@@ -3,19 +3,16 @@ let chatHeader = document.querySelector('.chat-header');
 let showChat = document.querySelector('.show-chat');
 let crossChat = document.querySelector('.cross-chat');
 
-
 var config2 = {
-    height:'69',
-    width:'300',
-    toolbarStartupExpanded : false, 
-    contentsCss : 'body{background:#f8f8f8;}',
-    toolbar: [],
-    enterMode: ()=>alert("dsds")
-  }
+  height:'69',
+  width:'300',
+  toolbarStartupExpanded : false,
+  contentsCss : 'body{background:#f8f8f8;}',
+  toolbar: [],
+  enterMode: ()=>alert("dsds")
+}
 
-  CKEDITOR.replace('redactor', config2);
-
-
+CKEDITOR.replace('redactor', config2);
 
 showChat.onclick = () => {
   chat.style.transform = 'translateX(0)';
@@ -60,6 +57,12 @@ chatHeader.onmousedown = event => {
 
 chat.ondragstart = function() {
   return false;
+};
+
+window.onkeydown = (event) => {
+  if (event.ctrlKey && event.code == 'Enter') {
+    alert('done');
+  };
 };
 
 // ----------------------------------
@@ -109,7 +112,7 @@ $(document).ready(function(){
 
 
     websocket.onopen = function(ev) {
-        template('/templates/images/avatar/1.png', "ngnl", "dsds","hello","red","")            
+        template('/templates/images/avatar/1.png', "ngnl", "dsds","hello","red","")
     };
 
     $('#sendChat').click(function() {
@@ -144,13 +147,13 @@ $(document).ready(function(){
 */
     websocket.onmessage = function(ev) {
         var msg = JSON.parse(ev.data);
-        template('/templates/images/avatar/1.png', "ngnl", "dsds","hello","red","")            
+        template('/templates/images/avatar/1.png', "ngnl", "dsds","hello","red","")
 
         var umsg = msg.message;
         var uname = msg.login;
         var utime = msg.time;
 
-       
+
     };
 
     websocket.onerror   = function(ev) {
