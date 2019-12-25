@@ -108,7 +108,7 @@
     <div class="control-chat">
       <textarea id="redactor" name="chat"></textarea>
       <i class="far fa-smile"></i>
-      <button id="sendChat">dsd</button>
+      <button id="sendChat"><i class="far fa-arrow-alt-circle-right"></i></button>
     </div>
   </div>
 
