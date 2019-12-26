@@ -67,7 +67,13 @@
           <div class="toggle-sticker-arrows right-stickers"><div></div></div>
         </div>
 
-        <ul class="stickers-list"></ul>
+        <div class="stickers-list-block">
+          <ul class="stickers-list"></ul>
+          <ul class="stickers-list"></ul>
+          <ul class="stickers-list"></ul>
+          <ul class="stickers-list"></ul>
+          <ul class="stickers-list"></ul>
+        </div>
       </div>
       <i class="far fa-smile"></i>
       <i id="sendChat" class="far fa-arrow-alt-circle-right"></i>

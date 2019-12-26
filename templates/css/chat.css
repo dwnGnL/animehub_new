@@ -82,6 +82,13 @@
   word-wrap: break-word;
 }
 
+.chat-text p {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  word-wrap: break-word;
+}
+
 .chat-user-avatar {
   width: 40px;
   height: 40px;
@@ -301,9 +308,13 @@
   margin: 0;
   padding: 0;
   height: 250px;
-  display: flex;
+  display: none;
   flex-wrap: wrap;
   overflow: auto;
+}
+
+.stickers-list.choosed-stickers-liset {
+  display: flex;
 }
 
 .sticker-item {
