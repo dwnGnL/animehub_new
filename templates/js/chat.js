@@ -16,7 +16,7 @@ var config2 = {
   }
 
   editor=CKEDITOR.replace('redactor', config2);
-
+// 
 editor.on('key', function(e) {
   if(e.data.keyCode == 13) {
     var user = JSON.parse(localStorage.getItem('user'));
