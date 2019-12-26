@@ -124,6 +124,9 @@ $(document).ready(function(){
 
     function template(avatar, username, date, mess, color, font)
     {
+      if (username==parse.login){
+        avatar=parse.img
+      }
       // var message=`<div class="chat-item" style="display:none">
         var message=`<div class="chat-item">
         <div class="chat-user">
@@ -171,6 +174,7 @@ $(document).ready(function(){
                 };
 
                 websocket.send(JSON.stringify(msg));
+                CKEDITOR.instances['redactor'].setData("");;
             });
 
 /*
