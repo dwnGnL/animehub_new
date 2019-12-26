@@ -77,6 +77,10 @@
   margin-bottom: 10px;
 }
 
+.chat-text {
+  word-wrap: break-word;
+}
+
 .chat-user-avatar {
   width: 40px;
   height: 40px;
@@ -112,6 +116,11 @@
 }
 
 .chat-item-self .chat-user {
+  flex-direction: row-reverse;
+}
+
+.chat-item-self .chat-user-name {
+  display: flex;
   flex-direction: row-reverse;
 }
 
@@ -300,7 +309,6 @@
   margin: 5px;
   cursor: pointer;
 }
-
 
 /* ---------------- */
 
