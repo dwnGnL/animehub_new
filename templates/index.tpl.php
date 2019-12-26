@@ -43,12 +43,57 @@
         <div class="cross-chat-line"></div>
       </div>
     </div>
-    <div id="chat" draggable="true">
-      
-    </div>
+
+    <div id="chat"></div>
 
     <div class="control-chat">
       <textarea id="redactor" name="chat"></textarea>
+      <div class="stickers-block">
+        <div class="toggle-block">
+          <div class="toggle-sticker-arrows left-stickers">
+            <div></div>
+          </div>
+
+          <div class="toggle-stickers">
+            <ul class="toggle-stickers-list">
+              <li class="toggle-sticker-itme"><img src="\templates\Admin\js\ckeditor\plugins\hkemoji\sticker\0.png" alt=""> </li>
+              <li class="toggle-sticker-itme"><img src="\templates\Admin\js\ckeditor\plugins\hkemoji\sticker\facebookChat\facebook (0).png" alt=""> </li>
+              <li class="toggle-sticker-itme"><img src="\templates\Admin\js\ckeditor\plugins\hkemoji\sticker\milkbottle\Milk Bottle--1.gif" alt=""> </li>
+              <li class="toggle-sticker-itme"><img src="\templates\Admin\js\ckeditor\plugins\hkemoji\sticker\onion\Onion--1.gif" alt=""> </li>
+              <li class="toggle-sticker-itme"><img src="\templates\Admin\js\ckeditor\plugins\hkemoji\sticker\onion\Onion--1.gif" alt=""> </li>
+              <li class="toggle-sticker-itme"><img src="\templates\Admin\js\ckeditor\plugins\hkemoji\sticker\onion\Onion--1.gif" alt=""> </li>
+              <li class="toggle-sticker-itme"><img src="\templates\Admin\js\ckeditor\plugins\hkemoji\sticker\redChat\red (1).gif" alt=""> </li>
+              <li class="toggle-sticker-itme"><img src="\templates\Admin\js\ckeditor\plugins\hkemoji\sticker\redChat\red (1).gif" alt=""> </li>
+              <li class="toggle-sticker-itme"><img src="\templates\Admin\js\ckeditor\plugins\hkemoji\sticker\redChat\red (1).gif" alt=""> </li>
+              <li class="toggle-sticker-itme"><img src="\templates\Admin\js\ckeditor\plugins\hkemoji\sticker\redChat\red (1).gif" alt=""> </li>
+              <li class="toggle-sticker-itme"><img src="\templates\Admin\js\ckeditor\plugins\hkemoji\sticker\redChat\red (1).gif" alt=""> </li>
+              <li class="toggle-sticker-itme"><img src="\templates\Admin\js\ckeditor\plugins\hkemoji\sticker\redChat\red (1).gif" alt=""> </li>
+              <li class="toggle-sticker-itme"><img src="\templates\Admin\js\ckeditor\plugins\hkemoji\sticker\redChat\red (1).gif" alt=""> </li>
+            </ul>
+          </div>
+
+          <div class="toggle-sticker-arrows right-stickers">
+            <div></div>
+          </div>
+        </div>
+        <ul class="stickers-list">
+          <li class="sticker-item"><img src="\templates\Admin\js\ckeditor\plugins\hkemoji\sticker\0.png"></li>
+          <li class="sticker-item"><img src="\templates\Admin\js\ckeditor\plugins\hkemoji\sticker\1.png"></li>
+          <li class="sticker-item"><img src="\templates\Admin\js\ckeditor\plugins\hkemoji\sticker\2.png"></li>
+          <li class="sticker-item"><img src="\templates\Admin\js\ckeditor\plugins\hkemoji\sticker\3.png"></li>
+          <li class="sticker-item"><img src="\templates\Admin\js\ckeditor\plugins\hkemoji\sticker\4.png"></li>
+          <li class="sticker-item"><img src="\templates\Admin\js\ckeditor\plugins\hkemoji\sticker\5.png"></li>
+          <li class="sticker-item"><img src="\templates\Admin\js\ckeditor\plugins\hkemoji\sticker\6.png"></li>
+          <li class="sticker-item"><img src="\templates\Admin\js\ckeditor\plugins\hkemoji\sticker\7.png"></li>
+          <li class="sticker-item"><img src="\templates\Admin\js\ckeditor\plugins\hkemoji\sticker\8.png"></li>
+          <li class="sticker-item"><img src="\templates\Admin\js\ckeditor\plugins\hkemoji\sticker\9.png"></li>
+          <li class="sticker-item"><img src="\templates\Admin\js\ckeditor\plugins\hkemoji\sticker\10.png"></li>
+          <li class="sticker-item"><img src="\templates\Admin\js\ckeditor\plugins\hkemoji\sticker\11.png"></li>
+          <li class="sticker-item"><img src="\templates\Admin\js\ckeditor\plugins\hkemoji\sticker\12.png"></li>
+          <li class="sticker-item"><img src="\templates\Admin\js\ckeditor\plugins\hkemoji\sticker\13.png"></li>
+          <li class="sticker-item"><img src="\templates\Admin\js\ckeditor\plugins\hkemoji\sticker\14.png"></li>
+        </ul>
+      </div>
       <i class="far fa-smile"></i>
       <i id="sendChat" class="far fa-arrow-alt-circle-right"></i>
     </div>

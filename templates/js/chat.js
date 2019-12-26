@@ -2,12 +2,16 @@ let chat = document.querySelector('.chat-block');
 let chatHeader = document.querySelector('.chat-header');
 let showChat = document.querySelector('.show-chat');
 let crossChat = document.querySelector('.cross-chat');
+let toggleStickersLength = document.querySelectorAll('.toggle-sticker-itme');
+let gridLength = document.querySelector('.toggle-stickers-list');
+
+gridLength.style.gridTemplateColumns = `repeat(${toggleStickersLength.length}, 1fr)`;
 
 
 var config2 = {
     height:'69',
     width:'300',
-    toolbarStartupExpanded : false, 
+    toolbarStartupExpanded : false,
     contentsCss : 'body{background:#f8f8f8;}',
     toolbar: [],
     enterMode: ()=>alert("dsds")
@@ -89,7 +93,7 @@ $(document).ready(function(){
     // Создаем экземпляр класса вебсокет
     websocket = new WebSocket("ws://127.0.0.1:8000");
     var parse=JSON.parse(localStorage.getItem('user'))
-   
+
     function template(avatar, username, date, mess, color, font)
     {
         var message=`<div class="chat-item" style="display:none">
@@ -105,17 +109,17 @@ $(document).ready(function(){
       </div>`
 
       $("#chat").append(message)
-      
+
       if(username==parse.login){
-        
+
         $('#chat .chat-item:last-child').addClass("chat-item-self")
         }
       $('#chat .chat-item:last-child').slideDown('slow')
     };
 
-    
+
     websocket.onopen = function(ev) {
-       
+
     };
 
     $('#sendChat').click(function() {
@@ -137,7 +141,6 @@ $(document).ready(function(){
                 };
 
                 websocket.send(JSON.stringify(msg));
-
             });
 
 
@@ -162,18 +165,18 @@ $(document).ready(function(){
                 template(msg.dialog[i].img, msg.dialog[i].login, msg.dialog[i].date, msg.dialog[i].text, msg.dialog[i].login_color, msg.dialog[i].font)
             };
             return;
-        } 
+        }
     };
 
     websocket.onerror   = function(ev) {
-      var errorMes=`<hr><p>ошибка подключения</p><hr>`
+      var errorMes=`<hr><p>Ошибка подключения</p><hr>`
       $("#chat").append(errorMes)
     };
 
     websocket.onclose   = function(ev) {
       var errorMes=`<hr><p>Соединение выключенно</p><hr>`
       $("#chat").append(errorMes)
-        
+
     };
 
     $.ajax({
@@ -185,5 +188,5 @@ $(document).ready(function(){
           localStorage.removeItem("user")
         }
       }
-    })      
+    })
 });
