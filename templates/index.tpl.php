@@ -50,31 +50,19 @@
       <textarea id="redactor" name="chat"></textarea>
       <div class="stickers-block">
         <div class="toggle-block">
-          <div class="toggle-sticker-arrows left-stickers">
-            <div></div>
-          </div>
+          <div class="toggle-sticker-arrows left-stickers"><div></div></div>
 
           <div class="toggle-stickers">
             <ul class="toggle-stickers-list">
-              <li class="toggle-sticker-itme"><img src="\templates\Admin\js\ckeditor\plugins\hkemoji\sticker\0.png" alt=""> </li>
-              <li class="toggle-sticker-itme"><img src="\templates\Admin\js\ckeditor\plugins\hkemoji\sticker\facebookChat\facebook (0).png" alt=""> </li>
-              <li class="toggle-sticker-itme"><img src="\templates\Admin\js\ckeditor\plugins\hkemoji\sticker\milkbottle\Milk Bottle--1.gif" alt=""> </li>
-              <li class="toggle-sticker-itme"><img src="\templates\Admin\js\ckeditor\plugins\hkemoji\sticker\onion\Onion--1.gif" alt=""> </li>
-              <li class="toggle-sticker-itme"><img src="\templates\Admin\js\ckeditor\plugins\hkemoji\sticker\onion\Onion--1.gif" alt=""> </li>
-              <li class="toggle-sticker-itme"><img src="\templates\Admin\js\ckeditor\plugins\hkemoji\sticker\onion\Onion--1.gif" alt=""> </li>
-              <li class="toggle-sticker-itme"><img src="\templates\Admin\js\ckeditor\plugins\hkemoji\sticker\redChat\red (1).gif" alt=""> </li>
-              <li class="toggle-sticker-itme"><img src="\templates\Admin\js\ckeditor\plugins\hkemoji\sticker\redChat\red (1).gif" alt=""> </li>
-              <li class="toggle-sticker-itme"><img src="\templates\Admin\js\ckeditor\plugins\hkemoji\sticker\redChat\red (1).gif" alt=""> </li>
-              <li class="toggle-sticker-itme"><img src="\templates\Admin\js\ckeditor\plugins\hkemoji\sticker\redChat\red (1).gif" alt=""> </li>
-              <li class="toggle-sticker-itme"><img src="\templates\Admin\js\ckeditor\plugins\hkemoji\sticker\redChat\red (1).gif" alt=""> </li>
-              <li class="toggle-sticker-itme"><img src="\templates\Admin\js\ckeditor\plugins\hkemoji\sticker\redChat\red (1).gif" alt=""> </li>
-              <li class="toggle-sticker-itme"><img src="\templates\Admin\js\ckeditor\plugins\hkemoji\sticker\redChat\red (1).gif" alt=""> </li>
+              <li class="toggle-sticker-itme"><img src="\templates\Admin\js\ckeditor\plugins\hkemoji\sticker\0.png"></li>
+              <li class="toggle-sticker-itme"><img src="\templates\Admin\js\ckeditor\plugins\hkemoji\sticker\facebookChat\facebook (0).png"></li>
+              <li class="toggle-sticker-itme"><img src="\templates\Admin\js\ckeditor\plugins\hkemoji\sticker\milkbottle\Milk Bottle--1.gif"></li>
+              <li class="toggle-sticker-itme"><img src="\templates\Admin\js\ckeditor\plugins\hkemoji\sticker\onion\Onion--1.gif"></li>
+              <li class="toggle-sticker-itme"><img src="\templates\Admin\js\ckeditor\plugins\hkemoji\sticker\redChat\red (1).gif"></li>
             </ul>
           </div>
 
-          <div class="toggle-sticker-arrows right-stickers">
-            <div></div>
-          </div>
+          <div class="toggle-sticker-arrows right-stickers"><div></div></div>
         </div>
         <ul class="stickers-list">
           <li class="sticker-item"><img src="\templates\Admin\js\ckeditor\plugins\hkemoji\sticker\0.png"></li>
@@ -273,6 +261,7 @@ style="width:80px; height:31px; border:0;" alt="Яндекс.Метрика" tit
     <script src="<?=$uri?>/templates/js/sign_in.js?<?=filemtime('templates/js/sign_in.js')?>"></script>
     <script src="<?=$uri?>/templates/js/short-text.js?<?=filemtime('templates/js/short-text.js')?>"></script>
     <script src="<?=$uri?>/templates/js/chat.js?<?=filemtime('templates/js/chat.js')?>"></script>
+    <script src="<?=$uri?>/templates/js/sticker.js?<?=filemtime('templates/js/sticker.js')?>"></script>
     <script src="<?=$uri?>/templates/js/holiday.js?<?=filemtime('templates/js/holiday.js')?>"></script>
   </body>
   </html>

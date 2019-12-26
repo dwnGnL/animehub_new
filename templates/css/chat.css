@@ -198,7 +198,7 @@
   margin-top: 5px;
   width: 30px;
   height: 30px;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   cursor: pointer;
@@ -238,20 +238,27 @@
 
 .toggle-stickers {
   overflow: hidden;
+  grid-column: 1/8;
+}
+
+.big-stickers-list .toggle-stickers {
   grid-column: 2/7;
 }
+
+.big-stickers-list .toggle-sticker-arrows {
+  display: flex;
+}
+
 
 .toggle-stickers-list {
   list-style-type: none;
   margin: 5px 0;
+  margin-left: 5px;
   padding: 0;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  grid-gap: 11px;
-}
-
-.toggle-stickers:hover .toggle-stickers-list {
-  transform: translateX(-100px);
+  grid-gap: 10px;
+  transition: .1s;
 }
 
 .toggle-sticker-itme {

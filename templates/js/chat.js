@@ -2,11 +2,6 @@ let chat = document.querySelector('.chat-block');
 let chatHeader = document.querySelector('.chat-header');
 let showChat = document.querySelector('.show-chat');
 let crossChat = document.querySelector('.cross-chat');
-let toggleStickersLength = document.querySelectorAll('.toggle-sticker-itme');
-let gridLength = document.querySelector('.toggle-stickers-list');
-
-gridLength.style.gridTemplateColumns = `repeat(${toggleStickersLength.length}, 1fr)`;
-
 
 var config2 = {
     height:'69',
@@ -65,6 +60,34 @@ chatHeader.onmousedown = event => {
 chat.ondragstart = function() {
   return false;
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // ----------------------------------
 
@@ -142,10 +165,6 @@ $(document).ready(function(){
 
                 websocket.send(JSON.stringify(msg));
             });
-
-
-
-
 
 /*
 * При получении сообщения оно пишется или в сервисный блок, или в блок текущего пользователя,
