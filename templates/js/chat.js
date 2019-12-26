@@ -10,6 +10,8 @@ var config2 = {
     width:'300',
     toolbarStartupExpanded : false,
     contentsCss : 'body{background:#f8f8f8;}',
+    enterMode : CKEDITOR.ENTER_BR,
+    shiftEnterMode: CKEDITOR.ENTER_P,
     toolbar: [],
     enterMode: ()=>alert("dsds")
   }
@@ -174,7 +176,7 @@ $(document).ready(function(){
                 };
 
                 websocket.send(JSON.stringify(msg));
-                CKEDITOR.instances['redactor'].setData("");;
+                CKEDITOR.instances['redactor'].setData("");
             });
 
 /*

@@ -12,6 +12,8 @@ CKEDITOR.editorConfig = function( config ) {
 	config.contentsCss = ["/css/styles.css"];
 	customConfig: '/js/bootstrap.min.js';
 	config.bodyClass = 'mystyle';
+	
+	CKEDITOR.config.autoParagraph = false;
 	config.protectedSource.push(/<(style)[^>]*>.*<\/style>/ig);
 	config.protectedSource.push(/<(script)[^>]*>.*<\/script>/ig);// разрешить теги <script>
 	config.protectedSource.push(/<(i)[^>]*>.*<\/i>/ig);// разрешить теги <i>

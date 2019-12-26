@@ -46,9 +46,8 @@ let stickerItemSticker = document.querySelectorAll('.sticker-item-sticker');
 
 stickerItemSmile.forEach((elem, index) => {
   elem.onclick = () => {
-    var mymessage = CKEDITOR.instances['redactor'].getData();
-    var mymessage = mymessage.slice(0, mymessage.length - 5) + `<img src="${elem.src}"></p>`
-    CKEDITOR.instances['redactor'].setData(mymessage);
+    var mymessage =`<img src="${elem.src}">`;
+    CKEDITOR.instances['redactor'].insertHtml(mymessage);
   };
 });
 
