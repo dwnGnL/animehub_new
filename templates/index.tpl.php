@@ -44,7 +44,9 @@
       </div>
     </div>
 
-    <div id="chat"></div>
+    <div id="chat">
+      <i class="scroll-bottom show-scroll-bottom far fa-caret-square-down"></i>
+    </div>
 
     <div class="control-chat">
       <textarea id="redactor" name="chat"></textarea>

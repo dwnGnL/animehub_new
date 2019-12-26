@@ -1,6 +1,5 @@
 let toggleStickersBlock = document.querySelector('.fa-smile');
 let stickersList = document.querySelector('.stickers-list');
-
 let stickersBlock = document.querySelector('.stickers-block');
 let toggleBlock = document.querySelector('.toggle-block');
 let toggleStickersLength = document.querySelectorAll('.toggle-sticker-itme');
@@ -11,13 +10,6 @@ let stickerPositon = 0;
 
 if (toggleStickersLength.length > 5) toggleBlock.classList.add('big-stickers-list');
 toggleStickersList.style.gridTemplateColumns = `repeat(${toggleStickersLength.length}, 1fr)`;
-
-
-// toggleStickersLength.forEach((elem, index) => {
-//   elem.onclick = () => {
-//   };
-// });
-
 
 defaultStickers();
 

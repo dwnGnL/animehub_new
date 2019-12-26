@@ -1,3 +1,5 @@
+let innerChat = document.querySelector('#chat');
+let scrollToBottom = document.querySelector('.scroll-bottom')
 let chat = document.querySelector('.chat-block');
 let chatHeader = document.querySelector('.chat-header');
 let showChat = document.querySelector('.show-chat');
@@ -13,6 +15,36 @@ var config2 = {
   }
 
   CKEDITOR.replace('redactor', config2);
+
+
+
+
+innerChat.onscroll = () => {
+  let scrollBottom = innerChat.scrollHeight - innerChat.scrollTop - innerChat.clientHeight;
+
+
+  if (scrollBottom > 1000) {
+    if (scrollToBottom.classList.contains('show-scroll-bottom')) return;
+    scrollToBottom.style.display = 'block';
+    setTimeout(() => scrollToBottom.classList.add('show-scroll-bottom'), 10);
+  } else {
+    if (scrollToBottom.classList.contains('show-scroll-bottom')) {
+      scrollToBottom.classList.remove('show-scroll-bottom');
+      setTimeout(() => scrollToBottom.style.display = 'none', 300);
+    };
+  };
+};
+
+scrollToBottom.onclick = scrollingToBottom;
+
+
+function scrollingToBottom() {
+  innerChat.scrollTo(0, innerChat.scrollHeight);
+};
+
+
+
+
 
 
 
@@ -62,33 +94,6 @@ chat.ondragstart = function() {
 };
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // ----------------------------------
 
 $(document).ready(function(){
@@ -119,7 +124,8 @@ $(document).ready(function(){
 
     function template(avatar, username, date, mess, color, font)
     {
-        var message=`<div class="chat-item" style="display:none">
+      // var message=`<div class="chat-item" style="display:none">
+        var message=`<div class="chat-item">
         <div class="chat-user">
           <div class="chat-user-avatar"><img src="${avatar}"></div>
           <div class="chat-user-right">
@@ -133,11 +139,12 @@ $(document).ready(function(){
 
       $("#chat").append(message)
 
-      if(username==parse.login){
-
+      if (username==parse.login){
         $('#chat .chat-item:last-child').addClass("chat-item-self")
-        }
-      $('#chat .chat-item:last-child').slideDown('slow')
+      }
+      // $('#chat .chat-item:last-child').toggle('slow')
+
+      if (username==parse.login) scrollingToBottom()
     };
 
 
@@ -151,7 +158,7 @@ $(document).ready(function(){
 
                 var mymessage = CKEDITOR.instances['redactor'].getData();;
                 if(mymessage == "") {
-                    showMessage("error","Введите ваше сообщение!",error);
+                    showMessage("error","Введите ваше сообщение!", error);
                     return;
                 }
 
@@ -178,12 +185,12 @@ $(document).ready(function(){
         var utime = msg.time;
         console.log(msg);
         template(msg.img, uname, utime,umsg,msg.login_color,msg.font);
-      console.log(msg.dialog);
-      if (msg.dialog) {
-            for (var i = 0; i < msg.dialog.length; i++) {
-                template(msg.dialog[i].img, msg.dialog[i].login, msg.dialog[i].date, msg.dialog[i].text, msg.dialog[i].login_color, msg.dialog[i].font)
-            };
-            return;
+        console.log(msg.dialog);
+        if (msg.dialog) {
+          for (var i = 0; i < msg.dialog.length; i++) {
+            template(msg.dialog[i].img, msg.dialog[i].login, msg.dialog[i].date, msg.dialog[i].text, msg.dialog[i].login_color, msg.dialog[i].font)
+          };
+          return;
         }
     };
 

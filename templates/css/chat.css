@@ -58,6 +58,7 @@
 }
 
 #chat {
+  position: relative;
   padding: 10px;
   height: 100%;
   overflow-x: auto;
@@ -310,6 +311,31 @@
   cursor: pointer;
 }
 
+
+
+
+.scroll-bottom {
+  position: fixed;
+  bottom: 80px;
+  right: 30px;
+  color: #6882A1;
+  opacity: 0;
+  font-size: 50px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.show-scroll-bottom {
+  opacity: .5;
+}
+
+.show-scroll-bottom:hover  {
+  opacity: 1;
+}
+
+.show-scroll-bottom:active  {
+  color: #D81C27;
+}
 /* ---------------- */
 
 
@@ -317,7 +343,7 @@
   .chat-block {
     position: absolute;
     top: 50px;
-    transform: translateX(365px);
+    transform: translateX(-365px);
     width: 350px;
   }
 }
