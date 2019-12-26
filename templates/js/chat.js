@@ -11,14 +11,34 @@ var config2 = {
     toolbarStartupExpanded : false,
     contentsCss : 'body{background:#f8f8f8;}',
     enterMode : CKEDITOR.ENTER_BR,
-    shiftEnterMode: CKEDITOR.ENTER_P,
     toolbar: [],
     enterMode: ()=>alert("dsds")
   }
 
-  CKEDITOR.replace('redactor', config2);
+  editor=CKEDITOR.replace('redactor', config2);
 
+editor.on('key', function(e) {
+  if(e.data.keyCode == 13) {
+    var user = JSON.parse(localStorage.getItem('user'));
 
+    var mymessage = CKEDITOR.instances['redactor'].getData();;
+    if(mymessage == "") {
+        showMessage("error","Введите ваше сообщение!", error);
+        return;
+    }
+
+    var msg = {
+        message: mymessage,
+        id_user: user.id,
+        login: user.login,
+        login_color: user.login_color,
+        font: user.font
+    };
+
+    websocket.send(JSON.stringify(msg));
+    CKEDITOR.instances['redactor'].setData("");
+  }
+});
 
 
 innerChat.onscroll = () => {
