@@ -134,7 +134,7 @@ $(document).ready(function(){
         <div class="chat-user">
           <div class="chat-user-avatar"><img src="${avatar}"></div>
           <div class="chat-user-right">
-            <div class="chat-user-name" style="color:${color};font-family:'${font}'">${username}</div>
+            <div class="chat-user-name" style="${color};font-family:'${font}'">${username}</div>
             <div class="chat-date">${date}</div>
           </div>
         </div>

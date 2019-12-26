@@ -3,8 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="6341c2f9-1102-484a-bdc9-098e620a8c13" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat/server/MySql.php" beforeDir="false" afterPath="$PROJECT_DIR$/chat/server/MySql.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/js/chat.js" beforeDir="false" afterPath="$PROJECT_DIR$/templates/js/chat.js" afterDir="false" />
     </list>
     <list id="38dd605b-6083-45a6-9f6b-662038e1e815" name="Revert &quot;no message&quot;" comment="Revert &quot;no message&quot;&#10;&#10;This reverts commit 1b2b2056" />
     <list id="127eea75-a317-47c4-9d24-73bfa4d50c03" name="Проверь" comment="" />
@@ -193,7 +194,9 @@
       <workItem from="1577243659947" duration="1072000" />
       <workItem from="1577245687928" duration="4375000" />
       <workItem from="1577278529322" duration="66000" />
-      <workItem from="1577285248826" duration="301000" />
+      <workItem from="1577285248826" duration="1004000" />
+      <workItem from="1577298580124" duration="111000" />
+      <workItem from="1577378998263" duration="1844000" />
     </task>
     <task id="LOCAL-00001" summary="Merge branch 'master' of https://github.com/dwnGnL/animehub_new&#10;&#10;# Conflicts:&#10;#&#9;Controller/PageController.php">
       <created>1575814085998</created>
@@ -328,10 +331,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="604" y="335" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1577088644533" />
-    <state x="594" y="133" key="RollbackChangesDialog" timestamp="1577003689592">
+    <state x="594" y="133" key="RollbackChangesDialog" timestamp="1577379106512">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="594" y="133" key="RollbackChangesDialog/0.0.1536.824@0.0.1536.824" timestamp="1577003689592" />
+    <state x="594" y="133" key="RollbackChangesDialog/0.0.1536.824@0.0.1536.824" timestamp="1577379106512" />
     <state x="361" y="144" key="Vcs.Push.Dialog.v2" timestamp="1577252068419">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

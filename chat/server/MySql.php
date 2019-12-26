@@ -122,7 +122,7 @@ class MySql implements \Server\DataInterface, \Server\LoggerInterface
 
     public function getAllMessages(){
         $sql = 'SELECT lite_chat.text, lite_chat.date, lite_users.img, lite_status.color, lite_status.title 
-                AS status, lite_users.login, lite_vip.login_color,  lite_vip.vip_status, lite_vip.font
+                AS status, lite_users.login, lite_vip.login_color,  lite_vip.font
                 FROM lite_chat
                 LEFT JOIN lite_users ON lite_users.id = lite_chat.id_user
                 LEFT JOIN lite_status ON lite_status.id = lite_users.status

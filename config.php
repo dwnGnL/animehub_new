@@ -2,10 +2,10 @@
 defined('_Sdef' ) or exit('Access denied');
 define('PREF', 'lite_');
 
-define('DB_HOST', 'localhost');
-define('DB_USER', 'root');
-define('DB_PASSWORD', '');
-define('DB_NAME', 'anime');
+define('DB_HOST','localhost');
+define('DB_NAME','animehub');
+define('DB_USER','root');
+define('DB_PASSWORD','');
 
 
 define('QUANTITY', 28);
