@@ -1,5 +1,5 @@
 <?php
-defined('_Sdef' ) or exit('Access denied');
+
 define('PREF', 'lite_');
 
 define('DB_HOST','localhost');

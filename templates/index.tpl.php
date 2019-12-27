@@ -31,7 +31,6 @@
   <div class="background background-sign-in"></div>
   <div class="message-place"></div>
   <script src="<?=$uri?>/templates/js/alert-message.js?<?=filemtime('templates/js/alert-message.js')?>"></script>
-
   <div class="show-chat">Открыть чат <i class="fa fa-comments"></i></div>
 
   <div class="chat-block">

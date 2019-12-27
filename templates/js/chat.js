@@ -13,7 +13,7 @@ var config2 = {
     enterMode : CKEDITOR.ENTER_BR,
     toolbar: [],
     enterMode: ()=>alert("dsds")
-  }
+  };
 
   editor=CKEDITOR.replace('redactor', config2);
 // 
@@ -28,6 +28,7 @@ editor.on('key', function(e) {
     }
 
     var msg = {
+        img: user.img,
         message: mymessage,
         id_user: user.id,
         login: user.login,
@@ -119,6 +120,16 @@ chat.ondragstart = function() {
 // ----------------------------------
 
 $(document).ready(function(){
+    $.ajax({
+        type: "post",
+        url: "/ajax/check/auth",
+        success: function (response) {
+            response = JSON.parse(response);
+            if(response.status==501){
+                localStorage.removeItem("user")
+            }
+        }
+    });
 
     // Тут с базы в локал сторейг берет данные о юзере
     if (localStorage.getItem('user') === null) {
@@ -134,7 +145,7 @@ $(document).ready(function(){
             }else {
                 // если юзер не авторизован тут выводи какиую нибудь ошибку, чтоб авторизовался для того что бы пользоваться чатом
 
-                localStorage.clear();
+                localStorage.removeItem('user');
             }
 
             }
@@ -142,13 +153,13 @@ $(document).ready(function(){
     }
     // Создаем экземпляр класса вебсокет
     websocket = new WebSocket("ws://127.0.0.1:8000");
-    var parse=JSON.parse(localStorage.getItem('user'))
+
+
 
     function template(avatar, username, date, mess, color, font)
     {
-      if (username==parse.login){
-        avatar=parse.img
-      }
+
+
       // var message=`<div class="chat-item" style="display:none">
         var message=`<div class="chat-item">
         <div class="chat-user">
@@ -162,14 +173,22 @@ $(document).ready(function(){
         <div class="chat-text">${mess}</div>
       </div>`
 
-      $("#chat").append(message)
+      $("#chat").append(message);
 
-      if (username==parse.login){
-        $('#chat .chat-item:last-child').addClass("chat-item-self")
-      }
+        if (localStorage.getItem('user') !== null) {
+            var parse=JSON.parse(localStorage.getItem('user'))
+            if (username==parse.login){
+                avatar=parse.img
+            }
+            if (username==parse.login){
+                $('#chat .chat-item:last-child').addClass("chat-item-self")
+            }
+            if (username==parse.login) scrollingToBottom()
+        }
+
       // $('#chat .chat-item:last-child').toggle('slow')
 
-      if (username==parse.login) scrollingToBottom()
+
     };
 
 
@@ -181,20 +200,21 @@ $(document).ready(function(){
 
                 var user = JSON.parse(localStorage.getItem('user'));
 
-                var mymessage = CKEDITOR.instances['redactor'].getData();;
+                var mymessage = CKEDITOR.instances['redactor'].getData();
                 if(mymessage == "") {
                     showMessage("error","Введите ваше сообщение!", error);
                     return;
                 }
 
                 var msg = {
+                    img: user.img,
                     message: mymessage,
                     id_user: user.id,
                     login: user.login,
                     login_color: user.login_color,
                     font: user.font
                 };
-
+                console.log(msg);
                 websocket.send(JSON.stringify(msg));
                 CKEDITOR.instances['redactor'].setData("");
             });
@@ -209,9 +229,9 @@ $(document).ready(function(){
         var umsg = msg.message;
         var uname = msg.login;
         var utime = msg.time;
-        console.log(msg);
+
         template(msg.img, uname, utime,umsg,msg.login_color,msg.font);
-        console.log(msg.dialog);
+   
         if (msg.dialog) {
           for (var i = 0; i < msg.dialog.length; i++) {
             template(msg.dialog[i].img, msg.dialog[i].login, msg.dialog[i].date, msg.dialog[i].text, msg.dialog[i].login_color, msg.dialog[i].font)
@@ -221,24 +241,15 @@ $(document).ready(function(){
     };
 
     websocket.onerror   = function(ev) {
-      var errorMes=`<hr><p>Ошибка подключения</p><hr>`
+      var errorMes=`<hr><p>Ошибка подключения</p><hr>`;
       $("#chat").append(errorMes)
     };
 
     websocket.onclose   = function(ev) {
-      var errorMes=`<hr><p>Соединение выключенно</p><hr>`
+      var errorMes=`<hr><p>Соединение выключенно</p><hr>`;
       $("#chat").append(errorMes)
 
     };
 
-    $.ajax({
-      type: "post",
-      url: "/ajax/check/auth",
-      success: function (response) {
-        response = JSON.parse(response);
-        if(response.status==501){
-          localStorage.removeItem("user")
-        }
-      }
-    })
+
 });

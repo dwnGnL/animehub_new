@@ -74,7 +74,7 @@ class LoginController extends DisplayController
             echo json_encode($result);
             exit();
         }
-        echo ['status' => 501];
+        echo json_encode(['status' => 501]);
         exit();
 
 

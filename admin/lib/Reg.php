@@ -1,6 +1,6 @@
 <?php
 
-require_once 'BD_info.php';
+require_once '../config.php';
 
  class Reg  {
 

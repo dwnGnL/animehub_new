@@ -3,7 +3,7 @@
 declare(strict_types = 1);
 namespace server;
 require_once 'DataInterface.php';
-
+require_once '../../config.php';
 
 
 /*
@@ -21,7 +21,7 @@ class MySql implements \Server\DataInterface, \Server\LoggerInterface
     public function __construct($config)
     {
         try {
-            $this->db = new \PDO("mysql:host=$config[host];dbname=$config[dbname]", $config['user'], $config['password']);
+            $this->db = new \PDO('mysql:host='.DB_HOST.';dbname='.DB_NAME, DB_USER, DB_PASSWORD);
             $this->db->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
             $this->db->exec("set names utf8");
             return $this->connect = true;
