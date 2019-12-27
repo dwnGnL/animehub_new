@@ -4,7 +4,8 @@ let chat = document.querySelector('.chat-block');
 let chatHeader = document.querySelector('.chat-header');
 let showChat = document.querySelector('.show-chat');
 let crossChat = document.querySelector('.cross-chat');
-
+let controls = document.querySelector('.control-chat');
+if(controls!==null){
 var config2 = {
     height:'69',
     width:'300',
@@ -16,7 +17,7 @@ var config2 = {
   };
 
   editor=CKEDITOR.replace('redactor', config2);
-// 
+
 editor.on('key', function(e) {
   if(e.data.keyCode == 13) {
     var user = JSON.parse(localStorage.getItem('user'));
@@ -41,7 +42,7 @@ editor.on('key', function(e) {
   }
 });
 
-
+}
 innerChat.onscroll = () => {
   let scrollBottom = innerChat.scrollHeight - innerChat.scrollTop - innerChat.clientHeight;
 

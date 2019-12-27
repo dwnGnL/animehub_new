@@ -46,8 +46,12 @@
     <div id="chat">
       <i class="scroll-bottom show-scroll-bottom far fa-caret-square-down"></i>
     </div>
+    <?php if (!isset($_SESSION['auth'])): ?>
 
-    <div class="control-chat">
+    <p style="color:red;text-align:center">Авторизуйтесь для использования чата</p>
+<?php else: ?>
+
+<div class="control-chat">
       <textarea id="redactor" name="chat"></textarea>
       <div class="stickers-block">
         <div class="toggle-block">
@@ -77,6 +81,9 @@
       <i class="far fa-smile"></i>
       <i id="sendChat" class="far fa-arrow-alt-circle-right"></i>
     </div>
+    <script src="<?=$uri?>/templates/js/sticker.js?<?=filemtime('templates/js/sticker.js')?>"></script>
+
+<?php endif; ?>
   </div>
 
 
@@ -253,7 +260,6 @@ style="width:80px; height:31px; border:0;" alt="Яндекс.Метрика" tit
     <script src="<?=$uri?>/templates/js/sign_in.js?<?=filemtime('templates/js/sign_in.js')?>"></script>
     <script src="<?=$uri?>/templates/js/short-text.js?<?=filemtime('templates/js/short-text.js')?>"></script>
     <script src="<?=$uri?>/templates/js/chat.js?<?=filemtime('templates/js/chat.js')?>"></script>
-    <script src="<?=$uri?>/templates/js/sticker.js?<?=filemtime('templates/js/sticker.js')?>"></script>
     <script src="<?=$uri?>/templates/js/holiday.js?<?=filemtime('templates/js/holiday.js')?>"></script>
   </body>
   </html>

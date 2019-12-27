@@ -8,6 +8,7 @@ let rightStickers = document.querySelector('.right-stickers');
 let leftStickers = document.querySelector('.left-stickers');
 let stickerPositon, prevStickersList, presStickersList = 0;
 
+
 if (toggleStickersLength.length > 5) toggleBlock.classList.add('big-stickers-list');
 toggleStickersList.style.gridTemplateColumns = `repeat(${toggleStickersLength.length}, 1fr)`;
 

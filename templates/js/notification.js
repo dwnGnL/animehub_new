@@ -10,10 +10,12 @@ let token = document.getElementById('token');
 
 let notificationDescription = document.querySelectorAll('.notification-description');
 let prevNot, presNot = 0;
-
-notificationLength.innerHTML = `(${newNotification.length})`;
+if(notification!==null){
+  notificationLength.innerHTML = `(${newNotification.length})`;
 notification.onmouseenter = () => notification.style.right = `calc(100% - ${notification.clientWidth}px)`;
 notification.onmouseleave = () => notification.style.right = `calc(100% - 35px)`;
+
+
 
 notification.onclick = () => {
   document.body.classList.add('open-notification');
@@ -111,3 +113,4 @@ function updateNotification(elem, index) {
     }
   })
 };
+}
