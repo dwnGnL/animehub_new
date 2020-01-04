@@ -81,7 +81,7 @@
   position: absolute;
   width: 100%;
   background-color: rgba(0, 0, 0, .5);
-  height: calc(100% - 15px);
+  height: 100%;
   top: 0;
   left: 0;
   /* display: none; */
