@@ -55,19 +55,54 @@ scrollToBottom.onclick = scrollingToBottom;
 function scrollingToBottom() {
   innerChat.scrollTo(0, innerChat.scrollHeight);
 };
+$(document).ready(function () {
+    localStorage.removeItem('click');
 
+    $.ajax({
+        type: "post",
+        url: "/ajax/check/auth",
+        success: function (response) {
+            response = JSON.parse(response);
+            if(response.status==501){
+                localStorage.removeItem("user")
+            }
+        }
+    });
 
+    // Тут с базы в локал сторейг берет данные о юзере
+    if (localStorage.getItem('user') === null) {
+        $.ajax({
+            url: '/ws/login',
+            method: 'GET',
+            success: function (data) {
+                var user = JSON.parse(data);
+                if (user.status == 200){
+                    // Если чел авторизован и все успешно, его инфа в локал сохраняем
+                    localStorage.setItem('user', JSON.stringify(user.info));
 
+                }else {
+                    // если юзер не авторизован тут выводи какиую нибудь ошибку, чтоб авторизовался для того что бы пользоваться чатом
 
+                    localStorage.removeItem('user');
+                }
 
+            }
+        });
+    }
+});
 
 
 showChat.onclick = () => {
   chat.style.transform = 'translateX(0)';
   if (document.body.clientWidth >= 767) {
       chat.style.top = window.pageYOffset + 50 + 'px';
+      if (localStorage.getItem('click') === null){
+          onConnect();
+          localStorage.setItem('click', 1);
+      }else {
+          onMessage();
+      }
 
-      onConnect();
   }
   if (document.body.clientWidth < 767) document.body.style.overflow = 'hidden';
 };
@@ -128,10 +163,10 @@ $('#sendChat').click(function() {
 
 function viewMessage(message) {
     if (message.messages.length == 1){
-        template(message.messages.img, message.messages.login, message.messages.date, message.messages.text, message.messages.login_color, message.messages.font,message.messages.id_chat)
+        template(message.messages.img, message.messages.login, message.messages.date, message.messages.text, message.messages.login_color, message.messages.font,message.messages.id_chat, message.messages.status, message.messages.color)
     }else {
         for (var i = 0; i < message.messages.length; i++) {
-            template(message.messages[i].img, message.messages[i].login, message.messages[i].date, message.messages[i].text, message.messages[i].login_color, message.messages[i].font,message.messages[i].id_chat)
+            template(message.messages[i].img, message.messages[i].login, message.messages[i].date, message.messages[i].text, message.messages[i].login_color, message.messages[i].font,message.messages[i].id_chat,message.messages[i].status,message.messages[i].color)
         }
     }
     localStorage.setItem('idInterval',setInterval(onListener, 500) );
@@ -164,7 +199,7 @@ function onListener() {
             success: function (data) {
                 var message = JSON.parse(data);
                 if (message.messages.login){
-                    template(message.messages.img, message.messages.login, message.messages.date, message.messages.text, message.messages.login_color, message.messages.font,message.messages.id_chat);
+                    template(message.messages.img, message.messages.login, message.messages.date, message.messages.text, message.messages.login_color, message.messages.font,message.messages.id_chat, message.messages.status, message.messages.color);
                 }
             }
         })
@@ -172,6 +207,23 @@ function onListener() {
 
 }
 
+function onMessage() {
+    var lastMessage = $('.chat-user:last').attr('id');
+    if (lastMessage !== 'undefined'){
+        console.log(lastMessage);
+        $.ajax({
+            url: '/ajax/chat/getMessage',
+            method: 'POST',
+            data: ( {id_chat: lastMessage }),
+            success: function (data) {
+                console.log(data);
+                var message = JSON.parse(data);
+                    viewMessage(message);
+            }
+        })
+    }
+
+}
 function sendMessage(message) {
     $.ajax({
         url: '/ajax/chat/message',
@@ -183,16 +235,16 @@ function sendMessage(message) {
     })
 }
 
-function template(avatar, username, date, mess, color, font, id_chat)
+function template(avatar, username, date, mess, color, font, id_chat,status, status_color)
 {
 
 
     // var message=`<div class="chat-item" style="display:none">
-    var message=`<div class="chat-item">
+    var message =`<div class="chat-item">
         <div class="chat-user" id="${id_chat}">
           <div class="chat-user-avatar"><img src="${avatar}"></div>
           <div class="chat-user-right">
-            <div class="chat-user-name" style="${color};font-family:'${font}'">${username}</div>
+            <div class="chat-user-name"><a style="${color};font-family:'${font}'" href="/profile/${username}">${username}</a> <span style="color: ${status_color}">${status}</span></div>
             <div class="chat-date">${date}</div>
           </div>
         </div>

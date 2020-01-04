@@ -82,6 +82,11 @@ $app->group('/ajax', function () use ($app){
             $o = \Controller\Controller::getInstance('chat'); //ChatController
             $o->onSave();
         });
+
+        $app->post('/getMessage', function (){
+            $o = \Controller\Controller::getInstance('chat'); //ChatController
+            $o->onMessage();
+        });
     });
     $app->post('/add/vote', function (){
         $o = \Controller\Controller::getInstance('ajax'); //AjaxController

@@ -38,4 +38,9 @@ class ChatController extends DisplayController
         echo json_encode(['status' => 500]);
         exit();
     }
+
+    public function onMessage(){
+       $result = $this->model->getMessages($_POST['id_chat']);
+        echo json_encode(['status' => 200, 'messages' => $result]);
+    }
 }

@@ -744,5 +744,20 @@ class Model
         ];
         $this->driver->query($sql,$params);
     }
+    public function getMessages($id_chat){
+        $sql = 'SELECT lite_chat.id_chat, lite_chat.text, lite_chat.date, lite_users.img, lite_status.color, lite_status.title 
+                AS status, lite_users.login, lite_vip.login_color,  lite_vip.font
+                FROM lite_chat
+                LEFT JOIN lite_users ON lite_users.id = lite_chat.id_user
+                LEFT JOIN lite_status ON lite_status.id = lite_users.status
+                LEFT JOIN lite_vip ON lite_vip.id_user = lite_users.id AND lite_users.status != 0
+                WHERE lite_chat.id_chat > :id_chat
+                ORDER BY lite_chat.date';
+        $params = [
+            'id_chat' => $id_chat,
+        ];
+
+        return $this->driver->row($sql,$params);
+    }
 
 }
