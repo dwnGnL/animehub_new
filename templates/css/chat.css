@@ -77,11 +77,41 @@
   cursor: pointer;
   margin-bottom: 10px;
 }
+#chat .disable {
+  position: absolute;
+  width: 100%;
+  background-color: rgba(0, 0, 0, .5);
+  height: calc(100% - 15px);
+  top: 0;
+  left: 0;
+  /* display: none; */
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
 
+#chat .load {
+  color: #288af7;
+  font-size: 60px;
+  text-indent: -9999em;
+  overflow: hidden;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  margin: 72px auto;
+  position: relative;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation: load6 1.7s infinite ease, round 1.7s infinite ease;
+  animation: load6 1.7s infinite ease, round 1.7s infinite ease;
+}
 .chat-user span{
   margin: 0 5px;
 }
-
+.chat-user a{
+  text-decoration: none;
+}
 .chat-text {
   word-wrap: break-word;
 }

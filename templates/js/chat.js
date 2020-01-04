@@ -174,6 +174,7 @@ function viewMessage(message) {
 }
 
 function onConnect() {
+  innerChat
     $.ajax({
         url: '/ajax/chat/connect',
         method: 'POST',
@@ -262,7 +263,9 @@ function template(avatar, username, date, mess, color, font, id_chat,status, sta
         if (username==parse.login){
             $('#chat .chat-item:last-child').addClass("chat-item-self")
         }
-        if (username==parse.login) scrollingToBottom()
+        
+          scrollingToBottom()
+        
     }
 
 };

@@ -46,6 +46,7 @@
       </div>
     </div>
     <div id="chat">
+    <div class="disable"><div class="load">Loading...</div></div>
       <i class="scroll-bottom show-scroll-bottom far fa-caret-square-down"></i>
     </div>
     <?php if (!isset($_SESSION['auth'])): ?>
