@@ -78,6 +78,10 @@
   margin-bottom: 10px;
 }
 
+.chat-user span{
+  margin: 5px auto;
+}
+
 .chat-text {
   word-wrap: break-word;
 }
