@@ -174,7 +174,7 @@ function viewMessage(message) {
 }
 
 function onConnect() {
-  innerChat
+  $("#chat .disable").toggle()
     $.ajax({
         url: '/ajax/chat/connect',
         method: 'POST',
@@ -182,6 +182,7 @@ function onConnect() {
         success: function (data) {
           var message = JSON.parse(data);
             viewMessage(message);
+            $("#chat .disable").toggle()
         }
     });
 
