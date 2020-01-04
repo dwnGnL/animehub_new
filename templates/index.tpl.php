@@ -15,7 +15,9 @@
   <link rel="stylesheet" href="<?=$uri?>/templates/css/film-list.css?<?=filemtime('templates/css/film-list.css')?>">
   <link rel="stylesheet" href="<?=$uri?>/templates/css/alert-message.css?<?=filemtime('templates/css/alert-message.css')?>">
   <link rel="stylesheet" href="<?=$uri?>/templates/css/notification.css?<?=filemtime('templates/css/notification.css')?>">
+    <?php if ($_SESSION['status'] == 'Админ') :?>
   <link rel="stylesheet" href="<?=$uri?>/templates/css/chat.css?<?=filemtime('templates/css/chat.css')?>">
+    <?php endif; ?>
   <link rel="stylesheet" href="<?=$uri?>/templates/css/holiday.css?<?=filemtime('templates/css/holiday.css')?>">
   <link rel="stylesheet" href="<?=$uri?>/templates/font-awesome/css/all.css?<?=filemtime('templates/font-awesome/css/all.css')?>">
   <link rel="shortcut icon" href="<?=$uri?>/templates/images/favoicon.png" type="image/png">
@@ -31,6 +33,7 @@
   <div class="background background-sign-in"></div>
   <div class="message-place"></div>
   <script src="<?=$uri?>/templates/js/alert-message.js?<?=filemtime('templates/js/alert-message.js')?>"></script>
+  <?php if ($_SESSION['status'] == 'Админ') :?>
   <div class="show-chat">Открыть чат <i class="fa fa-comments"></i></div>
 
   <div class="chat-block">
@@ -42,7 +45,6 @@
         <div class="cross-chat-line"></div>
       </div>
     </div>
-
     <div id="chat">
       <i class="scroll-bottom show-scroll-bottom far fa-caret-square-down"></i>
     </div>
@@ -85,7 +87,7 @@
 
 <?php endif; ?>
   </div>
-
+  <?php endif;?>
 
   <div id="notification-page">
     <div class="top-notification">
@@ -259,7 +261,9 @@ style="width:80px; height:31px; border:0;" alt="Яндекс.Метрика" tit
     <script src="<?=$uri?>/templates/js/menu.js?<?=filemtime('templates/js/menu.js')?>"></script>
     <script src="<?=$uri?>/templates/js/sign_in.js?<?=filemtime('templates/js/sign_in.js')?>"></script>
     <script src="<?=$uri?>/templates/js/short-text.js?<?=filemtime('templates/js/short-text.js')?>"></script>
+      <?php if ($_SESSION['status'] == 'Админ') :?>
     <script src="<?=$uri?>/templates/js/chat.js?<?=filemtime('templates/js/chat.js')?>"></script>
+      <?php endif; ?>
     <script src="<?=$uri?>/templates/js/holiday.js?<?=filemtime('templates/js/holiday.js')?>"></script>
   </body>
   </html>

@@ -20,24 +20,14 @@ var config2 = {
 
 editor.on('key', function(e) {
   if(e.data.keyCode == 13) {
-    var user = JSON.parse(localStorage.getItem('user'));
 
-    var mymessage = CKEDITOR.instances['redactor'].getData();;
+
+    var mymessage = CKEDITOR.instances['redactor'].getData();
     if(mymessage == "") {
         showMessage("error","Введите ваше сообщение!", error);
         return;
     }
-
-    var msg = {
-        img: user.img,
-        message: mymessage,
-        id_user: user.id,
-        login: user.login,
-        login_color: user.login_color,
-        font: user.font
-    };
-
-    websocket.send(JSON.stringify(msg));
+    sendMessage(mymessage);
     CKEDITOR.instances['redactor'].setData("");
   }
 });
@@ -74,11 +64,16 @@ function scrollingToBottom() {
 
 showChat.onclick = () => {
   chat.style.transform = 'translateX(0)';
-  if (document.body.clientWidth >= 767) chat.style.top = window.pageYOffset + 50 + 'px';
+  if (document.body.clientWidth >= 767) {
+      chat.style.top = window.pageYOffset + 50 + 'px';
+
+      onConnect();
+  }
   if (document.body.clientWidth < 767) document.body.style.overflow = 'hidden';
 };
 
 crossChat.onclick = () => {
+    clearInterval(localStorage.getItem('idInterval'));
   chat.style.transition = '.5s';
   chat.style.left = 0;
   setTimeout(() => {
@@ -118,52 +113,83 @@ chat.ondragstart = function() {
 };
 
 
-// ----------------------------------
 
-$(document).ready(function(){
+
+
+$('#sendChat').click(function() {
+                var mymessage = CKEDITOR.instances['redactor'].getData();
+                if(mymessage == "") {
+                    showMessage("error","Введите ваше сообщение!", error);
+                    return;
+                }
+                sendMessage(mymessage);
+                CKEDITOR.instances['redactor'].setData("");
+});
+
+function viewMessage(message) {
+    if (message.messages.length == 1){
+        template(message.messages.img, message.messages.login, message.messages.date, message.messages.text, message.messages.login_color, message.messages.font,message.messages.id_chat)
+    }else {
+        for (var i = 0; i < message.messages.length; i++) {
+            template(message.messages[i].img, message.messages[i].login, message.messages[i].date, message.messages[i].text, message.messages[i].login_color, message.messages[i].font,message.messages[i].id_chat)
+        }
+    }
+    localStorage.setItem('idInterval',setInterval(onListener, 500) );
+
+}
+
+function onConnect() {
     $.ajax({
-        type: "post",
-        url: "/ajax/check/auth",
-        success: function (response) {
-            response = JSON.parse(response);
-            if(response.status==501){
-                localStorage.removeItem("user")
-            }
+        url: '/ajax/chat/connect',
+        method: 'POST',
+        data: ({token: $('#token').text()}),
+        success: function (data) {
+          var message = JSON.parse(data);
+            viewMessage(message);
         }
     });
 
-    // Тут с базы в локал сторейг берет данные о юзере
-    if (localStorage.getItem('user') === null) {
+}
+
+function onListener() {
+    var lastMessage = $('.chat-user:last').attr('id');
+    localStorage.setItem('id_chat', lastMessage);
+    if (lastMessage !== 'undefined'){
+        lastMessage = parseInt(lastMessage) + 1;
+        console.log(lastMessage);
         $.ajax({
-            url: '/ws/login',
-            method: 'GET',
+            url: '/ajax/chat/online',
+            method: 'POST',
+            data: ({token: $('#token').text(), id_message: lastMessage }),
             success: function (data) {
-                var user = JSON.parse(data);
-            if (user.status == 200){
-                // Если чел авторизован и все успешно, его инфа в локал сохраняем
-                localStorage.setItem('user', JSON.stringify(user.info));
-
-            }else {
-                // если юзер не авторизован тут выводи какиую нибудь ошибку, чтоб авторизовался для того что бы пользоваться чатом
-
-                localStorage.removeItem('user');
+                var message = JSON.parse(data);
+                if (message.messages.login){
+                    template(message.messages.img, message.messages.login, message.messages.date, message.messages.text, message.messages.login_color, message.messages.font,message.messages.id_chat);
+                }
             }
-
-            }
-        });
+        })
     }
-    // Создаем экземпляр класса вебсокет
-    websocket = new WebSocket("ws://127.0.0.1:8000");
+
+}
+
+function sendMessage(message) {
+    $.ajax({
+        url: '/ajax/chat/message',
+        method: 'POST',
+        data: ({token: $('#token').text(), message: message }),
+        success: function (data) {
+            var message = JSON.parse(data);
+        }
+    })
+}
+
+function template(avatar, username, date, mess, color, font, id_chat)
+{
 
 
-
-    function template(avatar, username, date, mess, color, font)
-    {
-
-
-      // var message=`<div class="chat-item" style="display:none">
-        var message=`<div class="chat-item">
-        <div class="chat-user">
+    // var message=`<div class="chat-item" style="display:none">
+    var message=`<div class="chat-item">
+        <div class="chat-user" id="${id_chat}">
           <div class="chat-user-avatar"><img src="${avatar}"></div>
           <div class="chat-user-right">
             <div class="chat-user-name" style="${color};font-family:'${font}'">${username}</div>
@@ -174,83 +200,17 @@ $(document).ready(function(){
         <div class="chat-text">${mess}</div>
       </div>`
 
-      $("#chat").append(message);
+    $("#chat").append(message);
 
-        if (localStorage.getItem('user') !== null) {
-            var parse=JSON.parse(localStorage.getItem('user'))
-            if (username==parse.login){
-                avatar=parse.img
-            }
-            if (username==parse.login){
-                $('#chat .chat-item:last-child').addClass("chat-item-self")
-            }
-            if (username==parse.login) scrollingToBottom()
+    if (localStorage.getItem('user') !== null) {
+        var parse=JSON.parse(localStorage.getItem('user'))
+        if (username==parse.login){
+            avatar=parse.img
         }
-
-      // $('#chat .chat-item:last-child').toggle('slow')
-
-
-    };
-
-
-    websocket.onopen = function(ev) {
-
-    };
-
-    $('#sendChat').click(function() {
-
-                var user = JSON.parse(localStorage.getItem('user'));
-
-                var mymessage = CKEDITOR.instances['redactor'].getData();
-                if(mymessage == "") {
-                    showMessage("error","Введите ваше сообщение!", error);
-                    return;
-                }
-
-                var msg = {
-                    img: user.img,
-                    message: mymessage,
-                    id_user: user.id,
-                    login: user.login,
-                    login_color: user.login_color,
-                    font: user.font
-                };
-                console.log(msg);
-                websocket.send(JSON.stringify(msg));
-                CKEDITOR.instances['redactor'].setData("");
-            });
-
-/*
-* При получении сообщения оно пишется или в сервисный блок, или в блок текущего пользователя,
-* или в блок других пользователей
-*/
-    websocket.onmessage = function(ev) {
-        var msg = JSON.parse(ev.data);
-
-        var umsg = msg.message;
-        var uname = msg.login;
-        var utime = msg.time;
-
-        template(msg.img, uname, utime,umsg,msg.login_color,msg.font);
-   
-        if (msg.dialog) {
-          for (var i = 0; i < msg.dialog.length; i++) {
-            template(msg.dialog[i].img, msg.dialog[i].login, msg.dialog[i].date, msg.dialog[i].text, msg.dialog[i].login_color, msg.dialog[i].font)
-          };
-          return;
+        if (username==parse.login){
+            $('#chat .chat-item:last-child').addClass("chat-item-self")
         }
-    };
+        if (username==parse.login) scrollingToBottom()
+    }
 
-    websocket.onerror   = function(ev) {
-      var errorMes=`<hr><p>Ошибка подключения</p><hr>`;
-      $("#chat").append(errorMes)
-    };
-
-    websocket.onclose   = function(ev) {
-      var errorMes=`<hr><p>Соединение выключенно</p><hr>`;
-      $("#chat").append(errorMes)
-
-    };
-
-
-});
+};

@@ -65,7 +65,24 @@ $app->group('/admin', $middle,function () use ($app){
 });
 
 
+
 $app->group('/ajax', function () use ($app){
+    $app->group('/chat', function () use ($app){
+        $app->post('/connect', function (){
+           $o = \Controller\Controller::getInstance('chat'); //ChatController
+            $o->onConnect();
+        });
+
+        $app->post('/online', function (){
+            $o = \Controller\Controller::getInstance('chat'); //ChatController
+            $o->onListener();
+        });
+
+        $app->post('/message', function (){
+            $o = \Controller\Controller::getInstance('chat'); //ChatController
+            $o->onSave();
+        });
+    });
     $app->post('/add/vote', function (){
         $o = \Controller\Controller::getInstance('ajax'); //AjaxController
         $o->addVoted();
