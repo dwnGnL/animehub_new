@@ -64,7 +64,7 @@ stickerItemSticker.forEach((elem, index) => {
         font: user.font
     };
 
-    websocket.send(JSON.stringify(msg));
+    sendMessage(msg.message);
   };
 });
 
