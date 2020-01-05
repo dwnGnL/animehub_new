@@ -62,12 +62,20 @@
           <div class="toggle-stickers">
             <ul class="toggle-stickers-list">
               <li class="toggle-sticker-itme" onclick="defaultStickers()"><img src="/templates/Admin/js/ckeditor/plugins/hkemoji/sticker/0.png"></li>
+<<<<<<< HEAD
                 <?php if($_SESSION['status'] != 'Анимешник'): ?>
+=======
+              <?php if ($_SESSION['login'] == $user['login'] && $_SESSION['status'] != 'Анимешник'): ?>
+>>>>>>> 3a6f5147f67bd5dabc0cb9e70d907492b062a20c
               <li class="toggle-sticker-itme" onclick="facebookStickers()"><img src="/templates/Admin/js/ckeditor/plugins/hkemoji/sticker/facebookChat/facebook (0).png"></li>
               <li class="toggle-sticker-itme" onclick="milkbottleStickers()"><img src="/templates/Admin/js/ckeditor/plugins/hkemoji/sticker/milkbottle/Milk Bottle--1.gif"></li>
               <li class="toggle-sticker-itme" onclick="onionStickers()"><img src="/templates/Admin/js/ckeditor/plugins/hkemoji/sticker/onion/Onion--1.gif"></li>
               <li class="toggle-sticker-itme" onclick="redChatStickers()"><img src="/templates/Admin/js/ckeditor/plugins/hkemoji/sticker/redChat/red (1).gif"></li>
+<<<<<<< HEAD
                 <?php endif; ?>
+=======
+              <?php endif; ?>
+>>>>>>> 3a6f5147f67bd5dabc0cb9e70d907492b062a20c
             </ul>
           </div>
 
