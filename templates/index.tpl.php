@@ -15,9 +15,9 @@
   <link rel="stylesheet" href="<?=$uri?>/templates/css/film-list.css?<?=filemtime('templates/css/film-list.css')?>">
   <link rel="stylesheet" href="<?=$uri?>/templates/css/alert-message.css?<?=filemtime('templates/css/alert-message.css')?>">
   <link rel="stylesheet" href="<?=$uri?>/templates/css/notification.css?<?=filemtime('templates/css/notification.css')?>">
-    <?php if ($_SESSION['status'] != 'Анимешник') :?>
+
   <link rel="stylesheet" href="<?=$uri?>/templates/css/chat.css?<?=filemtime('templates/css/chat.css')?>">
-    <?php endif; ?>
+
   <link rel="stylesheet" href="<?=$uri?>/templates/css/holiday.css?<?=filemtime('templates/css/holiday.css')?>">
   <link rel="stylesheet" href="<?=$uri?>/templates/font-awesome/css/all.css?<?=filemtime('templates/font-awesome/css/all.css')?>">
   <link rel="shortcut icon" href="<?=$uri?>/templates/images/favoicon.png" type="image/png">
@@ -33,7 +33,6 @@
   <div class="background background-sign-in"></div>
   <div class="message-place"></div>
   <script src="<?=$uri?>/templates/js/alert-message.js?<?=filemtime('templates/js/alert-message.js')?>"></script>
-  <?php if ($_SESSION['status'] != 'Анимешник') :?>
   <div class="show-chat">Открыть чат <i class="fa fa-comments"></i></div>
 
   <div class="chat-block">
@@ -63,10 +62,12 @@
           <div class="toggle-stickers">
             <ul class="toggle-stickers-list">
               <li class="toggle-sticker-itme" onclick="defaultStickers()"><img src="/templates/Admin/js/ckeditor/plugins/hkemoji/sticker/0.png"></li>
+                <?php if($_SESSION['status'] != 'Анимешник'): ?>
               <li class="toggle-sticker-itme" onclick="facebookStickers()"><img src="/templates/Admin/js/ckeditor/plugins/hkemoji/sticker/facebookChat/facebook (0).png"></li>
               <li class="toggle-sticker-itme" onclick="milkbottleStickers()"><img src="/templates/Admin/js/ckeditor/plugins/hkemoji/sticker/milkbottle/Milk Bottle--1.gif"></li>
               <li class="toggle-sticker-itme" onclick="onionStickers()"><img src="/templates/Admin/js/ckeditor/plugins/hkemoji/sticker/onion/Onion--1.gif"></li>
               <li class="toggle-sticker-itme" onclick="redChatStickers()"><img src="/templates/Admin/js/ckeditor/plugins/hkemoji/sticker/redChat/red (1).gif"></li>
+                <?php endif; ?>
             </ul>
           </div>
 
@@ -88,7 +89,7 @@
 
 <?php endif; ?>
   </div>
-  <?php endif;?>
+
 
   <div id="notification-page">
     <div class="top-notification">
@@ -262,9 +263,9 @@ style="width:80px; height:31px; border:0;" alt="Яндекс.Метрика" tit
     <script src="<?=$uri?>/templates/js/menu.js?<?=filemtime('templates/js/menu.js')?>"></script>
     <script src="<?=$uri?>/templates/js/sign_in.js?<?=filemtime('templates/js/sign_in.js')?>"></script>
     <script src="<?=$uri?>/templates/js/short-text.js?<?=filemtime('templates/js/short-text.js')?>"></script>
-      <?php if ($_SESSION['status'] != 'Анимешник') :?>
+
     <script src="<?=$uri?>/templates/js/chat.js?<?=filemtime('templates/js/chat.js')?>"></script>
-      <?php endif; ?>
+
     <script src="<?=$uri?>/templates/js/holiday.js?<?=filemtime('templates/js/holiday.js')?>"></script>
   </body>
   </html>

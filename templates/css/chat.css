@@ -176,6 +176,7 @@
 }
 .chat-user a{
   text-decoration: none;
+  color: black;
 }
 .chat-text {
   word-wrap: break-word;

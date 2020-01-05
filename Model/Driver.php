@@ -9,6 +9,7 @@ class Driver
     static protected $db = false;
     public function __construct()
     {
+
         return self::connect();
 
     }
@@ -17,14 +18,13 @@ class Driver
         if (self::$db instanceof \PDO){
             return self::$db;
         }
-
         self::$db = new \PDO('mysql:host='.DB_HOST.';dbname='.DB_NAME.';charset=utf8', DB_USER, DB_PASSWORD);
-
         if (self::$db->errorCode()){
             throw new \Exception("Error connection ". self::$db->errorInfo());
         }
 
         self::$db->exec("set names utf8");
+        self::$db->exec('set time_zone = "Asia/Tashkent" ');
         
         return self::$db;
    }
