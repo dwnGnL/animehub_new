@@ -63,10 +63,12 @@
           <div class="toggle-stickers">
             <ul class="toggle-stickers-list">
               <li class="toggle-sticker-itme" onclick="defaultStickers()"><img src="/templates/Admin/js/ckeditor/plugins/hkemoji/sticker/0.png"></li>
+              <?php if ($_SESSION['login'] == $user['login'] && $_SESSION['status'] != 'Анимешник'): ?>
               <li class="toggle-sticker-itme" onclick="facebookStickers()"><img src="/templates/Admin/js/ckeditor/plugins/hkemoji/sticker/facebookChat/facebook (0).png"></li>
               <li class="toggle-sticker-itme" onclick="milkbottleStickers()"><img src="/templates/Admin/js/ckeditor/plugins/hkemoji/sticker/milkbottle/Milk Bottle--1.gif"></li>
               <li class="toggle-sticker-itme" onclick="onionStickers()"><img src="/templates/Admin/js/ckeditor/plugins/hkemoji/sticker/onion/Onion--1.gif"></li>
               <li class="toggle-sticker-itme" onclick="redChatStickers()"><img src="/templates/Admin/js/ckeditor/plugins/hkemoji/sticker/redChat/red (1).gif"></li>
+              <?php endif; ?>
             </ul>
           </div>
 
