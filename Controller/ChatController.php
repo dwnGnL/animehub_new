@@ -20,6 +20,7 @@ class ChatController extends DisplayController
         if ($_SESSION['token'] == $_POST['token']){
                 $message = $this->model->getNewMessage($_POST['id_message']);
                 echo json_encode(['status' => 200, 'messages' => $message]);
+                exit();
         }else{
             echo json_encode(['status' => 500]);
         }
