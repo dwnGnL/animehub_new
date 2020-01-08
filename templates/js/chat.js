@@ -5,6 +5,7 @@ let chatHeader = document.querySelector('.chat-header');
 let showChat = document.querySelector('.show-chat');
 let crossChat = document.querySelector('.cross-chat');
 let controls = document.querySelector('.control-chat');
+
 if(controls!==null){
 var config2 = {
     height:'69',

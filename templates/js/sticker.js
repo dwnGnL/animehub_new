@@ -45,8 +45,13 @@ for (var i = 0; i < 21; i++) {
 let stickerItemSmile = document.querySelectorAll('.sticker-item-smile');
 let stickerItemSticker = document.querySelectorAll('.sticker-item-sticker');
 
+stickersBlock.onclick = (e)=>{
+  e.stopPropagation();
+
+}
 stickerItemSmile.forEach((elem, index) => {
-  elem.onclick = () => {
+  elem.onclick = (e) => {
+
     var mymessage =`<img src="${elem.src}">`;
     CKEDITOR.instances['redactor'].insertHtml(mymessage);
   };
@@ -65,13 +70,21 @@ stickerItemSticker.forEach((elem, index) => {
     };
 
     sendMessage(msg.message);
+    stickersBlock.classList.remove('opacity-stickers-block');
+    setTimeout(() => stickersBlock.classList.remove('opent-stickers-block'), 500);
   };
 });
 
 
+document.body.onclick=()=>{
+  stickersBlock.classList.remove('opacity-stickers-block');
+  setTimeout(() => stickersBlock.classList.remove('opent-stickers-block'), 500);
+}
 
 
-toggleStickersBlock.onclick = () => {
+
+toggleStickersBlock.onclick = (e) => {
+  e.stopPropagation();
   if (stickersBlock.classList.contains('opacity-stickers-block')) {
     stickersBlock.classList.remove('opacity-stickers-block');
     setTimeout(() => stickersBlock.classList.remove('opent-stickers-block'), 500);
