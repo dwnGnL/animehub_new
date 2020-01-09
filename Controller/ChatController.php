@@ -18,9 +18,12 @@ class ChatController extends DisplayController
 
     public function onListener(){
         if ($_SESSION['token'] == $_POST['token']){
-                $message = $this->model->getNewMessage($_POST['id_message']);
-                echo json_encode(['status' => 200, 'messages' => $message]);
-                exit();
+                if ($_SESSION['id_message'] != $_POST['id_message']){
+                    $message = $this->model->getNewMessage($_POST['id_message']);
+                    $_SESSION['id_message'] = $message['id_chat'];
+                    echo json_encode(['status' => 200, 'messages' => $message]);
+                    exit();
+                }
         }else{
             echo json_encode(['status' => 500]);
         }
