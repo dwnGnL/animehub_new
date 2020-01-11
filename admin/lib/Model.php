@@ -13,6 +13,7 @@ require_once $root.'/config.php';
                 $this->pdo = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME, DB_USER, DB_PASSWORD);
                 $this->pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES,TRUE);
                 $this->pdo->exec("set names utf8");
+                $this->pdo->exec('set time_zone = "Asia/Tashkent"');
             } catch (Exception $e) {
                 echo 'Ошибка при подключении бд';
             }
@@ -1145,7 +1146,7 @@ require_once $root.'/config.php';
 
     public function getAllPostForChangeSrcForScript($src)
     {
-        $query = 'SELECT lite_anime.id, lite_anime.rly_path FROM lite_anime WHERE lite_anime.src LIKE ? AND lite_anime.rly_path != "" OR lite_anime.src = "" AND lite_anime.rly_path != "" ';
+        $query = 'SELECT lite_anime.id, lite_anime.rly_path FROM lite_anime WHERE lite_anime.src LIKE ? AND lite_anime.rly_path != "" OR lite_anime.src = "" AND lite_anime.rly_path != "" AND lite_anime.auto_correction = "1"';
         $post = $this->pdo->prepare($query);
         $post->execute(["%$src%"]);
         return $post->fetchAll(PDO::FETCH_ASSOC);

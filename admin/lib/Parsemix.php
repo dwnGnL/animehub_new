@@ -213,21 +213,29 @@ require_once '../../lib/Log.php';
 
     function changeSrc($href){
         $href = explode('/', $href);
+        Log::writeLog('explode = '.$href, null);
         $embed = curl_get('http://mix.tj/embed/'. $href[2]);
+        Log::writeLog('взяли html = '.$href[2], null);
         $embed = phpQuery::newDocument($embed);
         $src = '';
        if($embed->find('script')) {
            $vid = $embed->find('script')->text();
+           Log::writeLog('embed-find = '.$vid, null);
            $vid = substr($vid, 65,120);
+           Log::writeLog('substr = '.$vid, null);
            $delimetr = '"';
            $vid = explode($delimetr, $vid,3 );
            $src = $vid[1];
+
+           Log::writeLog('explode => src = '.$src, null);
 
        }
 
         if(!empty($src)){
             return $src;
+            Log::writeLog('Не пусто возвращаем ссылку = '.$src, null);
         }else{
+            Log::writeLog('Иначе = false ', null);
             return false;
         }
 
