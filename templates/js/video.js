@@ -10,6 +10,8 @@ let videoLink = document.querySelector('.video');
 let favorite = document.querySelector('.favorites');
 let searchSeriesInput = document.querySelector('.search-series-input');
 let favoriteText = document.querySelector('.favorite-text');
+let showAllSeries = document.querySelector('.show-all-series-post');
+let closeSeriesPost = document.querySelector('.fa-reply-all');
 let openSearch = true;
 let seriesListWidth = 0;
 let previousSeries = 0;
@@ -79,10 +81,11 @@ seriesItem.forEach(function (elem, index) {
     seriesItem[presentSeries].classList.add('series-item-active');
     document.title=`${title} ${$(".film-discription-header").text()} | ${elem.textContent}`
     videoLink.src = elem.getAttribute('src');
+    closeSeriesListPost();
   };
 });
 
-// seriesList.style.width = `${seriesListWidth + 10}px`;
+if (document.body.clientWidth > 767) {seriesList.style.width = `${seriesListWidth + 10}px`};
 
 let sumSize = 0;
 let maxTrans = -(seriesListWidth + 10) + seriesBlock.offsetWidth;
@@ -152,7 +155,7 @@ function hideSearch() {
 searchInput.onchange = () => searchSeriesItem();
 
 function searchSeriesItem() {
-  for (var i = 0; i < seriesItem.length; i++) {
+  for (let i = 0; i < seriesItem.length; i++) {
     if (seriesItem[i].getAttribute('id-ser') >= +searchInput.value) break;
   };
 
@@ -169,6 +172,30 @@ searchInput.onblur = searchInputBlur;
 function searchInputBlur() {
   searchInput.value == '' ? searchSeriesInput.classList.remove('search-series-focus') : elem;
 };
+
+
+let postSearch = document.querySelector('.post-search');
+let placeholderPost = document.querySelector('.placeholder-post');
+
+postSearch.onfocus = () => placeholderPost.classList.add('focus');
+postSearch.onblur = () => {
+  if (postSearch.value !== '') return;
+  placeholderPost.classList.remove('focus');
+};
+
+showAllSeries.onclick = () => {
+  seriesList.classList.add('show');
+  document.body.style.overflow = 'hidden';
+};
+
+closeSeriesPost.onclick = closeSeriesListPost;
+
+function closeSeriesListPost() {
+  seriesList.classList.remove('show');
+  postSearch.value = '';
+  document.body.style.overflow = 'auto';
+};
+
 
 var id_post = document.location.pathname.split('/')
 id_post = id_post[id_post.length-1].split('-')[0]
