@@ -269,7 +269,6 @@
 
 video {
   width: 100%;
-  height: 450px;
   position: relative;
 }
 
@@ -642,6 +641,21 @@ video {
 }
 
 @media screen and (max-width: 767px) {
+  video {
+    height: 55vw;
+  }
+
+  .show-all-series-post {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    color: #6882A1;
+    font-weight: bold;
+  }
+
   .search-place-post {
     position: relative;
     display: flex;
@@ -694,13 +708,22 @@ video {
     top: 0;
     left: 0;
     width: 100vw;
-    height: 100vh;
+    height: 0vh;
     background: #fff;
     z-index: 5;
     display: flex;
     flex-direction: column;
     list-style-type: none;
+    overflow: hidden;
     transition: .5s;
+  }
+
+  .series-list.show {
+    height: 100vh;
+  }
+
+  .arrow-series, .search-series {
+    display: none;
   }
 
   .film-discription-block {
@@ -713,17 +736,20 @@ video {
   }
 
   .film-discription-header {
-    font-size: 15vw;
+    font-size: 30px;
+    /* font-size: 15vw; */
     margin: 10vw 0 0 0;
   }
 
   .film-discription-header-translate {
-    font-size: 7.5vw;
+    font-size: 20px;
+    /* font-size: 7.5vw; */
     margin: 1vw 0;
   }
 
   .distinctio-list > li {
-    font-size: 5.5vw;
+    font-size: 15px;
+    /* font-size: 5.5vw; */
     padding: 4.5vw 0;
   }
 
@@ -736,7 +762,7 @@ video {
   }
 
   .discription-header {
-    font-size: 25px;
+    font-size: 20px;
   }
 
   .discription-text, #alltext {
@@ -758,7 +784,11 @@ video {
 }
 
 @media screen and (min-width: 767px) {
-  .search-place-post {
+  video {
+    height: 450px;
+  }
+
+  .search-place-post, .show-all-series-post {
     display: none;
   }
 

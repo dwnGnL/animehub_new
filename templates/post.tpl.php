@@ -58,6 +58,7 @@
   </div>
 
   <div class="top-video-block">
+    <div class="show-all-series-post">Показать все серии</div>
     <div class="search-series-input">
       <input id="search-input" type="text" placeholder="">
       <div class="search-placeholder">Поиск серии</div>
