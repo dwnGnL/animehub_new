@@ -4,7 +4,7 @@
 namespace Model;
 
 
-class Admin
+class Admin extends Model
 {
 
 }

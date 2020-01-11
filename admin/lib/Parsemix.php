@@ -4,10 +4,7 @@ set_time_limit(0);
     require_once 'phpQuery.php';
     require_once 'curl.php';
     require 'Model.php';
-
-
-require_once '../../lib/Log.php';
-
+    require_once 'Log.php';
 
     function Parser($poisk, $start = 1, $end= 100,$startVideo = 1, $endVideo = 24)
     {
@@ -15,7 +12,6 @@ require_once '../../lib/Log.php';
         $insert = new Model();
         $countInsert = 0;
         $str = 'Поиск '.$poisk.' старт '.$start.' энд '.$end.' стартвидео '.$startVideo.' конец видео '.$endVideo;
-        \Lib\Log::writeLog($str,$_SESSION['login']);
         if($start <= $end) {
                 $search = str_replace(' ', '+', $poisk);
 
@@ -76,7 +72,6 @@ require_once '../../lib/Log.php';
 
 
                         if($dateCheck['COUNT(*)'] > 0 && $countInsert > 0){
-                            \Lib\Log::writeLog('Удаление из парсинга со стутсом 1 '.$rly_path,$_SESSION['login']);
                             $insert->updateAnimeStatusFirst($rly_path);
                             $insert->deleteAnimeExcess($title);
                             echo 'аниме уже добавлен';
@@ -95,13 +90,12 @@ require_once '../../lib/Log.php';
                         if($i==0 && $start == 1){
 
                             $insert->insertParseFirst($rly_path, $title, $src,$mb[0],$date,1);
-                            \Lib\Log::writeLog('Добавление аниме со статусом 1 '.$title,$_SESSION['login']);
+
 
                             $countInsert++;
                         }else{
 
                         $insert->insertParse($rly_path, $title, $src, $mb[0], $date);
-                            \Lib\Log::writeLog('Простое добавление '.$title,$_SESSION['login']);
                             $countInsert++;
                         }
 

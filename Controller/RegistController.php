@@ -2,6 +2,8 @@
 
 
 namespace Controller;
+use Model\User;
+
 defined('_Sdef') or exit();
 
 class RegistController extends DisplayController
@@ -16,6 +18,7 @@ class RegistController extends DisplayController
     }
 
     public function registration(){
+        $userDB = new User();
 
 if (isset($_POST['button'])) {
     $errors = [];
@@ -49,12 +52,12 @@ if (isset($_POST['button'])) {
 
     }
 
-    $count = $this->model->getCountUsersLoginOrEmail($_POST['login'], $_POST['email']);
+    $count = $userDB->getCountUsersLoginOrEmail($_POST['login'], $_POST['email']);
     if ($count['COUNT(*)'] > 0) {
         $errors [] = 'Пользователь с таким логином или почтой существует!';
     }
     if (empty($errors)) {
-        $this->model->addNewUser($_POST['login'], $_POST['email'], $_POST['password'],time(), $_SERVER['REMOTE_ADDR'],$this->uri);
+        $userDB->addNewUser($_POST['login'], $_POST['email'], $_POST['password'],time(), $_SERVER['REMOTE_ADDR'],$this->uri);
         $this->app->redirectTo('home');
         echo '<p style="color:green;">Вы успешно зарегистрировались на сайте!,</p>';
     } else {

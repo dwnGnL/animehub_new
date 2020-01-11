@@ -19,8 +19,6 @@ abstract class Controller
 
         $this->uri = $this->getUri();
 
-        $this->model = $this->getModel();
-
         $this->title = 'AnimeHub | ';
     }
 
@@ -69,9 +67,7 @@ abstract class Controller
         return $theURI;
     }
 
-    protected  function getModel(){
-        return new \Model\Model();
-    }
+
 
     protected function debug($string){
         echo '<pre>';

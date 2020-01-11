@@ -2,6 +2,9 @@
 
 
 namespace Controller;
+use Model\Answer;
+use Model\Question;
+
 defined('_Sdef') or exit();
 
 class WidgetController extends DisplayController
@@ -25,11 +28,13 @@ class WidgetController extends DisplayController
     }
 
     public function addQuestionnaire(){
+        $questDB = new Question();
+        $answerDB = new Answer();
         if (!empty($_POST['q'])){
-           $id_quest = $this->model->addQuestion($_POST['q']);
+           $id_quest = $questDB->addQuestion($_POST['q']);
            for($i = 1; $i <= 4; $i++){
                if (!empty($_POST['a'.$i])){
-                   $this->model->addAnswers($id_quest,$_POST['a'.$i]);
+                   $answerDB->addAnswers($id_quest,$_POST['a'.$i]);
                }else{
                    break;
                }

@@ -5,6 +5,14 @@ namespace Controller;
 defined('_Sdef') or exit();
 
 use Lib\Helper;
+use Model\Comment;
+use Model\Favorite;
+use Model\Notification;
+use Model\Post;
+use Model\Rating;
+use Model\User;
+use Model\Vip;
+use Model\Vote;
 
 
 class AjaxController extends DisplayController
@@ -13,14 +21,14 @@ class AjaxController extends DisplayController
     public function saveVip(){
         if (isset($_SESSION['auth'])){
             if (hash_equals($_POST['token'],$_SESSION['token']) ){
-
-                $id_vip =  $this->model->getIdVip($_SESSION['id']);
+                $vip = new Vip();
+                $id_vip =  $vip->getIdVip($_SESSION['id']);
                 if ($_POST['uved'] == 'false'){
                     $_POST['uved'] = 0;
                 }else{
                     $_POST['uved'] = 1;
                 }
-                $this->model->saveVip('color: '.$_POST['color'], $_POST['uved'], $_POST['status'],$_POST['font'],$id_vip['id']);
+                $vip->saveVip('color: '.$_POST['color'], $_POST['uved'], $_POST['status'],$_POST['font'],$id_vip['id']);
                 $response = 'success';
                 echo json_encode($response);
                 exit();
@@ -35,9 +43,10 @@ class AjaxController extends DisplayController
             $post = $_POST['comment'];
             if(hash_equals($post['token'],$_SESSION['token'] ))
                if (!empty(trim($post['body'])) && !empty(trim($post['id_post'])) ){
-                   $this->model->addComment($post['id_post'],$_SESSION['id'],$post['body']);
-                   $id_comment = $this->model->driver->lastInsertId();
-                   $response = $this->model->getComment($id_comment);
+                   $comment = new Comment();
+                   $comment->addComment($post['id_post'],$_SESSION['id'],$post['body']);
+                   $id_comment = $comment->driver->lastInsertId();
+                   $response = $comment->getComment($id_comment);
                    $response[0]['date'] = Helper::getWatch($response['0']['date']);
                    echo json_encode($response[0]);
                    exit();
@@ -55,8 +64,9 @@ class AjaxController extends DisplayController
     public function saveProfile(){
         if (isset($_SESSION['auth'])){
             if (hash_equals($_POST['token'],$_SESSION['token']) ){
-                $this->model->saveProfile($_POST['age'],$_POST['id_pol'],$_POST['name'],$_POST['city'],$_POST['image'],$_SESSION['id']);
-                $profile = $this->model->getProfile($_SESSION['id']);
+                $user = new User();
+                $user->saveProfile($_POST['age'],$_POST['id_pol'],$_POST['name'],$_POST['city'],$_POST['image'],$_SESSION['id']);
+                $profile = $user->getProfile($_SESSION['id']);
                 echo json_encode($profile);
                 exit();
             }
@@ -65,10 +75,10 @@ class AjaxController extends DisplayController
     public function rating(){
         if (isset($_SESSION['auth'])){
             if (hash_equals($_POST['token'],$_SESSION['token']) ){
-
-               $voted = $this->model->getVotedUser($_SESSION['id'],$_POST['id_post']);
+                $rating = new Rating();
+               $voted = $rating->getVotedUser($_SESSION['id'],$_POST['id_post']);
                 if (empty($voted)){
-                    $this->model->addRating($_POST['id_post'], $_SESSION['id'], $_POST['type']);
+                    $rating->addRating($_POST['id_post'], $_SESSION['id'], $_POST['type']);
                     // Если успешно
                     echo json_encode(['status' => '1']);
                     exit();
@@ -87,11 +97,12 @@ class AjaxController extends DisplayController
     {
         if ($_POST['token'] == $_SESSION['token']){
             if ((isset($_POST['title'] )) && (iconv_strlen(trim($_POST['title']))) > 3){
+                $post = new Post();
                 $title = explode(' ',$_POST['title'] );
-                $result = $this->model->searchAjax($title);
+                $result = $post->searchAjax($title);
                 foreach ($result as $key => $value){
                     $result[$key]['title'] = $result[$key]['title'].' '.$result[$key]['tv'];
-                    $result[$key]['src'] ='/anime/'.Helper::renderUrl($result[$key]['id'],$result[$key]['alias']);
+                    $result[$key]['src'] ='/'.$result[$key]['type'].'/'.Helper::renderUrl($result[$key]['id'],$result[$key]['alias']);
                 }
                 $result[0]['count'] = count($result);
                 echo json_encode($result);
@@ -103,9 +114,10 @@ class AjaxController extends DisplayController
 
     public function addVoted(){
         $error = [];
+        $voteDB = new Vote();
         if (isset($_SESSION['auth'])){
         if ($_POST['token'] == $_SESSION['token']){
-            $voted = $this->model->votedUserQA($_SESSION['id'], $_POST['id_quest']);
+            $voted = $voteDB->votedUserQA($_SESSION['id'], $_POST['id_quest']);
             if (!empty($voted)){
                 // если уже голосовал
                 $error = ['status' => '500'];
@@ -115,7 +127,7 @@ class AjaxController extends DisplayController
             $error = ['status' => '501'];
         }
         if (empty($error)){
-            $this->model->addVote($_SESSION['id'], $_POST['id_answer']);
+            $voteDB->addVote($_SESSION['id'], $_POST['id_answer']);
             // если успешно проголосовал
             echo json_encode(['status' => '200']);
         }else{
@@ -127,9 +139,10 @@ class AjaxController extends DisplayController
     public function addFavPost(){
         if (isset($_SESSION['auth'])){
         if ($_SESSION['token'] == $_POST['token']){
-          $fav =  $this->model->favoritePost($_POST['id_post'], $_SESSION['id']);
+            $favorite = new Favorite();
+          $fav =  $favorite->favoritePost($_POST['id_post'], $_SESSION['id']);
           if (empty($fav)){
-                $this->model->addFavorite($_POST['id_post'], $_SESSION['id']);
+                $favorite->addFavorite($_POST['id_post'], $_SESSION['id']);
                 echo  json_encode(['status' => '200']);
           }
 
@@ -142,9 +155,10 @@ class AjaxController extends DisplayController
     public function deleteFavPost(){
         if (isset($_SESSION['auth'])){
             if ($_SESSION['token'] == $_POST['token']){
-                $fav =  $this->model->favoritePost($_POST['id_post'], $_SESSION['id']);
+                $favorite = new Favorite();
+                $fav =  $favorite->favoritePost($_POST['id_post'], $_SESSION['id']);
                 if (!empty($fav)){
-                    $this->model->deleteFavorite($_POST['id_post'], $_SESSION['id']);
+                    $favorite->deleteFavorite($_POST['id_post'], $_SESSION['id']);
                     echo  json_encode(['status' => '200']);
                 }
 
@@ -157,11 +171,12 @@ class AjaxController extends DisplayController
     public function deleteNotification(){
         if (isset($_SESSION['auth'])){
             if ($_SESSION['token'] == $_POST['token']){
+                $not = new Notification();
                     if ($_POST['type'] == 1){
-                        $this->model->deleteNotification($_SESSION['id'],$_POST['id_not']);
+                        $not->deleteNotification($_SESSION['id'],$_POST['id_not']);
                         echo json_encode(['status' => 200]);
                     }else{
-                        $this->model->deleteNotifications($_SESSION['id']);
+                        $not->deleteNotifications($_SESSION['id']);
                         echo json_encode(['status' => 200]);
                     }
             }
@@ -173,7 +188,8 @@ class AjaxController extends DisplayController
     {
         if (isset($_SESSION['auth'])) {
             if ($_SESSION['token'] == $_POST['token']) {
-                $this->model->updateViewNotification($_POST['id_not'], $_SESSION['id']);
+                $not = new Notification();
+                $not->updateViewNotification($_POST['id_not'], $_SESSION['id']);
                 echo json_encode(['status' => 200]);
             }
 

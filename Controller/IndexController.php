@@ -4,6 +4,8 @@
 namespace Controller;
 use Lib\Helper;
 use Lib\Migration;
+use Model\Cat;
+use Model\Post;
 
 defined('_Sdef') or exit();
 
@@ -18,21 +20,23 @@ class IndexController extends DisplayController
 
     protected function display()
     {
+        $postDB = new Post();
+        $cat = new Cat();
         $this->title .= 'Таджикский аниме портал !';
-        $posts =  $this->model->getPostL10('anime',10);
+        $posts =  $postDB->getPostL10('anime',10);
         foreach ($posts as $key => $val){
-            $posts[$key]['cats'] = $this->model->getCatPostL2($posts[$key]['id']);
+            $posts[$key]['cats'] = $cat->getCatPostL2($posts[$key]['id']);
         }
 
-        $newPosts = $this->model->getPostL5();
+        $newPosts = $postDB->getPostL5();
         foreach ($newPosts as $key => $val){
-            $newPosts[$key]['cats'] = $this->model->getCatPostL2($newPosts[$key]['id']);
+            $newPosts[$key]['cats'] = $cat->getCatPostL2($newPosts[$key]['id']);
         }
-        $dorams =  $this->model->getPostL10('dorams',5);
+        $dorams =  $postDB->getPostL10('dorams',5);
         foreach ($dorams as $key => $val){
-            $dorams[$key]['cats'] = $this->model->getCatPostL2($dorams[$key]['id']);
+            $dorams[$key]['cats'] = $cat->getCatPostL2($dorams[$key]['id']);
         }
-        $articles =  $this->model->getPostL10('articles',6);
+        $articles =  $postDB->getPostL10('articles',6);
         $search = $this->getSearch();
         $slider = $this->getSlider();
         $this->main = $this->app->view()->fetch('indexbar.tpl.php',[

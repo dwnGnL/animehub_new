@@ -2,13 +2,39 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6341c2f9-1102-484a-bdc9-098e620a8c13" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/admin/lib/Log.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/lib/logs/parser.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Model/Anime.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Model/Answer.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Model/Cat.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Model/Chat.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Model/Comment.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Model/Favorite.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Model/GodWip.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Model/Notification.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Model/Post.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Model/Question.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Model/Rating.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Model/Slider.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Model/Stud.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Model/User.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Model/View.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Model/Vip.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Model/Vote.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/Log.php" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/Log.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/Model.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/Model.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/AjaxController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/AjaxController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/ChatController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/ChatController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/Controller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/DisplayController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/DisplayController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/IndexController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/IndexController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/PageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/PageController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/ProfileController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/RegistController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/RegistController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/WidgetController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/WidgetController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/Admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/Model/Admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/Model.php" beforeDir="false" afterPath="$PROJECT_DIR$/Model/Model.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/lib/Parsemix.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/Parsemix.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/changeSrc.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/changeSrc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/post.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/post.tpl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/sidebar.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sidebar.tpl.php" afterDir="false" />
     </list>
     <list id="38dd605b-6083-45a6-9f6b-662038e1e815" name="Revert &quot;no message&quot;" comment="Revert &quot;no message&quot;&#10;&#10;This reverts commit 1b2b2056" />
     <list id="26597201-c17a-4d66-b2be-a470cf0d8dee" name="Revert &quot;smiles&quot;" comment="Revert &quot;smiles&quot;&#10;&#10;This reverts commit a2f512a2" />
@@ -220,7 +246,11 @@
       <workItem from="1578549685667" duration="53000" />
       <workItem from="1578581281569" duration="223000" />
       <workItem from="1578582503542" duration="1104000" />
-      <workItem from="1578733558836" duration="2229000" />
+      <workItem from="1578733558836" duration="2896000" />
+      <workItem from="1578738633935" duration="1447000" />
+      <workItem from="1578746011315" duration="22000" />
+      <workItem from="1578756101226" duration="212000" />
+      <workItem from="1578756338428" duration="5465000" />
     </task>
     <task id="LOCAL-00001" summary="Merge branch 'master' of https://github.com/dwnGnL/animehub_new&#10;&#10;# Conflicts:&#10;#&#9;Controller/PageController.php">
       <created>1575814085998</created>
@@ -327,6 +357,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="449" y="139" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1536.824@0.0.1536.824" timestamp="1575305116984" />
+    <state x="523" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1578757472317">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="523" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824" timestamp="1578757472317" />
     <state x="499" y="158" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1576256283830">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -355,10 +389,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="481" y="127" key="MultipleFileMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1577252337669" />
-    <state x="457" y="212" key="NewPhpClassDialog" timestamp="1578145404442">
+    <state x="457" y="212" key="NewPhpClassDialog" timestamp="1578759823726">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="457" y="212" key="NewPhpClassDialog/0.0.1536.824@0.0.1536.824" timestamp="1578145404442" />
+    <state x="457" y="212" key="NewPhpClassDialog/0.0.1536.824@0.0.1536.824" timestamp="1578759823726" />
     <state x="604" y="335" key="NewPhpFileDialog" timestamp="1578733820845">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -367,10 +401,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="594" y="133" key="RollbackChangesDialog/0.0.1536.824@0.0.1536.824" timestamp="1577379106512" />
-    <state x="361" y="144" key="Vcs.Push.Dialog.v2" timestamp="1578581299331">
+    <state x="361" y="144" key="Vcs.Push.Dialog.v2" timestamp="1578736938382">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="144" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1578581299331" />
+    <state x="361" y="144" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1578736938382" />
     <state x="93" y="93" width="1350" height="638" key="dock-window-1" timestamp="1576174978101">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -379,10 +413,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="93" y="93" width="1350" height="638" key="dock-window-2/0.0.1536.824@0.0.1536.824" timestamp="1576077542572" />
-    <state x="462" y="149" width="611" height="526" key="find.popup" timestamp="1577614225196">
+    <state x="462" y="149" width="611" height="526" key="find.popup" timestamp="1578756525218">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="462" y="149" width="611" height="526" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1577614225196" />
+    <state x="462" y="149" width="611" height="526" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1578756525218" />
     <state x="425" y="187" key="run.anything.popup" timestamp="1575800680958">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

@@ -5,6 +5,8 @@ namespace Controller;
 
 
 
+use Model\User;
+
 defined('_Sdef') or exit();
 
 class LoginController extends DisplayController
@@ -34,6 +36,7 @@ class LoginController extends DisplayController
         $post = $this->app->request->post();
 
         if (!empty($post)){
+            $userDB = new User();
             $login = $this->clear_str($post['login']);
             $password = $this->clear_str($post['password']);
             if (empty($login) || empty($password)){
@@ -41,7 +44,8 @@ class LoginController extends DisplayController
                 $this->app->redirect($_POST['redirect']);
             }
             $password = MD5($password);
-            $result = $this->model->getUserLoginPass($login,$password);
+
+            $result = $userDB->getUserLoginPass($login,$password);
             if (!$result){
                 $this->app->flash('error','Пароль или логин ввели не правильно');
                 $this->app->redirect($_POST['redirect']);
@@ -55,8 +59,8 @@ class LoginController extends DisplayController
             $salt = $this->generateSalt();
             $this->app->setCookie('key', $salt, '30 days');
             setcookie('id', $result['id'], time() + (86400 * 7));
-            $this->model->userLogin($salt,$result['id']);
-            $this->model->updateIp($_SERVER['REMOTE_ADDR'],$result['id']);
+            $userDB->userLogin($salt,$result['id']);
+            $userDB->updateIp($_SERVER['REMOTE_ADDR'],$result['id']);
 
             $this->app->redirect($_POST['redirect']);
 
@@ -66,7 +70,8 @@ class LoginController extends DisplayController
     }
     public function getLogin(){
         if (isset($_SESSION['auth'])){
-            $user = $this->model->getUsersProperties($_COOKIE['key'], $_COOKIE['id']);
+            $userDB = new User();
+            $user = $userDB->getUsersProperties($_COOKIE['key'], $_COOKIE['id']);
             $result = [
                 'info' => $user,
                 'status' => 200

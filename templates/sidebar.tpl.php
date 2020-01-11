@@ -6,7 +6,7 @@
     <div class="sidebar-head">Обновления</div>
 
     <?php foreach ($newSerii as $ser): ?>
-      <a href="/anime/<?=$helper::renderUrl($ser['id'],$ser['alias'])?>">
+      <a href="/<?=$ser['type']?>/<?=$helper::renderUrl($ser['id'],$ser['alias'])?>">
         <div class="update">
           <div class="update-item">
             <div class="update-data"><?=$ser['date']?></div>

@@ -5,12 +5,14 @@ namespace Controller;
 defined('_Sdef') or exit();
 
 use Lib\Helper;
+use Model\User;
 
 class ProfileController extends DisplayController
 {
     protected $index;
     public function viewProfile($param = []){
-        $user = $this->model->getUser($param['login']);
+        $userDB = new User();
+        $user = $userDB->getUser($param['login']);
         if (empty($user)){
             $this->app->notFound();
         }

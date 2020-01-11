@@ -3,6 +3,18 @@
 
 namespace Controller;
 use Lib\Helper;
+use Model\Anime;
+use Model\Answer;
+use Model\Cat;
+use Model\Comment;
+use Model\Favorite;
+use Model\GodWip;
+use Model\Notification;
+use Model\Post;
+use Model\Question;
+use Model\Slider;
+use Model\User;
+use Model\Vote;
 
 defined('_Sdef') or  exit();
 
@@ -10,7 +22,8 @@ abstract  class DisplayController extends Controller
 {
 
     protected function getSlider(){
-        $slider = $this->model->getSlider();
+        $db = new Slider();
+        $slider = $db->getSlider();
         return $this->app->view()->fetch('slider.tpl.php',[
             'slider' => $slider,
             'uri' => $this->uri,
@@ -25,11 +38,16 @@ abstract  class DisplayController extends Controller
 
     protected function getMenu()
     {
-        $favorites = $this->model->getCountFavorites($_SESSION['id']);
-        $years = $this->model->getGodWip();
-        $pages = $this->model->getPages();
-        $categories = $this->model->getCategories();
-        $user = $this->model->getUser($_SESSION['login']);
+        $fav = new Favorite();
+        $godWip = new GodWip();
+        $post = new Post();
+        $cat = new Cat();
+        $userDB = new User();
+        $favorites = $fav->getCountFavorites($_SESSION['id']);
+        $years = $godWip->getGodWip();
+        $pages = $post->getPages();
+        $categories = $cat->getCategories();
+        $user = $userDB->getUser($_SESSION['login']);
         return $this->app->view()->fetch('menu.tpl.php', [
                                                         'pages' => $pages,
                                                         'app' => $this->app,
@@ -46,20 +64,26 @@ abstract  class DisplayController extends Controller
 
     protected function getSidebar()
     {
-        $quest = $this->model->getQuestions();
-        $answer = $this->model->getAnswers($quest['id_questions']);
+        $question = new Question();
+        $answerDB = new Answer();
+        $voteDB = new Vote();
+        $anime = new Anime();
+        $post = new Post();
+        $commentDB = new Comment();
+        $quest = $question->getQuestions();
+        $answer = $answerDB->getAnswers($quest['id_questions']);
         foreach ($answer as $key => $value){
-            $votedUser = $this->model->getVotedUserQA($_SESSION['id'], $answer[$key]['id_answers']);
-            $total = $this->model->getTotalVoted($answer[$key]['id_answers']);
+            $votedUser = $voteDB->getVotedUserQA($_SESSION['id'], $answer[$key]['id_answers']);
+            $total = $voteDB->getTotalVoted($answer[$key]['id_answers']);
             $answer[$key]['total'] = $total['total'];
             if (!empty($votedUser)){
                 $vote = $votedUser;
                 $answer[$key]['voted'] = $votedUser['id_voting'];
             }
         }
-        $newSerii = $this->model->getNewSeria();
-        $articles = $this->model->getPostL10('articles', 5);
-        $comments = $this->model->getCommentL(5);
+        $newSerii = $anime->getNewSeria();
+        $articles = $post->getPostL10('articles', 5);
+        $comments = $commentDB->getCommentL(5);
         return $this->app->view()->fetch('sidebar.tpl.php', [
             'app' => $this->app,
             'uri' => $this->uri,
@@ -75,12 +99,12 @@ abstract  class DisplayController extends Controller
     }
     protected function display()
     {
-
+        $notifacation = new Notification();
         $this->keywords = 'аниме, онлайн, anime, online, бесплатно, без регистрации, русская озвучка, дорамы, внутренный трафик, таджикский';
         $this->description = 'Аниме портал Таджикистана! Дорамы смотреть онлайн, полностью внутренный трафик';
         $menu = $this->getMenu();
         $sidebar = $this->getSidebar();
-        $notifications = $this->model->getNotifications($_SESSION['id']);
+        $notifications = $notifacation->getNotifications($_SESSION['id']);
         $this->app->render('index.tpl.php',[
             'app' => $this->app,
             'uri' => $this->uri,
