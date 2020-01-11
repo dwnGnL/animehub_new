@@ -67,6 +67,11 @@
 
     <div class="series-block">
       <ul class="series-list">
+        <div class="search-place-post">
+          <i class="fa fa-reply-all"></i>
+          <input class="post-search" type="text">
+          <div class="placeholder-post">Поиск серии</div>
+        </div>
         <?php if(isset($player) && is_array($player)): ?>
           <?php foreach($player As $item): ?>
             <li class="series-item" src="<?=$item['src']?>" id-ser="<?=$item['seria']?>" id="<?=$item['id']?>"><?=''.$item['kach'].' '.$item['stud'].' '.$item['seria'].' серия'?></li>

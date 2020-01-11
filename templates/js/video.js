@@ -82,7 +82,7 @@ seriesItem.forEach(function (elem, index) {
   };
 });
 
-seriesList.style.width = `${seriesListWidth + 10}px`;
+// seriesList.style.width = `${seriesListWidth + 10}px`;
 
 let sumSize = 0;
 let maxTrans = -(seriesListWidth + 10) + seriesBlock.offsetWidth;
@@ -199,7 +199,7 @@ function raiting(type,id) {
         }
         break;
         case "0":
-			showMessage("Ошибка", "Вы уже голосовали", error);      
+			showMessage("Ошибка", "Вы уже голосовали", error);
           break;
         case "403":
           showMessage("Ошибка", "Авторизуйтесь", error);

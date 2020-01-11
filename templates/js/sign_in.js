@@ -47,3 +47,11 @@ function inputFocus(elem, index, inputItem, classFocus) {
   elem.onfocus = () => inputItem[index].classList.add(classFocus);
   elem.onblur = () => elem.value == '' ? inputItem[index].classList.remove(classFocus) : elem;
 };
+
+let postSearch = document.querySelector('.post-search');
+let placeholderPost = document.querySelector('.placeholder-post');
+
+postSearch.onfocus = () => {placeholderPost.classList.add('focus')};
+postSearch.onblur = () => {
+  if (postSearch.value !== '') return
+  placeholderPost.classList.remove('focus')};
