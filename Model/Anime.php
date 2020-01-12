@@ -38,4 +38,8 @@ class Anime extends Model
         return  $this->driver->row($sql);
     }
 
+    public function lastAddSeria($title_post){
+        $sql = 'SELECT ';
+    }
+
 }

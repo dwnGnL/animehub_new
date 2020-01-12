@@ -26,7 +26,7 @@
             </div>
 
             <!-- Ribon is here -->
-            <div class="ribbon">fasdfasdf</div>
+            <div class="ribbon"><?=$item['seria']?></div>
           </a>
           <div class="discription">
             <div class="film-name"><a href="/anime/<?=$helper::renderUrl($item['id'], $item['alias'])?>"><?=$item['title'].' '.$item['tv_title']?></a></div>
