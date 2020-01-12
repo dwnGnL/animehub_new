@@ -78,18 +78,26 @@ seriesItem.forEach(function (elem, index) {
     seriaNum: elem.getAttribute("id-ser"),
     seriaHtml: elem.outerHTML
   })
-  seriesListWidth += elem.offsetWidth + 10;
+})
+function addEvent(){
+   seriesItem = document.querySelectorAll('.series-item');
+  seriesItem.forEach(function (elem, index) {
 
-  elem.onclick = () => {
-    previousSeries = presentSeries;
-    presentSeries = index;
-    seriesItem[previousSeries].classList.remove('series-item-active');
-    seriesItem[presentSeries].classList.add('series-item-active');
-    document.title = `${title} ${$(".film-discription-header").text()} | ${elem.textContent}`
-    videoLink.src = elem.getAttribute('src');
-    closeSeriesListPost();
-  };
-});
+   
+    seriesListWidth += elem.offsetWidth + 10;
+  
+    elem.onclick = () => {
+      previousSeries = presentSeries;
+      presentSeries = index;
+      seriesItem[previousSeries].classList.remove('series-item-active');
+      seriesItem[presentSeries].classList.add('series-item-active');
+      document.title = `${title} ${$(".film-discription-header").text()} | ${elem.textContent}`
+      videoLink.src = elem.getAttribute('src');
+      closeSeriesListPost();
+    };
+  });
+}
+addEvent();
 
 if (document.body.clientWidth > 767) { seriesList.style.width = `${seriesListWidth + 10}px` };
 
@@ -149,7 +157,7 @@ function showSearch() {
 };
 
 function hideSearch() {
-  searchInput.value = '';
+  // searchInput.value = '';
   searchInputBlur();
   topVideoBlock.classList.remove('show-opacity-search-series');
   setTimeout(() => {
@@ -159,10 +167,9 @@ function hideSearch() {
 };
 
 // searchInput.onchange = () => searchSeriesItem();
-searchInput.oninput = () => search();
+searchInput.oninput = () => search(searchInput.value);
 
-function search() {
-  var val=searchInput.value
+function search(val) {
   if (val == ""){
     changeSeriaList(seriesData)
   }else{
@@ -173,8 +180,9 @@ function search() {
       }
     })
     changeSeriaList(newSeriasData)
+    
   }
-
+  addEvent()
 }
 
 function changeSeriaList(elems) {
@@ -184,29 +192,35 @@ function changeSeriaList(elems) {
   })
   seriesList.innerHTML = spisok
 }
-function searchSeriesItem() {
-  let i = 0;
-  for (i; i < seriesItem.length; i++) {
-    if (seriesItem[i].getAttribute('id-ser') >= +searchInput.value) break;
-  };
 
-  if (i >= seriesItem.length) showMessage('Ошибка!', 'Серия не найдена', error);
-
-  let sumScroll = seriesItem[i].getBoundingClientRect().x - toLeftSeries.getBoundingClientRect().right;
-  scrollingSeries(-sumScroll);
-};
+// function searchSeriesItem() {
+//   let i = 0;
+//   for (i; i < seriesItem.length; i++) {
+//     if (seriesItem[i].getAttribute('id-ser') >= +searchInput.value) break;
+//   };
+//
+//   if (i >= seriesItem.length) showMessage('Ошибка!', 'Серия не найдена', error);
+//
+//   let sumScroll = seriesItem[i].getBoundingClientRect().x - toLeftSeries.getBoundingClientRect().right;
+//   scrollingSeries(-sumScroll);
+// };
 
 
 searchInput.onfocus = () => searchSeriesInput.classList.add('search-series-focus');
 searchInput.onblur = searchInputBlur;
 
 function searchInputBlur() {
-  searchInput.value == '' ? searchSeriesInput.classList.remove('search-series-focus') : elem;
+  if(searchInput.value == ''){
+    searchSeriesInput.classList.remove('search-series-focus')
+  } 
 };
 
 
 let postSearch = document.querySelector('.post-search');
 let placeholderPost = document.querySelector('.placeholder-post');
+let seriesMainList = document.querySelector('.series-main-list');
+
+postSearch.oninput = () => search(postSearch.value);
 
 postSearch.onfocus = () => placeholderPost.classList.add('focus');
 postSearch.onblur = () => {
@@ -217,15 +231,15 @@ postSearch.onblur = () => {
 
 
 showAllSeries.onclick = () => {
-  seriesList.classList.add('show');
+  seriesMainList.classList.add('show');
   document.body.style.overflow = 'hidden';
 };
 
 closeSeriesPost.onclick = closeSeriesListPost;
 
 function closeSeriesListPost() {
-  seriesList.classList.remove('show');
-  postSearch.value = '';
+  seriesMainList.classList.remove('show');
+  // postSearch.value = '';
   document.body.style.overflow = 'auto';
 };
 

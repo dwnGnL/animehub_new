@@ -119,6 +119,7 @@ choosedBG.onclick = () => {
 };
 
 bgItem.forEach((elem, index) => {
+  elem.style.backgroundImage=`url(${elem.dataset.src})`
   elem.onclick = () => {
     choosedBG.style.backgroundImage = `url(${elem.dataset.src})`;
     choosingBG.classList.remove('show-bg-list');

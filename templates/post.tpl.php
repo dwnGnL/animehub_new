@@ -67,18 +67,21 @@
     <div class="arrow-series to-left-series"><div></div></div>
 
     <div class="series-block">
-      <ul class="series-list">
+      <div class="series-main-list">
         <div class="search-place-post">
           <i class="fa fa-reply-all"></i>
           <input class="post-search" type="text">
           <div class="placeholder-post">Поиск серии</div>
         </div>
-        <?php if(isset($player) && is_array($player)): ?>
-          <?php foreach($player As $item): ?>
-            <li class="series-item" src="<?=$item['src']?>" id-ser="<?=$item['seria']?>" stud="<?=$item['stud']?>" id="<?=$item['id']?>"><?=''.$item['kach'].' '.$item['stud'].' '.$item['seria'].' серия'?></li>
-          <?php endforeach; ?>
-        <?php endif; ?>
-      </ul>
+
+        <ul class="series-list">
+          <?php if(isset($player) && is_array($player)): ?>
+            <?php foreach($player As $item): ?>
+              <li class="series-item" src="<?=$item['src']?>" id-ser="<?=$item['seria']?>" stud="<?=$item['stud']?>" id="<?=$item['id']?>"><?=''.$item['kach'].' '.$item['stud'].' '.$item['seria'].' серия'?></li>
+            <?php endforeach; ?>
+          <?php endif; ?>
+        </ul>
+      </div>
     </div>
 
     <div class="arrow-series to-right-series"><div></div></div>
