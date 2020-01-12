@@ -16,7 +16,7 @@ let openSearch = true;
 let seriesListWidth = 0;
 let previousSeries = 0;
 let presentSeries = 0;
-let title=document.title;
+let title = document.title;
 favorite.classList.contains('choose') ? favoriteText.innerHTML = 'Удалить из избранного' : favoriteText.innerHTML = 'Добавить в избранное';
 
 favorite.onclick = () => {
@@ -24,21 +24,21 @@ favorite.onclick = () => {
     $.ajax({
       type: "post",
       url: "/ajax/favorites/add",
-      data: ({"id_post":id_post,"token":$("#token").text()}),
+      data: ({ "id_post": id_post, "token": $("#token").text() }),
       dataType: "text",
       success: function (response) {
-        response=JSON.parse(response);
+        response = JSON.parse(response);
         switch (response.status) {
           case "501":
-          showMessage("Ошибка","авторизуйтесь прежде чем добавлять в закладки",error)
-          break;
+            showMessage("Ошибка", "авторизуйтесь прежде чем добавлять в закладки", error)
+            break;
           case "200":
-          favorite.classList.toggle('choose');
-          favorite.classList.contains('choose') ? favoriteText.innerHTML = 'Удалить из избранного' : favoriteText.innerHTML = 'Добавить в избранное';
-          break;
+            favorite.classList.toggle('choose');
+            favorite.classList.contains('choose') ? favoriteText.innerHTML = 'Удалить из избранного' : favoriteText.innerHTML = 'Добавить в избранное';
+            break;
           default:
-          showMessage("Ошибка","что то пошло не так",error)
-          break;
+            showMessage("Ошибка", "что то пошло не так", error)
+            break;
         }
       }
     })
@@ -46,21 +46,21 @@ favorite.onclick = () => {
     $.ajax({
       type: "post",
       url: "/ajax/favorites/delete",
-      data: ({"id_post":id_post,"token":$("#token").text()}),
+      data: ({ "id_post": id_post, "token": $("#token").text() }),
       dataType: "text",
       success: function (response) {
-        response=JSON.parse(response);
+        response = JSON.parse(response);
         switch (response.status) {
           case "501":
-          showMessage("Ошибка","авторизуйтесь прежде чем добавлять в закладки",error)
-          break;
+            showMessage("Ошибка", "авторизуйтесь прежде чем добавлять в закладки", error)
+            break;
           case "200":
-          favorite.classList.toggle('choose');
-          favorite.classList.contains('choose') ? favoriteText.innerHTML = 'Удалить из избранного' : favoriteText.innerHTML = 'Добавить в избранное';
-          break;
+            favorite.classList.toggle('choose');
+            favorite.classList.contains('choose') ? favoriteText.innerHTML = 'Удалить из избранного' : favoriteText.innerHTML = 'Добавить в избранное';
+            break;
           default:
-          showMessage("Ошибка", "что то пошло не так", error);
-          break;
+            showMessage("Ошибка", "что то пошло не так", error);
+            break;
         }
       }
     })
@@ -70,8 +70,14 @@ favorite.onclick = () => {
 toRightSeries.addEventListener('click', () => scrollingSeries(-(seriesItem[0].offsetWidth + 10)));
 toLeftSeries.addEventListener('click', () => scrollingSeries(seriesItem[0].offsetWidth + 10));
 searchSeries.addEventListener('click', showHideSearch);
+let seriesData = []
 
 seriesItem.forEach(function (elem, index) {
+
+  seriesData.push({
+    seriaNum: elem.getAttribute("id-ser"),
+    seriaHtml: elem.outerHTML
+  })
   seriesListWidth += elem.offsetWidth + 10;
 
   elem.onclick = () => {
@@ -79,13 +85,13 @@ seriesItem.forEach(function (elem, index) {
     presentSeries = index;
     seriesItem[previousSeries].classList.remove('series-item-active');
     seriesItem[presentSeries].classList.add('series-item-active');
-    document.title=`${title} ${$(".film-discription-header").text()} | ${elem.textContent}`
+    document.title = `${title} ${$(".film-discription-header").text()} | ${elem.textContent}`
     videoLink.src = elem.getAttribute('src');
     closeSeriesListPost();
   };
 });
 
-if (document.body.clientWidth > 767) {seriesList.style.width = `${seriesListWidth + 10}px`};
+if (document.body.clientWidth > 767) { seriesList.style.width = `${seriesListWidth + 10}px` };
 
 let sumSize = 0;
 let maxTrans = -(seriesListWidth + 10) + seriesBlock.offsetWidth;
@@ -94,14 +100,14 @@ let mousePressing, mouseUnPressing, posInt, positions, sumPos;
 toRightSeries.onmousedown = toRightSeries.ontouchstart = () => {
   mouseUnPressing = setTimeout(() => {
     setPosition();
-    mousePressing = setInterval (() => scrollingSeries(-sumPos), 100);
+    mousePressing = setInterval(() => scrollingSeries(-sumPos), 100);
   }, 50);
 };
 
 toLeftSeries.onmousedown = toLeftSeries.ontouchstart = () => {
   mouseUnPressing = setTimeout(() => {
     setPosition();
-    mousePressing = setInterval (() => scrollingSeries(sumPos), 100);
+    mousePressing = setInterval(() => scrollingSeries(sumPos), 100);
   }, 50);
 };
 
@@ -118,9 +124,9 @@ function setPosition() {
 
 toRightSeries.onmouseup = toLeftSeries.onmouseup = toRightSeries.ontouchend = toLeftSeries.ontouchend = () => {
   seriesList.style.transition = '.5s'
-  clearTimeout (mouseUnPressing);
-  clearInterval (mousePressing);
-  clearInterval (posInt);
+  clearTimeout(mouseUnPressing);
+  clearInterval(mousePressing);
+  clearInterval(posInt);
 };
 
 function scrollingSeries(size) {
@@ -152,10 +158,35 @@ function hideSearch() {
   }, 500);
 };
 
-searchInput.onchange = () => searchSeriesItem();
+// searchInput.onchange = () => searchSeriesItem();
+searchInput.oninput = () => search();
 
+function search() {
+  var val=searchInput.value
+  if (val == ""){
+    changeSeriaList(seriesData)
+  }else{
+    var newSeriasData=[]
+    seriesData.forEach((elem,index)=>{
+      if (elem.seriaNum==val) {
+        newSeriasData.push(elem)
+      }
+    })
+    changeSeriaList(newSeriasData)
+  }
+
+}
+
+function changeSeriaList(elems) {
+  let spisok = ""
+  elems.forEach((elem, index) => {
+    spisok += elem.seriaHtml
+  })
+  seriesList.innerHTML = spisok
+}
 function searchSeriesItem() {
-  for (let i = 0; i < seriesItem.length; i++) {
+  let i = 0;
+  for (i; i < seriesItem.length; i++) {
     if (seriesItem[i].getAttribute('id-ser') >= +searchInput.value) break;
   };
 
@@ -183,6 +214,8 @@ postSearch.onblur = () => {
   placeholderPost.classList.remove('focus');
 };
 
+
+
 showAllSeries.onclick = () => {
   seriesList.classList.add('show');
   document.body.style.overflow = 'hidden';
@@ -198,42 +231,42 @@ function closeSeriesListPost() {
 
 
 var id_post = document.location.pathname.split('/')
-id_post = id_post[id_post.length-1].split('-')[0]
+id_post = id_post[id_post.length - 1].split('-')[0]
 
-$("#like").click(()=>{
+$("#like").click(() => {
   raiting(1, id_post)
 })
 
-$("#dislike").click(()=>{
+$("#dislike").click(() => {
   raiting(0, id_post)
 })
 
-function raiting(type,id) {
+function raiting(type, id) {
   $.ajax({
     type: "post",
     url: "/ajax/voted/rating",
-    data: ({"type":type,"id_post":id,"token":$("#token").text()}),
+    data: ({ "type": type, "id_post": id, "token": $("#token").text() }),
     dataType: "text",
     success: function (response) {
-      response=JSON.parse(response)
+      response = JSON.parse(response)
       switch (response.status) {
         case "1":
 
-        if (type==1) {
-          $("#like span").html(parseInt($("#like span").text()) + 1)
-        } else {
-          $("#dislike span").html(parseInt($("#dislike span").text()) - 1)
-        }
-        break;
+          if (type == 1) {
+            $("#like span").html(parseInt($("#like span").text()) + 1)
+          } else {
+            $("#dislike span").html(parseInt($("#dislike span").text()) - 1)
+          }
+          break;
         case "0":
-			showMessage("Ошибка", "Вы уже голосовали", error);
+          showMessage("Ошибка", "Вы уже голосовали", error);
           break;
         case "403":
           showMessage("Ошибка", "Авторизуйтесь", error);
-        break;
+          break;
         default:
           showMessage("Ошибка", "что то пошло не так", error);
-        break;
+          break;
       }
     }
   })
