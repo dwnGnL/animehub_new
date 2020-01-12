@@ -726,7 +726,7 @@ video {
     color: #D81C27;
   }
 
-  .series-list {
+  .series-main-list {
     position: fixed;
     top: 0;
     left: 0;
@@ -734,19 +734,31 @@ video {
     height: 0vh;
     background: #fff;
     z-index: 5;
+    overflow: hidden;
+    transition: .5s;
+  }
+
+  .series-list {
+    position: absolute;
+    top: 41px;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 41px);
     display: flex;
     flex-direction: column;
     list-style-type: none;
-    overflow: hidden;
-    transition: .5s;
+    overflow: scroll;
+    z-index: 3;
   }
 
   .series-item {
     padding: 15px;
     box-sizing: border-box;
+    width: 100%;
+    margin: 5px 0;
   }
 
-  .series-list.show {
+  .series-main-list.show {
     height: 100vh;
   }
 

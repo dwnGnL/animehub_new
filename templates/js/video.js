@@ -159,10 +159,9 @@ function hideSearch() {
 };
 
 // searchInput.onchange = () => searchSeriesItem();
-searchInput.oninput = () => search();
+searchInput.oninput = () => search(searchInput.value);
 
-function search() {
-  var val=searchInput.value
+function search(val) {
   if (val == ""){
     changeSeriaList(seriesData)
   }else{
@@ -174,7 +173,6 @@ function search() {
     })
     changeSeriaList(newSeriasData)
   }
-
 }
 
 function changeSeriaList(elems) {
@@ -184,17 +182,18 @@ function changeSeriaList(elems) {
   })
   seriesList.innerHTML = spisok
 }
-function searchSeriesItem() {
-  let i = 0;
-  for (i; i < seriesItem.length; i++) {
-    if (seriesItem[i].getAttribute('id-ser') >= +searchInput.value) break;
-  };
 
-  if (i >= seriesItem.length) showMessage('Ошибка!', 'Серия не найдена', error);
-
-  let sumScroll = seriesItem[i].getBoundingClientRect().x - toLeftSeries.getBoundingClientRect().right;
-  scrollingSeries(-sumScroll);
-};
+// function searchSeriesItem() {
+//   let i = 0;
+//   for (i; i < seriesItem.length; i++) {
+//     if (seriesItem[i].getAttribute('id-ser') >= +searchInput.value) break;
+//   };
+//
+//   if (i >= seriesItem.length) showMessage('Ошибка!', 'Серия не найдена', error);
+//
+//   let sumScroll = seriesItem[i].getBoundingClientRect().x - toLeftSeries.getBoundingClientRect().right;
+//   scrollingSeries(-sumScroll);
+// };
 
 
 searchInput.onfocus = () => searchSeriesInput.classList.add('search-series-focus');
@@ -207,6 +206,9 @@ function searchInputBlur() {
 
 let postSearch = document.querySelector('.post-search');
 let placeholderPost = document.querySelector('.placeholder-post');
+let seriesMainList = document.querySelector('.series-main-list');
+
+postSearch.oninput = () => search(postSearch.value);
 
 postSearch.onfocus = () => placeholderPost.classList.add('focus');
 postSearch.onblur = () => {
@@ -217,14 +219,14 @@ postSearch.onblur = () => {
 
 
 showAllSeries.onclick = () => {
-  seriesList.classList.add('show');
+  seriesMainList.classList.add('show');
   document.body.style.overflow = 'hidden';
 };
 
 closeSeriesPost.onclick = closeSeriesListPost;
 
 function closeSeriesListPost() {
-  seriesList.classList.remove('show');
+  seriesMainList.classList.remove('show');
   postSearch.value = '';
   document.body.style.overflow = 'auto';
 };
