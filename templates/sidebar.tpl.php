@@ -3,7 +3,7 @@
 
 <div id="sidebar">
   <div class="update-block">
-    <div class="sidebar-head">Топ аниме</div>
+    <!-- <div class="sidebar-head">Топ аниме</div> -->
   </div>
 
   <div class="questionnaire-block">
