@@ -91,8 +91,8 @@
   <video class="video" autoplay controls></video>
 
   <div class="like">
-    <i class="fa fa-thumbs-o-up" id="like" aria-hidden="true"> <span><?=$rating['like']?></span></i>
-    <i class="fa fa-thumbs-o-down" id="dislike" aria-hidden="true"> <span><?=$rating['disLike']?></span></i>
+    <i class="far fa-thumbs-up" id="like" aria-hidden="true"> <span><?=$rating['like']?></span></i>
+    <i class="far fa-thumbs-down" id="dislike" aria-hidden="true"> <span><?=$rating['disLike']?></span></i>
   </div>
 
   <div class="all-anime-block">

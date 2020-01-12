@@ -127,8 +127,12 @@
   opacity: .0;
 }
 
-.over-back-film-item:hover {
+.film-item a:hover .over-back-film-item {
   opacity: 1;
+}
+
+.film-item a:hover .ribbon {
+  opacity: 0;
 }
 
 .circle {
@@ -177,6 +181,23 @@
   color: #898989;
 }
 
+.film-item {
+  position: relative;
+}
+
+.ribbon {
+  position: absolute;
+  top: 50px;
+  padding: 10px;
+  box-sizing: border-box;
+  left: 50%;
+  color: #fff;
+  transform: translate(-50%);
+  background: #FCBC5B;
+  text-align: center;
+  width: 103%;
+  transition: .5s;
+}
 
 @media screen and (min-width: 1200px)  {
   .films {
