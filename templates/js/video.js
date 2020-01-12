@@ -78,18 +78,26 @@ seriesItem.forEach(function (elem, index) {
     seriaNum: elem.getAttribute("id-ser"),
     seriaHtml: elem.outerHTML
   })
-  seriesListWidth += elem.offsetWidth + 10;
+})
+function addEvent(){
+   seriesItem = document.querySelectorAll('.series-item');
+  seriesItem.forEach(function (elem, index) {
 
-  elem.onclick = () => {
-    previousSeries = presentSeries;
-    presentSeries = index;
-    seriesItem[previousSeries].classList.remove('series-item-active');
-    seriesItem[presentSeries].classList.add('series-item-active');
-    document.title = `${title} ${$(".film-discription-header").text()} | ${elem.textContent}`
-    videoLink.src = elem.getAttribute('src');
-    closeSeriesListPost();
-  };
-});
+   
+    seriesListWidth += elem.offsetWidth + 10;
+  
+    elem.onclick = () => {
+      previousSeries = presentSeries;
+      presentSeries = index;
+      seriesItem[previousSeries].classList.remove('series-item-active');
+      seriesItem[presentSeries].classList.add('series-item-active');
+      document.title = `${title} ${$(".film-discription-header").text()} | ${elem.textContent}`
+      videoLink.src = elem.getAttribute('src');
+      closeSeriesListPost();
+    };
+  });
+}
+addEvent();
 
 if (document.body.clientWidth > 767) { seriesList.style.width = `${seriesListWidth + 10}px` };
 
@@ -149,7 +157,7 @@ function showSearch() {
 };
 
 function hideSearch() {
-  searchInput.value = '';
+  // searchInput.value = '';
   searchInputBlur();
   topVideoBlock.classList.remove('show-opacity-search-series');
   setTimeout(() => {
@@ -172,7 +180,9 @@ function search(val) {
       }
     })
     changeSeriaList(newSeriasData)
+    
   }
+  addEvent()
 }
 
 function changeSeriaList(elems) {
@@ -200,7 +210,9 @@ searchInput.onfocus = () => searchSeriesInput.classList.add('search-series-focus
 searchInput.onblur = searchInputBlur;
 
 function searchInputBlur() {
-  searchInput.value == '' ? searchSeriesInput.classList.remove('search-series-focus') : elem;
+  if(searchInput.value == ''){
+    searchSeriesInput.classList.remove('search-series-focus')
+  } 
 };
 
 
@@ -227,7 +239,7 @@ closeSeriesPost.onclick = closeSeriesListPost;
 
 function closeSeriesListPost() {
   seriesMainList.classList.remove('show');
-  postSearch.value = '';
+  // postSearch.value = '';
   document.body.style.overflow = 'auto';
 };
 
