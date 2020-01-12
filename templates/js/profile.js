@@ -120,7 +120,7 @@ choosedBG.onclick = () => {
 
 bgItem.forEach((elem, index) => {
   elem.onclick = () => {
-    choosedBG.style.background = `url(${elem.dataset.src}) center`;
+    choosedBG.style.backgroundImage = `url(${elem.dataset.src})`;
     choosingBG.classList.remove('show-bg-list');
     setTimeout(() => choosedBG.classList.remove('show-bg-list'), 500);
   };
