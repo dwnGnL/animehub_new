@@ -106,6 +106,30 @@ function saveingVip() {
   fontFamilyUserName.style.fontFamily = fontFamilyType.value;
 };
 
+
+
+let choosedBG = document.querySelector('.choosed-bg');
+let choosingBG = document.querySelector('.choosing-bg');
+let bgItem = document.querySelectorAll('.bg-item');
+
+choosedBG.onclick = () => {
+  if (choosedBG.classList.contains('show-bg-list')) return;
+  choosedBG.classList.add('show-bg-list');
+  setTimeout(() => choosingBG.classList.add('show-bg-list'), 0);
+};
+
+bgItem.forEach((elem, index) => {
+  elem.onclick = () => {
+    choosedBG.style.background = `url(${elem.dataset.src}) center`;
+    choosingBG.classList.remove('show-bg-list');
+    setTimeout(() => choosedBG.classList.remove('show-bg-list'), 500);
+  };
+});
+
+
+
+
+
 $('#colorSelector').ColorPicker({
   color: '#0000ff',
   onShow: function (colpkr) {

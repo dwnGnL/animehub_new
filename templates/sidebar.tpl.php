@@ -3,21 +3,7 @@
 
 <div id="sidebar">
   <div class="update-block">
-    <div class="sidebar-head">Обновления</div>
-
-    <?php foreach ($newSerii as $ser): ?>
-      <a href="/<?=$ser['type']?>/<?=$helper::renderUrl($ser['id'],$ser['alias'])?>">
-        <div class="update">
-          <div class="update-item">
-            <div class="update-data"><?=$ser['date']?></div>
-            <div class="update-bottom">
-              <div class="update-name"><?=$ser['title']?> <?=$ser['tv']?></div>
-              <div class="update-series"><?=$ser['seria']?> серия</div>
-            </div>
-          </div>
-        </div>
-      </a>
-    <?php endforeach; ?>
+    <div class="sidebar-head">Топ аниме</div>
   </div>
 
   <div class="questionnaire-block">

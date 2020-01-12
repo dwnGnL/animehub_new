@@ -35,14 +35,14 @@
   cursor: pointer;
 }
 
-.favorites .far {
+.favorites .fa {
   font-size: 25px;
   padding-right: 10px;
   color: #A5A29A;
   transition: .3s;
 }
 
-.favorites.choose .far {
+.favorites.choose .fa {
   color: #FCBC5B;
 }
 
@@ -431,21 +431,44 @@ video {
   width: 100%;
 }
 
-.video-comment-right {
+.video-comments.vip .video-comment-right {
   position: relative;
-  background: #EDF2F9;
+  background: url(https://bipbap.ru/wp-content/uploads/2017/08/16.jpg) center;
+  background-size: 100%;
+  /* background-color: #64698F; */
+  border: 1px solid #D1D1D1;
   border-radius: 5px;
   width: 100%;
   padding: 10px;
   box-sizing: border-box;
+}
+
+.video-comments.vip .video-comment-text {
+  color: #F8F8F8;
+}
+
+.video-comments.vip .video-comment-date {
+  color: #F8F8F8;
+}
+
+.video-comments.vip .comment-arrow {
+
+}
+
+.video-comment-right {
+  position: relative;
   background: #F8F8F8;
   border: 1px solid #D1D1D1;
+  border-radius: 5px;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
 .comment-arrow {
   border-left: 1px solid #D1D1D1;
   border-bottom: 1px solid #D1D1D1;
-  background: inherit;
+  background-color: inherit;
   position: absolute;
   left: 0px;
   top: 20px;
@@ -716,6 +739,11 @@ video {
     list-style-type: none;
     overflow: hidden;
     transition: .5s;
+  }
+
+  .series-item {
+    padding: 15px;
+    box-sizing: border-box;
   }
 
   .series-list.show {

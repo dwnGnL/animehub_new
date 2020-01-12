@@ -16,7 +16,7 @@
   border-bottom: 1px solid #E3E3E3;
 }
 
-.update-item {
+/* .update-item {
   background: #F8F8F8;
   padding: 10px;
   margin-bottom: 5px;
@@ -50,7 +50,7 @@
 
 .update-bottom:hover .update-name {
   color: #D81C27;
-}
+} */
 
 .top-weak-img {
   margin: auto;
@@ -199,7 +199,7 @@
     font-size: 20px;
     padding: 10px 0px;
   }
-
+/*
   .update-data {
     font-size: 13px;
   }
@@ -210,7 +210,7 @@
 
   .update-series {
     font-size: 13px;
-  }
+  } */
 
   .top-weak-img {
     width: 180px;
@@ -278,7 +278,7 @@
     font-size: 17px;
     padding: 8px 0px;
   }
-
+/*
   .update-data {
     font-size: 10px;
   }
@@ -289,7 +289,7 @@
 
   .update-series {
     font-size: 10px;
-  }
+  } */
 
   .top-weak-img {
     width: 140px;

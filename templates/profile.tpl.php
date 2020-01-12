@@ -70,7 +70,17 @@
             <div style="display:inline-block;">Цвет ника:</div>
                 <div id="colorSelector"><div style="background-color:<?=$user['login_color']?>"></div></div>
             </div>
-            
+
+            <div class="choosed-bg" data-src="https://bipbap.ru/wp-content/uploads/2017/08/16.jpg">
+
+              <ul class="choosing-bg">
+                <li class="bg-item" data-src="https://bipbap.ru/wp-content/uploads/2017/08/16.jpg"></li>
+                <li class="bg-item" data-src="https://namobilu.com/u/lwp/is/318/000/1451195986_winter_wallpaper_1.jpg"></li>
+                <li class="bg-item" data-src="https://namobilu.com/u/lwp/is/001/000/1448990899_winter_night_1.jpg"></li>
+                <li class="bg-item" data-src="https://walpix.net/image.php?id=12623&width=600&height=338&cropratio=16:9&cropposition=crop&filename=2129725198"></li>
+              </ul>
+            </div>
+
             <div class="change-font-family-user-name">
                 <div>Шрифт</div>
                 <select class="font-family-type">

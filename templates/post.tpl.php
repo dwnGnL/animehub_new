@@ -144,7 +144,7 @@
 
 
     <?php endif;?>
-    <div class="video-comments">
+    <div class="video-comments vip">
       <?php foreach($comments as $val): ?>
         <div class="video-comment-item">
           <div class="video-comment-user-avatar">
@@ -153,7 +153,6 @@
 
           <div class="video-comment-right" style="<?=$val['back_fon']?>">
             <div class="comment-arrow"></div>
-
             <div class="top-video-comment-item">
               <div class="video-comment-user-name">
                 <a href="/profile/<?=$val['login']?>" style="font-family:<?=$val['font']?>;<?=$val['login_color']?>" ><?=$val['login'].' '?></a><span style ="color:<?=$val['color']?>;font-family:<?=$val['font']?>"><?=$val['status']?></span>
