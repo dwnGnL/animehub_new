@@ -51,7 +51,9 @@
 .update-bottom:hover .update-name {
   color: #D81C27;
 } */
-
+.top-weak a{
+  cursor: pointer;
+}
 .top-weak-img {
   margin: auto;
   overflow: hidden;
@@ -141,6 +143,11 @@
 .active-dot-item {
   background: #D81C27;
 }
+
+
+
+
+
 
 .comment-item {
   margin: 10px 0px;
@@ -350,6 +357,7 @@
   .news-sidebar-date {
     font-size: 11px;
   }
+ 
 }
 
 @media screen and (max-width: 992px) {

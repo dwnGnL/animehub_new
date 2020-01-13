@@ -4,6 +4,24 @@
 <div id="sidebar">
   <div class="update-block">
     <!-- <div class="sidebar-head">Топ аниме</div> -->
+    <div class="top-weak">
+      <div class="sidebar-head">Топ аниме</div>
+
+      <div class="top-weak-img">
+        <a href="#">
+        <img src="images/image (2).jpg">
+
+        </a>
+      </div>
+
+      <ul class="top-weak-films">
+        <a href="#"><li><div class="current-number current-number-active"></div><span class="top-weak-film-name">Ван пис</span></li></a>
+        <a href="#"><li><div class="current-number"></div><span class="top-weak-film-name">Доктор Стоун</span></li></a>
+        <a href="#"><li><div class="current-number"></div><span class="top-weak-film-name">Моя героическая академия 4</span></li></a>
+        <a href="#"><li><div class="current-number"></div><span class="top-weak-film-name">Семь смертных грехов: Гнев Богов</span></li></a>
+        <a href="#"><li><div class="current-number"></div><span class="top-weak-film-name">Мастер меча</span></li></a>
+      </ul>
+    </div>
   </div>
 
   <div class="questionnaire-block">
