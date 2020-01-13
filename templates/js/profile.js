@@ -111,7 +111,7 @@ function saveingVip() {
 let choosedBG = document.querySelector('.choosed-bg');
 let choosingBG = document.querySelector('.choosing-bg');
 let bgItem = document.querySelectorAll('.bg-item');
-alert(choosedBG.getAttribute("data-src"))
+
 choosedBG.style.backgroundImage=choosedBG.getAttribute("data-src")
 choosedBG.onclick = () => {
   if (choosedBG.classList.contains('show-bg-list')) return;
