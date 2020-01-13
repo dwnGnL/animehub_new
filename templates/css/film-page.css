@@ -431,11 +431,12 @@ video {
   width: 100%;
 }
 
-.video-comments.vip .video-comment-right {
+.video-comment-right.vip {
   position: relative;
   background: center;
   background-size: 100%;
   /* background-color: #64698F; */
+  color: white;
   border: 1px solid #D1D1D1;
   border-radius: 5px;
   width: 100%;

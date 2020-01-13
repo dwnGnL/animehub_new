@@ -52,7 +52,7 @@ $("#sendComment").click(function (e) {
         return false;
       }
 
-      if (res.vip_status == "true") {
+      if (res.back_fon != "") {
         var commentToPut = `
         <div class="video-comment-user-avatar">
           <img src="${res.img}">
@@ -69,7 +69,9 @@ $("#sendComment").click(function (e) {
         </div>
         <div class="video-comment-text">
           ${res.body}
+          <div class="answer-comment"><i class="fa fa-reply"></i></div>
         </div>
+        ${res.vip_status}
       </div>
       `
       } else {
