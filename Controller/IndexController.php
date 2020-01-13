@@ -4,6 +4,7 @@
 namespace Controller;
 use Lib\Helper;
 use Lib\Migration;
+use Model\Anime;
 use Model\Cat;
 use Model\Post;
 
@@ -22,10 +23,12 @@ class IndexController extends DisplayController
     {
         $postDB = new Post();
         $cat = new Cat();
+        $anime = new Anime();
         $this->title .= 'Таджикский аниме портал !';
         $posts =  $postDB->getPostL10('anime',10);
-        foreach ($posts as $key => $val){
+        foreach ($posts as $key => $val) {
             $posts[$key]['cats'] = $cat->getCatPostL2($posts[$key]['id']);
+            $posts[$key]['seria'] = $anime->lastAddSeria($posts[$key]['title']);
         }
 
         $newPosts = $postDB->getPostL5();
@@ -35,6 +38,7 @@ class IndexController extends DisplayController
         $dorams =  $postDB->getPostL10('dorams',5);
         foreach ($dorams as $key => $val){
             $dorams[$key]['cats'] = $cat->getCatPostL2($dorams[$key]['id']);
+            $dorams[$key]['seria'] = $anime->lastAddSeria($dorams[$key]['title']);
         }
         $articles =  $postDB->getPostL10('articles',6);
         $search = $this->getSearch();

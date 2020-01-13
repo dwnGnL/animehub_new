@@ -15,11 +15,12 @@ class Vip extends Model
 
     }
 
-    public function saveVip($login_color, $uved,$vip_status,  $font, $id_vip){
+    public function saveVip($login_color, $uved,$vip_status,  $font, $id_vip, $back_fon){
 
-        $sql = 'Update lite_vip SET login_color = :color, update_anime = :uved, vip_status = :status, font = :font 
+        $sql = 'Update lite_vip SET back_fon = :back_fon, login_color = :color, update_anime = :uved, vip_status = :status, font = :font 
                 WHERE lite_vip.id = :id_vip';
         $params = [
+            'back_fon' => $back_fon,
             'color' => $login_color,
             'uved' =>$uved,
             'status' => $vip_status,

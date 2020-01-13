@@ -32,6 +32,7 @@
                             <span>Просмотров</span>
                         </div>
                     </div>
+                    <div class="ribbon">Добавлена <?=$item['seria']['seria']?> серия</div>
                 </div>
                 </a>
                 <div class="discription">

@@ -71,7 +71,7 @@
                 <div id="colorSelector"><div style="background-color:<?=$user['login_color']?>"></div></div>
             </div>
 
-            <div class="choosed-bg" data-src="https://bipbap.ru/wp-content/uploads/2017/08/16.jpg">
+            <div class="choosed-bg" data-src='<?=$user['back_fon']?>'>
 
               <ul class="choosing-bg">
                 <li class="bg-item" data-src="<?=$uri?>templates/images/fons/21.jpg"></li>
@@ -111,4 +111,4 @@
 </div>
 
 
-<script src="<?=$uri?>/templates/js/profile.js?"<?=filemtime('templates/js/profile.js')?>></script>
+<script src="<?=$uri?>/templates/js/profile.js?<?=filemtime('templates/js/profile.js')?>"></script>

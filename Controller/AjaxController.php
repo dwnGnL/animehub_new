@@ -28,7 +28,7 @@ class AjaxController extends DisplayController
                 }else{
                     $_POST['uved'] = 1;
                 }
-                $vip->saveVip('color: '.$_POST['color'], $_POST['uved'], $_POST['status'],$_POST['font'],$id_vip['id']);
+                $vip->saveVip('color: '.$_POST['color'], $_POST['uved'], $_POST['status'],$_POST['font'],$id_vip['id'], $_POST['back_fon']);
                 $response = 'success';
                 echo json_encode($response);
                 exit();

@@ -123,6 +123,7 @@ class PageController extends DisplayController
     public function allPost($param = []){
         $postDB = new Post();
         $catDB = new Cat();
+        $anime = new Anime();
         $page = $param['page'];
         $search = $this->getSearch();
         $this->page = $page ? $page : 1;
@@ -143,6 +144,7 @@ class PageController extends DisplayController
         foreach ($items['items'] as $item){
             $row[] = $item;
             $row[$i]['cats'] = $catDB->getCatPostL2($row[$i]['id']);
+            $row[$i]['seria'] = $anime->lastAddSeria($row[$i]['title']);
             $i++;
         }
         $items['items'] = $row;

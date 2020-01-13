@@ -26,7 +26,7 @@
             </div>
 
             <!-- Ribon is here -->
-            <div class="ribbon"><?=$item['seria']?></div>
+            <div class="ribbon"><?=$item['seria']['seria']?></div>
           </a>
           <div class="discription">
             <div class="film-name"><a href="/anime/<?=$helper::renderUrl($item['id'], $item['alias'])?>"><?=$item['title'].' '.$item['tv_title']?></a></div>
@@ -87,6 +87,7 @@
                   <span>Просмотров</span>
                 </div>
               </div>
+                <div class="ribbon"><?=$val['seria']['seria']?></div>
             </div>
           </a>
           <div class="discription">
