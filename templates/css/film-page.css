@@ -433,7 +433,7 @@ video {
 
 .video-comments.vip .video-comment-right {
   position: relative;
-  background: url(https://bipbap.ru/wp-content/uploads/2017/08/16.jpg) center;
+  background: center;
   background-size: 100%;
   /* background-color: #64698F; */
   border: 1px solid #D1D1D1;

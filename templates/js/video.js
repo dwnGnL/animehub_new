@@ -86,7 +86,7 @@ function addEvent(){
 
    
     seriesListWidth += elem.offsetWidth + 10;
-  
+    console.log(seriesListWidth)
     elem.onclick = () => {
       previousSeries = presentSeries;
       presentSeries = index;
