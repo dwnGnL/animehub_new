@@ -168,7 +168,7 @@ $("#save_profile").click(function () {
 });
 
 $("#save_vip").click(function () {
-  alert(choosedBG.style.backgroundImage)
+
   $.ajax({
     type: "post",
     url: "/ajax/save/vip",
