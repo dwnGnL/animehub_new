@@ -443,16 +443,16 @@ video {
   box-sizing: border-box;
 }
 
-.video-comments.vip .video-comment-text {
+.video-comment-right.vip .video-comment-text {
   color: #F8F8F8;
 }
 
-.video-comments.vip .video-comment-date {
+.video-comment-right.vip .video-comment-date {
   color: #F8F8F8;
 }
 
-.video-comments.vip .comment-arrow {
-
+.video-comment-right.vip .comment-arrow {
+  background: bottom;
 }
 
 .video-comment-right {

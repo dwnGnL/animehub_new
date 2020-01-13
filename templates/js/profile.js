@@ -111,7 +111,8 @@ function saveingVip() {
 let choosedBG = document.querySelector('.choosed-bg');
 let choosingBG = document.querySelector('.choosing-bg');
 let bgItem = document.querySelectorAll('.bg-item');
-
+alert(choosedBG.getAttribute("data-src"))
+choosedBG.style.backgroundImage=choosedBG.getAttribute("data-src")
 choosedBG.onclick = () => {
   if (choosedBG.classList.contains('show-bg-list')) return;
   choosedBG.classList.add('show-bg-list');
@@ -167,6 +168,7 @@ $("#save_profile").click(function () {
 });
 
 $("#save_vip").click(function () {
+  alert(choosedBG.style.backgroundImage)
   $.ajax({
     type: "post",
     url: "/ajax/save/vip",
