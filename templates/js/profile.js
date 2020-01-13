@@ -171,7 +171,7 @@ $("#save_vip").click(function () {
     type: "post",
     url: "/ajax/save/vip",
     dataType: "text",
-    data: ({"token":$("#token").text(),"color":$('.left-profile-user-name.font-family-user-name').css('color'),"uved":$("#notification-check").prop("checked"),"status":$("textarea[name='status']").val(),"font":$("select.font-family-type").val()}),
+    data: ({"token":$("#token").text(),"back_fon":choosedBG.style.backgroundImage,"color":$('.left-profile-user-name.font-family-user-name').css('color'),"uved":$("#notification-check").prop("checked"),"status":$("textarea[name='status']").val(),"font":$("select.font-family-type").val()}),
     success: function (response) {
       res= JSON.parse(response);
       if (res.status == 403){

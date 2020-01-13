@@ -81,6 +81,7 @@ seriesItem.forEach(function (elem, index) {
 })
 function addEvent(){
    seriesItem = document.querySelectorAll('.series-item');
+   seriesListWidth=0
   seriesItem.forEach(function (elem, index) {
 
    
@@ -96,10 +97,11 @@ function addEvent(){
       closeSeriesListPost();
     };
   });
+  if (document.body.clientWidth > 767) { seriesList.style.width = `${seriesListWidth + 10}px` };
 }
 addEvent();
 
-if (document.body.clientWidth > 767) { seriesList.style.width = `${seriesListWidth + 10}px` };
+// if (document.body.clientWidth > 767) { seriesList.style.width = `${seriesListWidth + 10}px` };
 
 let sumSize = 0;
 let maxTrans = -(seriesListWidth + 10) + seriesBlock.offsetWidth;
