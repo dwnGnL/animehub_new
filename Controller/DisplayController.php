@@ -13,6 +13,7 @@ use Model\Notification;
 use Model\Post;
 use Model\Question;
 use Model\Slider;
+use Model\Top;
 use Model\User;
 use Model\Vote;
 
@@ -64,6 +65,7 @@ abstract  class DisplayController extends Controller
 
     protected function getSidebar()
     {
+        $top = new Top();
         $question = new Question();
         $answerDB = new Answer();
         $voteDB = new Vote();
@@ -81,6 +83,7 @@ abstract  class DisplayController extends Controller
                 $answer[$key]['voted'] = $votedUser['id_voting'];
             }
         }
+        $topAnime = $top->getTopAnime();
         $newSerii = $anime->getNewSeria();
         $articles = $post->getPostL10('articles', 5);
         $comments = $commentDB->getCommentL(5);
@@ -94,6 +97,7 @@ abstract  class DisplayController extends Controller
             'questions' => $quest,
             'answer' => $answer,
             'votedUser' => $vote,
+            'topAnime' => $topAnime,
         ]);
         // TODO: Implement getSidebar() method.
     }

@@ -33,4 +33,6 @@ class Rating extends Model
         ];
         return  $this->driver->column($sql, $params);
     }
+
+
 }
