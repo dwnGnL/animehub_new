@@ -8,18 +8,20 @@
       <div class="sidebar-head">Топ аниме</div>
 
       <div class="top-weak-img">
-        <a href="#">
-        <img src="images/image (2).jpg">
+
+        <a href="anime/<?=$helper::renderUrl($topAnime[0]['id'],$topAnime[0]['alias'])?>">
+
+            <img src="<?=$topAnime[0]['image']?>">
 
         </a>
       </div>
 
       <ul class="top-weak-films">
-        <a href="#"><li><div class="current-number current-number-active"></div><span class="top-weak-film-name">Ван пис</span></li></a>
-        <a href="#"><li><div class="current-number"></div><span class="top-weak-film-name">Доктор Стоун</span></li></a>
-        <a href="#"><li><div class="current-number"></div><span class="top-weak-film-name">Моя героическая академия 4</span></li></a>
-        <a href="#"><li><div class="current-number"></div><span class="top-weak-film-name">Семь смертных грехов: Гнев Богов</span></li></a>
-        <a href="#"><li><div class="current-number"></div><span class="top-weak-film-name">Мастер меча</span></li></a>
+
+        <a href="anime/<?=$helper::renderUrl($topAnime[0]['id'],$topAnime[0]['alias'])?>"><li><div class="current-number current-number-active"></div><span class="top-weak-film-name"><?=$topAnime[0]['title'].' '.$topAnime[0]['tv']?></span></li></a>
+          <?php for ($i = 1; $i < count($topAnime); $i++): ?>
+        <a href="anime/<?=$helper::renderUrl($topAnime[$i]['id'],$topAnime[$i]['alias'])?>"><li><div class="current-number"></div><span class="top-weak-film-name"><?=$topAnime[$i]['title'].' '.$topAnime[$i]['tv']?></span></li></a>
+          <?php endfor; ?>
       </ul>
     </div>
   </div>
@@ -48,7 +50,7 @@
       <?php foreach ($articles as $article): ?>
         <div class="news-sidebar-item">
           <div class="news-sidebar-text"><?=$article['title']?></div>
-          <a href="<?=$helper::generateUrl($article['id'],$article['alias'])?>" ><div class="news-sidebar-date">Статьи и Новости,<?=$helper::getWatch($article['date'])?></div></a>
+          <a href="<?=$helper::renderUrl($article['id'],$article['alias'])?>" ><div class="news-sidebar-date">Статьи и Новости,<?=$helper::getWatch($article['date'])?></div></a>
         </div>
       <?php endforeach; ?>
     </div>

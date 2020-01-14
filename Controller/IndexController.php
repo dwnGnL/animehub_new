@@ -7,6 +7,7 @@ use Lib\Migration;
 use Model\Anime;
 use Model\Cat;
 use Model\Post;
+use Model\Rating;
 
 defined('_Sdef') or exit();
 

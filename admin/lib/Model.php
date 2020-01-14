@@ -1,6 +1,10 @@
 <?php
 $root = $_SERVER['DOCUMENT_ROOT'];
-require_once $root.'/config.php';
+if(!empty($root)){
+    require_once $root.'/config.php';
+}else{
+    require_once '../../config.php';
+}
 
     Class Model
     {
@@ -1699,8 +1703,56 @@ require_once $root.'/config.php';
             return $message->fetch(PDO::FETCH_ASSOC);
     }
 
+   public function getViewsForTop(){
+        $sql = 'SELECT lite_views.views, lite_views.id_post FROM lite_views WHERE lite_views.views > 1000 ORDER BY lite_views.views DESC';
+        $view =  $this->pdo->query($sql);
+       $view->execute();
+        return $view->fetchAll(PDO::FETCH_ASSOC);
+    }
+   public function getLike(array $id_post){
+        $in = 'IN( ';
+        for($i = 0; $i < count($id_post); $i++ ){
+            if (($i+1) == count($id_post)){
+                $in .= $id_post[$i]['id_post'].')';
+            }else{
+                $in .= $id_post[$i]['id_post'].',';
+            }
 
 
+        }
+        $sql = 'SELECT COUNT(id_post) AS postLike, id_post FROM lite_rating WHERE  type = "1" AND id_post '.$in.' GROUP BY id_post ORDER BY postLike DESC';
+       $view =  $this->pdo->query($sql);
+       $view->execute();
+       return $view->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    function getDisLike(array $id_post){
+
+        $in = 'IN( ';
+        for($i = 0; $i < count($id_post); $i++ ){
+            if (($i+1) == count($id_post)){
+                $in .= $id_post[$i]['id_post'].')';
+            }else{
+                $in .= $id_post[$i]['id_post'].',';
+            }
+
+
+        }
+        $sql = 'SELECT COUNT(id_post) AS postLike, id_post FROM lite_rating WHERE  type = "0" AND id_post '.$in.' GROUP BY id_post ORDER BY postLike DESC';
+        $view =  $this->pdo->query($sql);
+        $view->execute();
+        return $view->fetchAll(PDO::FETCH_ASSOC);
+    }
+       public function writeTop($id_post, $rating){
+        $sql = 'INSERT INTO lite_top(id_post,rating) VALUES (?, ?)';
+        $views = $this->pdo->prepare($sql);
+        return $views->execute([$id_post, $rating]);
+    }
+    public function clearTop(){
+            $sql = 'TRUNCATE lite_top';
+            $views = $this->pdo->query($sql);
+            return $views->execute();
+    }
 
 }
 
