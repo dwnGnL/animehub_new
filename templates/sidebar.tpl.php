@@ -18,9 +18,9 @@
 
       <ul class="top-weak-films">
 
-        <a href="anime/<?=$helper::renderUrl($topAnime[0]['id'],$topAnime[0]['alias'])?>"><li><div class="current-number current-number-active"></div><span class="top-weak-film-name"><?=$topAnime[0]['title'].' '.$topAnime[0]['tv']?></span></li></a>
+        <a href="anime/<?=$helper::renderUrl($topAnime[0]['id'],$topAnime[0]['alias'])?>"><li><div class="current-number current-number-active">1</div><span class="top-weak-film-name"><?=$topAnime[0]['title'].' '.$topAnime[0]['tv']?></span></li></a>
           <?php for ($i = 1; $i < count($topAnime); $i++): ?>
-        <a href="anime/<?=$helper::renderUrl($topAnime[$i]['id'],$topAnime[$i]['alias'])?>"><li><div class="current-number"></div><span class="top-weak-film-name"><?=$topAnime[$i]['title'].' '.$topAnime[$i]['tv']?></span></li></a>
+        <a href="anime/<?=$helper::renderUrl($topAnime[$i]['id'],$topAnime[$i]['alias'])?>"><li><div class="current-number"><?=$i+1?></div><span class="top-weak-film-name"><?=$topAnime[$i]['title'].' '.$topAnime[$i]['tv']?></span></li></a>
           <?php endfor; ?>
       </ul>
     </div>

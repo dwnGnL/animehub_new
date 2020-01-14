@@ -79,11 +79,14 @@ seriesItem.forEach(function (elem, index) {
     seriaHtml: elem.outerHTML
   })
 })
+videoLink.removeAttribute("autoplay")
+videoLink.src=seriesItem[0].getAttribute('src')
 function addEvent(){
   seriesItem = document.querySelectorAll('.series-item');
   seriesItem.forEach(function (elem, index) {
     seriesListWidth += elem.offsetWidth + 10;
     elem.onclick = () => {
+      videoLink.setAttribute("autoplay","true")
       previousSeries = presentSeries;
       presentSeries = index;
       seriesItem[previousSeries].classList.remove('series-item-active');
