@@ -136,9 +136,7 @@ toRightSeries.onmouseup = toLeftSeries.onmouseup = toRightSeries.ontouchend = to
 function scrollingSeries(size) {
   sumSize += size;
   if (sumSize <= maxTrans) sumSize = maxTrans;
-  if (sumSize > 0) sumSize = 0
-  console.log(sumSize);
-
+  if (sumSize > 0) sumSize = 0;
   seriesList.style.transform = `translateX(${sumSize}px)`;
 };
 
