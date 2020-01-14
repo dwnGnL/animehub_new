@@ -80,13 +80,9 @@ seriesItem.forEach(function (elem, index) {
   })
 })
 function addEvent(){
-   seriesItem = document.querySelectorAll('.series-item');
-   seriesListWidth=0
+  seriesItem = document.querySelectorAll('.series-item');
   seriesItem.forEach(function (elem, index) {
-
-   
     seriesListWidth += elem.offsetWidth + 10;
-    console.log(seriesListWidth)
     elem.onclick = () => {
       previousSeries = presentSeries;
       presentSeries = index;
@@ -97,11 +93,9 @@ function addEvent(){
       closeSeriesListPost();
     };
   });
-  if (document.body.clientWidth > 767) { seriesList.style.width = `${seriesListWidth + 10}px` };
-}
+  if (document.body.clientWidth > 767) { seriesList.style.width = `${seriesListWidth + 10}px`};
+};
 addEvent();
-
-// if (document.body.clientWidth > 767) { seriesList.style.width = `${seriesListWidth + 10}px` };
 
 let sumSize = 0;
 let maxTrans = -(seriesListWidth + 10) + seriesBlock.offsetWidth;
@@ -143,6 +137,8 @@ function scrollingSeries(size) {
   sumSize += size;
   if (sumSize <= maxTrans) sumSize = maxTrans;
   if (sumSize > 0) sumSize = 0
+  console.log(sumSize);
+
   seriesList.style.transform = `translateX(${sumSize}px)`;
 };
 
@@ -168,31 +164,29 @@ function hideSearch() {
   }, 500);
 };
 
-// searchInput.onchange = () => searchSeriesItem();
 searchInput.oninput = () => search(searchInput.value);
 
 function search(val) {
   if (val == ""){
-    changeSeriaList(seriesData)
-  }else{
-    var newSeriasData=[]
-    seriesData.forEach((elem,index)=>{
-      if (elem.seriaNum==val) {
-        newSeriasData.push(elem)
-      }
-    })
+    changeSeriaList(seriesData);
+  } else {
+    var newSeriasData = [];
+    seriesData.forEach((elem,index) => {
+      if (elem.seriaNum==val) newSeriasData.push(elem)
+    });
     changeSeriaList(newSeriasData)
-    
-  }
-  addEvent()
-}
+  };
+  sumSize = 0;
+  scrollingSeries(0);
+  addEvent();
+};
 
 function changeSeriaList(elems) {
-  let spisok = ""
+  let list = ""
   elems.forEach((elem, index) => {
-    spisok += elem.seriaHtml
-  })
-  seriesList.innerHTML = spisok
+    list += elem.seriaHtml;
+  });
+  seriesList.innerHTML = list;
 }
 
 // function searchSeriesItem() {
@@ -214,7 +208,7 @@ searchInput.onblur = searchInputBlur;
 function searchInputBlur() {
   if(searchInput.value == ''){
     searchSeriesInput.classList.remove('search-series-focus')
-  } 
+  }
 };
 
 
