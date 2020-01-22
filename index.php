@@ -45,24 +45,43 @@ $middle = function (){
     );
     return $obj->onBeforeDispatch();
 };
+
+$app->group('/dashboard', function () use ($app){
+
+    $app->get('/', function () {
+        $o = \Controller\Controller::getInstance('admin', 'AdminController'); //AdminController
+        $o->index();
+    })->name('dashboard');
+
+    $app->get('/slider', function (){
+        $o = \Controller\Controller::getInstance('post','\Admin\\'); //AdminController
+        $o->viewSlider();
+    })->name('slider');
+    $app->group('/post', function () use ($app){
+
+        $app->get('/', function (){
+            $o = \Controller\Controller::getInstance('post','AdminController'); //AdminController
+            $o->index();
+        })->name('viewPosts');
+
+        $app->get('/add', function (){
+            $o = \Controller\Controller::getInstance('post','\AdminController'); //AdminController
+            $o->add();
+        })->name('addPost');
+    });
+
+});
 $app->get('/ws/test', function () use ($app){
-    $o = \Controller\Controller::getInstance('page'); //AdminController
+    $o = \Controller\Controller::getInstance('page');
     $o->chat();
 
 });
 $app->get('/ws/login', function () use ($app){
-    $o = \Controller\Controller::getInstance('login'); //AdminController
+    $o = \Controller\Controller::getInstance('login');
     $o->getLogin();
 
 });
-$app->group('/admin', $middle,function () use ($app){
 
-    $app->get('(/:page)', function ($page = 1) {
-        $o = \Controller\Controller::getInstance('admin'); //AdminController
-        $o->execute();
-    })->conditions(['page' => '\d+'])->name('aItems');
-
-});
 
 
 

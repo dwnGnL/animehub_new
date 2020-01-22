@@ -22,9 +22,10 @@ abstract class Controller
         $this->title = 'AnimeHub | ';
     }
 
-    public function getInstance($prefix){
+    public function getInstance($prefix, $dir = 'Controller'){
 
-        $class = '\Controller\\'.ucfirst($prefix).'Controller';
+        $class = $dir.'\\'.ucfirst($prefix).'Controller';
+
 
         if (self::$instance instanceof $class){
 

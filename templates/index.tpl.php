@@ -169,38 +169,6 @@
     <div id="main">
       <?=$main?>
       <!-- Main -->
-      <!--        --><?php
-      //        if (isset($_GET['post'])) {
-      //            include $uri.'/templates/'.'pages/film-Pager.php';
-      //        } elseif (isset($_GET['info'])) {
-      //            include $uri.'/templates/'.'animehub_info.php';
-      //        } elseif (isset($_GET['regist'])) {
-      //            include $uri.'/templates/'.'pages/regist.php';
-      //        } elseif (isset($_GET['stol']) || isset($_POST['zButton'])) {
-      //            include $uri.'/templates/'.'stol.php';
-      //        } elseif (isset($_GET['news'])) {
-      //            include $uri.'/templates/'.'title_posts.php';
-      //        } elseif (isset($_GET['donat'])) {
-      //            include $uri.'/templates/'.'donat.php';
-      //        } elseif (isset($_GET['prof'])) {
-      //            include $uri.'/templates/'.'prof.php';
-      //        } elseif (isset($_GET['all-anime'])) {
-      //            include $uri.'/templates/'.'pages/all-anime.php';
-      //        } elseif (isset($_GET['advertisement'])) {
-      //            include $uri.'/templates/'.'pages/advertisement.php';
-      //        } elseif (isset($_GET['dorames'])) {
-      //            include $uri.'/templates/'.'pages/dorames.php';
-      //        } elseif (isset($_GET['ongoings'])) {
-      //            include $uri.'/templates/'.'pages/ongoings.php';
-      //        } elseif (isset($_GET['articles'])) {
-      //            include $uri.'/templates/'.'pages/articles.php';
-      //        } elseif (isset($_GET['profile'])) {
-      //            include $uri.'/templates/'.'pages/profile.php';
-      //        } else {
-      //            include $uri.'/templates/'."pages/main-Pager.php";
-      //        }
-      //        ?>
-
       <!-- Sidebar -->
       <?=$sidebar?>
       <!-- Footer -->

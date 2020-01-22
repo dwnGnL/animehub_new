@@ -22,6 +22,7 @@ defined('_Sdef') or  exit();
 abstract  class DisplayController extends Controller
 {
 
+    protected $template = 'index.tpl.php';
     protected function getSlider(){
         $db = new Slider();
         $slider = $db->getSlider();
@@ -109,7 +110,7 @@ abstract  class DisplayController extends Controller
         $menu = $this->getMenu();
         $sidebar = $this->getSidebar();
         $notifications = $notifacation->getNotifications($_SESSION['id']);
-        $this->app->render('index.tpl.php',[
+        $this->app->render($this->template,[
             'app' => $this->app,
             'uri' => $this->uri,
             'menu' => $menu,

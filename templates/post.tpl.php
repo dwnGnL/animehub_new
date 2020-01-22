@@ -154,7 +154,7 @@
             <img src="<?=$val['img']?>">
           </div>
 
-          <div class="video-comment-right <?= isset($val['back_fon'])? 'vip' : ''  ?>" style='background-image:<?=$val['back_fon']?>'>
+          <div class="video-comment-right <?= !empty($val['back_fon'])? 'vip' : ''  ?>" style='background-image:<?=$val['back_fon']?>'>
             <div class="comment-arrow"></div>
             <div class="top-video-comment-item">
               <div class="video-comment-user-name">
