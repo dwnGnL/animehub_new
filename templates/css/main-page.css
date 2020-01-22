@@ -210,7 +210,7 @@
   left: 9px;
   color: #fff;
   transform: translate(-50%);
-  background: gray;
+  background: #6882A1;
   text-align: center;
   width: 35%;
   font-weight: bold;
@@ -228,7 +228,7 @@
   top: 100%;
   border-width: 5px 8px;
   border-style: solid;
-  border-color:#666 #666 transparent transparent;
+  border-color:#6882A1 #6882A1 transparent transparent;
 }
 
 @media screen and (min-width: 1200px) {

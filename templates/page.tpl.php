@@ -9,6 +9,9 @@
             color: #fff !important;
         }
     }
+    .ribbon {
+    left: 17px;
+}
 </style>
 
 
