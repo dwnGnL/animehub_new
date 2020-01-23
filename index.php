@@ -40,12 +40,14 @@ spl_autoload_register('my_autoload');
 
 $app->add(new \Lib\CheckAuthMiddleware( \Lib\AuthClass::getInstance(new \Model\Driver()))
 );
+$app->add(new \Lib\CheckToken());
 $middle = function (){
     $obj = new \Lib\AuthMiddleware(
         \Lib\AclClass::getInstance()
     );
     return $obj->onBeforeDispatch();
 };
+
 
 $app->group('/dashboard', function () use ($app){
 
@@ -182,7 +184,7 @@ $app->get('/registration', function (){
 $app->post('/registration', function (){
     $o = \Controller\Controller::getInstance('regist'); //RegistController
     $o->registration();
-});
+})->name('regist');
 $app->get('/search', function () use ($app) {
     $o = \Controller\Controller::getInstance('page'); //PageController
     $o->search($app->request->get('do'));

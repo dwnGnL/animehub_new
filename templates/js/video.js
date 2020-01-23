@@ -259,7 +259,7 @@ function raiting(type, id) {
     data: ({ "type": type, "id_post": id, "token": $("#token").text() }),
     dataType: "text",
     success: function (response) {
-      response = JSON.parse(response)
+      response = JSON.parse(response);
       switch (response.status) {
         case "1":
 
