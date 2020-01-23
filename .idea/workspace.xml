@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6341c2f9-1102-484a-bdc9-098e620a8c13" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/templates/dashboard/nav.tpl.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/dashboard/sidebar.tpl.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdminController/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/AdminController/AdminController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/dashboard/layout/dashboard.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard/layout/dashboard.tpl.php" afterDir="false" />
     </list>
     <list id="38dd605b-6083-45a6-9f6b-662038e1e815" name="Revert &quot;no message&quot;" comment="Revert &quot;no message&quot;&#10;&#10;This reverts commit 1b2b2056" />
@@ -82,16 +85,16 @@
     <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Web\OSPanel\domains\hub\Controller\Admin" />
-      <recent name="D:\Web\OSPanel\domains\hub\admin\img" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Web\OSPanel\domains\hub\templates\dashboard\layout" />
       <recent name="D:\Web\OSPanel\domains\hub" />
       <recent name="D:\Web\OSPanel\domains\hub\Controller\Admin" />
       <recent name="D:\Web\OSPanel\domains\hub\templates\dashboard" />
       <recent name="D:\Web\OSPanel\domains\hub\admin\start" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Web\OSPanel\domains\hub\Controller\Admin" />
+      <recent name="D:\Web\OSPanel\domains\hub\admin\img" />
     </key>
   </component>
   <component name="ServiceViewManager">
@@ -244,7 +247,7 @@
       <workItem from="1579698924756" duration="132000" />
       <workItem from="1579699382906" duration="2125000" />
       <workItem from="1579717259140" duration="4289000" />
-      <workItem from="1579748288330" duration="365000" />
+      <workItem from="1579748288330" duration="3328000" />
     </task>
     <task id="LOCAL-00001" summary="Merge branch 'master' of https://github.com/dwnGnL/animehub_new&#10;&#10;# Conflicts:&#10;#&#9;Controller/PageController.php">
       <created>1575814085998</created>
@@ -323,7 +326,14 @@
       <option name="project" value="LOCAL" />
       <updated>1579720537156</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Revert &quot;vse&quot;&#10;&#10;This reverts commit 27cc687c">
+      <created>1579748849827</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1579748849827</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -373,14 +383,14 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="158" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1576256283830" />
-    <state x="499" y="166" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1579719466943">
+    <state x="499" y="166" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1579750302978">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="499" y="166" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1579719466943" />
-    <state x="-2" y="0" width="1499" height="824" key="CommitChangelistDialog2" timestamp="1579720532805">
+    <state x="499" y="166" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1579750302978" />
+    <state x="-2" y="0" width="1499" height="824" key="CommitChangelistDialog2" timestamp="1579748848895">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="-2" y="0" width="1499" height="824" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1579720532805" />
+    <state x="-2" y="0" width="1499" height="824" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1579748848895" />
     <state x="126" y="64" width="1228" height="689" key="DiffContextDialog" timestamp="1578286415469">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -401,18 +411,18 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="457" y="212" key="NewPhpClassDialog/0.0.1536.824@0.0.1536.824" timestamp="1579719446204" />
-    <state x="604" y="335" key="NewPhpFileDialog" timestamp="1579687762926">
+    <state x="604" y="335" key="NewPhpFileDialog" timestamp="1579750078833">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="604" y="335" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1579687762926" />
+    <state x="604" y="335" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1579750078833" />
     <state x="594" y="133" key="RollbackChangesDialog" timestamp="1577379106512">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="594" y="133" key="RollbackChangesDialog/0.0.1536.824@0.0.1536.824" timestamp="1577379106512" />
-    <state x="361" y="144" key="Vcs.Push.Dialog.v2" timestamp="1579720552851">
+    <state x="361" y="144" key="Vcs.Push.Dialog.v2" timestamp="1579748858558">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="144" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1579720552851" />
+    <state x="361" y="144" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1579748858558" />
     <state x="93" y="93" width="1350" height="638" key="dock-window-1" timestamp="1576174978101">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
