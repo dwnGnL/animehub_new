@@ -11,11 +11,12 @@
 \Slim\Slim::registerAutoloader();
 
 $app = new \Slim\Slim([
-        'templates.path' => __DIR__.'/templates',
         'debug' => true,
         'cookies.encrypt' => false,
         'cookies.secret_key' => 'Desu',
 ]);
+
+
 
 function my_autoload($className){
     $baseDir = __DIR__;
@@ -49,23 +50,26 @@ $middle = function (){
 $app->group('/dashboard', function () use ($app){
 
     $app->get('/', function () {
-        $o = \Controller\Controller::getInstance('admin', 'AdminController'); //AdminController
+        $o = \Controller\Controller::getInstance('post', 'AdminController'); //AdminController
         $o->index();
     })->name('dashboard');
 
-    $app->get('/slider', function (){
-        $o = \Controller\Controller::getInstance('post','\Admin\\'); //AdminController
-        $o->viewSlider();
-    })->name('slider');
+    $app->group('/slider', function () use ($app){
+        $app->get('/', function (){
+            $o = \Controller\Controller::getInstance('slider','AdminController'); //SliderController
+            $o->index();
+        })->name('slider');
+    });
+
     $app->group('/post', function () use ($app){
 
         $app->get('/', function (){
-            $o = \Controller\Controller::getInstance('post','AdminController'); //AdminController
+            $o = \Controller\Controller::getInstance('post','AdminController'); //PostController
             $o->index();
         })->name('viewPosts');
 
         $app->get('/add', function (){
-            $o = \Controller\Controller::getInstance('post','\AdminController'); //AdminController
+            $o = \Controller\Controller::getInstance('post','\AdminController'); //PostController
             $o->add();
         })->name('addPost');
     });

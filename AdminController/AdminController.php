@@ -8,7 +8,8 @@ use Lib\Helper;
 
 abstract class AdminController extends Controller
 {
-   protected $template = 'dashboard/layout/dashboard.tpl.php';
+
+    protected $template = 'dashboard/layout/dashboard.tpl.php';
 
 
     protected function display()

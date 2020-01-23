@@ -16,10 +16,9 @@ abstract class Controller
     public function __construct()
     {
         $this->app = \Slim\Slim::getInstance();
-
         $this->uri = $this->getUri();
-
         $this->title = 'AnimeHub | ';
+
     }
 
     public function getInstance($prefix, $dir = 'Controller'){
