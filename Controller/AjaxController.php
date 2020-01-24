@@ -19,7 +19,6 @@ class AjaxController extends DisplayController
 {
 
     public function saveVip(){
-        if (isset($_SESSION['auth'])){
                 $vip = new Vip();
                 $id_vip =  $vip->getIdVip($_SESSION['id']);
                 if ($_POST['uved'] == 'false'){
@@ -31,13 +30,10 @@ class AjaxController extends DisplayController
                 $response = 'success';
                 echo json_encode($response);
                 exit();
-
-        }
     }
 
     public function addComment()
     {
-        if (isset($_SESSION['auth'])){
         if (isset($_POST['comment'])){
             $post = $_POST['comment'];
                if (!empty(trim($post['body'])) && !empty(trim($post['id_post'])) ){
@@ -49,27 +45,18 @@ class AjaxController extends DisplayController
                    echo json_encode($response[0]);
                    exit();
             }
-
-        }
-
-    }else{
-            $response = ['status' => '403'];
-            echo json_encode($response);
-            exit();
         }
     }
 
+
     public function saveProfile(){
-        if (isset($_SESSION['auth'])){
                 $user = new User();
                 $user->saveProfile($_POST['age'],$_POST['id_pol'],$_POST['name'],$_POST['city'],$_POST['image'],$_SESSION['id']);
                 $profile = $user->getProfile($_SESSION['id']);
                 echo json_encode($profile);
                 exit();
-        }
     }
     public function rating(){
-        if (isset($_SESSION['auth'])){
                 $rating = new Rating();
                $voted = $rating->getVotedUser($_SESSION['id'],$_POST['id_post']);
                 if (empty($voted)){
@@ -81,10 +68,6 @@ class AjaxController extends DisplayController
                 // Если проголосовал уже
                 echo json_encode(['status' => '0']);
                 exit();
-        }
-        //Если не авторизован
-        echo json_encode(['status' => '403']);
-        exit();
     }
 
     public function searchAjax()
@@ -128,37 +111,24 @@ class AjaxController extends DisplayController
     }
 
     public function addFavPost(){
-        if (isset($_SESSION['auth'])){
-
             $favorite = new Favorite();
           $fav =  $favorite->favoritePost($_POST['id_post'], $_SESSION['id']);
           if (empty($fav)){
                 $favorite->addFavorite($_POST['id_post'], $_SESSION['id']);
                 echo  json_encode(['status' => '200']);
           }
-
-
-        }else{
-            echo json_encode(['status' => '501']);
-        }
     }
 
     public function deleteFavPost(){
-        if (isset($_SESSION['auth'])){
                 $favorite = new Favorite();
                 $fav =  $favorite->favoritePost($_POST['id_post'], $_SESSION['id']);
                 if (!empty($fav)){
                     $favorite->deleteFavorite($_POST['id_post'], $_SESSION['id']);
                     echo  json_encode(['status' => '200']);
                 }
-
-        }else{
-            echo json_encode(['status' => '501']);
-        }
     }
 
     public function deleteNotification(){
-        if (isset($_SESSION['auth'])){
                 $not = new Notification();
                     if ($_POST['type'] == 1){
                         $not->deleteNotification($_SESSION['id'],$_POST['id_not']);
@@ -167,19 +137,11 @@ class AjaxController extends DisplayController
                         $not->deleteNotifications($_SESSION['id']);
                         echo json_encode(['status' => 200]);
                     }
-        }else{
-            echo json_encode(['status' => '501']);
-        }
     }
     public function updateNot()
     {
-        if (isset($_SESSION['auth'])) {
                 $not = new Notification();
                 $not->updateViewNotification($_POST['id_not'], $_SESSION['id']);
                 echo json_encode(['status' => 200]);
-
-        } else {
-            echo json_encode(['status' => '501']);
-        }
     }
 }

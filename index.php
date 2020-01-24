@@ -8,6 +8,7 @@
   require 'config.php';
 
 
+
 \Slim\Slim::registerAutoloader();
 
 $app = new \Slim\Slim([
@@ -38,9 +39,9 @@ function my_autoload($className){
 
 spl_autoload_register('my_autoload');
 
-$app->add(new \Lib\CheckAuthMiddleware( \Lib\AuthClass::getInstance(new \Model\Driver()))
+$app->add(new \Lib\CheckAuthMiddleware( \Lib\AuthClass::getInstance(new \Model\Driver()), $exception)
 );
-$app->add(new \Lib\CheckToken());
+$app->add(new \Lib\CheckToken($exception));
 $middle = function (){
     $obj = new \Lib\AuthMiddleware(
         \Lib\AclClass::getInstance()

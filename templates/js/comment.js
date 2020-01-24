@@ -39,12 +39,10 @@ $("#sendComment").click(function (e) {
   $.ajax({
     type: "post",
     url: "/ajax/add/comment",
-    data: ({ "comment": { "token": $("#token").text(), "body": text, "id_post": id_post } }),
+    data: ({ "comment": {  "body": text, "id_post": id_post }, "token": $("#token").text() }),
     dataType: "text",
     success: function (response) {
-
       res = JSON.parse(response);
-
       if (res.status == 403) {
         showMessage("Ошибка", 'Авторизуйтесь пожалуйста', "error-message")
         alert('Авторизуйтесь пожалуйста');

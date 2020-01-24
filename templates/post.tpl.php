@@ -41,7 +41,7 @@
           <span>Порядок просмотра:</span>
           <ol class="review-order-list">
             <?php foreach ($orderPosts as $value): ?>
-              <li><a href="<?=$helper::renderUrl($value['id'], $value['alias'])?>"><?=$value['title'].' '.$value['tv'].' '.$value['god']?></a></li>
+              <li><a href="<?=$uri.$value['type']?>/<?=$helper::renderUrl($value['id'], $value['alias'])?>"><?=$value['title'].' '.$value['tv'].' '.$value['god']?></a></li>
             <?php endforeach; ?>
           </ol>
         </li>

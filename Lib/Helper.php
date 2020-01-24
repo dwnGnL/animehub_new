@@ -40,7 +40,7 @@ class  Helper
         return $result;
     }
 
-    public static function getWatch ($dateWithBase, $number = 5){
+    public static function getWatch ($dateWithBase, $number = DATE){
         $offset = 3600;
         $offset *= $number;
         $result = $dateWithBase + $offset;

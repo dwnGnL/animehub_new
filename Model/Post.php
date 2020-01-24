@@ -155,9 +155,10 @@ class Post extends Model
     }
 
     public function getOrderPosts($title){
-        $sql = 'SELECT lite_post.id, lite_post.alias, lite_post.title, lite_tv.title AS tv, lite_god_wip.title AS god
-                FROM lite_post, lite_tv, lite_god_wip
+        $sql = 'SELECT lite_post.id, lite_post.alias, lite_post.title, lite_tv.title AS tv, lite_god_wip.title AS god, lite_type_post.title_type_post AS type
+                FROM lite_post, lite_tv, lite_god_wip, lite_type_post
                 WHERE lite_post.id_tv = lite_tv.id
+                AND lite_type_post.id_type_post = lite_post.id_type_post
                 AND lite_post.id_god_wip = lite_god_wip.id
                 AND lite_post.title = :title
                 ORDER BY lite_god_wip.title ASC';
