@@ -29,7 +29,7 @@ favorite.onclick = () => {
       success: function (response) {
         response = JSON.parse(response);
         switch (response.status) {
-          case "501":
+          case "401":
             showMessage("Ошибка", "авторизуйтесь прежде чем добавлять в закладки", error)
             break;
           case "200":
@@ -51,7 +51,7 @@ favorite.onclick = () => {
       success: function (response) {
         response = JSON.parse(response);
         switch (response.status) {
-          case "501":
+          case "401":
             showMessage("Ошибка", "авторизуйтесь прежде чем добавлять в закладки", error)
             break;
           case "200":

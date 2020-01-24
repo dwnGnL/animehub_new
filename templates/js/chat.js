@@ -64,7 +64,7 @@ $(document).ready(function () {
     url: "/ajax/check/auth",
     success: function (response) {
       response = JSON.parse(response);
-      if (response.status == 501) {
+      if (response.status == 401) {
         localStorage.removeItem("user")
       }
     }

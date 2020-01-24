@@ -36,7 +36,7 @@ questionnairePanelItem.forEach((elem, index) => {
         if (response.status=="500") {
           showMessage("Error",'Вы уже голосовали',error)
           return
-        } else if (response.status=="501"){
+        } else if (response.status=="401"){
           showMessage("Error",'Требуется авторизация',error)
           return
         } else {
