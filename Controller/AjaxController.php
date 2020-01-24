@@ -91,15 +91,12 @@ class AjaxController extends DisplayController
     public function addVoted(){
         $error = [];
         $voteDB = new Vote();
-        if (isset($_SESSION['auth'])){
             $voted = $voteDB->votedUserQA($_SESSION['id'], $_POST['id_quest']);
             if (!empty($voted)){
                 // если уже голосовал
                 $error = ['status' => '500'];
             }
-        }else{
-            $error = ['status' => '501'];
-        }
+
         if (empty($error)){
             $voteDB->addVote($_SESSION['id'], $_POST['id_answer']);
             // если успешно проголосовал

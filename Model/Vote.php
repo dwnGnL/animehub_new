@@ -15,7 +15,7 @@ class Vote extends Model
         return $this->driver->column($sql,$params);
     }
     public function votedUserQA($id_user,$id_questions){
-        $sql = 'SELECT lite_voting.id_voting FROM lite_voting, lite_answers WHERE lite_voting.id_answer = lite_answers.id_answers AND lite_answers.id_questions = :id_quest AND lite_answers.id_user = :id_user';
+        $sql = 'SELECT lite_voting.id_voting FROM lite_voting, lite_answers WHERE lite_voting.id_answer = lite_answers.id_answers AND lite_answers.id_questions = :id_quest AND lite_voting.id_user = :id_user';
         $params = [
             'id_quest' =>$id_questions,
             'id_user' => $id_user
