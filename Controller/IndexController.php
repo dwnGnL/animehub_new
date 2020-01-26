@@ -8,6 +8,7 @@ use Model\Anime;
 use Model\Cat;
 use Model\Post;
 use Model\Rating;
+use function Composer\Autoload\includeFile;
 
 defined('_Sdef') or exit();
 

@@ -53,7 +53,7 @@ $middle = function (){
 $app->group('/dashboard', function () use ($app){
 
     $app->get('/', function () {
-        $o = \Controller\Controller::getInstance('post', 'AdminController'); //AdminController
+        $o = \Controller\Controller::getInstance('parser', 'AdminController'); //AdminController
         $o->index();
     })->name('dashboard');
 
