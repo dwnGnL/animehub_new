@@ -10,6 +10,18 @@ label {
   cursor: pointer;
 }
 
+.container-fluid label:nth-child(1) {
+  justify-content: flex-start !important;
+}
+
+select {
+  padding: 5px;
+  border-radius: 5px;
+  outline: none;
+  color: #858796;
+  border: 1px solid #E3E6F0;
+}
+
 
 label span {
   width: 25%;
