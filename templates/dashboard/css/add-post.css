@@ -1,0 +1,55 @@
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+label span {
+  width: 20%;
+  color: #858796;
+}
+
+label input, label textarea {
+  width: 80%;
+  padding: 5px;
+  border-radius: 5px;
+  outline: none;
+  color: #858796;
+  border: 1px solid #E3E6F0;
+  transition: .3s;
+}
+
+label textarea {
+  resize: vertical;
+  height: 70px;
+  min-height: 70px;
+  max-height: 150px;
+}
+
+input[type="button"] {
+  width: 120px;
+  padding: 5px 10px;
+  border: none;
+  color: #fff;
+  background: #4E73DF;
+  margin-bottom: 20px;
+  /* box-shadow: 0 0 0 0px red; */
+}
+
+input:focus, textarea:focus {
+  box-shadow: 0 0 0 3px #D3DCF7;
+}
+
+
+input[type="button"]:hover {
+  background: #2E59D9;
+}
+
+input[type="button"]:active {
+  opacity: .5;
+}

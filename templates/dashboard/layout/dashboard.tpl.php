@@ -19,6 +19,7 @@
   <!-- Custom styles for this template-->
   <link href="<?=$uri?>/templates/dashboard/css/sb-admin-2.min.css" rel="stylesheet">
   <link rel="stylesheet" href="<?=$uri?>/templates/dashboard/css/table.css">
+  <link rel="stylesheet" href="<?=$uri?>/templates/dashboard/css/add-post.css">
 
 </head>
 
