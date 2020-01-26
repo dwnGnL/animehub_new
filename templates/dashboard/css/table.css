@@ -24,7 +24,6 @@
   box-sizing: border-box;
   color: #858796;
   outline: none;
-  /* box-shadow: 0 0 0 0px red; */
   transition: .3s;
 }
 
@@ -73,9 +72,19 @@ th.date {
   width: 14% !important;
 }
 
+th.title-slider {
+  max-width: 35% !important;
+}
+
 td {
   text-align: center;
 }
+
+td.title-slider {
+  width: 350px !important;
+  max-width: 350px !important;
+}
+
 
 .button-place-header {
   width: 145px !important;
