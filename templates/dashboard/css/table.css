@@ -94,6 +94,7 @@ td.title-slider {
   position: relative;
 }
 
+
 .button-table-data {
   position: absolute;
   border-radius: 5px;
@@ -104,15 +105,29 @@ td.title-slider {
 }
 
 .edit-table-data {
-  left: 15px;
+  left: 0px;
   top: 50%;
   background: #009E27;
   transform: translateY(-50%);
 }
 
 .remove-table-data {
-  right: 15px;
+  right: 0px;
   top: 50%;
+  background: #D81C27;
+  transform: translateY(-50%);
+}
+
+.save-table-data {
+  left: 0px;
+  top: 0%;
+  background: #009E27;
+  transform: translateY(-50%);
+}
+
+.cancel-table-data {
+  right: 0px;
+  top: 5%;
   background: #D81C27;
   transform: translateY(-50%);
 }
@@ -173,4 +188,42 @@ td.title-slider {
 .button-toggle-page:hover {
   background-color: #7E95AF;
   color: #fff;
+}
+
+
+input.change-data {
+  display: none;
+  outline: none;
+  width: 100%;
+  color: #858796;
+  border: 1px solid #E3E6F0;
+  border-radius: 5px;
+  padding: 5px;
+  transition: box-shadow .3s;
+}
+
+tr.active-change input.change-data {
+  display: block;
+}
+
+tr.active-change input.change-data {
+  display: block;
+}
+
+tr.active-change span.data-block {
+  display: none;
+}
+
+
+
+.edit-buttons {
+  display: none;
+}
+
+tr.active-change .default-buttons {
+  display: none;
+}
+
+tr.active-change .edit-buttons {
+  display: block;
 }

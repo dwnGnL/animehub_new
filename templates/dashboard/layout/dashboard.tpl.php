@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -20,6 +21,7 @@
   <link href="<?=$uri?>/templates/dashboard/css/sb-admin-2.min.css" rel="stylesheet">
   <link rel="stylesheet" href="<?=$uri?>/templates/dashboard/css/table.css">
   <link rel="stylesheet" href="<?=$uri?>/templates/dashboard/css/add-post.css">
+  <link rel="stylesheet" href="<?=$uri?>/templates/dashboard/css/slider.css">
 
 </head>
 
@@ -98,8 +100,7 @@
 
   <!-- Custom scripts for all pages-->
   <script src="<?=$uri?>/templates/dashboard/js/sb-admin-2.min.js"></script>
-
-
+  <script src="<?=$uri?>/templates/dashboard/js/dash.js"></script>
 
 </body>
 

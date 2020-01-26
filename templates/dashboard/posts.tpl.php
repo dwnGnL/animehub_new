@@ -1,4 +1,5 @@
 <div class="container-fluid">
+  <h1 class="h3 mb-4 text-gray-800">Страница вывода всех постов</h1>
 
   <div class="search-table-block">
     <div class="search-block">
@@ -21,14 +22,21 @@
 
     <tbody>
       <tr>
-        <td>asdfasdfjdfsdfsdfsdfkadsl;kgjdfngjklsdfnbgkljsnof;asdfasdfjdfsdfsdfsdfkadsl;kgjdfngjklsdfnbgkljsnof;asdfasdfjdfsdfsdfsdfkadsl;kgjdfngjklsdfnbgkljsnof;</td>
+        <td>asdfasdfjdfsdfsdfsdfkadsl</td>
         <td>225</td>
         <td>10</td>
         <td>1</td>
         <td>25.01.2020 25:18</td>
-        <td class="button-place">
-          <span class="edit-table-data button-table-data">Edit</span>
-          <span class="remove-table-data button-table-data">Remove</span>
+        <td>
+          <div class="button-place default-buttons active">
+            <span class="edit-table-data button-table-data">Edit</span>
+            <span class="remove-table-data button-table-data">Remove</span>
+          </div>
+
+          <div class="button-place edit-buttons">
+            <span class="save-table-data button-table-data">Save</span>
+            <span class="cancel-table-data button-table-data">Cancel</span>
+          </div>
         </td>
       </tr>
     </tbody>
@@ -46,6 +54,4 @@
       <div class="next-table-page button-toggle-page">Next</div>
     </div>
   </div>
-
-<!-- <h1 class="h3 mb-4 text-gray-800">Страница вывода всех постов</h1> -->
 </div>

@@ -1,0 +1,30 @@
+.container-fluid table {
+  margin: 20px 0;
+}
+
+div.form {
+}
+
+form.slider-form {
+  display: flex;
+  flex-direction: column;
+}
+
+form.slider-form input {
+  margin-bottom: 10px;
+  color: #858796;
+  border: 1px solid #E3E6F0;
+  border-radius: 5px;
+  outline: none;
+  padding: 5px;
+}
+
+form.slider-form input[type="button"] {
+  color: #fff;
+}
+
+form.slider-form input[type="file"] {
+  width: 250px;
+  border: none;
+  box-shadow: none !important;
+}

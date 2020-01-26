@@ -1,4 +1,6 @@
 <div class="container-fluid">
+  <h1 class="h3 mb-4 text-gray-800">Добавление постов</h1>
+
   <form class="">
     <label><span class="label-item">Название:</span><input type="text" placeholder="Название"></label>
     <label><span class="label-item">Альтернативное название:</span><input type="text" placeholder="Альтернативное название"></label>
