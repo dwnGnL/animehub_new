@@ -53,7 +53,7 @@ $middle = function (){
 $app->group('/dashboard', function () use ($app){
 
     $app->get('/', function () {
-        $o = \Controller\Controller::getInstance('parser', 'AdminController'); //AdminController
+        $o = \Controller\Controller::getInstance('parser', 'AdminController'); //ParserController
         $o->index();
     })->name('dashboard');
 
@@ -66,18 +66,24 @@ $app->group('/dashboard', function () use ($app){
 
     $app->group('/post', function () use ($app){
 
-        $app->get('/', function (){
+        $app->get('(/:page)', function ($page = false){
             $o = \Controller\Controller::getInstance('post','AdminController'); //PostController
-            $o->index();
-        })->name('viewPosts');
+            $o->index($page);
+        })->name('viewPosts')->conditions(['page' => '\d+']);
 
         $app->get('/add', function (){
-            $o = \Controller\Controller::getInstance('post','\AdminController'); //PostController
+            $o = \Controller\Controller::getInstance('post','AdminController'); //PostController
             $o->add();
         })->name('addPost');
+
+        $app->get('/edit(/:post)', function ($post){
+            $o = \Controller\Controller::getInstance('post','AdminController'); //PostController
+            $o->eidt();
+        })->name('addPost')->conditions(['post' => '\d+']);
     });
 
 });
+
 $app->get('/ws/test', function () use ($app){
     $o = \Controller\Controller::getInstance('page');
     $o->chat();
@@ -113,6 +119,10 @@ $app->group('/ajax', function () use ($app){
             $o = \Controller\Controller::getInstance('chat'); //ChatController
             $o->onMessage();
         });
+    });
+    $app->post('/search/posts', function (){
+        $o = \Controller\Controller::getInstance('post', 'AdminController'); //PostController
+        $o->searchAjax();
     });
     $app->post('/add/vote', function (){
         $o = \Controller\Controller::getInstance('ajax'); //AjaxController

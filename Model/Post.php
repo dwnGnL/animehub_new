@@ -7,6 +7,66 @@ namespace Model;
 class Post extends Model
 {
 
+    public function getDisLike($id_post){
+        $sql = 'SELECT COUNT(lite_rating.id_post) AS dis FROM lite_rating WHERE lite_rating.type = 0 AND lite_rating.id_post = :id';
+        $params = [
+            'id' => $id_post
+        ];
+        return $this->driver->column($sql,$params);
+    }
+
+    public function searchPostsList($title){
+        $sql = 'SELECT lite_type_post.title_type_post AS type, 
+                    (SELECT COUNT(lite_comment.id_post) FROM lite_comment 
+                    WHERE lite_comment.id_post = lite_post.id) AS comment,
+                    (SELECT count(lite_rating.id_post) FROM lite_rating 
+                    WHERE lite_rating.id_post = lite_post.id AND lite_rating.type = 1 ) AS postLike, 
+                    lite_post.id, lite_post.title, lite_post.date, lite_tv.title AS tv, lite_views.views, lite_post.alias
+                    FROM lite_views, lite_post, lite_tv, lite_type_post
+                    WHERE lite_post.id = lite_views.id_post
+                    AND lite_type_post.id_type_post = lite_post.id_type_post
+                    AND lite_post.id_tv = lite_tv.id
+                    AND lite_post.title LIKE :title
+                    ORDER BY lite_post.date DESC';
+        $params = [
+            'title' => '%'.$title.'%'
+        ];
+      return  $this->driver->row($sql, $params);
+    }
+    public function getPostsList($page,$route){
+        $fields = 'lite_type_post.title_type_post AS type, (SELECT COUNT(lite_comment.id_post) FROM lite_comment 
+                    WHERE lite_comment.id_post = lite_post.id) AS comment,
+                    (SELECT count(lite_rating.id_post) FROM lite_rating 
+                    WHERE lite_rating.id_post = lite_post.id AND lite_rating.type = :like ) AS postLike, 
+                    lite_post.id, lite_post.title, lite_post.date, lite_tv.title AS tv, lite_views.views';
+
+        $from = 'lite_views, lite_post, lite_tv, lite_type_post';
+
+        $where = 'lite_post.id = lite_views.id_post
+                    AND lite_post.id_tv = lite_tv.id
+                    AND lite_type_post.id_type_post = lite_post.id_type_post
+                    ORDER BY lite_post.date DESC';
+        $params = [
+            'like' => 1,
+        ];
+
+        $pager = new \Lib\Pager(
+            $fields,
+            $from,
+            $where,
+            $page,
+            $params,
+            QUANTITY,
+            QUANTITY_LINKS,
+            $this->driver
+        );
+
+        $result = [];
+        $result['items'] = $pager->get_posts();
+        $result['navigation'] = $pager->render($route);
+        return $result;
+
+    }
     public function getItems($page,$route, $alias, $url = false){
 
         if ($url != false){

@@ -4,7 +4,7 @@
   <div class="search-table-block">
     <div class="search-block">
       <span>Search:</span>
-      <input type="text" name="">
+      <input type="search" name="" id="search">
     </div>
   </div>
 
@@ -21,37 +21,17 @@
     </thead>
 
     <tbody>
-      <tr>
-        <td>asdfasdfjdfsdfsdfsdfkadsl</td>
-        <td>225</td>
-        <td>10</td>
-        <td>1</td>
-        <td>25.01.2020 25:18</td>
-        <td>
-          <div class="button-place default-buttons active">
-            <span class="edit-table-data button-table-data">Edit</span>
-            <span class="remove-table-data button-table-data">Remove</span>
-          </div>
-
-          <div class="button-place edit-buttons">
-            <span class="save-table-data button-table-data">Save</span>
-            <span class="cancel-table-data button-table-data">Cancel</span>
-          </div>
-        </td>
-      </tr>
+    <?php foreach ($posts['items'] as $post) :?>
+        <?php require 'table.tpl.php'?>
+    <?php endforeach; ?>
     </tbody>
   </table>
 
   <div class="table-pages-place">
     <div class="table-pages">
-      <div class="prev-table-page button-toggle-page">Previous</div>
-      <div class="page-num active">1</div>
-      <div class="page-num">2</div>
-      <div class="page-num">3</div>
-      <div class="page-num">4</div>
-      <div class="page-num">5</div>
-      <div class="page-num">6</div>
-      <div class="next-table-page button-toggle-page">Next</div>
+     <?=$posts['navigation']?>
     </div>
   </div>
 </div>
+<script src="<?=$uri?>/templates/dashboard/vendor/jquery/jquery.min.js"></script>
+<script src="<?=$uri?>/templates/dashboard/js/postsD.js"></script>

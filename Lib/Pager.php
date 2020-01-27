@@ -19,6 +19,7 @@ class Pager{
                                 $number_link,
                                 $driver
 
+
                                  )
     {
         $this->page = $page;
@@ -62,9 +63,9 @@ class Pager{
        $start = ($this->page - 1) * $this->post_number;
 
        $sql = 'SELECT '.$this->fields.' FROM '.$this->tablename.' WHERE '.$this->where.' ';
-
-       $sql .= 'LIMIT '.$start.', '.$this->post_number;
-
+       $sql .= 'LIMIT :start, :post_number';
+        $this->params['start'] = $start;
+        $this->params['post_number'] = $this->post_number;
        if ($this->driver instanceof \Model\Driver){
            $result = $this->driver->row($sql,$this->params);
        }
