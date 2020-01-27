@@ -2,15 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6341c2f9-1102-484a-bdc9-098e620a8c13" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/dashboard/js/postsD.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/dashboard/table.tpl.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/dashboard/editPost.tpl.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AdminController/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/AdminController/PostController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/Pager.php" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/Pager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/Model/Post.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dashboard/layout/dashboard.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard/layout/dashboard.tpl.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dashboard/posts.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard/posts.tpl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/dashboard/table.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard/table.tpl.php" afterDir="false" />
     </list>
     <list id="38dd605b-6083-45a6-9f6b-662038e1e815" name="Revert &quot;no message&quot;" comment="Revert &quot;no message&quot;&#10;&#10;This reverts commit 1b2b2056" />
     <list id="26597201-c17a-4d66-b2be-a470cf0d8dee" name="Revert &quot;smiles&quot;" comment="Revert &quot;smiles&quot;&#10;&#10;This reverts commit a2f512a2" />
@@ -83,22 +79,23 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="C:/web/my-app" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/dashboard" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Web\OSPanel\domains\hub\templates\dashboard" />
+      <recent name="D:\Web\OSPanel\domains\hub\Controller\Admin" />
+      <recent name="D:\Web\OSPanel\domains\hub\admin\img" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Web\OSPanel\domains\hub\templates\dashboard\js" />
       <recent name="D:\Web\OSPanel\domains\hub\templates\dashboard" />
       <recent name="D:\Web\OSPanel\domains\hub\templates\dashboard\layout" />
       <recent name="D:\Web\OSPanel\domains\hub" />
       <recent name="D:\Web\OSPanel\domains\hub\Controller\Admin" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Web\OSPanel\domains\hub\Controller\Admin" />
-      <recent name="D:\Web\OSPanel\domains\hub\admin\img" />
     </key>
   </component>
   <component name="ServiceViewManager">
@@ -265,7 +262,7 @@
       <workItem from="1580044280936" duration="2162000" />
       <workItem from="1580052914448" duration="4851000" />
       <workItem from="1580094858927" duration="10489000" />
-      <workItem from="1580128941876" duration="446000" />
+      <workItem from="1580128941876" duration="2530000" />
     </task>
     <task id="LOCAL-00001" summary="Merge branch 'master' of https://github.com/dwnGnL/animehub_new&#10;&#10;# Conflicts:&#10;#&#9;Controller/PageController.php">
       <created>1575814085998</created>
@@ -393,7 +390,14 @@
       <option name="project" value="LOCAL" />
       <updated>1580037872132</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Revert &quot;vse&quot;&#10;&#10;This reverts commit 27cc687c">
+      <created>1580129414507</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1580129414507</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -447,10 +451,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="166" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1579750302978" />
-    <state x="-2" y="0" width="1499" height="824" key="CommitChangelistDialog2" timestamp="1580037871144">
+    <state x="-2" y="0" width="1499" height="824" key="CommitChangelistDialog2" timestamp="1580129413543">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="-2" y="0" width="1499" height="824" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1580037871144" />
+    <state x="-2" y="0" width="1499" height="824" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1580129413543" />
     <state x="126" y="64" width="1228" height="689" key="DiffContextDialog" timestamp="1578286415469">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -479,10 +483,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="594" y="133" key="RollbackChangesDialog/0.0.1536.824@0.0.1536.824" timestamp="1577379106512" />
-    <state x="361" y="144" key="Vcs.Push.Dialog.v2" timestamp="1580037877971">
+    <state x="361" y="144" key="Vcs.Push.Dialog.v2" timestamp="1580129420455">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="144" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1580037877971" />
+    <state x="361" y="144" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1580129420455" />
     <state x="93" y="93" width="1350" height="638" key="dock-window-1" timestamp="1576174978101">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

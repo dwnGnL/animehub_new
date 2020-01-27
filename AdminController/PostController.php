@@ -57,10 +57,13 @@ class PostController extends AdminController
 
     }
 
-    public function edit($post){
+    public function edit($params){
         $postDB = new Post();
-        $post = $postDB->getPost();
-        $this->index = $this->app->view()->fetch('dashboard/addPost.tpl.php');
+        $post = $postDB->getPost($params['post'], $params['alias']);
+        $post['type'] = $params['alias'];
+        $this->index = $this->app->view()->fetch('dashboard/editPost.tpl.php', [
+            'post' => $post
+        ]);
         $this->display();
     }
 }

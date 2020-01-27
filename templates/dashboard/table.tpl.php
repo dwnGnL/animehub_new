@@ -6,7 +6,7 @@
     <td><?=$helper::getWatch($post['date'])?></td>
     <td>
         <div class="button-place default-buttons active">
-            <span class="edit-table-data button-table-data">Edit</span>
+            <span class="edit-table-data button-table-data"><a href="<?=$uri.'dashboard/post/edit/'.$post['type'].'/'.$post['id']?>" >Edit</a></span>
             <span class="remove-table-data button-table-data">Remove</span>
         </div>
 

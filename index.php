@@ -76,10 +76,10 @@ $app->group('/dashboard', function () use ($app){
             $o->add();
         })->name('addPost');
 
-        $app->get('/edit(/:post)', function ($post){
+        $app->get('/edit/:alias(/:post)', function ($alias, $post){
             $o = \Controller\Controller::getInstance('post','AdminController'); //PostController
-            $o->eidt();
-        })->name('addPost')->conditions(['post' => '\d+']);
+            $o->edit(['alias' => $alias, 'post' => $post]);
+        })->name('editPost')->conditions(['post' => '\d+']);
     });
 
 });
