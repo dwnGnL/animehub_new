@@ -22,10 +22,22 @@ select {
   border: 1px solid #E3E6F0;
 }
 
-
+.chosen-container{
+  width: 75% !important;
+  padding: 5px;
+  border-radius: 5px;
+  outline: none;
+  color:#858796;
+  border: 1px solid#E3E6F0;
+  transition: .3s;
+}
 label span {
   width: 25%;
   color: #858796;
+}
+
+.filter-select{
+  padding-left: 25%;
 }
 
 label input, label textarea {

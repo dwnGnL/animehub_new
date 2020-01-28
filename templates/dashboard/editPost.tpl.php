@@ -15,6 +15,11 @@
     <label><span class="label-item">Сезон:</span><input type="text" placeholder="Сезон" value="<?=$post['tv']?>"></label>
     <label><span class="label-item">Картинка:</span><input type="text" placeholder="Картинка" value="<?=$post['image']?>" ></label>
     <label><span class="label-item">Жанр:</span><input type="text" placeholder="Жанр" ></label>
+    <div>
+      <div>
+        <span>dsadsa</span>
+      </div>
+    </div>
     <label><span class="label-item">Год выпуска:</span><input type="text" placeholder="Год выпуска" value="<?=$post['god']?>" ></label>
     <label><span class="label-item">Описание:</span><textarea placeholder="Описание"  ><?=$post['body']?></textarea></label>
 

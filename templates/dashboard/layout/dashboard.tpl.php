@@ -101,7 +101,9 @@
   <!-- Custom scripts for all pages-->
   <script src="<?=$uri?>/templates/dashboard/js/sb-admin-2.min.js"></script>
   <script src="<?=$uri?>/templates/dashboard/js/dash.js"></script>
-
+  <script src="<?=$uri?>/templates/dashboard/js/chosen.jquery.js"></script>
+<script src="<?=$uri?>/templates/dashboard/js/prism.js" type="text/javascript" charset="utf-8"></script>
+  <script src="<?=$uri?>/templates/dashboard/js/init.js" type="text/javascript" charset="utf-8"></script>
 </body>
 
 </html>
