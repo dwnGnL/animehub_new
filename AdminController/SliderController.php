@@ -10,9 +10,15 @@ use Model\Slider;
 
 class SliderController extends AdminController
 {
+    protected $sliderDB;
+    public function __construct()
+    {
+        $this->sliderDB = new Slider();
+        parent::__construct();
+    }
+
     public function index(){
-        $sliderDB = new Slider();
-        $sliders = $sliderDB->getSliderForDashboard();
+        $sliders = $this->sliderDB->getSliderForDashboard();
         $this->index = $this->app->view()->fetch('dashboard/slider.tpl.php', [
             'sliders' => $sliders,
             'helper' => Helper::getInstance(),
@@ -21,11 +27,10 @@ class SliderController extends AdminController
         $this->display();
     }
     public function edit(){
-        $sliderDB = new Slider();
         $postBD = new Post();
         $postID = $postBD->getPostWithTitleAndTv($_POST['title'], $_POST['tv']);
         if ($postID){
-            $sliderDB->updateSlide($postID['id'], $_POST['img'], $_POST['id_slider']);
+            $this->sliderDB->updateSlide($postID['id'], $_POST['img'], $_POST['id_slider']);
             echo  json_encode(['status' => 200]);
         }else{
             echo  json_encode(['status' => 500]);
@@ -33,17 +38,29 @@ class SliderController extends AdminController
     }
 
     public function add(){
-        $sliderDB = new Slider();
         $postBD = new Post();
         $postID = $postBD->getPostWithTitleAndTv($_POST['title'], $_POST['tv']);
         if ($postID){
-            $sliderDB->addSlide($postID['id'], $_POST['img']);
-            echo  json_encode(['status' => 200]);
+            $this->sliderDB->addSlide($postID['id'], $_POST['img']);
+            $slide = $this->sliderDB->getSliderForDashboard('ORDER BY lite_slider.id DESC LIMIT 1');
+            $result = $this->app->view()->fetch('dashboard/list_slide.tpl.php',[
+                'slider' => $slide[0],
+                'helper' => Helper::getInstance(),
+            ]);
+            echo  json_encode(['status' => 200, 'html' => $result]);
         }else{
             echo  json_encode(['status' => 500]);
         }
     }
 
+    public function delete(){
+        if ($this->sliderDB->deleteSlide($_POST['id_slider'])){
+            echo  json_encode(['status' => 200]);
+        }else{
+            echo  json_encode(['status' => 500]);
+        }
+        exit();
+    }
     protected function display()
     {
         $this->main = $this->index;

@@ -48,4 +48,15 @@ class Anime extends Model
      return  $this->driver->column($sql,$params);
     }
 
+    public function delete($id_post){
+        $sql = 'DELETE FROM lite_anime WHERE lite_anime.id_title = 
+                (SELECT lite_title.id FROM lite_title, lite_post 
+                WHERE lite_title.title = lite_post.title AND lite_post.id = :id_post)
+                AND lite_anime.id_tv = (SELECT lite_post.id_tv FROM lite_post WHERE lite_post.id = :id_post)';
+        $params = [
+            'id_post' => $id_post,
+        ];
+        return $this->driver->query($sql, $params);
+    }
+
 }

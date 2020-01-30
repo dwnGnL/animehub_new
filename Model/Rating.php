@@ -34,5 +34,13 @@ class Rating extends Model
         return  $this->driver->column($sql, $params);
     }
 
+    public function deleteRatingPost($id_post){
+        $sql = 'DELETE FROM lite_rating WHERE id_post = :id_post';
+        $params = [
+            'id_post' => $id_post
+        ];
+        return $this->driver->query($sql,$params);
+    }
+
 
 }

@@ -72,6 +72,11 @@ $app->group('/dashboard', function () use ($app){
             $o = \Controller\Controller::getInstance('slider','AdminController'); //SliderController
             $o->add();
         })->name('addSlider');
+
+        $app->post('/delete', function (){
+            $o = \Controller\Controller::getInstance('slider','AdminController'); //SliderController
+            $o->delete();
+        })->name('deleteSlider');
     });
 
     $app->group('/post', function () use ($app){
@@ -85,6 +90,11 @@ $app->group('/dashboard', function () use ($app){
             $o = \Controller\Controller::getInstance('post','AdminController'); //PostController
             $o->add();
         })->name('addPost');
+
+        $app->post('/delete', function (){
+            $o = \Controller\Controller::getInstance('post','AdminController'); //PostController
+            $o->delete();
+        })->name('deletePost');
 
         $app->get('/edit/:alias(/:post)', function ($alias, $post){
             $o = \Controller\Controller::getInstance('post','AdminController'); //PostController

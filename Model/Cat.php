@@ -40,6 +40,13 @@ class Cat extends Model
         ];
         return  $this->driver->row($sql,$params);
     }
+    public function deleteCatPost($id_post){
+        $sql = 'DELETE FROM lite_cat_post WHERE id_post = :id_post';
+        $params = [
+            'id_post' => $id_post
+        ];
+        return $this->driver->query($sql, $params);
+    }
 
 
 }

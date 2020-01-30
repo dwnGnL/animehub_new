@@ -9,7 +9,7 @@ let cancelDataButton = document.querySelectorAll('.cancel-table-data');
 
 let tableRowData = document.querySelectorAll('.table-row-data');
 
-let title = document.querySelectorAll('.title-data');
+let title = document.querySelectorAll('.inner-title');
 let imgSrc = document.querySelectorAll('.img-src-data');
 let season = document.querySelectorAll('.season-data');
 
@@ -23,9 +23,9 @@ editDataButton.forEach((elem, index) => {
   elem.onclick = () => {
     tableRowData[index].classList.add('active-change');
 
-    changeDataInputTitle[index].value = title[index].innerHTML;
-    changeDataInputIMG[index].value = imgSrc[index].innerHTML;
-    changeDataInputSeason[index].value = season[index].innerHTML;
+    changeDataInputTitle[index].value = title[index].textContent;
+    changeDataInputIMG[index].value = imgSrc[index].textContent;
+    changeDataInputSeason[index].value = season[index].textContent;
   };
 });
 

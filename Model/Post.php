@@ -317,4 +317,15 @@ class Post extends Model
         ];
         return $this->driver->column($sql,$params);
     }
+
+    public function deletePost($id){
+        $sql = 'DELETE FROM lite_post WHERE id = :id';
+        $params = [
+            'id' => $id
+        ];
+        return $this->driver->query($sql, $params);
+    }
+
+
+
 }

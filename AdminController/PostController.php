@@ -5,18 +5,28 @@ namespace AdminController;
 
 
 use Lib\Helper;
+use Model\Anime;
 use Model\Cat;
+use Model\Comment;
 use Model\Post;
 use Model\PostType;
+use Model\Rating;
+use Model\View;
 
 class PostController extends AdminController
 {
+    protected $postDB;
+    public function __construct()
+    {
+        $this->postDB = new Post();
+        parent::__construct();
+    }
+
     public function index($page){
-        $postBD = new Post();
         $page = $page ? $page : 1;
-        $posts = $postBD->getPostsList($page,'/dashboard/post');
+        $posts = $this->postDB->getPostsList($page,'/dashboard/post');
         foreach ($posts['items'] as $key => $val){
-            $disLike = $postBD->getDisLike($posts['items'][$key]['id']);
+            $disLike = $this->postDB->getDisLike($posts['items'][$key]['id']);
             $posts['items'][$key]['postLike'] =  $posts['items'][$key]['postLike'] - $disLike['dis'];
         }
         $this->index = $this->app->view()->fetch('dashboard/posts.tpl.php', [
@@ -47,18 +57,19 @@ class PostController extends AdminController
     }
 
     public function searchAjax(){
-      $postDB = new Post();
-      $posts = $postDB->searchPostsList($_POST['title']);
+      $posts = $this->postDB->searchPostsList($_POST['title']);
         foreach ($posts as $key => $val){
-            $disLike = $postDB->getDisLike($posts[$key]['id']);
+            $disLike = $this->postDB->getDisLike($posts[$key]['id']);
             $posts[$key]['postLike'] =  $posts[$key]['postLike'] - $disLike['dis'];
         }
         $result = '';
+        $i = 0;
         foreach ($posts as $post){
             $result .= $this->app->view()->fetch('dashboard/table.tpl.php', [
                 'post' => $post,
                 'helper' => Helper::getInstance(),
                 'uri' => $this->getUri(),
+                'i' => $i++
             ]);
         }
         echo $result;
@@ -67,12 +78,31 @@ class PostController extends AdminController
     }
 
     public function edit($params){
-        $postDB = new Post();
-        $post = $postDB->getPost($params['post'], $params['alias']);
+        $post = $this->postDB->getPost($params['post'], $params['alias']);
         $post['type'] = $params['alias'];
         $this->index = $this->app->view()->fetch('dashboard/editPost.tpl.php', [
             'post' => $post
         ]);
         $this->display();
+    }
+
+    public function delete(){
+        $animeDB = new Anime();
+        $comment = new Comment();
+        $views = new View();
+        $rating = new Rating();
+        if ($animeDB->delete($_POST['id'])){
+           if ( $comment->deleteCommentsPost($_POST['id'])){
+               if ($views->deleteViewsPost($_POST['id'])){
+                    if ($rating->deleteRatingPost($_POST['id'])){
+                        $this->postDB->deletePost($_POST['id']);
+                        echo json_encode(['status' => 200]);
+                        exit();
+                    }
+               }
+           }
+        }
+        echo json_encode(['status' => 500]);
+        exit();
     }
 }

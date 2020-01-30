@@ -15,4 +15,12 @@ class View extends Model
 
     }
 
+    public function deleteViewsPost($id_post){
+        $sql = 'DELETE FROM lite_views WHERE id_post = :id_post';
+        $params = [
+            'id_post' => $id_post
+        ];
+        return $this->driver->query($sql,$params);
+    }
+
 }

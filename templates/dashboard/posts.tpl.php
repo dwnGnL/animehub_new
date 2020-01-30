@@ -24,6 +24,8 @@
     <?php foreach ($posts['items'] as $post) :?>
         <?php require 'table.tpl.php'?>
     <?php endforeach; ?>
+    <script src="<?=$uri?>/templates/dashboard/vendor/jquery/jquery.min.js"></script>
+    <script src="<?=$uri?>/templates/dashboard/js/postsD.js?<?=filemtime('templates/dashboard/js/postsD.js')?>"></script>
     </tbody>
   </table>
 
@@ -33,5 +35,5 @@
     </div>
   </div>
 </div>
+
 <script src="<?=$uri?>/templates/dashboard/vendor/jquery/jquery.min.js"></script>
-<script src="<?=$uri?>/templates/dashboard/js/postsD.js?<?=filemtime('templates/dashboard/js/postsD.js')?>"></script>
