@@ -306,10 +306,15 @@ class Post extends Model
         return $this->driver->row($insert,$params);
     }
 
-
-
-
-
-
-
+    public function getPostWithTitleAndTv($title, $tv){
+        $sql = 'SELECT lite_post.id FROM lite_post, lite_tv
+                WHERE lite_post.id_tv = lite_tv.id
+                AND lite_post.title = :title
+                AND lite_tv.title = :tv';
+        $params = [
+            'title' => $title,
+            'tv' => $tv
+        ];
+        return $this->driver->column($sql,$params);
+    }
 }

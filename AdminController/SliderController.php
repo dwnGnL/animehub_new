@@ -4,11 +4,44 @@
 namespace AdminController;
 
 
+use Lib\Helper;
+use Model\Post;
+use Model\Slider;
+
 class SliderController extends AdminController
 {
     public function index(){
-        $this->index = $this->app->view()->fetch('dashboard/slider.tpl.php');
+        $sliderDB = new Slider();
+        $sliders = $sliderDB->getSliderForDashboard();
+        $this->index = $this->app->view()->fetch('dashboard/slider.tpl.php', [
+            'sliders' => $sliders,
+            'helper' => Helper::getInstance(),
+            'uri' => $this->getUri(),
+        ]);
         $this->display();
+    }
+    public function edit(){
+        $sliderDB = new Slider();
+        $postBD = new Post();
+        $postID = $postBD->getPostWithTitleAndTv($_POST['title'], $_POST['tv']);
+        if ($postID){
+            $sliderDB->updateSlide($postID['id'], $_POST['img'], $_POST['id_slider']);
+            echo  json_encode(['status' => 200]);
+        }else{
+            echo  json_encode(['status' => 500]);
+        }
+    }
+
+    public function add(){
+        $sliderDB = new Slider();
+        $postBD = new Post();
+        $postID = $postBD->getPostWithTitleAndTv($_POST['title'], $_POST['tv']);
+        if ($postID){
+            $sliderDB->addSlide($postID['id'], $_POST['img']);
+            echo  json_encode(['status' => 200]);
+        }else{
+            echo  json_encode(['status' => 500]);
+        }
     }
 
     protected function display()

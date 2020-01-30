@@ -34,4 +34,4 @@
   </div>
 </div>
 <script src="<?=$uri?>/templates/dashboard/vendor/jquery/jquery.min.js"></script>
-<script src="<?=$uri?>/templates/dashboard/js/postsD.js"></script>
+<script src="<?=$uri?>/templates/dashboard/js/postsD.js?<?=filemtime('templates/dashboard/js/postsD.js')?>"></script>

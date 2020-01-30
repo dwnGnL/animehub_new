@@ -22,6 +22,7 @@ defined('_Sdef') or  exit();
 abstract  class DisplayController extends Controller
 {
 
+
     protected $template = 'index.tpl.php';
     protected function getSlider(){
         $db = new Slider();

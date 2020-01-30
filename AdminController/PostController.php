@@ -5,7 +5,9 @@ namespace AdminController;
 
 
 use Lib\Helper;
+use Model\Cat;
 use Model\Post;
+use Model\PostType;
 
 class PostController extends AdminController
 {
@@ -28,7 +30,14 @@ class PostController extends AdminController
     }
 
     public function add(){
-        $this->index = $this->app->view()->fetch('dashboard/addPost.tpl.php');
+        $cat = new Cat();
+        $typeBD = new PostType();
+        $types = $typeBD->getPostType();
+        $cats = $cat->getCategories();
+        $this->index = $this->app->view()->fetch('dashboard/addPost.tpl.php',[
+            'cats' => $cats,
+            'types' => $types
+        ]);
         $this->display();
     }
 

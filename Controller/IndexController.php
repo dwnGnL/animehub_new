@@ -23,6 +23,7 @@ class IndexController extends DisplayController
 
     protected function display()
     {
+
         $postDB = new Post();
         $cat = new Cat();
         $anime = new Anime();

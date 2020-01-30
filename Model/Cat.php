@@ -7,7 +7,7 @@ namespace Model;
 class Cat extends Model
 {
     public function getCategories(){
-        $sql = 'SELECT * FROM lite_cat';
+        $sql = 'SELECT * FROM lite_cat ORDER BY title ASC';
 
         if($this->driver instanceof Driver){
             $result = $this->driver->row($sql);

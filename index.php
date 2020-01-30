@@ -62,6 +62,16 @@ $app->group('/dashboard', function () use ($app){
             $o = \Controller\Controller::getInstance('slider','AdminController'); //SliderController
             $o->index();
         })->name('slider');
+
+        $app->post('/edit', function (){
+            $o = \Controller\Controller::getInstance('slider','AdminController'); //SliderController
+            $o->edit();
+        })->name('editSlider');
+
+        $app->post('/add', function (){
+            $o = \Controller\Controller::getInstance('slider','AdminController'); //SliderController
+            $o->add();
+        })->name('addSlider');
     });
 
     $app->group('/post', function () use ($app){
@@ -176,7 +186,6 @@ $app->group('/ajax', function () use ($app){
         $o = \Controller\Controller::getInstance('login'); //AjaxController
         $o->checkAuth();
     })->name('checkAuth');
-
 });
 $app->post('/question', function (){
     $o = \Controller\Controller::getInstance('Widget'); //WidgetController
