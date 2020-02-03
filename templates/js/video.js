@@ -30,15 +30,15 @@ favorite.onclick = () => {
         response = JSON.parse(response);
         switch (response.status) {
           case "401":
-            showMessage("Ошибка", "авторизуйтесь прежде чем добавлять в закладки", error)
-            break;
+          showMessage("Ошибка", "авторизуйтесь прежде чем добавлять в закладки", error)
+          break;
           case "200":
-            favorite.classList.toggle('choose');
-            favorite.classList.contains('choose') ? favoriteText.innerHTML = 'Удалить из избранного' : favoriteText.innerHTML = 'Добавить в избранное';
-            break;
+          favorite.classList.toggle('choose');
+          favorite.classList.contains('choose') ? favoriteText.innerHTML = 'Удалить из избранного' : favoriteText.innerHTML = 'Добавить в избранное';
+          break;
           default:
-            showMessage("Ошибка", "что то пошло не так", error)
-            break;
+          showMessage("Ошибка", "что то пошло не так", error)
+          break;
         }
       }
     })
@@ -52,15 +52,15 @@ favorite.onclick = () => {
         response = JSON.parse(response);
         switch (response.status) {
           case "401":
-            showMessage("Ошибка", "авторизуйтесь прежде чем добавлять в закладки", error)
-            break;
+          showMessage("Ошибка", "авторизуйтесь прежде чем добавлять в закладки", error)
+          break;
           case "200":
-            favorite.classList.toggle('choose');
-            favorite.classList.contains('choose') ? favoriteText.innerHTML = 'Удалить из избранного' : favoriteText.innerHTML = 'Добавить в избранное';
-            break;
+          favorite.classList.toggle('choose');
+          favorite.classList.contains('choose') ? favoriteText.innerHTML = 'Удалить из избранного' : favoriteText.innerHTML = 'Добавить в избранное';
+          break;
           default:
-            showMessage("Ошибка", "что то пошло не так", error);
-            break;
+          showMessage("Ошибка", "что то пошло не так", error);
+          break;
         }
       }
     })
@@ -77,10 +77,12 @@ seriesItem.forEach(function (elem, index) {
   seriesData.push({
     seriaNum: elem.getAttribute("id-ser"),
     seriaHtml: elem.outerHTML
-  })
-})
-videoLink.removeAttribute("autoplay")
-videoLink.src=seriesItem[0].getAttribute('src')
+  });
+});
+
+videoLink.removeAttribute("autoplay");
+videoLink.src=seriesItem[0].getAttribute('src');
+
 function addEvent(){
   seriesItem = document.querySelectorAll('.series-item');
   seriesItem.forEach(function (elem, index) {
@@ -91,13 +93,14 @@ function addEvent(){
       presentSeries = index;
       seriesItem[previousSeries].classList.remove('series-item-active');
       seriesItem[presentSeries].classList.add('series-item-active');
-      document.title = `${title} ${$(".film-discription-header").text()} | ${elem.textContent}`
+      document.title = `${title} ${$(".film-discription-header").text()} | ${elem.textContent}`;
       videoLink.src = elem.getAttribute('src');
       closeSeriesListPost();
     };
   });
   if (document.body.clientWidth > 767) { seriesList.style.width = `${seriesListWidth + 10}px`};
 };
+
 addEvent();
 
 let sumSize = 0;
@@ -173,9 +176,9 @@ function search(val) {
   } else {
     var newSeriasData = [];
     seriesData.forEach((elem,index) => {
-      if (elem.seriaNum==val) newSeriasData.push(elem)
+      if (elem.seriaNum == val) newSeriasData.push(elem);
     });
-    changeSeriaList(newSeriasData)
+    changeSeriaList(newSeriasData);
   };
   sumSize = 0;
   scrollingSeries(0);
@@ -188,19 +191,19 @@ function changeSeriaList(elems) {
     list += elem.seriaHtml;
   });
   seriesList.innerHTML = list;
-}
+};
 
 // function searchSeriesItem() {
-//   let i = 0;
-//   for (i; i < seriesItem.length; i++) {
-//     if (seriesItem[i].getAttribute('id-ser') >= +searchInput.value) break;
-//   };
-//
-//   if (i >= seriesItem.length) showMessage('Ошибка!', 'Серия не найдена', error);
-//
-//   let sumScroll = seriesItem[i].getBoundingClientRect().x - toLeftSeries.getBoundingClientRect().right;
-//   scrollingSeries(-sumScroll);
-// };
+  //   let i = 0;
+  //   for (i; i < seriesItem.length; i++) {
+    //     if (seriesItem[i].getAttribute('id-ser') >= +searchInput.value) break;
+    //   };
+    //
+    //   if (i >= seriesItem.length) showMessage('Ошибка!', 'Серия не найдена', error);
+    //
+    //   let sumScroll = seriesItem[i].getBoundingClientRect().x - toLeftSeries.getBoundingClientRect().right;
+    //   scrollingSeries(-sumScroll);
+    // };
 
 
 searchInput.onfocus = () => searchSeriesInput.classList.add('search-series-focus');
@@ -224,8 +227,6 @@ postSearch.onblur = () => {
   if (postSearch.value !== '') return;
   placeholderPost.classList.remove('focus');
 };
-
-
 
 showAllSeries.onclick = () => {
   seriesMainList.classList.add('show');
@@ -263,21 +264,21 @@ function raiting(type, id) {
       switch (response.status) {
         case "1":
 
-          if (type == 1) {
-            $("#like span").html(parseInt($("#like span").text()) + 1)
-          } else {
-            $("#dislike span").html(parseInt($("#dislike span").text()) - 1)
-          }
-          break;
+        if (type == 1) {
+          $("#like span").html(parseInt($("#like span").text()) + 1)
+        } else {
+          $("#dislike span").html(parseInt($("#dislike span").text()) - 1)
+        }
+        break;
         case "0":
-          showMessage("Ошибка", "Вы уже голосовали", error);
-          break;
+        showMessage("Ошибка", "Вы уже голосовали", error);
+        break;
         case "403":
-          showMessage("Ошибка", "Авторизуйтесь", error);
-          break;
+        showMessage("Ошибка", "Авторизуйтесь", error);
+        break;
         default:
-          showMessage("Ошибка", "что то пошло не так", error);
-          break;
+        showMessage("Ошибка", "что то пошло не так", error);
+        break;
       }
     }
   })
