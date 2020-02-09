@@ -60,8 +60,11 @@
 
 .distinctio-list {
   margin: 0 0 10px 0;
+  position: relative;
   padding: 0;
+  min-height: 250px;
 }
+
 
 .distinctio-list > li {
   display: grid;

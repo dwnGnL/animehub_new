@@ -36,14 +36,10 @@
           <span class="distinctio-list-left">День выхода:</span>
           <span class="distinctio-list-right">Воскресение</span>
         </li>
-          
-        <li class="review-order">
-          <span>Порядок просмотра:</span>
-          <ol class="review-order-list">
-            <?php foreach ($orderPosts as $value): ?>
-              <li><a href="<?=$uri.$value['type']?>/<?=$helper::renderUrl($value['id'], $value['alias'])?>"><?=$value['title'].' '.$value['tv'].' '.$value['god']?></a></li>
-            <?php endforeach; ?>
-          </ol>
+
+        <li>
+          <span class="distinctio-list-left"></span>
+          <span class="distinctio-list-right"><a href="#" class="btn-buy">100</a></span>
         </li>
       </ul>
     </div>
@@ -57,47 +53,8 @@
     <div class="show-all-text">Развернуть</div>
   </div>
 
-  <div class="top-video-block">
-    <div class="show-all-series-post">Показать все серии</div>
-    <div class="search-series-input">
-      <input id="search-input" type="text" placeholder="">
-      <div class="search-placeholder">Поиск серии</div>
-    </div>
 
-    <div class="arrow-series to-left-series"><div></div></div>
-
-    <div class="series-block">
-      <div class="series-main-list">
-        <div class="search-place-post">
-          <i class="fa fa-reply-all"></i>
-          <input class="post-search" type="text">
-          <div class="placeholder-post">Поиск серии</div>
-        </div>
-
-        <ul class="series-list">
-          <?php if(isset($player) && is_array($player)): ?>
-            <?php foreach($player As $item): ?>
-              <li class="series-item" src="<?=$item['src']?>" id-ser="<?=$item['seria']?>" stud="<?=$item['stud']?>" id="<?=$item['id']?>"><?=''.$item['kach'].' '.$item['stud'].' '.$item['seria'].' серия'?></li>
-            <?php endforeach; ?>
-          <?php endif; ?>
-        </ul>
-      </div>
-    </div>
-
-    <div class="arrow-series to-right-series"><div></div></div>
-    <div class="search-series">
-      <i class="fa fa-search"></i>
-    </div>
-  </div>
-
-
-  <video class="video" autoplay controls></video>
-
-  <div class="like">
-    <i class="far fa-thumbs-up" id="like" aria-hidden="true"> <span><?=$rating['like']?></span></i>
-    <i class="far fa-thumbs-down" id="dislike" aria-hidden="true"> <span><?=$rating['disLike']?></span></i>
-  </div>
-
+    
   <div class="all-anime-block">
     <div class="head">
       <div class="left-head">Смотрите также</div>
