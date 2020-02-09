@@ -1,5 +1,7 @@
 <?php
-    function curl_get($url, $referer = 'http://www.google.com'){
+
+
+   function curl_get($url, $referer = 'http://www.google.com'){
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_HEADER, 0);
@@ -11,6 +13,8 @@
         $data = curl_exec($ch);
         return $data;
     }
+
+
 
 
 

@@ -59,4 +59,20 @@ class Anime extends Model
         return $this->driver->query($sql, $params);
     }
 
+    public function addAnime($rly_path, $id_stud, $id_kach, $id_tv, $id_title, $src, $seria, $mix_title){
+        $sql = 'INSERT INTO lite_anime(rly_path,id_stud,id_kach, id_tv, id_title, src, seria, mix_title)
+                VALUES (:rlyPath,:id_stud,:id_kach,:id_tv,:id_title,:src,:seria,:mix_title)';
+        $params = [
+            'rlyPath' => $rly_path,
+            'id_stud' => $id_stud,
+            'id_kach' => $id_kach,
+            'id_tv' => $id_tv,
+            'id_title' => $id_title,
+            'src' => $src,
+            'seria' => $seria,
+            'mix_title' => $mix_title
+        ];
+        return $this->driver->query($sql,$params);
+    }
+
 }

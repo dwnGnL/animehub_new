@@ -13,7 +13,7 @@
 
 $app = new \Slim\Slim([
         'debug' => true,
-        'cookies.encrypt' => false,
+        'cookies.encrypt' => true,
         'cookies.secret_key' => 'Desu',
 ]);
 
@@ -100,6 +100,34 @@ $app->group('/dashboard', function () use ($app){
             $o = \Controller\Controller::getInstance('post','AdminController'); //PostController
             $o->edit(['alias' => $alias, 'post' => $post]);
         })->name('editPost')->conditions(['post' => '\d+']);
+    });
+
+    $app->group('/parse', function () use ($app){
+        $app->post('/sort', function () {
+            $o = \Controller\Controller::getInstance('sort','AdminController'); //SortController
+            $o->sortView();
+        });
+
+        $app->post('/delete', function () {
+            $o = \Controller\Controller::getInstance('sort','AdminController'); //SortController
+            $o->sortDelete();
+        });
+
+        $app->post('/save', function () {
+            $o = \Controller\Controller::getInstance('sort','AdminController'); //ParserController
+            $o->saveSort();
+        });
+
+        $app->post('/start', function () {
+            $o = \Controller\Controller::getInstance('parser','AdminController'); //ParserController
+            $o->start();
+        });
+
+        $app->post('/channel', function () {
+            $o = \Controller\Controller::getInstance('parser','AdminController'); //ParserController
+            $o->startChannel();
+        });
+
     });
 
 });

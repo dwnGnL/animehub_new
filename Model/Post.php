@@ -7,6 +7,7 @@ namespace Model;
 class Post extends Model
 {
 
+    protected $table = 'lite_post';
     public function getDisLike($id_post){
         $sql = 'SELECT COUNT(lite_rating.id_post) AS dis FROM lite_rating WHERE lite_rating.type = 0 AND lite_rating.id_post = :id';
         $params = [
@@ -324,6 +325,16 @@ class Post extends Model
             'id' => $id
         ];
         return $this->driver->query($sql, $params);
+    }
+
+    public function postDateUpdate($title, $tv){
+        $sql = 'UPDATE lite_post SET date = :date WHERE title = :title and id_tv = :tv';
+        $params = [
+            'date' => time(),
+            'title' => $title,
+            'tv' => $tv
+        ];
+        return $this->driver->query($sql,$params);
     }
 
 

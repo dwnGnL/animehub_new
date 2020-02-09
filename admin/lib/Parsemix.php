@@ -183,7 +183,7 @@ set_time_limit(0);
                             break;
                         } elseif ($FahmidanStatusa == 0) {
 
-                            $insert->updateAnimeStatusFirstChannel($anime);
+                            $insert->updateAnimeStatusFirstChannel($rly_path);
                             $insert->deleteAnimeExcessWithTitle($anime);
                             $insert->insertParseFirst($rly_path, $title, $src, $mb[0], $date,  1);
                             $FahmidanStatusa = 1;
@@ -267,77 +267,77 @@ function changeImg($titleAnime)
 
 
 function parseTopVideo($poisk, $start = 1, $end = 20, $startVideo = 1, $endVideo = 20){
-    $stop = null;
-    $insert = new Model();
-    $countInsert = 0;
-    if($start <= $end) {
+            $stop = null;
+            $insert = new Model();
+            $countInsert = 0;
+            if($start <= $end) {
 
-            $search = str_replace(' ', '+', $poisk);
-            $html = curl_get("http://topvideo.tj/site/search?q=$search&page=$start");
+                    $search = str_replace(' ', '+', $poisk);
+                    $html = curl_get("http://topvideo.tj/site/search?q=$search&page=$start");
 
-        $doc = phpQuery::newDocument($html);
+                $doc = phpQuery::newDocument($html);
 
-        for ($i = $startVideo - 1; $i <= $endVideo - 1; $i++) {
-            if ($doc->find('.previews' . " .preview:eq($i)")->attr('href')) {
-
-
-                $href = $doc->find('.previews' . ' .preview:eq('.$i.')')->attr('href');
-                $rly_path = $href;
-                $go = curl_get('http://topvideo.tj' . $href);
-                $newcon = phpQuery::newDocument($go);
-                $src = $newcon->find('source')->attr('src');
-
-                $size = $newcon->find('.videodetails__fileinfo')->text();
-
-                $mb = explode(' ', $size);
-
-                $date = $mb[2].' '.$mb[3];
-
-                $title = $newcon->find('.videodetails__title')->text();
-
-                $dateCheck = $insert->excessCheckAnime($rly_path);
+                for ($i = $startVideo - 1; $i <= $endVideo - 1; $i++) {
+                    if ($doc->find('.previews' . " .preview:eq($i)")->attr('href')) {
 
 
-                if($dateCheck['COUNT(*)'] > 0 && $countInsert > 0){
-                    $insert->updateAnimeStatusFirst($rly_path);
-                    $insert->deleteAnimeExcess($title);
-                    echo 'аниме уже добавлен';
-                    $stop = 'stop';
-                }
-                if($dateCheck['COUNT(*)'] > 0){
+                        $href = $doc->find('.previews' . ' .preview:eq('.$i.')')->attr('href');
+                        $rly_path = $href;
+                        $go = curl_get('http://topvideo.tj' . $href);
+                        $newcon = phpQuery::newDocument($go);
+                        $src = $newcon->find('source')->attr('src');
 
-                    echo 'аниме уже добавлен';
-                    $stop = 'stop';
+                        $size = $newcon->find('.videodetails__fileinfo')->text();
 
-                    break;
-                }else {
+                        $mb = explode(' ', $size);
+
+                        $date = $mb[2].' '.$mb[3];
+
+                        $title = $newcon->find('.videodetails__title')->text();
+
+                        $dateCheck = $insert->excessCheckAnime($rly_path);
+
+
+                        if($dateCheck['COUNT(*)'] > 0 && $countInsert > 0){
+                            $insert->updateAnimeStatusFirst($rly_path);
+                            $insert->deleteAnimeExcess($title);
+                            echo 'аниме уже добавлен';
+                            $stop = 'stop';
+                        }
+                        if($dateCheck['COUNT(*)'] > 0){
+
+                            echo 'аниме уже добавлен';
+                            $stop = 'stop';
+
+                            break;
+                        }else {
 
 
 
-                    if($i==0 && $start == 1){
+                            if($i==0 && $start == 1){
 
-                        $insert->insertParseFirst($rly_path,$title, $src,$mb[6],$date,1);
-                        $countInsert++;
+                                $insert->insertParseFirst($rly_path,$title, $src,$mb[6],$date,1);
+                                $countInsert++;
 
-                    }else{
+                            }else{
 
-                        $insert->insertParse($rly_path,$title, $src, $mb[6], $date);
-                        $countInsert++;
+                                $insert->insertParse($rly_path,$title, $src, $mb[6], $date);
+                                $countInsert++;
+                            }
+
+                        }
+
+                    } else {
+                        $stop = "stop";
+                        break;
                     }
-
                 }
-
-            } else {
-                $stop = "stop";
-                break;
+                if($stop === null){
+                        $start++;
+                        parseTopVideo($poisk,$start,$end);
+                }
             }
-        }
-        if($stop === null){
-                $start++;
-                parseTopVideo($poisk,$start,$end);
-        }
-    }
-    echo'<br>Парсинг закончен';
+            echo'<br>Парсинг закончен';
 
 
 }

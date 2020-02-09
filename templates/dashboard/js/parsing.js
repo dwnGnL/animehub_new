@@ -15,3 +15,22 @@ parseAnimeName.forEach((elem, index) => {
     };
   };
 });
+
+// Сохранение сортированных аниме
+$('#save').on('click', function () {
+  var array = $('#sortForm').serializeArray();
+  console.log(array);
+  $.ajax({
+    url: '/dashboard/parse/save',
+    type: 'POST',
+    data: ({"anime": array, "token": $('#token').text(), "title": $('#titleForSave').val()}),
+    success: function (data) {
+      alert(data);
+      var response = JSON.parse(data);
+      if (response.status == 200) {
+        $('#formSort li').remove();
+        $('#titleForSave').val('');
+      }
+    }
+  })
+});

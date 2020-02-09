@@ -18,6 +18,7 @@
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
   <!-- Custom styles for this template-->
+    <link rel="stylesheet" href="<?=$uri?>/templates/dashboard/full/css/jquery.loadingModal.css">
   <link href="<?=$uri?>/templates/dashboard/css/sb-admin-2.min.css" rel="stylesheet">
   <link rel="stylesheet" href="<?=$uri?>/templates/dashboard/css/table.css?<?=filemtime('templates/dashboard/css/table.css')?>">
   <link rel="stylesheet" href="<?=$uri?>/templates/dashboard/css/add-post.css?<?=filemtime('templates/dashboard/css/add-post.css')?>">
@@ -95,7 +96,7 @@
   <!-- Bootstrap core JavaScript-->
   <script src="<?=$uri?>/templates/dashboard/vendor/jquery/jquery.min.js"></script>
   <script src="<?=$uri?>/templates/dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
+      <script src="<?=$uri?>/templates/dashboard/full/js/jquery.loadingModal.js?<?=filemtime('templates/dashboard/full/js/jquery.loadingModal.js')?>"></script>
   <!-- Core plugin JavaScript-->
   <script src="<?=$uri?>/templates/dashboard/vendor/jquery-easing/jquery.easing.min.js"></script>
 
