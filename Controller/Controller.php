@@ -56,13 +56,14 @@ abstract class Controller
 
         if (!empty($env['HTTP_HOST'])){
             $theURI = 'http'.$https.$env['HTTP_HOST'];
+
         }
         if (!empty($env['SCRIPT_NAME'])){
             $theURI .= $env['SCRIPT_NAME'];
         }
 
         $theURI = str_replace(["'", '"', '<', '>'],['%27','%22','%3C','%3E'],$theURI);
-
+        $theURI = str_replace('index.php','', $theURI);
         $theURI .= '/';
         return $theURI;
     }
