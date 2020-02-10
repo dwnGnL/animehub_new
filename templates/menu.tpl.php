@@ -22,6 +22,7 @@
       <div><a href="/profile/<?= $_SESSION['login']?>" >Профиль</a></div>
         <?php if ($_SESSION['status'] == 'Админ'): ?>
         <div><a href="/admin/">Админ панель</a></div>
+        <div><a href="/dashboard/">Админ панель(новый)</a></div>
         <div><a href="<?=$app->urlFor('viewQuest')?>">Опросник</a></div>
         <?php endif; ?>
       <div><a href="/favorites">Закладки: (<span class="bookmark-quantity"><?=$favorites?></span>)</a></div>

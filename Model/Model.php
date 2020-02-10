@@ -41,6 +41,27 @@ class Model
         return $this->driver->row($sql, $params);
     }
 
+    public function add(array $params = []){
+        $fields = '';
+        $value = '';
+        $i = 0;
+
+        foreach ($params as $key => $val){
+            $i++;
+            if (count($params) == $i){
+                $fields .= $key;
+                $value .= ':'.$key;
+            }else{
+                $fields .= $key.',';
+                $value .= ':'.$key.',';
+            }
+
+
+        }
+        $sql = 'INSERT INTO '.$this->table.'('.$fields.')  VALUES('.$value.') ';
+        return  $this->driver->query($sql, $params);
+    }
+
 }
 
 

@@ -41,28 +41,25 @@
   <!-- Store of manga -->
   <div class="all-anime-block">
     <div class="head">
-      <div class="left-head">Все аниме</div>
-      <a href="/anime"><div class="right-head">Смотреть все</div></a>
+      <div class="left-head">Манга</div>
+      <a href="/shop"><div class="right-head">Смотреть все</div></a>
     </div>
 
     <div class="films">
-      <?php foreach ($newPosts as $val): ?>
+      <?php foreach ($products as $val): ?>
         <div class="film-item">
-          <a href="/anime/<?=$helper::renderUrl($val['id'], $val['alias'])?>">
+          <a href="/shop/product/<?=$helper::renderUrl($val['id_product'], $val['name_product'])?>">
             <div class="background-film-item store">
-              <img src="<?=$val['image']?>">
+              <img src="<?=$val['img_product']?>">
               <div class="over-back-film-item">
-                <div class="circle">
-                  <span class="review"><?=$val['views']?></span>
-                  <span>Просмотров</span>
-                </div>
+
               </div>
             </div>
           </a>
           <div class="discription">
-            <div class="film-name"><a href="/anime/<?=$helper::renderUrl($val['id'], $val['alias'])?>"><?=$val['title'].' '.$val['tv_title']?></a></div>
-            <div class="film-gener"><?=$helper::renderCat($val['cats'])?></div>
-            <div class="buy-info"><a href="#" class="btn-buy">100</a></div>
+            <div class="film-name"><a href="/shop/product/<?=$helper::renderUrl($val['id_product'], $val['name_product'])?>"><?=$val['name_product']?></a></div>
+            <div class="film-gener"><?=$val['cat_name']?></div>
+            <div class="buy-info"><a href="#" class="btn-buy"><?=$val['price_product']?>с</a></div>
           </div>
         </div>
       <?php endforeach; ?>

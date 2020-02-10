@@ -49,14 +49,38 @@ $middle = function (){
     return $obj->onBeforeDispatch();
 };
 
-
-$app->group('/dashboard', function () use ($app){
+$app->group('/shop', function () use ($app){
+    $app->get('/', function (){
+        $o = \Controller\Controller::getInstance('shop'); //ParserController
+        $o->index();
+    });
+    $app->get('/product/:product', function ($product){
+        $o = \Controller\Controller::getInstance('shop'); //ParserController
+        $o->store($product);
+    });
+});
+$app->group('/dashboard',$middle, function () use ($app){
 
     $app->get('/', function () {
         $o = \Controller\Controller::getInstance('parser', 'AdminController'); //ParserController
         $o->index();
     })->name('dashboard');
+    $app->group('/shop', function () use ($app){
 
+        $app->get('/viewAdd', function () {
+            $o = \Controller\Controller::getInstance('shop', 'AdminController'); //ParserController
+            $o->viewAdd();
+        })->name('viewAdd');
+        $app->post('/viewAttr', function () {
+            $o = \Controller\Controller::getInstance('shop', 'AdminController'); //ParserController
+            $o->viewAttr();
+        });
+
+        $app->post('/add', function () {
+            $o = \Controller\Controller::getInstance('shop', 'AdminController'); //ParserController
+            $o->add();
+        });
+    });
     $app->group('/slider', function () use ($app){
         $app->get('/', function (){
             $o = \Controller\Controller::getInstance('slider','AdminController'); //SliderController

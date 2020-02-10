@@ -7,6 +7,7 @@ use Lib\Migration;
 use Model\Anime;
 use Model\Cat;
 use Model\Post;
+use Model\Product;
 use Model\Rating;
 use function Composer\Autoload\includeFile;
 
@@ -23,11 +24,14 @@ class IndexController extends DisplayController
 
     protected function display()
     {
+        $productDB = new Product();
         $postDB = new Post();
         $cat = new Cat();
         $anime = new Anime();
+        $products = $productDB->getProduct(5);
         $this->title .= 'Таджикский аниме портал !';
         $posts =  $postDB->getPostL10('anime',10);
+
         foreach ($posts as $key => $val) {
             $posts[$key]['cats'] = $cat->getCatPostL2($posts[$key]['id']);
             $posts[$key]['seria'] = $anime->lastAddSeria($posts[$key]['title']);
@@ -55,6 +59,7 @@ class IndexController extends DisplayController
             'articles' => $articles,
             'slider' => $slider,
             'search' => $search,
+            'products' => $products
 
 
         ]);

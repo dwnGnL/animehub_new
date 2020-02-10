@@ -26,13 +26,11 @@ class AuthMiddleware extends Middleware {
 
     public function onBeforeDispatch(){
        $resource = $this->app->router->getCurrentRoute()->getPattern();
-
-
             if (!isset($_SESSION['auth'])){
                 $this->app->notFound();
             }
-            $this->acl->setAllow('Анимешник','/admin(/:page)', ['GET','POST']);
-            $this->acl->setAllow('_VIP_','/admin(/:page)', ['GET','POST']);
+            $this->acl->setAllow('Анимешник','/dashboard', ['GET','POST']);
+            $this->acl->setAllow('_VIP_','/dashboard', ['GET','POST']);
             if (!$this->acl->check($resource, $_SESSION['status'],$this->app->request->getMethod()))   {
                 $this->app->notFound();
             }
