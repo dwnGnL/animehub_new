@@ -17,6 +17,7 @@ $exception = [
     '/registration',
     '/ajax/chat/getMessage',
     '/ajax/check/auth',
-    '/ajax/chat/connect'
+    '/ajax/chat/connect',
+    '/ajax/search/ajax',
 ]
 ?>

@@ -38,6 +38,7 @@
     </div>
   </div>
 
+    <?php if (!empty($products)): ?>
   <!-- Store of manga -->
   <div class="all-anime-block">
     <div class="head">
@@ -66,7 +67,7 @@
 
     </div>
   </div>
-
+    <?php endif; ?>
   <!-- All of anime -->
   <div class="all-anime-block">
     <div class="head">

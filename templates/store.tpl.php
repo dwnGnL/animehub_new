@@ -1,6 +1,5 @@
 <link rel="stylesheet" href="<?=$uri?>/templates/css/film-page.css?<?=filemtime('templates/css/film-page.css')?>">
 
-
 <div id="film-content">
 
   <?=$search?>
@@ -26,7 +25,7 @@
           <?php endforeach; ?>
         <li>
           <span class="distinctio-list-left"></span>
-          <span class="distinctio-list-right"><a href="#" class="btn-buy"><?=$product['price_product']?>c</a></span>
+          <span class="distinctio-list-right"><a href="#" data-toggle="#modal" data-target="#exampleModalLive" class="btn-buy"><?=$product['price_product']?>c</a></span>
         </li>
       </ul>
     </div>

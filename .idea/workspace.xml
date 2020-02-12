@@ -2,40 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6341c2f9-1102-484a-bdc9-098e620a8c13" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/AdminController/ShopController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/ShopController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Lib/Upload.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Model/AttrCat.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Model/AttrProduct.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Model/Attributes.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Model/CatProduct.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Model/Image.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Model/Product.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/8384IMG_20200114_183416.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/shop/11935e1831cae7d7ceda89162dde.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/shop/4135IMG_20200114_183539.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/shop/4493IMG_20200114_183526.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/shop/5892f1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/shop/7168f3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/shop/82235e1831cae7d7ceda89162dde.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/shop/82745e1831cae7d7ceda89162dde.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/shop/8745f4.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/dashboard/addProduct.tpl.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/dashboard/attr.tpl.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/dashboard/img/add1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/dashboard/img/addAnother.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/dashboard/js/preview.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/dashboard/js/shop.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/shop.tpl.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/IndexController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/IndexController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/AclClass.php" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/AclClass.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/AuthMiddleware.php" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/AuthMiddleware.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Model.php" beforeDir="false" afterPath="$PROJECT_DIR$/Model/Model.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dashboard/sidebar.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard/sidebar.tpl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdminController/ParserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/AdminController/ParserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdminController/SortController.php" beforeDir="false" afterPath="$PROJECT_DIR$/AdminController/SortController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/Parsemix.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/Parsemix.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/changeSrc.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/changeSrc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/8384IMG_20200114_183416.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/shop/11935e1831cae7d7ceda89162dde.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/shop/4135IMG_20200114_183539.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/shop/4493IMG_20200114_183526.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/shop/5892f1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/shop/7168f3.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/shop/82235e1831cae7d7ceda89162dde.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/shop/82745e1831cae7d7ceda89162dde.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/shop/8745f4.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/dashboard/js/parsing.js" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard/js/parsing.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.tpl.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/indexbar.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/indexbar.tpl.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/menu.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/menu.tpl.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/store.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/store.tpl.php" afterDir="false" />
     </list>
     <list id="38dd605b-6083-45a6-9f6b-662038e1e815" name="Revert &quot;no message&quot;" comment="Revert &quot;no message&quot;&#10;&#10;This reverts commit 1b2b2056" />
@@ -325,7 +309,17 @@
       <workItem from="1581323224156" duration="646000" />
       <workItem from="1581326878645" duration="617000" />
       <workItem from="1581328293640" duration="303000" />
-      <workItem from="1581350926687" duration="3492000" />
+      <workItem from="1581350926687" duration="7162000" />
+      <workItem from="1581390811482" duration="74000" />
+      <workItem from="1581412123180" duration="538000" />
+      <workItem from="1581426099615" duration="827000" />
+      <workItem from="1581426944975" duration="3000" />
+      <workItem from="1581477259262" duration="3377000" />
+      <workItem from="1581485302532" duration="891000" />
+      <workItem from="1581486204678" duration="2135000" />
+      <workItem from="1581494917338" duration="101000" />
+      <workItem from="1581502571958" duration="1627000" />
+      <workItem from="1581505658172" duration="40000" />
     </task>
     <task id="LOCAL-00001" summary="Merge branch 'master' of https://github.com/dwnGnL/animehub_new&#10;&#10;# Conflicts:&#10;#&#9;Controller/PageController.php">
       <created>1575814085998</created>
@@ -495,7 +489,14 @@
       <option name="project" value="LOCAL" />
       <updated>1581240416029</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Revert &quot;vse&quot;&#10;&#10;This reverts commit 27cc687c">
+      <created>1581355160903</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1581355160903</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -533,10 +534,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="Revert &quot;vse&quot;&#10;&#10;This reverts commit 27cc687c" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="449" y="139" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1580378064026">
+    <state x="449" y="139" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1581486189586">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="449" y="139" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1536.824@0.0.1536.824" timestamp="1580378064026" />
+    <state x="449" y="139" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1536.824@0.0.1536.824" timestamp="1581486189586" />
     <state x="210" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1579719327929">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -549,10 +550,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="166" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1580805015631" />
-    <state x="-2" y="0" width="1499" height="824" key="CommitChangelistDialog2" timestamp="1581240415441">
+    <state x="-2" y="0" width="1499" height="824" key="CommitChangelistDialog2" timestamp="1581355159561">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="-2" y="0" width="1499" height="824" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1581240415441" />
+    <state x="-2" y="0" width="1499" height="824" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1581355159561" />
     <state x="126" y="64" width="1228" height="689" key="DiffContextDialog" timestamp="1578286415469">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -581,10 +582,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="594" y="133" key="RollbackChangesDialog/0.0.1536.824@0.0.1536.824" timestamp="1577379106512" />
-    <state x="361" y="144" key="Vcs.Push.Dialog.v2" timestamp="1581240419954">
+    <state x="361" y="144" key="Vcs.Push.Dialog.v2" timestamp="1581355165563">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="144" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1581240419954" />
+    <state x="361" y="144" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1581355165563" />
     <state x="93" y="93" width="1350" height="638" key="dock-window-1" timestamp="1576174978101">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -597,10 +598,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="462" y="149" width="611" height="526" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1578756525218" />
-    <state x="425" y="187" key="run.anything.popup" timestamp="1581065705644">
+    <state x="425" y="187" key="run.anything.popup" timestamp="1581412227026">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1581065705644" />
+    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1581412227026" />
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1581046333900">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

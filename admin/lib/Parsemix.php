@@ -4,7 +4,6 @@ set_time_limit(0);
     require_once 'phpQuery.php';
     require_once 'curl.php';
     require 'Model.php';
-    require_once 'Log.php';
 
     function Parser($poisk, $start = 1, $end= 100,$startVideo = 1, $endVideo = 24)
     {
@@ -207,29 +206,29 @@ set_time_limit(0);
 
     function changeSrc($href){
         $href = explode('/', $href);
-        Log::writeLog('explode = '.$href, null);
+
         $embed = curl_get('http://mix.tj/embed/'. $href[2]);
-        Log::writeLog('взяли html = '.$href[2], null);
+
         $embed = phpQuery::newDocument($embed);
         $src = '';
        if($embed->find('script')) {
            $vid = $embed->find('script')->text();
-           Log::writeLog('embed-find = '.$vid, null);
+
            $vid = substr($vid, 65,120);
-           Log::writeLog('substr = '.$vid, null);
+
            $delimetr = '"';
            $vid = explode($delimetr, $vid,3 );
            $src = $vid[1];
 
-           Log::writeLog('explode => src = '.$src, null);
+
 
        }
 
         if(!empty($src)){
             return $src;
-            Log::writeLog('Не пусто возвращаем ссылку = '.$src, null);
+
         }else{
-            Log::writeLog('Иначе = false ', null);
+
             return false;
         }
 

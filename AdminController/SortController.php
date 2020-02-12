@@ -75,7 +75,6 @@ class SortController extends AdminController
         $postBD = new Post();
         $total = count($_POST['anime']) / 3;
         $anime = $parseBD->getParseAnime($_POST['title']);
-        $j = 0;
         $tv = [];
         for ($i = 0; $i < $total; $i++) {
             if (!empty(trim($_POST['anime'][$j]['value'])) && !empty($_POST['anime'][$j + 1]['value'])) {
@@ -96,8 +95,8 @@ class SortController extends AdminController
 
             }
             if (!empty($tv) && count($tv) > 1){
-                for ($i = 0; $i  < count($tv); $i++){
-                    $postBD->postDateUpdate($_POST['title'], $tv[$i]);
+                for ($k = 0; $k  < count($tv); $k++){
+                    $postBD->postDateUpdate($_POST['title'], $tv[$k]);
                 }
             }else{
                 $postBD->postDateUpdate($_POST['title'], $tv[0]);

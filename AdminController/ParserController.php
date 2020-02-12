@@ -9,7 +9,7 @@ use Model\Channel;
 use Model\Parse;
 use function Composer\Autoload\includeFile;
 
-require_once 'lib/phpQuery.php';
+require_once 'Lib/phpQuery.php';
 class ParserController extends AdminController
 {
 
