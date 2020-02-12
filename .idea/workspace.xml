@@ -3,22 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="6341c2f9-1102-484a-bdc9-098e620a8c13" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdminController/ParserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/AdminController/ParserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdminController/SortController.php" beforeDir="false" afterPath="$PROJECT_DIR$/AdminController/SortController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/Parsemix.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/Parsemix.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/changeSrc.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/changeSrc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/8384IMG_20200114_183416.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/shop/11935e1831cae7d7ceda89162dde.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/shop/4135IMG_20200114_183539.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/shop/4493IMG_20200114_183526.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/shop/5892f1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/shop/7168f3.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/shop/82235e1831cae7d7ceda89162dde.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/shop/82745e1831cae7d7ceda89162dde.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/shop/8745f4.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dashboard/js/parsing.js" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard/js/parsing.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.tpl.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/indexbar.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/indexbar.tpl.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/store.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/store.tpl.php" afterDir="false" />
     </list>
@@ -320,6 +304,10 @@
       <workItem from="1581494917338" duration="101000" />
       <workItem from="1581502571958" duration="1627000" />
       <workItem from="1581505658172" duration="40000" />
+      <workItem from="1581511241312" duration="579000" />
+      <workItem from="1581511844422" duration="3000" />
+      <workItem from="1581521758355" duration="18000" />
+      <workItem from="1581526610792" duration="609000" />
     </task>
     <task id="LOCAL-00001" summary="Merge branch 'master' of https://github.com/dwnGnL/animehub_new&#10;&#10;# Conflicts:&#10;#&#9;Controller/PageController.php">
       <created>1575814085998</created>
@@ -496,7 +484,14 @@
       <option name="project" value="LOCAL" />
       <updated>1581355160903</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Revert &quot;vse&quot;&#10;&#10;This reverts commit 27cc687c">
+      <created>1581511257077</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1581511257077</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -550,10 +545,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="166" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1580805015631" />
-    <state x="-2" y="0" width="1499" height="824" key="CommitChangelistDialog2" timestamp="1581355159561">
+    <state x="-2" y="0" width="1499" height="824" key="CommitChangelistDialog2" timestamp="1581511255615">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="-2" y="0" width="1499" height="824" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1581355159561" />
+    <state x="-2" y="0" width="1499" height="824" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1581511255615" />
     <state x="126" y="64" width="1228" height="689" key="DiffContextDialog" timestamp="1578286415469">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -582,10 +577,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="594" y="133" key="RollbackChangesDialog/0.0.1536.824@0.0.1536.824" timestamp="1577379106512" />
-    <state x="361" y="144" key="Vcs.Push.Dialog.v2" timestamp="1581355165563">
+    <state x="361" y="144" key="Vcs.Push.Dialog.v2" timestamp="1581511262161">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="144" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1581355165563" />
+    <state x="361" y="144" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1581511262161" />
     <state x="93" y="93" width="1350" height="638" key="dock-window-1" timestamp="1576174978101">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

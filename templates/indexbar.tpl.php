@@ -60,7 +60,7 @@
           <div class="discription">
             <div class="film-name"><a href="/shop/product/<?=$helper::renderUrl($val['id_product'], $val['name_product'])?>"><?=$val['name_product']?></a></div>
             <div class="film-gener"><?=$val['cat_name']?></div>
-            <div class="buy-info"><a href="#" class="btn-buy"><?=$val['price_product']?>с</a></div>
+            <div class="buy-info"><a href="/shop/product/<?=$helper::renderUrl($val['id_product'], $val['name_product'])?>" class="btn-buy"><?=$val['price_product']?>с</a></div>
           </div>
         </div>
       <?php endforeach; ?>
