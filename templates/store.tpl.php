@@ -26,23 +26,25 @@
           <?php endforeach; ?>
         <li>
           <span class="distinctio-list-left"></span>
-          <span class="distinctio-list-right"><a href="#modal" data-toggle="#modal" data-target="#exampleModalLive" for="modal" class="btn-buy modal-button"><label class="modal-button" for="modal"><?=$product['price_product']?>c </label></a></span>
+          <span class="distinctio-list-right"><a href="#modal" data-modal="#modal2"  class="btn-buy modal__trigger"><label class="modal-button" for="modal"><?=$product['price_product']?>c </label></a></span>
         </li>
       </ul>
     </div>
   </div>
 
 
-  <input id="modal" type="checkbox">
-  <label class="modal-background" for="modal"></label>
-
-  <div class="modal-content">
-  <label class="modal-close" for="modal">&#10005;</label>
-  <h2>Sweet Modal</h2>
-  <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
-  <label class="modal-content-button" for="modal">OK</label>
-</div>
-
+  <div id="modal2" class="modal modal__bg" role="dialog" aria-hidden="true">
+		<div class="modal__dialog">
+			<div class="modal__content">
+				<h1>Как купить?</h1>
+  <p>НИКАК!</p>
+				<!-- modal close button -->
+				<a href="" class="modal__close demo-close">
+					<svg class="" viewBox="0 0 24 24"><path d="M19 6.41l-1.41-1.41-5.59 5.59-5.59-5.59-1.41 1.41 5.59 5.59-5.59 5.59 1.41 1.41 5.59-5.59 5.59 5.59 1.41-1.41-5.59-5.59z"/><path d="M0 0h24v24h-24z" fill="none"/></svg>
+				</a>
+			</div>
+		</div>
+	</div>
   <div class="main-discription">
     <div class="discription-header">Описание <span>Манга/Книга</span> <span>«<?=$product['name_product']?>»</span></div>
 
@@ -84,6 +86,7 @@
 
 
   </div>
+  <script src="<?=$uri?>/templates/js/modal.js?<?=filemtime('templates/js/modal.js')?>"></script>
 <script src="<?=$uri?>/templates/js/comment.js?<?=filemtime('templates/js/comment.js')?>"></script>
 <script src="<?=$uri?>/templates/js/show-hide-text.js?<?=filemtime('templates/js/show-hide-text.js')?>"></script>
 <script src="<?=$uri?>/templates/js/video.js?<?=filemtime('templates/js/video.js')?>"></script>
