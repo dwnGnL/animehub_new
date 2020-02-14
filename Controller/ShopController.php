@@ -11,6 +11,9 @@ use Model\Product;
 class ShopController extends DisplayController
 {
     public function index(){
+        $this->title = 'Купить Манга - японские комиксы на русском языке онлайн';
+        $this->description = 'В интернет-магазине «Animehub» вы можете купить японские комиксы манга в Таджикистане, Душанбе и Худжанд. У нас самые низкие цены и быстрая доставка.';
+        $this->keywords = 'Купить мангу, Таджикистан, Душанбе, Худжанде, на русском, купить мангу в Таджикистане';
         $productDB = new Product();
         $products = $productDB->getProduct();
         $this->index = $this->app->view()->fetch('shop.tpl.php',[
@@ -28,6 +31,9 @@ class ShopController extends DisplayController
         $attrDB = new Attributes();
         $attrs = $attrDB->getAttributes($matches[0]);
         $pr = $productDB->getProductInfo($matches[0]);
+        $this->title = 'Купить мангу «'.$pr['name_product'].'» по выгодной цене в магазине комиксов «Comic Street»';
+        $this->description = 'В аниме-магазине «Animehub»'.$pr['name_product'].'» У нас низкие цены на мангу и быстрая доставка.';
+        $this->keywords = 'Купить мангу '.$pr['name_product'].', Таджикистан, Душанбе, Худжанде, на русском, купить мангу в Таджикистане';
         $similar = $productDB->getProductSimilar($pr['id_cat_pr'], 5);
         $this->index = $this->app->view()->fetch('store.tpl.php', [
             'product' => $pr,

@@ -28,16 +28,19 @@ class ShopController extends AdminController
             'text_product' => $_POST['text'],
             'id_cat_pr' => $_POST['cat']
         ]);
-
         $id_product = $productBD->driver->lastInsertId();
-        for($i = 2; $i < count($_FILES) + 1; $i++){
-            if (Upload::can_upload($_FILES['img'.$i])){
-                $imgDB->add([
-                    'id_product' => $id_product,
-                    'url_img' =>   Upload::make_upload($_FILES['img'.$i])
-                ]);
+
+        if (empty($_FILES['img2']['error']) && empty($_FILES['img3']['error'])){
+            for($i = 2; $i < count($_FILES) + 1; $i++){
+                if (Upload::can_upload($_FILES['img'.$i])){
+                    $imgDB->add([
+                        'id_product' => $id_product,
+                        'url_img' =>   Upload::make_upload($_FILES['img'.$i])
+                    ]);
+                }
             }
         }
+
         foreach ($attrs as $attr){
             $attrPrDB->add([
                 'id_attr' => $attr['id_attr'],

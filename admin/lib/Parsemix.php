@@ -206,24 +206,16 @@ set_time_limit(0);
 
     function changeSrc($href){
         $href = explode('/', $href);
-
         $embed = curl_get('http://mix.tj/embed/'. $href[2]);
-
         $embed = phpQuery::newDocument($embed);
         $src = '';
        if($embed->find('script')) {
            $vid = $embed->find('script')->text();
-
            $vid = substr($vid, 65,120);
-
            $delimetr = '"';
            $vid = explode($delimetr, $vid,3 );
            $src = $vid[1];
-
-
-
        }
-
         if(!empty($src)){
             return $src;
 

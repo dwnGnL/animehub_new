@@ -11,6 +11,9 @@ abstract class Controller
     protected  $model;
     protected  $uri;
     protected  $title;
+    protected $description = 'Аниме портал Таджикистана! Дорамы смотреть онлайн, полностью внутренный трафик';
+    protected $keywords = 'аниме, онлайн, anime, online, бесплатно, без регистрации, русская озвучка, дорамы, внутренный трафик, таджикский';
+
     protected static  $instance;
 
     public function __construct()
