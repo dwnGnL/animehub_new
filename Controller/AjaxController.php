@@ -77,6 +77,8 @@ class AjaxController extends DisplayController
                 $title = explode(' ',$_POST['title'] );
                 $result = $post->searchAjax($title);
                 foreach ($result as $key => $value){
+                    $result[$key]['onlyTitle'] = $result[$key]['title'];
+                    $result[$key]['onlyTv'] = $result[$key]['tv'];
                     $result[$key]['title'] = $result[$key]['title'].' '.$result[$key]['tv'];
                     $result[$key]['src'] ='/'.$result[$key]['type'].'/'.Helper::renderUrl($result[$key]['id'],$result[$key]['alias']);
                 }

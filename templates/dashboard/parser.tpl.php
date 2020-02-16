@@ -1,5 +1,12 @@
 <link rel="stylesheet" href="<?= $uri ?>/templates/dashboard/css/parse.css">
-
+<link rel="stylesheet" href="<?=$uri?>/templates/css/search.css?<?=filemtime('templates/css/search.css')?>">
+<style>
+    .search-name:hover{
+        cursor: pointer;
+        background: #2E59D9;
+        color: white;
+    }
+</style>
 <div class="container-fluid">
     <h1 class="h3 mb-4 text-gray-800">Страница парсинга</h1>
 
@@ -69,7 +76,21 @@
         <div class="parse-item parse-item-main full-width">
             <div class="parse-item-header">Сортировка серии</div>
             <div class="parse-item-body">
-                <input type="text" id="titleForSave" placeholder="Название аниме">
+                <input type="text" class="search" id="titleForSave" placeholder="Название аниме">
+<!--                ajax-->
+                <div class="cross ">
+                    <div class="cross-line"></div>
+                    <div class="cross-line"></div>
+                </div>
+
+                <div class="loader"></div>
+
+                <div class="back-search">
+                    <i class="fa fa-reply-all"></i>
+                </div>
+                <div class="show-all-search">Показать все</div>
+                <div class="ajax-search" style="max-width: 70%"></div>
+<!--                ajax-->
                 <div class="parse-inputs-top">
                     <div class="">Серия Cезон/Категория Оригинальное название</div>
                 </div>
@@ -93,5 +114,5 @@
 <script src="<?= $uri ?>/templates/dashboard/vendor/jquery/jquery.min.js"></script>
 <script src="<?= $uri ?>/templates/dashboard/js/parse.js?<?= filemtime('templates/dashboard/js/parse.js') ?>"></script>
 <script src="<?= $uri ?>/templates/dashboard/js/parsing.js?<?=filemtime('templates/dashboard/js/parsing.js') ?>"></script>
-
+<script src="<?=$uri?>/templates/dashboard/js/search.js?<?=filemtime('templates/dashboard/js/search.js')?>"></script>
 
