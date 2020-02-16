@@ -26,8 +26,10 @@ class SortController extends AdminController
                 'key' => $key,
             ]);
         }
-        $result .= '<script src="' . $this->getUri() . '/templates/dashboard/vendor/jquery/jquery.min.js"></script>
-                    <script src="' . $this->getUri() . '/templates/dashboard/js/parse.js?' . filemtime('templates/dashboard/js/parse.js') . '"></script>';
+        $result .= '
+                    <script src="' . $this->getUri() . '/templates/dashboard/js/sortRemove.js?' . filemtime('templates/dashboard/js/sortRemove.js') . '"></script>
+                    ';
+
         echo json_encode(['status' => 200, 'html' => $result]);
         exit();
     }

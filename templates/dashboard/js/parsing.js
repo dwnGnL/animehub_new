@@ -36,3 +36,28 @@ $('#save').on('click', function () {
     }
   })
 });
+
+//Вывод серии из сортировки
+$('#btnForSort').on('click', function () {
+  var title = $('#titleForSort').val();
+  if (title.length < 3){
+    $('#titleForSort').addClass('border-danger');
+  }else {
+    $('#titleForSort').removeClass('border-danger');
+    $.ajax({
+      url: '/dashboard/parse/sort',
+      type: 'post',
+      data: ({"title": title, "token": $('#token').text()}),
+      success: function (data) {
+        var response = JSON.parse(data);
+        if (response.status == 200){
+          $('#formSort').html(response.html);
+          $('#titleForSave').val(title);
+          $('#titleForSort').val('');
+        }
+      }
+    })
+  }
+});
+
+//Удаление серии из сортировки

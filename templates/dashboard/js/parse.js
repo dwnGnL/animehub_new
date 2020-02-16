@@ -1,43 +1,5 @@
 
-//Вывод серии из сортировки
-$('#btnForSort').one('click', function () {
-    var title = $('#titleForSort').val();
-    if (title.length < 3){
-        $('#titleForSort').addClass('border-danger');
-    }else {
-        $('#titleForSort').removeClass('border-danger');
-        $.ajax({
-            url: '/dashboard/parse/sort',
-            type: 'post',
-            data: ({"title": title, "token": $('#token').text()}),
-            success: function (data) {
-                var response = JSON.parse(data);
-                if (response.status == 200){
-                    $('#formSort').html(response.html);
-                    $('#titleForSave').val(title);
-                    $('#titleForSort').val('');
-                }
-            }
-        })
-    }
-});
 
-//Удаление серии из сортировки
-$('.remove').on('click',function () {
-    var id_parse = $(this).attr('id-remove');
-    var parent =  $(this).parent();
-    $.ajax({
-        url: '/dashboard/parse/delete',
-        type: 'POST',
-        data: ({"id_parse": id_parse, "token": $('#token').text()}),
-        success: function (data) {
-            var response = JSON.parse(data);
-            if (response.status == 200){
-                parent.remove();
-            }
-        }
-    });
-});
 
 // Запуск парсера сайтов
 $('#startParse').click(function () {

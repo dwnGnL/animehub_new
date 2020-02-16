@@ -91,5 +91,7 @@
 </div>
 
 <script src="<?= $uri ?>/templates/dashboard/vendor/jquery/jquery.min.js"></script>
-<script src="<?= $uri ?>/templates/dashboard/js/parsing.js?<?=filemtime('templates/dashboard/js/parsing.js') ?>"></script>
 <script src="<?= $uri ?>/templates/dashboard/js/parse.js?<?= filemtime('templates/dashboard/js/parse.js') ?>"></script>
+<script src="<?= $uri ?>/templates/dashboard/js/parsing.js?<?=filemtime('templates/dashboard/js/parsing.js') ?>"></script>
+
+

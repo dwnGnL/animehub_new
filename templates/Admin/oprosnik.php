@@ -20,6 +20,7 @@
     <input type="text" class="question form-control" name="q">
     <hr>
     <label >Ответы</label>
+    <input type="text" hidden name="token" value="<?=$helper::generateToken()?>">
     <input type="text" class="form-control" name="a1">
     <input type="text" class="form-control" name="a2">
     <input type="text" class="form-control" name="a3">

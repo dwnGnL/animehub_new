@@ -2,6 +2,7 @@
 
 
 namespace Controller;
+use Lib\Helper;
 use Model\Answer;
 use Model\Question;
 
@@ -22,6 +23,7 @@ class WidgetController extends DisplayController
         $this->index = $this->app->view()->fetch('Admin/oprosnik.php', [
             'uri' => $this->uri,
             'app' => $this->app,
+            'helper' => Helper::getInstance()
 
         ]);
         $this->display();
