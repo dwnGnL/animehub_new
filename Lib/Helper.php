@@ -12,6 +12,10 @@ class  Helper
 
     }
 
+    public static function relPath($url){
+      $pos =  strpos($url,'/');
+      return substr($url,$pos);
+    }
     public static function getInstance(){
         if (self::$instance instanceof self){
             return self::$instance;

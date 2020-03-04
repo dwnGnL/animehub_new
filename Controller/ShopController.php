@@ -14,6 +14,7 @@ class ShopController extends DisplayController
         $this->title = 'Купить Манга - японские комиксы на русском языке онлайн';
         $this->description = 'В интернет-магазине «Animehub» вы можете купить японские комиксы манга в Таджикистане, Душанбе и Худжанд. У нас самые низкие цены и быстрая доставка.';
         $this->keywords = 'Купить мангу, Таджикистан, Душанбе, Худжанде, на русском, купить мангу в Таджикистане';
+        $comments = [];
         $productDB = new Product();
         $products = $productDB->getProduct();
         $this->index = $this->app->view()->fetch('shop.tpl.php',[
@@ -21,6 +22,7 @@ class ShopController extends DisplayController
             'helper' => Helper::getInstance(),
             'uri' => $this->getUri(),
             'search' => $this->getSearch(),
+            'comments' => $comments
         ]);
         $this->display();
     }

@@ -20,9 +20,11 @@
 
     <div class="profile-bottom">
       <div><a href="/profile/<?= $_SESSION['login']?>" >Профиль</a></div>
-        <?php if ($_SESSION['status'] == 'Админ'): ?>
+        <?php if ($_SESSION['status'] != 'Анимешник' && $_SESSION['status'] != '_VIP_'): ?>
         <div><a href="/admin/">Админ панель</a></div>
+        <?php if ($_SESSION['status'] == 'Админ'): ?>
         <div><a href="/dashboard/">Админ панель(новый)</a></div>
+        <?php endif; ?>
         <div><a href="<?=$app->urlFor('viewQuest')?>">Опросник</a></div>
         <?php endif; ?>
       <div><a href="/favorites">Закладки: (<span class="bookmark-quantity"><?=$favorites?></span>)</a></div>

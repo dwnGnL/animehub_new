@@ -84,6 +84,46 @@
       <?php endforeach; ?>
 
     </div>
+      <?php if(isset($_SESSION['auth'])):?>
+          <form class="form-comment form">
+              <div class="disable"><div class="loader">Loading...</div></div>
+              <!-- <textarea class="form-control" name="comment"  id="textComment" cols="80" rows="10" placeholder="Оставить коментарий..." ></textarea> -->
+              <textarea id="textComment" name="comment" class="form-control" placeholder="Оставить коментарий..."></textarea>
+              <button class="btn btn-outline-secondary" type="button" id="sendComment">Оставить отзыв</button>
+          </form>
+
+
+
+      <?php endif;?>
+      <div class="video-comments">
+          <?php if (!empty($comments)): ?>
+          <?php foreach($comments as $val): ?>
+              <div class="video-comment-item">
+                  <div class="video-comment-user-avatar">
+                      <img src="<?=$val['img']?>">
+                  </div>
+
+                  <div class="video-comment-right <?= !empty($val['back_fon'])? 'vip' : ''  ?>" style='background-image:<?=$val['back_fon']?>'>
+                      <div class="comment-arrow"></div>
+                      <div class="top-video-comment-item">
+                          <div class="video-comment-user-name">
+                              <a href="/profile/<?=$val['login']?>" style="font-family:<?=$val['font']?>;<?=$val['login_color']?>" ><?=$val['login'].' '?></a><span style ="color:<?=$val['color']?>;font-family:<?=$val['font']?>"><?=$val['status']?></span>
+                          </div>
+                          <div class="video-comment-date">
+                              <?=$helper::getWatch($val['date'])?>
+                          </div>
+                      </div>
+                      <div class="video-comment-text">
+                          <?=$val['body']?>
+                          <div class="answer-comment"><i class="fa fa-reply"></i></div>
+                      </div>
+                      <?=$val['vip_status']?>
+                  </div>
+
+              </div>
+          <?php endforeach; ?>
+          <?php endif; ?>
+      </div>
   </div>
 
 
