@@ -30,7 +30,7 @@ class User extends Model
     }
 
     public function updateIp($ip, $id){
-        $sql = 'UPDATE lite_users SET ip = :ip WHERE ip = "" AND id = :id';
+        $sql = 'UPDATE lite_users SET ip = :ip WHERE id = :id';
         $params = [
             'ip' => $ip,
             'id' => $id,

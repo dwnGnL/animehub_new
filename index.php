@@ -7,8 +7,6 @@
 
   require 'config.php';
 
-
-
 \Slim\Slim::registerAutoloader();
 
 $app = new \Slim\Slim([
@@ -48,7 +46,10 @@ $middle = function (){
     );
     return $obj->onBeforeDispatch();
 };
-
+$app->get('/parser', function () use ($app){
+    $o = \Controller\Controller::getInstance('parser'); //ParserController
+    $o->changeSrc();
+});
 $app->group('/shop', function () use ($app){
     $app->get('/', function (){
         $o = \Controller\Controller::getInstance('shop'); //ParserController

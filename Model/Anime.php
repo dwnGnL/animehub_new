@@ -74,5 +74,21 @@ class Anime extends Model
         ];
         return $this->driver->query($sql,$params);
     }
+    public function getAnimeForCorrect($src){
+        $sql = 'SELECT * FROM lite_anime WHERE lite_anime.src LIKE :src AND lite_anime.rly_path != "" AND lite_anime.auto_correction = "1" OR lite_anime.src = "" AND lite_anime.rly_path != "" AND lite_anime.auto_correction = "1"';
+        $params = [
+            'src' => '%'.$src.'%'
+        ];
+        return $this->driver->row($sql,$params);
+    }
+
+    public function updateSrc($id, $src){
+        $sql = 'Update lite_anime SET src = :src WHERE id = :id';
+        $params = [
+            'src' => $src,
+            'id' => $id
+        ];
+        return $this->driver->query($sql, $params);
+    }
 
 }

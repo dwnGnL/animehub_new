@@ -16,7 +16,10 @@
       <ul class="distinctio-list">
           <li>
               <span class="distinctio-list-left">Цена доставки:</span>
-              <span class="distinctio-list-right">20с для Душанбе</span>
+              <span class="distinctio-list-right">10с</span>
+          </li>
+          <li>
+              <span class="distinctio-list-left" style="color: red">Не нашли мангу которую искали? Оставьте заявку в мессенджерах +992929982945</span>
           </li>
           <?php foreach ($attrs as $attr): ?>
         <li>
