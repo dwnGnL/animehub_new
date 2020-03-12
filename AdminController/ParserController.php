@@ -50,15 +50,14 @@ class ParserController extends AdminController
         if($start <= $end) {
 
             $search = str_replace(' ', '+', $poisk);
-            $html = Curl::curl_get("http://topvideo.tj/site/search?q=$search&page=$start");
-
+            $html = Curl::curl_get("https://topvideo.tj/site/search?q=$search&page=$start");
             $doc = \phpQuery::newDocument($html);
 
             for ($i = $startVideo - 1; $i <= $endVideo - 1; $i++) {
                 if ($doc->find('.previews' . " .preview:eq($i)")->attr('href')) {
                     $href = $doc->find('.previews' . ' .preview:eq('.$i.')')->attr('href');
                     $rly_path = $href;
-                    $go = Curl::curl_get('http://topvideo.tj' . $href);
+                    $go = Curl::curl_get('https://topvideo.tj' . $href);
                     $newcon = \phpQuery::newDocument($go);
                     $src = $newcon->find('source')->attr('src');
                     $size = $newcon->find('.videodetails__fileinfo')->text();
@@ -101,6 +100,7 @@ class ParserController extends AdminController
         }
        return $countInsert;
     }
+
     public function mixParser($poisk, $start = 1, $end= 100,$startVideo = 1, $endVideo = 24)
     {
         $stop = null;

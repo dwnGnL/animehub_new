@@ -46,6 +46,7 @@ $middle = function (){
     );
     return $obj->onBeforeDispatch();
 };
+
 $app->get('/parser', function () use ($app){
     $o = \Controller\Controller::getInstance('parser'); //ParserController
     $o->changeSrc();
@@ -72,6 +73,27 @@ $app->group('/dashboard',$middle, function () use ($app){
             $o = \Controller\Controller::getInstance('shop', 'AdminController'); //ParserController
             $o->viewAdd();
         })->name('viewAdd');
+
+        $app->get('/products', function () {
+            $o = \Controller\Controller::getInstance('product', 'AdminController'); //ParserController
+            $o->view();
+        })->name('products');
+
+        $app->get('/product(/:id)', function ($id) {
+            $o = \Controller\Controller::getInstance('product', 'AdminController'); //ParserController
+            $o->edit($id);
+        })->name('editProduct');
+
+        $app->post('/product(/:id)', function ($id) {
+            $o = \Controller\Controller::getInstance('product', 'AdminController'); //ParserController
+            $o->update($id);
+        })->name('products')->name('updateProduct');
+
+        $app->post('/product/delete(/:id)', function ($id) {
+            $o = \Controller\Controller::getInstance('product', 'AdminController'); //ParserController
+            $o->delete($id);
+        })->name('deleteProduct');
+
         $app->post('/viewAttr', function () {
             $o = \Controller\Controller::getInstance('shop', 'AdminController'); //ParserController
             $o->viewAttr();
@@ -80,7 +102,7 @@ $app->group('/dashboard',$middle, function () use ($app){
         $app->post('/add', function () {
             $o = \Controller\Controller::getInstance('shop', 'AdminController'); //ParserController
             $o->add();
-        });
+        })->name('addProduct');
     });
     $app->group('/slider', function () use ($app){
         $app->get('/', function (){

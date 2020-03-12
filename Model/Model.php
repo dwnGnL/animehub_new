@@ -7,6 +7,7 @@ class Model
 {
     public $driver;
     protected $table;
+    protected $foreign_key;
 
     public function __construct()
     {
@@ -60,6 +61,44 @@ class Model
         }
         $sql = 'INSERT INTO '.$this->table.'('.$fields.')  VALUES('.$value.') ';
         return  $this->driver->query($sql, $params);
+    }
+    public function update(array $fields, $where){
+        $query = 'Update '.$this->table.' SET ';
+        $i = 1;
+        $params = [];
+        foreach ($fields as $key => $val){
+            if ($i == count($fields)){
+                $query .= $key.' = :'.$key;
+            }else{
+                $query .= $key.' = :'.$key.', ';
+            }
+            $params[$key] = $val;
+            $i++;
+        }
+
+        $query .= ' where '.$this->foreign_key.' = :id';
+        $params ['id'] = $where;
+        return $this->driver->query($query, $params);
+    }
+
+    public function delete($where){
+        $query = 'DELETE FROM '.$this->table.' WHERE ';
+        $params = [];
+        $i = 1;
+        if (is_array($where)){
+            foreach ($where as $key => $value){
+                if ($i == count($where)){
+                    $query .= $key.' = :'.$key;
+                }else{
+                    $query .= $key.' = :'.$key.' AND ';
+                }
+                $params[$key] = $value;
+            }
+        }else{
+            $query .= $this->foreign_key.' = :id';
+            $params['id'] = $where;
+        }
+        return $this->driver->query($query,$params);
     }
 
 }

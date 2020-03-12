@@ -7,6 +7,7 @@ namespace Model;
 class Product extends Model
 {
     protected $table = 'lite_product';
+    protected $foreign_key = 'id_product';
 
     public function getProduct($take = ''){
         if (!empty($take)){
@@ -43,5 +44,12 @@ class Product extends Model
             'id_cat' => $id_cat
         ];
         return $this->driver->row($sql,$params);
+    }
+    public function getProducts(){
+        $sql = 'SELECT lite_product.id_product, lite_product.name_product, lite_product.price_product,
+                lite_product.img_product, lite_product.text_product, lite_cat_product.name_cat
+                FROM lite_product, lite_cat_product
+                WHERE lite_product.id_cat_pr = lite_cat_product.id_cat_pr';
+        return $this->driver->row($sql);
     }
 }

@@ -227,7 +227,7 @@ set_time_limit(0);
     }
 
 function changeSrcTopVideo($href){
-    $embed = curl_get('http://topvideo.tj'.$href);
+    $embed = curl_get('https://topvideo.tj'.$href);
     $embed = phpQuery::newDocument($embed);
     $src = '';
     if($embed->find('source')->attr('src')) {

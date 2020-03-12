@@ -23,6 +23,7 @@
   <link rel="stylesheet" href="<?=$uri?>/templates/dashboard/css/table.css?<?=filemtime('templates/dashboard/css/table.css')?>">
   <link rel="stylesheet" href="<?=$uri?>/templates/dashboard/css/add-post.css?<?=filemtime('templates/dashboard/css/add-post.css')?>">
   <link rel="stylesheet" href="<?=$uri?>/templates/dashboard/css/slider.css?<?=filemtime('templates/dashboard/css/slider.css')?>">
+  <link rel="stylesheet" href="<?=$uri?>/templates/dashboard/css/shop.css?<?=filemtime('templates/dashboard/css/shop.css')?>">
 
 </head>
 
@@ -104,8 +105,10 @@
   <script src="<?=$uri?>/templates/dashboard/js/sb-admin-2.min.js"></script>
   <script src="<?=$uri?>/templates/dashboard/js/dash.js?<?=filemtime('templates/dashboard/js/dash.js')?>"></script>
   <script src="<?=$uri?>/templates/dashboard/js/chosen.jquery.js"></script>
+  <script src="<?=$uri?>/templates/dashboard/js/sweetalert.min.js"></script>
 <script src="<?=$uri?>/templates/dashboard/js/prism.js?<?=filemtime('templates/dashboard/js/prism.js')?>" type="text/javascript" charset="utf-8"></script>
   <script src="<?=$uri?>/templates/dashboard/js/init.js?<?=filemtime('templates/dashboard/js/init.js')?>" type="text/javascript" charset="utf-8"></script>
+  <script src="<?=$uri?>/templates/dashboard/js/shop.js?<?=filemtime('templates/dashboard/js/shop.js')?>" type="text/javascript" charset="utf-8"></script>
 </body>
 
 </html>

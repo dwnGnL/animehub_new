@@ -57,11 +57,13 @@ class ShopController extends AdminController
         $attrDB = new AttrCat();
         $cats = $catDB->row('id_cat_pr,name_cat');
         $attr = $attrDB->getAttrCat($cats[0]['id_cat_pr']);
+        $action = $this->app->urlFor('addProduct');
         $this->index = $this->app->view()->fetch('dashboard/addProduct.tpl.php',[
             'cats' => $cats,
             'uri' => $this->getUri(),
             'helper' => Helper::getInstance(),
-            'attr' => $attr
+            'attr' => $attr,
+            'action' => $action,
         ]);
         $this->display();
     }

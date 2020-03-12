@@ -7,28 +7,33 @@
 <div class="container-fluid">
     <h1 class="h3 mb-4 text-gray-800">Добавление Товара</h1>
 
-    <form action="/dashboard/shop/add" method="post" enctype="multipart/form-data">
+    <form action="<?= isset($product)? $action.'/'.$product['id_product'] : $action?>" method="post" enctype="multipart/form-data">
         <input hidden type="text" value="<?=\Lib\Helper::generateToken()?>" name="token">
         <label><span class="label-item">Выбрать тип:</span>
             <select id="cat" name="cat">
                 <?php foreach ($cats as $val): ?>
+                    <?php if ($val['id_cat_pr'] == $product['id_cat_pr']): ?>
+                        <option value="<?=$val['id_cat_pr']?>" selected><?=$val['name_cat']?></option>
+                    <?php else: ?>
                     <option value="<?=$val['id_cat_pr']?>"><?=$val['name_cat']?></option>
+                    <?php endif; ?>
                 <?php endforeach; ?>
             </select>
         </label>
-        <label><span class="label-item">Название:</span><input type="text" name="title" placeholder="Название"></label>
+        <label><span class="label-item">Название:</span><input type="text" name="title" placeholder="Название" value="<?=$product['name_product']?>"></label>
         <div id="attr">
+
             <?php foreach ($attr as $value): ?>
                 <?php require 'templates/dashboard/attr.tpl.php'?>
             <?php endforeach; ?>
         </div>
-        <label><span class="label-item">Цена:</span><input type="number" name="price" placeholder="Цена"></label>
-        <label><span class="label-item">Описание:</span><textarea name="text" placeholder="Описание"></textarea></label>
+        <label><span class="label-item">Цена:</span><input type="number" name="price" placeholder="Цена" value="<?=$product['price_product']?>"></label>
+        <label><span class="label-item">Описание:</span><textarea name="text" placeholder="Описание"><?=$product['text_product']?></textarea></label>
 
         <div class="row mx-5 ">
             <div class="col-md-4">
                 <div>
-                    <img src="<?=$uri?>templates/dashboard/img/add1.png" class="fileSelect1">
+                    <img src="<?=$uri.$product['img_product']?>" class="fileSelect1">
                 </div>
                 <input name="img1"  accept="image/*" id="fileElem" class="fileElem disable-click" style="display: none" type="file">
             </div>

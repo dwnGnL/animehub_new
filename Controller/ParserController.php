@@ -10,7 +10,7 @@ use Clue\React\Buzz\Browser;
 use Model\Anime;
 use Psr\Http\Message\ResponseInterface;
 use React\EventLoop\Factory;
-require_once 'lib/phpQuery.php';
+require_once 'Lib/phpQuery.php';
 
 class ParserController
 {
@@ -45,9 +45,13 @@ class ParserController
         echo $html;
     }
 
+    public function parseTopVideo(){
+
+    }
+
     public function changeSrc(){
         $animeDB = new Anime();
-        $anime = $animeDB->getAnimeForCorrect('1');
+        $anime = $animeDB->getAnimeForCorrect('http://upload.mix.tj/');
         foreach ($anime as $val){
             if (($src = $this->autoCorrectMix($val['rly_path'])) != false){
                     $animeDB->updateSrc($val['id'],$src);
