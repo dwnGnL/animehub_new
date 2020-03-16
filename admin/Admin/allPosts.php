@@ -65,7 +65,7 @@ $model = new Model();
         $posts = $model->getAllPostForViews($limit,$offset);
                 $get = '?posts=posts';
             }
-        }elseif ($_SESSION['status'] == 'Модератр'){
+        }elseif ($_SESSION['status'] == 'Модератор'){
 
             if(isset($_GET['searchPosts'])){
                 $posts = $model->searchUserPostForViews($limit, $offset, $_SESSION['id'], $_GET['searchPosts']);

@@ -16,14 +16,14 @@ class Product extends Model
         $sql = 'SELECT lite_product.id_product, lite_product.name_product, lite_product.price_product, lite_product.img_product, lite_product.text_product,
                 lite_cat_product.name_cat
                 FROM lite_product, lite_cat_product 
-                WHERE lite_product.id_cat_pr = lite_cat_product.id_cat_pr'.$take;
+                WHERE lite_product.id_cat_pr = lite_cat_product.id_cat_pr ORDER BY lite_product.id_product DESC '.$take;
         return $this->driver->row($sql);
     }
     public function getProductInfo($id){
         $sql = 'SELECT lite_product.id_product, lite_product.name_product, lite_product.price_product, lite_product.img_product, lite_product.text_product, lite_cat_product.name_cat, lite_product.id_cat_pr
                 FROM lite_product, lite_cat_product 
                 WHERE lite_product.id_cat_pr = lite_cat_product.id_cat_pr 
-                AND lite_product.id_product = :id';
+                AND lite_product.id_product = :id ';
         $params = [
             'id' => $id
         ];

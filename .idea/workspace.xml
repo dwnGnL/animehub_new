@@ -1,48 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6341c2f9-1102-484a-bdc9-098e620a8c13" name="Default Changelist" comment="Revert &quot;vse&quot;&#10;&#10;This reverts commit 27cc687c">
-      <change afterPath="$PROJECT_DIR$/AdminController/ProductController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/shop/11797901010136.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/shop/13617901010136.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/shop/18567901010147.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/shop/19237901010136.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/shop/2152Asus1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/shop/35796006164933.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/shop/3994ata1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/shop/41966006164933.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/shop/42367901010136.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/shop/4877ata1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/shop/61477901010136.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/shop/757901010147.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/shop/81166006164933.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/shop/84647901010136.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/shop/89906006164933.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/shop/93997901010136.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/dashboard/css/shop.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/dashboard/js/sweetalert.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/dashboard/viewProducts.tpl.php" afterDir="false" />
+    <list default="true" id="6341c2f9-1102-484a-bdc9-098e620a8c13" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdminController/ParserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/AdminController/ParserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdminController/ShopController.php" beforeDir="false" afterPath="$PROJECT_DIR$/AdminController/ShopController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdminController/SortController.php" beforeDir="false" afterPath="$PROJECT_DIR$/AdminController/SortController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/ParserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/ParserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/Upload.php" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/Upload.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Anime.php" beforeDir="false" afterPath="$PROJECT_DIR$/Model/Anime.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Attributes.php" beforeDir="false" afterPath="$PROJECT_DIR$/Model/Attributes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Model.php" beforeDir="false" afterPath="$PROJECT_DIR$/Model/Model.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Model/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/Model/Product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/Parsemix.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/Parsemix.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/shop/33155e1831cae7d7ceda89162dde.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/shop/41175e1831cae7d7ceda89162dde.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/shop/41625e1831cae7d7ceda89162dde.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/shop/4680IMG_20200114_183521.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dashboard/addProduct.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard/addProduct.tpl.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dashboard/attr.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard/attr.tpl.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dashboard/js/shop.js" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard/js/shop.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dashboard/layout/dashboard.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard/layout/dashboard.tpl.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dashboard/sidebar.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard/sidebar.tpl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/Admin/allPosts.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/Admin/allPosts.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/Admin/edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/Admin/edit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/config.php" afterDir="false" />
     </list>
     <list id="38dd605b-6083-45a6-9f6b-662038e1e815" name="Revert &quot;no message&quot;" comment="Revert &quot;no message&quot;&#10;&#10;This reverts commit 1b2b2056" />
     <list id="26597201-c17a-4d66-b2be-a470cf0d8dee" name="Revert &quot;smiles&quot;" comment="Revert &quot;smiles&quot;&#10;&#10;This reverts commit a2f512a2" />
@@ -116,7 +81,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -124,19 +89,19 @@
     <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Web\OSPanel\domains\hub" />
+      <recent name="D:\Web\OSPanel\domains\hub\templates\js" />
+      <recent name="D:\Web\OSPanel\domains\hub\templates\dashboard\img" />
+      <recent name="D:\Web\OSPanel\domains\hub\Lib" />
+      <recent name="D:\Web\OSPanel\domains\hub\templates\dashboard" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Web\OSPanel\domains\hub\templates\dashboard\js" />
       <recent name="D:\Web\OSPanel\domains\hub\templates" />
       <recent name="D:\Web\OSPanel\domains\hub\templates\dashboard" />
       <recent name="D:\Web\OSPanel\domains\hub\templates\dashboard\layout" />
       <recent name="D:\Web\OSPanel\domains\hub" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Web\OSPanel\domains\hub\templates\js" />
-      <recent name="D:\Web\OSPanel\domains\hub\templates\dashboard\img" />
-      <recent name="D:\Web\OSPanel\domains\hub\Lib" />
-      <recent name="D:\Web\OSPanel\domains\hub\templates\dashboard" />
-      <recent name="D:\Web\OSPanel\domains\hub\Controller\Admin" />
     </key>
   </component>
   <component name="ServiceViewManager">
@@ -383,7 +348,11 @@
       <workItem from="1583942348456" duration="5229000" />
       <workItem from="1583982981304" duration="3987000" />
       <workItem from="1584000269884" duration="12557000" />
-      <workItem from="1584029970686" duration="1119000" />
+      <workItem from="1584029970686" duration="3092000" />
+      <workItem from="1584083733527" duration="29000" />
+      <workItem from="1584099895112" duration="1181000" />
+      <workItem from="1584110080632" duration="10000" />
+      <workItem from="1584373549102" duration="1096000" />
     </task>
     <task id="LOCAL-00001" summary="Merge branch 'master' of https://github.com/dwnGnL/animehub_new&#10;&#10;# Conflicts:&#10;#&#9;Controller/PageController.php">
       <created>1575814085998</created>
@@ -609,7 +578,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583736106701</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Revert &quot;vse&quot;&#10;&#10;This reverts commit 27cc687c">
+      <created>1584031421342</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1584031421342</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -663,10 +639,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="166" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1584003932178" />
-    <state x="-2" y="0" width="1499" height="824" key="CommitChangelistDialog2" timestamp="1583736112152">
+    <state x="-2" y="0" width="1499" height="824" key="CommitChangelistDialog2" timestamp="1584031419675">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="-2" y="0" width="1499" height="824" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1583736112152" />
+    <state x="-2" y="0" width="1499" height="824" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1584031419675" />
     <state x="126" y="64" width="1228" height="689" key="DiffContextDialog" timestamp="1578286415469">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -695,10 +671,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="594" y="133" key="RollbackChangesDialog/0.0.1536.824@0.0.1536.824" timestamp="1584005679629" />
-    <state x="361" y="144" key="Vcs.Push.Dialog.v2" timestamp="1583736116741">
+    <state x="361" y="144" key="Vcs.Push.Dialog.v2" timestamp="1584031467977">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="144" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1583736116741" />
+    <state x="361" y="144" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1584031467977" />
     <state x="578" y="329" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1584030480236">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

@@ -21,8 +21,8 @@ if(isset($_GET['edit']))
                         $godWip = $model->getGodWip($post['id_god_wip']);
                         $getPostTv = $model->getPostTv($post['id_tv']);
                         $catPost = $model->getCatPost($post['id']);
-                        }elseif ($_SESSION['status'] == '2'){
-                            $post = $model->getPostForIdModer($_GET['edit'],$_SESSION['status']);
+                        }elseif ($_SESSION['status'] == 'Модератор'){
+                            $post = $model->getPostForIdModer($_GET['edit'],$_SESSION['id']);
                             $godWip = $model->getGodWip($post['id_god_wip']);
                             $getPostTv = $model->getPostTv($post['id_tv']);
                             $catPost = $model->getCatPost($post['id']);
