@@ -9,6 +9,7 @@ use Model\Comment;
 use Model\Favorite;
 use Model\Notification;
 use Model\Post;
+use Model\Product;
 use Model\Rating;
 use Model\User;
 use Model\Vip;
@@ -73,18 +74,31 @@ class AjaxController extends DisplayController
     public function searchAjax()
     {
             if ((isset($_POST['title'] )) && (iconv_strlen(trim($_POST['title']))) > 3){
-                $post = new Post();
-                $title = explode(' ',$_POST['title'] );
-                $result = $post->searchAjax($title);
-                foreach ($result as $key => $value){
-                    $result[$key]['onlyTitle'] = $result[$key]['title'];
-                    $result[$key]['onlyTv'] = $result[$key]['tv'];
-                    $result[$key]['title'] = $result[$key]['title'].' '.$result[$key]['tv'];
-                    $result[$key]['src'] ='/'.$result[$key]['type'].'/'.Helper::renderUrl($result[$key]['id'],$result[$key]['alias']);
+                if($_POST['type'] == 'Пост') {
+                    $post = new Post();
+                    $title = explode(' ', $_POST['title']);
+                    $result = $post->searchAjax($title);
+                    foreach ($result as $key => $value) {
+                        $result[$key]['onlyTitle'] = $result[$key]['title'];
+                        $result[$key]['onlyTv'] = $result[$key]['tv'];
+                        $result[$key]['title'] = $result[$key]['title'] . ' ' . $result[$key]['tv'];
+                        $result[$key]['src'] = '/' . $result[$key]['type'] . '/' . Helper::renderUrl($result[$key]['id'], $result[$key]['alias']);
+                    }
+                    $result[0]['count'] = count($result);
+                    echo json_encode($result);
+                    exit();
+                }elseif ($_POST['type'] == 'Манга'){
+                    $productDB = new Product();
+                    $title = explode(' ', $_POST['title']);
+                    $result = $productDB->productSearch($title);
+                    foreach ($result as $key => $value) {
+                        $result[$key]['src'] = '/shop/product/' . Helper::renderUrl($result[$key]['id'], $result[$key]['title']);
+                    }
+                    $result[0]['count'] = count($result);
+                    echo json_encode($result);
+                    exit();
+
                 }
-                $result[0]['count'] = count($result);
-                echo json_encode($result);
-                exit();
             }
 
         return false;

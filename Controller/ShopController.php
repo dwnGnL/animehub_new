@@ -10,19 +10,24 @@ use Model\Product;
 
 class ShopController extends DisplayController
 {
-    public function index(){
+    public function index($page){
         $this->title = 'Купить Манга - японские комиксы на русском языке онлайн';
         $this->description = 'В интернет-магазине «Animehub» вы можете купить японские комиксы манга в Таджикистане, Душанбе и Худжанд. У нас самые низкие цены и быстрая доставка.';
         $this->keywords = 'Купить мангу, Таджикистан, Душанбе, Худжанде, на русском, купить мангу в Таджикистане';
         $comments = [];
         $productDB = new Product();
-        $products = $productDB->getProduct();
+        $page = $page ? $page : 1;
+        $products = $productDB->getProductList($page,'/shop');
+        if (empty($products['items'])){
+            $this->app->notFound();
+        }
         $this->index = $this->app->view()->fetch('shop.tpl.php',[
-           'products' => $products,
+           'products' => $products['items'],
             'helper' => Helper::getInstance(),
             'uri' => $this->getUri(),
-            'search' => $this->getSearch(),
-            'comments' => $comments
+            'search' => $this->getSearch('Манга'),
+            'comments' => $comments,
+            'navigation' => $products['navigation']
         ]);
         $this->display();
     }

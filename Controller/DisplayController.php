@@ -34,8 +34,11 @@ abstract  class DisplayController extends Controller
         ]);
     }
 
-    protected function getSearch(){
-       return $this->app->view()->fetch('search.tpl.php') ;
+    protected function getSearch($type = 'Пост'){
+       return $this->app->view()->fetch('search.tpl.php', [
+           'uri' => $this->getUri(),
+           'type' => $type
+       ]) ;
     }
 
 

@@ -47,7 +47,7 @@
 
     </div>
 
-<!--    --><?//=$navigation?>
+    <?=$navigation?>
 </div>
 
 

@@ -38,7 +38,7 @@ class Pager{
         }
 
         $sql = 'SELECT COUNT(*) AS count FROM '.$this->tablename.' WHERE '.$this->where;
-        if (!empty($this->where)){
+        if (!empty($this->where && !empty($this->params))){
             $count  =  $this->driver->row($sql,$this->params);
 
         }else{
