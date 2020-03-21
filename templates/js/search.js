@@ -38,7 +38,7 @@ $(".search-block .search").on("input",(e) => {
     $.ajax({
       type: "post",
       url: "/ajax/search/ajax",
-      data: ({"title":text,"token":$("#token").text()}),
+      data: ({"title":text,"token":$("#token").text(), "type":$('#type').val()}),
       dataType: "text",
       success: function (response) {
         response = JSON.parse(response);

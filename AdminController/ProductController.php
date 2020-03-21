@@ -8,6 +8,7 @@ use Lib\Helper;
 use Lib\Upload;
 use Model\AttrCat;
 use Model\Attributes;
+use Model\AttrProduct;
 use Model\CatProduct;
 use Model\Product;
 
@@ -45,6 +46,7 @@ class ProductController extends AdminController
     }
 
     public function update($id){
+        $attrDB = new AttrProduct();
        $productDB = new Product();
        $product = $productDB->getProductInfo($id);
         $update = $productDB->update([
