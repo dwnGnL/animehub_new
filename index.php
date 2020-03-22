@@ -52,9 +52,9 @@ $app->get('/parser', function () use ($app){
     $o->changeSrc();
 });
 $app->group('/shop', function () use ($app){
-    $app->get('/', function (){
-        $o = \Controller\Controller::getInstance('shop'); //ParserController
-        $o->index();
+    $app->get('(/:page)', function ($page = false){
+        $o = \Controller\Controller::getInstance('shop'); //ShopController
+        $o->index($page);
     });
     $app->get('/product/:product', function ($product){
         $o = \Controller\Controller::getInstance('shop'); //ParserController

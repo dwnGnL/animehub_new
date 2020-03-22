@@ -52,4 +52,47 @@ class Product extends Model
                 WHERE lite_product.id_cat_pr = lite_cat_product.id_cat_pr';
         return $this->driver->row($sql);
     }
+
+    public function getProductList($page,$route){
+        $fields = 'lite_product.id_product, lite_product.name_product, lite_product.price_product, lite_product.img_product, lite_product.text_product,
+                lite_cat_product.name_cat';
+
+        $from = 'lite_product, lite_cat_product';
+
+        $where = 'lite_product.id_cat_pr = lite_cat_product.id_cat_pr ORDER BY lite_product.id_product DESC';
+        $params = [];
+        $pager = new \Lib\Pager(
+            $fields,
+            $from,
+            $where,
+            $page,
+            $params,
+            QUANTITY,
+            QUANTITY_LINKS,
+            $this->driver
+        );
+
+        $result = [];
+        $result['items'] = $pager->get_posts();
+        $result['navigation'] = $pager->render($route);
+        return $result;
+
+    }
+
+    public function productSearch($search){
+        $sql = '';
+        $params = [];
+        foreach ($search as $key => $val){
+            if ($key == 0){
+                $and = '';
+            }else{
+                $and = ' AND ';
+            }
+            $sql .= $and.'CONCAT(name_product) LIKE :'.$key;
+            $params[$key] = '%'.$val.'%';
+        }
+        $insert = 'SELECT name_product AS title, img_product AS img, id_product as id FROM lite_product
+                  WHERE  '.$sql.' LIMIT 5';
+        return $this->driver->row($insert,$params);
+    }
 }

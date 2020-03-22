@@ -88,12 +88,12 @@
 
     </div>
       <?php if(isset($_SESSION['auth'])):?>
-          <form class="form-comment form">
-              <div class="disable"><div class="loader">Loading...</div></div>
-              <!-- <textarea class="form-control" name="comment"  id="textComment" cols="80" rows="10" placeholder="Оставить коментарий..." ></textarea> -->
-              <textarea id="textComment" name="comment" class="form-control" placeholder="Оставить коментарий..."></textarea>
-              <button class="btn btn-outline-secondary" type="button" id="sendComment">Оставить отзыв</button>
-          </form>
+<!--          <form class="form-comment form">-->
+<!--              <div class="disable"><div class="loader">Loading...</div></div>-->
+<!--              <!-- <textarea class="form-control" name="comment"  id="textComment" cols="80" rows="10" placeholder="Оставить коментарий..." ></textarea> -->-->
+<!--              <textarea id="textComment" name="comment" class="form-control" placeholder="Оставить коментарий..."></textarea>-->
+<!--              <button class="btn btn-outline-secondary" type="button" id="sendComment">Оставить отзыв</button>-->
+<!--          </form>-->
 
 
 
