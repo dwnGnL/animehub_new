@@ -7,6 +7,32 @@ body {
   position: relative;
 }
 
+.banners{
+  position: relative;
+  width: 100%;
+  height: 200px;
+}
+
+.banners .bg-banner{
+  position: absolute;
+  z-index:1;
+  
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  -webkit-transition: opacity 1s linear;
+  transition: opacity 1s linear;
+}
+
+.banners .bg-banner.active{
+  opacity: 1;
+}
+
+.bg-banner img{
+  width: 100%;
+  height: 100%;
+}
+
 .metrika {
   position: absolute;
   bottom: 0;
