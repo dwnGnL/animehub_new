@@ -24,16 +24,22 @@
         <option value="<?=$cat['title']?>"><?=$cat['title']?></option>
           <?php endforeach; ?>
       </select> -->
-      <div class="search-block">
+      <div class="search-block-main">
       <span class="finding__elem-block"></span>
       <input class="search-input" type="text" placeholder="Выберите категорию">
-    </div>
-  </label>
-  <ul class="gener-list">
+    <ul class="gener-list">
       <?php foreach ($cats as $cat): ?>
       <li class="list-item"><?=$cat['title']?></li>
           <?php endforeach; ?>
     </ul>
+    </div>
+
+  </label>
+  <!-- <ul class="gener-list">
+      <?php foreach ($cats as $cat): ?>
+      <li class="list-item"><?=$cat['title']?></li>
+          <?php endforeach; ?>
+    </ul> -->
       
     <label><span class="label-item">Год выпуска:</span><input type="text" placeholder="Год выпуска"></label>
     <label><span class="label-item">Описание:</span><textarea placeholder="Описание"></textarea></label>

@@ -3,31 +3,33 @@ body {
   margin: 0;
 }
 
-.search-block {
-  margin: 200px auto 20px;
-  border: 1px solid #ccc;
+.search-block-main {
+  position: relative;
+  border: 1px solid #E3E6F0;
   border-radius: 5px;
-  overflow: hidden;
-  width: 90%;
+  /* overflow: hidden; */
+  width: 75%;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
 }
 .search-input {
-  height: 50px;
   width: 100%;
-  padding: 0 5px;
+  padding: 5px;
   box-sizing: border-box;
   border: none;
   outline: none;
-  color: #757575
+  color: #858796;
 }
 
 .gener-list {
+  position: absolute;
   list-style-type: none;
+  top: 115%;
+  background: #f8f9fc;
   padding: 0;
-  margin: 0 auto;
-  width: 90%;
+  margin: 0;
+  width: 102%;
   display: flex;
 }
 
@@ -54,8 +56,8 @@ body {
 
 .finding__elem {
   position: relative;
-  height: 40px;
-  line-height: 40px;
+  height: 32px;
+  line-height: 32px;
   border: 1px solid #ccc;
   border-radius: 3px;
   color: #757575;

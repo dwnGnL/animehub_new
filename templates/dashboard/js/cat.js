@@ -1,4 +1,4 @@
-const searchBlock = document.querySelector('.search-block');
+const searchBlock = document.querySelector('.search-block-main');
 const listData = document.querySelectorAll('.list-item');
 let search = document.querySelector('.search-input');
 let findingElemBlock = document.querySelector('.finding__elem-block');
@@ -26,9 +26,9 @@ function searchItems(pasteEevnt) {
   array.forEach((elem, index) => {
     listData[index].classList.remove('show');
     arrData.forEach(searchElem => {
-      if (elem == searchElem) {
+      if (elem.indexOf(searchElem) > - 1) { 
         listData[index].classList.add('show');
-        if (pasteEevnt) addFindElement(listData[index], index);
+        if (pasteEevnt) addFindElement(listData[index], index); 
       };
     });
   });
@@ -76,11 +76,11 @@ function unchooesEleme(elem, index) {
 
 
 function controlInputWidth() {
-  let inputWidth = searchBlock.clientWidth - findingElemBlock.clientWidth;
+  let inputWidth = searchBlock.clientWidth - findingElemBlock.clientWidth - 5;
   let inputHeight = findingElemBlock.clientHeight;
   console.log(inputHeight);
   
-  if (inputHeight < 50) inputHeight = 50;
+  if (inputHeight < 36) inputHeight = 36;
   search.style.width = `${inputWidth}px`;
   search.style.height = `${inputHeight}px`;
 }
