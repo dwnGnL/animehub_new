@@ -7,7 +7,7 @@ let array = new Array;
 let unchooes;
 
 
-listData.forEach(elem => array.push(elem.innerHTML));
+listData.forEach(elem => array.push(elem.innerHTML.toLowerCase()));
 
 search.oninput = () => searchItems(false)
 
@@ -54,7 +54,7 @@ function arrDataFix(arr) {
     elem = elem.replace(/\s+/g, " ");
     elem = elem.trim();
     if (elem === '' || elem === undefined) return;
-    return elem[0].toUpperCase() + elem.substr(1).toLowerCase();
+    return elem.substr(0).toLowerCase();
   });  
   return arrFixed;
 };
