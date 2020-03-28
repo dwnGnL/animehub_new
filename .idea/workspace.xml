@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6341c2f9-1102-484a-bdc9-098e620a8c13" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Chat.php" beforeDir="false" afterPath="$PROJECT_DIR$/Model/Chat.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/js/chat.js" beforeDir="false" afterPath="$PROJECT_DIR$/templates/js/chat.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/indexbar.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/indexbar.tpl.php" afterDir="false" />
     </list>
     <list id="38dd605b-6083-45a6-9f6b-662038e1e815" name="Revert &quot;no message&quot;" comment="Revert &quot;no message&quot;&#10;&#10;This reverts commit 1b2b2056" />
     <list id="26597201-c17a-4d66-b2be-a470cf0d8dee" name="Revert &quot;smiles&quot;" comment="Revert &quot;smiles&quot;&#10;&#10;This reverts commit a2f512a2" />
@@ -355,7 +353,7 @@
       <workItem from="1584615044504" duration="39000" />
       <workItem from="1584695093445" duration="4249000" />
       <workItem from="1584767722211" duration="3232000" />
-      <workItem from="1585418830496" duration="671000" />
+      <workItem from="1585418830496" duration="1221000" />
     </task>
     <task id="LOCAL-00001" summary="Merge branch 'master' of https://github.com/dwnGnL/animehub_new&#10;&#10;# Conflicts:&#10;#&#9;Controller/PageController.php">
       <created>1575814085998</created>
