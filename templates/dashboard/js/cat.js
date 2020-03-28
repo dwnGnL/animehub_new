@@ -1,4 +1,4 @@
-const searchBlock = document.querySelector('.search-block');
+const searchBlock = document.querySelector('.search-block-main');
 const listData = document.querySelectorAll('.list-item');
 let search = document.querySelector('.search-input');
 let findingElemBlock = document.querySelector('.finding__elem-block');
@@ -7,7 +7,7 @@ let array = new Array;
 let unchooes;
 
 
-listData.forEach(elem => array.push(elem.innerHTML));
+listData.forEach(elem => array.push(elem.innerHTML.toLowerCase()));
 
 search.oninput = () => searchItems(false)
 
@@ -26,9 +26,9 @@ function searchItems(pasteEevnt) {
   array.forEach((elem, index) => {
     listData[index].classList.remove('show');
     arrData.forEach(searchElem => {
-      if (elem == searchElem) {
+      if (elem.indexOf(searchElem) > - 1) { 
         listData[index].classList.add('show');
-        if (pasteEevnt) addFindElement(listData[index], index);
+        if (pasteEevnt) addFindElement(listData[index], index); 
       };
     });
   });
@@ -54,7 +54,7 @@ function arrDataFix(arr) {
     elem = elem.replace(/\s+/g, " ");
     elem = elem.trim();
     if (elem === '' || elem === undefined) return;
-    return elem[0].toUpperCase() + elem.substr(1).toLowerCase();
+    return elem.substr(0).toLowerCase();
   });  
   return arrFixed;
 };
@@ -76,11 +76,11 @@ function unchooesEleme(elem, index) {
 
 
 function controlInputWidth() {
-  let inputWidth = searchBlock.clientWidth - findingElemBlock.clientWidth;
+  let inputWidth = searchBlock.clientWidth - findingElemBlock.clientWidth - 5;
   let inputHeight = findingElemBlock.clientHeight;
   console.log(inputHeight);
   
-  if (inputHeight < 50) inputHeight = 50;
+  if (inputHeight < 36) inputHeight = 36;
   search.style.width = `${inputWidth}px`;
   search.style.height = `${inputHeight}px`;
 }

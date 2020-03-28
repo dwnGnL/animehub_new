@@ -14,7 +14,7 @@ class Chat extends Model
                 LEFT JOIN lite_users ON lite_users.id = lite_chat.id_user
                 LEFT JOIN lite_status ON lite_status.id = lite_users.status
                 LEFT JOIN lite_vip ON lite_vip.id_user = lite_users.id AND lite_users.status != 0
-                ORDER BY lite_chat.date';
+                ORDER BY lite_chat.date DESC limit 100';
         return $this->driver->row($sql);
     }
 

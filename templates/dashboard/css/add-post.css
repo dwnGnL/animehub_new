@@ -31,7 +31,7 @@ select {
   border: 1px solid#E3E6F0;
   transition: .3s;
 }
-label span {
+label .label-item {
   width: 25%;
   color: #858796;
 }

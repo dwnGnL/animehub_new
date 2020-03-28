@@ -166,7 +166,7 @@ function viewMessage(message) {
   if (message.messages.length == 1) {
     template(message.messages.img, message.messages.login, message.messages.date, message.messages.text, message.messages.login_color, message.messages.font, message.messages.id_chat, message.messages.status, message.messages.color)
   } else {
-    for (var i = 0; i < message.messages.length; i++) {
+    for (var i = message.messages.length - 1; i >= 0 ; i--) {
       template(message.messages[i].img, message.messages[i].login, message.messages[i].date, message.messages[i].text, message.messages[i].login_color, message.messages[i].font, message.messages[i].id_chat, message.messages[i].status, message.messages[i].color)
     }
   }
