@@ -6,7 +6,7 @@ namespace Model;
 
 class Chat extends Model
 {
-    public function getAllMessages()
+    public function getAllMessages($offset)
     {
         $sql = 'SELECT lite_chat.id_chat, lite_chat.text, lite_chat.date, lite_users.img, lite_status.color, lite_status.title 
                 AS status, lite_users.login, lite_vip.login_color,  lite_vip.font
@@ -14,8 +14,11 @@ class Chat extends Model
                 LEFT JOIN lite_users ON lite_users.id = lite_chat.id_user
                 LEFT JOIN lite_status ON lite_status.id = lite_users.status
                 LEFT JOIN lite_vip ON lite_vip.id_user = lite_users.id AND lite_users.status != 0
-                ORDER BY lite_chat.date DESC limit 100';
-        return $this->driver->row($sql);
+                ORDER BY lite_chat.date DESC limit 100 OFFSET :offset';
+        $params = [
+            'offset' => $offset
+        ];
+        return $this->driver->row($sql, $params);
     }
 
     public function getNewMessage($id_chat)
