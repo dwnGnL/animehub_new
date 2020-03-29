@@ -43,7 +43,6 @@ innerChat.onscroll = () => {
 
       onMessagesScroll(page, innerChat.scrollHeight);
     page++;
-    console.log(page)
 
   }
 
