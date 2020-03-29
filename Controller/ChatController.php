@@ -11,7 +11,7 @@ class ChatController extends DisplayController
 
     public function onConnect(){
             $chat = new Chat();
-            $offset = $_POST['page'] * 50;
+            $offset = $_POST['page'] * 25;
             $messages = $chat->getAllMessages($offset);
             echo json_encode(['status' => 200, 'messages' => $messages]);
     }
