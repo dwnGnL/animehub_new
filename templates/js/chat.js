@@ -34,9 +34,17 @@ if (controls !== null) {
   });
 
 }
+var page = 1;
 innerChat.onscroll = () => {
   let scrollBottom = innerChat.scrollHeight - innerChat.scrollTop - innerChat.clientHeight;
+  console.log(innerChat.scrollTop);
+  if (innerChat.scrollTop == 0){
 
+
+      onMessagesScroll(page, innerChat.scrollHeight);
+    page++;
+
+  }
 
   if (scrollBottom > 1000) {
     if (scrollToBottom.classList.contains('show-scroll-bottom')) return;
@@ -101,7 +109,7 @@ showChat.onclick = () => {
 
   if (document.body.clientWidth < 767) document.body.style.overflow = 'hidden';
   if (localStorage.getItem('click') === null) {
-    onConnect();
+    onConnect(0);
     localStorage.setItem('click', 1);
   } else {
     onMessage();
@@ -166,7 +174,7 @@ function viewMessage(message) {
   if (message.messages.length == 1) {
     template(message.messages.img, message.messages.login, message.messages.date, message.messages.text, message.messages.login_color, message.messages.font, message.messages.id_chat, message.messages.status, message.messages.color)
   } else {
-    for (var i = 0; i < message.messages.length; i++) {
+    for (var i = message.messages.length - 1; i >= 0 ; i--) {
       template(message.messages[i].img, message.messages[i].login, message.messages[i].date, message.messages[i].text, message.messages[i].login_color, message.messages[i].font, message.messages[i].id_chat, message.messages[i].status, message.messages[i].color)
     }
   }
@@ -174,17 +182,44 @@ function viewMessage(message) {
 
 }
 
-function onConnect() {
-  $("#chat .disable").toggle()
+function viewMessageAjax(message) {
+  if (message.messages.length == 1) {
+    ajaxView(message.messages.img, message.messages.login, message.messages.date, message.messages.text, message.messages.login_color, message.messages.font, message.messages.id_chat, message.messages.status, message.messages.color)
+  } else {
+    for (var i = 0; i < message.messages.length; i++) {
+      ajaxView(message.messages[i].img, message.messages[i].login, message.messages[i].date, message.messages[i].text, message.messages[i].login_color, message.messages[i].font, message.messages[i].id_chat, message.messages[i].status, message.messages[i].color)
+    }
+  }
+  localStorage.setItem('idInterval', setInterval(onListener, 500));
+
+}
+function onConnect(page) {
+  $("#chat .disable").toggle();
   $.ajax({
     url: '/ajax/chat/connect',
     method: 'POST',
-    data: ({ token: $('#token').text() }),
+    data: ({ token: $('#token').text(), 'page': page }),
     success: function (data) {
       var message = JSON.parse(data);
       viewMessage(message);
       $("#chat .disable").toggle()
 
+    }
+  });
+
+}
+
+function onMessagesScroll(page, oldHeight) {
+  $("#chat .disable").toggle();
+  $.ajax({
+    url: '/ajax/chat/connect',
+    method: 'POST',
+    data: ({ token: $('#token').text(), 'page': page }),
+    success: function (data) {
+      var message = JSON.parse(data);
+      viewMessageAjax(message);
+      $("#chat .disable").toggle();
+      innerChat.scrollTo(0, innerChat.scrollHeight - oldHeight)
     }
   });
 
@@ -267,6 +302,38 @@ function template(avatar, username, date, mess, color, font, id_chat, status, st
     }
 
     scrollingToBottom()
+
+  }
+
+};
+
+function ajaxView(avatar, username, date, mess, color, font, id_chat, status, status_color) {
+
+
+  // var message=`<div class="chat-item" style="display:none">
+  var message = `<div class="chat-item">
+        <div class="chat-user" id="${id_chat}">
+          <div class="chat-user-avatar"><img src="${avatar}"></div>
+          <div class="chat-user-right">
+            <div class="chat-user-name"><a style="${color};font-family:'${font}'" href="/profile/${username}">${username}</a> <span style="color: ${status_color}">${status}</span></div>
+            <div class="chat-date">${date}</div>
+          </div>
+        </div>
+
+        <div class="chat-text">${mess}</div>
+      </div>`
+
+  $("#chat").prepend(message);
+
+  if (localStorage.getItem('user') !== null) {
+    var parse = JSON.parse(localStorage.getItem('user'))
+    if (username == parse.login) {
+      avatar = parse.img
+    }
+    if (username == parse.login) {
+      $('#chat .chat-item:last-child').addClass("chat-item-self")
+    }
+
 
   }
 

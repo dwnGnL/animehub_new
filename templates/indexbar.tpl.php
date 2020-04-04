@@ -6,24 +6,24 @@
   <?=$search?>
   <!-- New series -->
   <div class="new-series-block">
-    <div class="banners">
-      <div class="bg-banner active"><img src="<?=$uri?>/templates/images/Fire_Force.png" alt=""></div>
-      <div class="bg-banner"><img src="<?=$uri?>/templates/images/background.png" alt=""></div>
-    </div>
-    <script>
-        var transTime = 5000;
-        var numBgColors = $('.bg-banner').length;
-        var bgtrans = setInterval(()=>{
-        if($('.bg-banner.active').index() == ($('.bg-banner').length-1)){
-        $('.bg-banner.active').removeClass('active');
-        $('.bg-banner').eq(0).addClass('active');
-        }else{
-        var curIndex = $('.bg-banner.active').index();
-        $('.bg-banner.active').removeClass('active');
-        $('.bg-banner').eq(curIndex+1).addClass('active');
-        }
-        },transTime);
-      </script>
+<!--    <div class="banners">-->
+<!--      <div class="bg-banner active"><img src="--><?//=$uri?><!--/templates/images/Fire_Force.png" alt=""></div>-->
+<!--      <div class="bg-banner"><img src="--><?//=$uri?><!--/templates/images/background.png" alt=""></div>-->
+<!--    </div>-->
+<!--    <script>-->
+<!--        var transTime = 5000;-->
+<!--        var numBgColors = $('.bg-banner').length;-->
+<!--        var bgtrans = setInterval(()=>{-->
+<!--        if($('.bg-banner.active').index() == ($('.bg-banner').length-1)){-->
+<!--        $('.bg-banner.active').removeClass('active');-->
+<!--        $('.bg-banner').eq(0).addClass('active');-->
+<!--        }else{-->
+<!--        var curIndex = $('.bg-banner.active').index();-->
+<!--        $('.bg-banner.active').removeClass('active');-->
+<!--        $('.bg-banner').eq(curIndex+1).addClass('active');-->
+<!--        }-->
+<!--        },transTime);-->
+<!--      </script>-->
     <div class="head">
       <div class="left-head">Новые серии аниме</div>
       <a href="/anime"><div class="right-head">Смотреть все новинки</div></a>
