@@ -51,6 +51,10 @@ $app->get('/parser', function () use ($app){
     $o = \Controller\Controller::getInstance('parser'); //ParserController
     $o->changeSrc();
 });
+$app->get('/parserTop', function () use ($app){
+    $o = \Controller\Controller::getInstance('parser'); //ParserController
+    $o->changeSrcTopVideo();
+});
 $app->group('/shop', function () use ($app){
     $app->get('(/:page)', function ($page = false){
         $o = \Controller\Controller::getInstance('shop'); //ShopController
