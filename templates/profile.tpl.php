@@ -74,7 +74,7 @@
             <div class="choosed-bg" data-src='<?=$user['back_fon']?>'>
 
               <ul class="choosing-bg">
-                <li class="bg-item" data-src="<?=$uri?>templates/images/fons/21.jpg"></li>
+              <li class="bg-item" data-src="<?=$uri?>templates/images/fons/21.jpg"></li>
                 <li class="bg-item" data-src="<?=$uri?>templates/images/fons/22.jpg"></li>
                 <li class="bg-item" data-src="<?=$uri?>templates/images/fons/23.jpg"></li>
                 <li class="bg-item" data-src="<?=$uri?>templates/images/fons/24.jpg"></li>
