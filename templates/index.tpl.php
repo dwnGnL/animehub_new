@@ -202,7 +202,7 @@
         </div>
 
         <div class="bottom-block">
-          &#169; 2019 AnimeHub.tj
+          &#169; 2020 AnimeHub.tj
         </div>
       </div>
     </div>
