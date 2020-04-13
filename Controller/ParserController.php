@@ -64,7 +64,7 @@ class ParserController
         $anime = $animeDB->getAnimeForCorrect('https://topvideo.tj/video/');
         foreach ($anime as $val) {
             if (($src = $this->autoCorrectTop($val['rly_path'])) != false) {
-                $animeDB->updateSrc($val['id'],$src);
+                echo $src;
             }
         }
     }

@@ -197,7 +197,12 @@
             <div class="social-item">
               <div class="social-item-img"><a href="https://vk.com/animehub_tj" target="_blank"><i class="fab fa-vk"></i></a></div>
               <div class="social-item-img"><a href="https://www.facebook.com/animehub.tj" target="_blank"><i class="fab fa-facebook-square"></i></a></div>
+<<<<<<< HEAD
+              <div class="social-item-img"><a href="https://www.instagram.com/animehub_tj" target="_blank"><i class="fab fa-instagram"></i></a></div>
+            </div>
+=======
               <div class="social-item-img"><a href="https://www.instagram.com/animehub_tj" target="_blank"><i class="fab fa-instagram"></i></a></div>            </div>
+>>>>>>> 0124a7504f803f5f5f7e45dbae963dbea76f78d0
           </div>
         </div>
 
