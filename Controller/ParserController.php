@@ -59,6 +59,35 @@ class ParserController
         }
     }
 
+    public function changeSrcTopVideo(){
+        $animeDB = new Anime();
+        $anime = $animeDB->getAnimeForCorrect('https://topvideo.tj/video/');
+        foreach ($anime as $val) {
+            if (($src = $this->autoCorrectTop($val['rly_path'])) != false) {
+                $animeDB->updateSrc($val['id'],$src);
+            }
+        }
+    }
+
+    public function autoCorrectTop($href){
+
+        $embed = $this->getContent('https://topvideo.tj'.$href);
+        $embed = \phpQuery::newDocument($embed);
+        $src = '';
+        if($embed->find('source')->attr('src')) {
+            $src = $embed->find('source')->attr('src');
+        }
+
+        if(!empty($src)){
+            return $src;
+        }else{
+            return false;
+        }
+
+
+    }
+
+
     public function autoCorrectMix($href){
 
             $href = explode('/', $href);

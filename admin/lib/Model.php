@@ -1158,7 +1158,7 @@ if(!empty($root)){
 
     public function getAllPostForChangeSrcTopVideoForScript($src)
     {
-        $query = 'SELECT lite_anime.id, lite_anime.rly_path FROM lite_anime WHERE lite_anime.src LIKE ? AND lite_anime.rly_path != ""';
+        $query = 'SELECT lite_anime.id, lite_anime.rly_path FROM lite_anime WHERE lite_anime.src LIKE ? AND lite_anime.rly_path != "" OR lite_anime.src = "" AND lite_anime.rly_path != "" AND lite_anime.auto_correction = "1"';
         $post = $this->pdo->prepare($query);
         $post->execute(["%$src%"]);
         return $post->fetchAll(PDO::FETCH_ASSOC);
