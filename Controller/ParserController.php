@@ -62,11 +62,16 @@ class ParserController
     public function changeSrcTopVideo(){
         $animeDB = new Anime();
         $anime = $animeDB->getAnimeForCorrect('https://topvideo.tj/video/');
+        $i = 0;
         foreach ($anime as $val) {
             if (($src = $this->autoCorrectTop($val['rly_path'])) != false) {
-                $animeDB->updateSrc($val['id'],$src);
+                $update =  $animeDB->updateSrc($val['id'],$src);
+                if ($update){
+                 $i++;
+                }
             }
         }
+        echo $i.' кол-во аниме было обновлено';
     }
 
     public function autoCorrectTop($href){
