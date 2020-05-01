@@ -6,6 +6,7 @@ namespace Controller;
 
 
 
+use AdminController\AdminController;
 use Clue\React\Buzz\Browser;
 use Model\Anime;
 use Psr\Http\Message\ResponseInterface;
@@ -22,6 +23,7 @@ class ParserController
     {
         $this->loop = Factory::create();
         $this->client = new Browser($this->loop);
+
     }
 
     public function getContent($site){

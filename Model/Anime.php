@@ -94,4 +94,22 @@ class Anime extends Model
         return $this->driver->query($sql, $params);
     }
 
+    public function getAnimeIn(array $id){
+        $in = 'in(';
+        $params = [];
+        $count = count($id);
+
+        for ($i = 0; $i < $count; $i++){
+            if (($i + 1) == $count){
+                $in .= ':'.$i.' )';
+            }else{
+                $in .= ':'.$i.',';
+            }
+            $params [$i] = $id[$i];
+        }
+
+        $sql = 'SELECT id, rly_path,src FROM lite_anime WHERE id '.$in;
+        return $this->driver->row($sql,$params);
+    }
+
 }

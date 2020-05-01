@@ -106,9 +106,10 @@
   <script src="<?=$uri?>/templates/dashboard/js/dash.js?<?=filemtime('templates/dashboard/js/dash.js')?>"></script>
   <script src="<?=$uri?>/templates/dashboard/js/chosen.jquery.js"></script>
   <script src="<?=$uri?>/templates/dashboard/js/sweetalert.min.js"></script>
-<script src="<?=$uri?>/templates/dashboard/js/prism.js?<?=filemtime('templates/dashboard/js/prism.js')?>" type="text/javascript" charset="utf-8"></script>
+  <script src="<?=$uri?>/templates/dashboard/js/prism.js?<?=filemtime('templates/dashboard/js/prism.js')?>" type="text/javascript" charset="utf-8"></script>
   <script src="<?=$uri?>/templates/dashboard/js/init.js?<?=filemtime('templates/dashboard/js/init.js')?>" type="text/javascript" charset="utf-8"></script>
   <script src="<?=$uri?>/templates/dashboard/js/shop.js?<?=filemtime('templates/dashboard/js/shop.js')?>" type="text/javascript" charset="utf-8"></script>
+  <script src="<?=$uri?>/templates/dashboard/js/post.js?<?=filemtime('templates/dashboard/js/post.js')?>" type="text/javascript" charset="utf-8"></script>
 </body>
 
 </html>
