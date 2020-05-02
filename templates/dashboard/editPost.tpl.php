@@ -25,4 +25,51 @@
 
     <input type="button" name="save" value="Сохранить">
   </form>
+    <div class="row mt-2 mb-5">
+            <div class="col-md-6 mb-4">
+                <select name="action" id="action" class="form-control action">
+                    <option value="0" disabled selected>Выберите действие</option>
+                    <option value="1">Исправить</option>
+                    <option value="2">Обновить</option>
+                    <option value="3">Удалить</option>
+                </select>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="custom-control  form-group">
+                    <span>Выделить все</span>
+                    <input type="checkbox" class="all-check">
+                </div>
+            </div>
+        <?php foreach ($anime as $value): ?>
+        <div class="col-md-12 row parent">
+            <div class="col-md-1 form-group">
+                <input type="number" class="form-control ser" value="<?=$value['seria']?>">
+            </div>
+            <div class="col-md-3 form-group">
+                <input type="text" class="form-control stud" value="<?=$value['stud']?>">
+            </div>
+            <div class="col-md-7 form-group">
+                <input type="text" class="form-control" value="<?=$value['src']?>">
+            </div>
+            <div class="custom-control custom-checkbox form-group col-md-1">
+                <input type="checkbox" class="check" id="<?=$value['id']?>">
+            </div>
+        </div>
+        <?php endforeach; ?>
+        <div class="col-md-6 mt-4">
+            <select name="action" id="action" class="form-control action">
+                <option value="Исправить" disabled selected>Выберите действие</option>
+                <option value="1">Исправить</option>
+                <option value="2">Обновить</option>
+                <option value="3">Удалить</option>
+            </select>
+        </div>
+
+        <div class="col-md-6 mt-4">
+            <div class="custom-control  form-group">
+                <span>Выделить все</span>
+                <input type="checkbox" class="all-check">
+            </div>
+        </div>
+    </div>
 </div>

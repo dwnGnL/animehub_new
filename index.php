@@ -151,6 +151,10 @@ $app->group('/dashboard',$middle, function () use ($app){
             $o = \Controller\Controller::getInstance('post','AdminController'); //PostController
             $o->edit(['alias' => $alias, 'post' => $post]);
         })->name('editPost')->conditions(['post' => '\d+']);
+        $app->post('/seria/edit', function (){
+            $o = \Controller\Controller::getInstance('post','AdminController'); //PostController
+            $o->editSeria();
+        })->name('editSeria');
     });
 
     $app->group('/parse', function () use ($app){
