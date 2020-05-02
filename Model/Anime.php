@@ -6,6 +6,8 @@ namespace Model;
 
 class Anime extends Model
 {
+    protected $table = 'lite_anime';
+
     public function getSeria($id_tv, $title){
         $sql = 'SELECT lite_anime.id, lite_anime.src, lite_anime.seria, lite_stud.title AS stud, lite_kach.title AS kach 
         FROM lite_anime, lite_kach, lite_stud, lite_title
@@ -92,6 +94,12 @@ class Anime extends Model
             'id' => $id
         ];
         return $this->driver->query($sql, $params);
+    }
+
+    public function getAnimeIn(array $id){
+        $in = $this->driver->in($id);
+        $sql = 'SELECT id, rly_path,src FROM lite_anime WHERE id '.$in['in'];
+        return $this->driver->row($sql,$in['params']);
     }
 
 }

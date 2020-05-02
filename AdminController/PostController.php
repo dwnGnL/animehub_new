@@ -4,6 +4,7 @@
 namespace AdminController;
 
 
+use Clue\React\Buzz\Browser;
 use Lib\Helper;
 use Model\Anime;
 use Model\Cat;
@@ -12,7 +13,9 @@ use Model\Post;
 use Model\PostType;
 use Model\Rating;
 use Model\View;
-
+use Psr\Http\Message\ResponseInterface;
+use React\EventLoop\Factory;
+require_once 'Lib/phpQuery.php';
 class PostController extends AdminController
 {
     protected $postDB;
@@ -79,9 +82,12 @@ class PostController extends AdminController
 
     public function edit($params){
         $post = $this->postDB->getPost($params['post'], $params['alias']);
+        $animeDB = new Anime();
         $post['type'] = $params['alias'];
+        $anime = $animeDB->getSeria($post['id_tv'],$post['title']);
         $this->index = $this->app->view()->fetch('dashboard/editPost.tpl.php', [
-            'post' => $post
+            'post' => $post,
+            'anime' => $anime
         ]);
         $this->display();
     }
@@ -104,5 +110,78 @@ class PostController extends AdminController
         }
         echo json_encode(['status' => 500]);
         exit();
+    }
+
+    public function editSeria(){
+        $animeDB = new Anime();
+        $seria = json_decode($_POST['seria']);
+        if ($_POST['type'] == 1){
+            $animes =  $animeDB->getAnimeIn($seria);
+            $countCorrect =  $this->changeSrc($animes);
+            echo json_encode(['status' => 200, 'countCorrect' => $countCorrect, 'type' => 1]);
+        }elseif ($_POST['type'] == 3){
+
+            if ($animeDB->deleteIn($seria)){
+                echo  json_encode(['status' => 200, 'type' => 3]);
+            }
+        }elseif ($_POST['type'] == 2){
+            echo  '3';
+        }
+
+
+    }
+
+
+
+    public function changeSrc( array $anime){
+        $animeDB = new Anime();
+        $i = 0;
+        foreach ($anime as $val){
+            if (($src = $this->autoCorrectMix($val['rly_path'], $val['src'])) != false){
+                $animeDB->updateSrc($val['id'],$src);
+                $i++;
+            }
+        }
+        return $i;
+    }
+
+    public function autoCorrectMix($href, $oldSrc){
+
+        $href = explode('/', $href);
+        $embed = $this->getContent('http://mix.tj/embed/'. $href[2]);
+        $embed = \phpQuery::newDocument($embed);
+        $src = '';
+        if($embed->find('script')) {
+            $vid = $embed->find('script')->text();
+            $vid = substr($vid, 65,120);
+            $delimetr = '"';
+            $vid = explode($delimetr, $vid,3 );
+            $src = $vid[1];
+        }
+        if(!empty($src)){
+            if ($oldSrc != $src){
+                return $src;
+            }
+            return  false;
+
+        }else{
+
+            return false;
+        }
+
+
+    }
+
+    public function getContent($site){
+        $loop = Factory::create();
+        $client = new Browser($loop);
+        $client->get($site)
+            ->then(function(ResponseInterface $response) use ($loop){
+                $this->content = $response->getBody();
+                $loop->stop();
+            });
+        $loop->run();
+
+        return $this->content;
     }
 }
