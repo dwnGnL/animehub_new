@@ -21,14 +21,31 @@ $('.action').change(function () {
         }
 
     })
-    $('body').loadingModal({
-        text:'Подождите...',
-        position:'auto',
-        color:'#2E59D9',
-        opacity:'0.7',
-        backgroundColor:'rgb(0,0,0)',
-        animation:'foldingCube'
-    });
+
+    if (id == 3){
+        $('#viewModal').click();
+        $("#deleteSeria").click(function () {
+            seriaControls(array,id)
+        })
+        $('#net').click(function () {
+            $(".default").prop("selected", true);
+            return true;
+        })
+
+    }else {
+        $('body').loadingModal({
+            text:'Подождите...',
+            position:'auto',
+            color:'#2E59D9',
+            opacity:'0.7',
+            backgroundColor:'rgb(0,0,0)',
+            animation:'foldingCube'
+        });
+        seriaControls(array,id)
+    }
+
+})
+function seriaControls(array, id) {
     $.ajax({
         url: '/dashboard/post/seria/edit',
         type: 'POST',
@@ -53,4 +70,4 @@ $('.action').change(function () {
             }
         }
     })
-})
+}
