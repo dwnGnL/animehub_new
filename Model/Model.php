@@ -8,6 +8,7 @@ class Model
     public $driver;
     protected $table;
     protected $foreign_key;
+    protected $primary_key = 'id';
 
     public function __construct()
     {
@@ -93,6 +94,7 @@ class Model
                     $query .= $key.' = :'.$key.' AND ';
                 }
                 $params[$key] = $value;
+                $i++;
             }
         }else{
             $query .= $this->foreign_key.' = :id';
@@ -101,6 +103,14 @@ class Model
         return $this->driver->query($query,$params);
     }
 
+    public function deleteIn(array $params){
+
+        if (is_array($params)){
+            $in =  $this->driver->in($params);
+            $sql = 'DELETE FROM '.$this->table.' WHERE '.$this->primary_key.$in['in'];
+            return $this->driver->query($sql,$in['params']);
+        }
+    }
 }
 
 

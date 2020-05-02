@@ -62,4 +62,20 @@ class Driver
         return self::$db->lastInsertId(PDO::FETCH_ASSOC);
     }
 
+    public function in(array $params){
+        $in = ' in(';
+        $result = [];
+        $count = count($params);
+
+        for ($i = 0; $i < $count; $i++){
+            if (($i + 1) == $count){
+                $in .= ':'.$i.' )';
+            }else{
+                $in .= ':'.$i.',';
+            }
+            $result [$i] = $params[$i];
+        }
+        return ['params' => $result, 'in' => $in];
+    }
+
 }

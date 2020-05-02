@@ -28,10 +28,10 @@
     <div class="row mt-2 mb-5">
             <div class="col-md-6 mb-4">
                 <select name="action" id="action" class="form-control action">
-                    <option value="0" disabled selected>Выберите действие</option>
+                    <option value="0" disabled selected class="default">Выберите действие</option>
                     <option value="1">Исправить</option>
                     <option value="2">Обновить</option>
-                    <option value="3">Удалить</option>
+                    <option value="3" data-toggle="modal" data-target="#delete">Удалить</option>
                 </select>
             </div>
             <div class="col-md-6 mb-4">
@@ -56,12 +56,13 @@
             </div>
         </div>
         <?php endforeach; ?>
+        <button data-toggle="modal" data-target="#delete" id="viewModal" hidden>клик</button>
         <div class="col-md-6 mt-4">
             <select name="action" id="action" class="form-control action">
-                <option value="Исправить" disabled selected>Выберите действие</option>
+                <option value="Исправить" disabled selected class="default">Выберите действие</option>
                 <option value="1">Исправить</option>
                 <option value="2">Обновить</option>
-                <option value="3">Удалить</option>
+                <option value="3" >Удалить</option>
             </select>
         </div>
 
@@ -69,6 +70,27 @@
             <div class="custom-control  form-group">
                 <span>Выделить все</span>
                 <input type="checkbox" class="all-check">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--modal-->
+
+<div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Удаление</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">Вы точно хотите удалить?</div>
+            <div class="modal-footer">
+                <button class="btn btn-danger" id="deleteSeria" type="button" data-dismiss="modal">Да</button>
+                <button class="btn btn-success" type="button" data-dismiss="modal" id="net">Нет</button>
+
             </div>
         </div>
     </div>
