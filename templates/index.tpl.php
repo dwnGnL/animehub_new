@@ -29,11 +29,7 @@
   <script src="<?=$uri?>/templates/js/jquery-3.3.1.min.js?<?=filemtime('templates/js/jquery-3.3.1.min.js')?>"></script>
 </head>
 <body data-domen="<?=$uri?>">
-<script>
-if (navigator.userAgent.search(/Chrome/) > 0){
-  alert("Браузер Chrome версии 79 и выше более не поддерживается изза политики безопастности, если у вас возникают проблемы с просмотром видео, смените браузер")
-}
-</script>
+
   <!-- Backgrounds -->
   <div class="background background-menu"></div>
   <div class="background background-sign-in"></div>

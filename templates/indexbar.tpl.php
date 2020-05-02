@@ -5,8 +5,8 @@
   <!-- поиск -->
   <?=$search?>
   <!-- New series -->
-    <a href="/shop">
   <div class="new-series-block">
+    <!-- <a href="/shop">
     <div class="banners">
       <div class="bg-banner active"><img src="<?=$uri?>/templates/images/reklama/r1.jpg" alt=""></div>
       <div class="bg-banner"><img src="<?=$uri?>/templates/images/reklama/r2.jpg" alt=""></div>
@@ -25,7 +25,7 @@
         $('.bg-banner').eq(curIndex+1).addClass('active');
         }
         },transTime);
-      </script>
+      </script> -->
     <div class="head">
       <div class="left-head">Новые серии аниме</div>
       <a href="/anime"><div class="right-head">Смотреть все новинки</div></a>
@@ -58,36 +58,7 @@
     </div>
   </div>
 
-    <?php if (!empty($products)): ?>
-  <!-- Store of manga -->
-  <div class="all-anime-block">
-    <div class="head">
-      <div class="left-head">Манга</div>
-      <a href="/shop"><div class="right-head">Смотреть все</div></a>
-    </div>
-
-    <div class="films">
-      <?php foreach ($products as $val): ?>
-        <div class="film-item">
-          <a href="/shop/product/<?=$helper::renderUrl($val['id_product'], $val['name_product'])?>">
-            <div class="background-film-item store">
-              <img src="<?=$val['img_product']?>">
-              <div class="over-back-film-item">
-
-              </div>
-            </div>
-          </a>
-          <div class="discription">
-            <div class="film-name"><a href="/shop/product/<?=$helper::renderUrl($val['id_product'], $val['name_product'])?>"><?=$val['name_product']?></a></div>
-            <div class="film-gener"><?=$val['cat_name']?></div>
-            <div class="buy-info"><a href="/shop/product/<?=$helper::renderUrl($val['id_product'], $val['name_product'])?>" class="btn-buy"><?=$val['price_product']?>с</a></div>
-          </div>
-        </div>
-      <?php endforeach; ?>
-
-    </div>
-  </div>
-    <?php endif; ?>
+   
   <!-- All of anime -->
   <div class="all-anime-block">
     <div class="head">
