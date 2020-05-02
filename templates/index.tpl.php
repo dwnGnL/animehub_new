@@ -29,7 +29,11 @@
   <script src="<?=$uri?>/templates/js/jquery-3.3.1.min.js?<?=filemtime('templates/js/jquery-3.3.1.min.js')?>"></script>
 </head>
 <body data-domen="<?=$uri?>">
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> 4142b84b47fdda4f2ebdd882148ba8f7190f7e10
   <!-- Backgrounds -->
   <div class="background background-menu"></div>
   <div class="background background-sign-in"></div>

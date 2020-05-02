@@ -11,7 +11,8 @@
         <i class="fa fa-star"></i>
         <div class="favorite-text"><?=$favorite['title']?></div>
       </div>
-      <img src="<?=$post['image']?>">
+      <img src="<?=$uri?>/templates/images/testads.jpg" alt="">
+      
     </div>
 
     <div class="film-discription">
@@ -109,7 +110,9 @@
         <div class="film-item">
           <a href="/<?=$alias?>/<?=$helper::renderUrl($value['id'],$value['alias'])?>">
             <div class="background-film-item">
-              <img src="<?=$value['image']?>">
+              
+      <img src="<?=$uri?>/templates/images/testads.jpg" alt="">
+              
               <div class="over-back-film-item">
                 <div class="circle">
                   <span class="review"><?=$value['views']?></span>
