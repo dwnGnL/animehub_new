@@ -113,16 +113,25 @@ class PostController extends AdminController
     }
 
     public function editSeria(){
+        $animeDB = new Anime();
+        $seria = json_decode($_POST['seria']);
         if ($_POST['type'] == 1){
-            $seria = json_decode($_POST['seria']);
-            $animeDB = new Anime();
             $animes =  $animeDB->getAnimeIn($seria);
             $countCorrect =  $this->changeSrc($animes);
             echo json_encode(['status' => 200, 'countCorrect' => $countCorrect, 'type' => 1]);
+        }elseif ($_POST['type'] == 3){
+
+            if ($animeDB->deleteIn($seria)){
+                echo  json_encode(['status' => 200, 'type' => 3]);
+            }
+        }elseif ($_POST['type'] == 2){
+            echo  '3';
         }
 
 
     }
+
+
 
     public function changeSrc( array $anime){
         $animeDB = new Anime();

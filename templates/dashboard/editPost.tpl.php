@@ -28,7 +28,7 @@
     <div class="row mt-2 mb-5">
             <div class="col-md-6 mb-4">
                 <select name="action" id="action" class="form-control action">
-                    <option value="0" disabled selected>Выберите действие</option>
+                    <option value="0" disabled selected class="default">Выберите действие</option>
                     <option value="1">Исправить</option>
                     <option value="2">Обновить</option>
                     <option value="3">Удалить</option>
@@ -58,10 +58,10 @@
         <?php endforeach; ?>
         <div class="col-md-6 mt-4">
             <select name="action" id="action" class="form-control action">
-                <option value="Исправить" disabled selected>Выберите действие</option>
+                <option value="Исправить" disabled selected class="default">Выберите действие</option>
                 <option value="1">Исправить</option>
                 <option value="2">Обновить</option>
-                <option value="3">Удалить</option>
+                <option value="3" >Удалить</option>
             </select>
         </div>
 

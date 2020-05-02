@@ -34,13 +34,17 @@ $('.action').change(function () {
         type: 'POST',
         data: ({"token":$('#token').text(), "seria":JSON.stringify(array), "type":id}),
         success: function (data) {
+            $(".default").prop("selected", true);
             $('body').loadingModal('destroy');
             var response = JSON.parse(data);
             if (response.status == 200){
                 if (response.type == 1){
                     // исправление
                     alert("Исправлено кол-во " + response.countCorrect + " серии. Обнови страницу!");
-                }else if(response.type == 2){
+                }else if(response.type == 3){
+                    for(var key in array){
+                        $('#'+array[key]).closest('div .parent').remove();
+                    }
                     // action.closest('div .parent').remove();
                 }else {
                     // Обновление серии
