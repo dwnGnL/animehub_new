@@ -29,6 +29,7 @@
   <script src="<?=$uri?>/templates/js/jquery-3.3.1.min.js?<?=filemtime('templates/js/jquery-3.3.1.min.js')?>"></script>
 </head>
 <body data-domen="<?=$uri?>">
+ 
   <!-- Backgrounds -->
   <div class="background background-menu"></div>
   <div class="background background-sign-in"></div>
@@ -201,14 +202,15 @@
               <div class="social-item-img"><a href="https://www.instagram.com/animehub_tj" target="_blank"><i class="fab fa-instagram"></i></a></div>
             </div>
 
-              <div class="social-item-img"><a href="https://www.instagram.com/animehub_tj" target="_blank"><i class="fab fa-instagram"></i></a></div>            </div>
+             
 
           </div>
+        
         </div>
-
-        <div class="bottom-block">
+<div class="bottom-block">
           &#169; 2020 AnimeHub.tj
         </div>
+        
       </div>
     </div>
     <span id="token" style="display:none;"><?=$helper::generateToken()?></span>
