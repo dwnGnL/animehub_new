@@ -28,7 +28,7 @@
 
     <div class="slide-wrapper">
         <?php foreach ($slider as $slide):?>
-            <a href="/anime/<?=$helper::renderUrl($slide['id'], $slide['alias'])?>" >  <div class="slide"><img src="<?=$slide['img']?>"> </div></a>
+            <a href="/anime/<?=$helper::renderUrl($slide['id'], $slide['alias'])?>" >  <div class="slide"><img src="<?=$uri.$slide['img']?>"> </div></a>
         <?php endforeach; ?>
     </div>
 </div>

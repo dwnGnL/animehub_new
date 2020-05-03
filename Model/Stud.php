@@ -6,6 +6,8 @@ namespace Model;
 
 class Stud extends Model
 {
+    protected $primary_key = 'id';
+    protected $table = 'lite_stud';
     public function getStud($title){
         $sql = 'SELECT lite_stud.title FROM lite_stud, lite_title, lite_anime
                 WHERE lite_stud.id = lite_anime.id_stud

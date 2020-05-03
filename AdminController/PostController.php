@@ -12,6 +12,7 @@ use Model\Comment;
 use Model\Post;
 use Model\PostType;
 use Model\Rating;
+use Model\Stud;
 use Model\View;
 use Psr\Http\Message\ResponseInterface;
 use React\EventLoop\Factory;
@@ -81,13 +82,16 @@ class PostController extends AdminController
     }
 
     public function edit($params){
+        $studDB = new Stud();
         $post = $this->postDB->getPost($params['post'], $params['alias']);
         $animeDB = new Anime();
         $post['type'] = $params['alias'];
         $anime = $animeDB->getSeria($post['id_tv'],$post['title']);
+        $studs = $studDB->row('id, title');
         $this->index = $this->app->view()->fetch('dashboard/editPost.tpl.php', [
             'post' => $post,
-            'anime' => $anime
+            'anime' => $anime,
+            'studs' => $studs
         ]);
         $this->display();
     }
@@ -117,15 +121,33 @@ class PostController extends AdminController
         $seria = json_decode($_POST['seria']);
         if ($_POST['type'] == 1){
             $animes =  $animeDB->getAnimeIn($seria);
-            $countCorrect =  $this->changeSrc($animes);
-            echo json_encode(['status' => 200, 'countCorrect' => $countCorrect, 'type' => 1]);
+            $changeSeria =  $this->changeSrc($animes);
+            $countCorrect = count($changeSeria);
+            $change = $animeDB->getAnimeIn($changeSeria);
+            echo json_encode(['status' => 200, 'countCorrect' => $countCorrect, 'type' => 1, 'change' =>$change]);
         }elseif ($_POST['type'] == 3){
 
             if ($animeDB->deleteIn($seria)){
                 echo  json_encode(['status' => 200, 'type' => 3]);
             }
         }elseif ($_POST['type'] == 2){
-            echo  '3';
+            foreach ($seria as $value){
+                $animeDB->update(['id_stud' => $_POST['stud']], $value);
+            }
+            $studDB = new Stud();
+            $stud = $studDB->one('title', ['id' => $_POST['stud']]);
+            echo json_encode(['status' => 200, 'stud' => $stud['title'], 'type' => 2]);
+        }elseif ($_POST['type'] == 4){
+            if ($_POST['input'] == 1){
+                if ( $animeDB->update(['seria' => $_POST['data']], $_POST['id'])){
+                    echo json_encode(['status' => 200, "id" => $_POST['id']]);
+                }
+            }elseif ($_POST['input'] == 3){
+
+                if ( $animeDB->updateSrc($_POST['id'],$_POST['data'])){
+                    echo json_encode(['status' => 200, "id" => $_POST['id']]);
+                }
+            }
         }
 
 
@@ -136,13 +158,15 @@ class PostController extends AdminController
     public function changeSrc( array $anime){
         $animeDB = new Anime();
         $i = 0;
+        $changeSeria = [];
         foreach ($anime as $val){
             if (($src = $this->autoCorrectMix($val['rly_path'], $val['src'])) != false){
                 $animeDB->updateSrc($val['id'],$src);
+                $changeSeria[$i] = $val ['id'];
                 $i++;
             }
         }
-        return $i;
+        return $changeSeria;
     }
 
     public function autoCorrectMix($href, $oldSrc){

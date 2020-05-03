@@ -77,7 +77,7 @@ class Model
             $i++;
         }
 
-        $query .= ' where '.$this->foreign_key.' = :id';
+        $query .= ' where '.$this->primary_key.' = :id';
         $params ['id'] = $where;
         return $this->driver->query($query, $params);
     }

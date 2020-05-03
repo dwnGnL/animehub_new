@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-165258888-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-165258888-1', { 'optimize_id': 'OPT-TQQW7JG'});
+
+</script>
+    <script data-ad-client="ca-pub-9527473133187463" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <title><?=$title?></title>
   <meta charset="utf-8">
   <meta name="referrer" content="no-referrer">
@@ -29,6 +40,7 @@
   <script src="<?=$uri?>/templates/js/jquery-3.3.1.min.js?<?=filemtime('templates/js/jquery-3.3.1.min.js')?>"></script>
 </head>
 <body data-domen="<?=$uri?>">
+
   <!-- Backgrounds -->
   <div class="background background-menu"></div>
   <div class="background background-sign-in"></div>
@@ -201,14 +213,15 @@
               <div class="social-item-img"><a href="https://www.instagram.com/animehub_tj" target="_blank"><i class="fab fa-instagram"></i></a></div>
             </div>
 
-              <div class="social-item-img"><a href="https://www.instagram.com/animehub_tj" target="_blank"><i class="fab fa-instagram"></i></a></div>            </div>
+             
 
           </div>
+        
         </div>
-
-        <div class="bottom-block">
+<div class="bottom-block">
           &#169; 2020 AnimeHub.tj
         </div>
+        
       </div>
     </div>
     <span id="token" style="display:none;"><?=$helper::generateToken()?></span>
