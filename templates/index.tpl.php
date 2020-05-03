@@ -33,7 +33,7 @@
   <link rel="stylesheet" href="<?=$uri?>/templates/css/holiday.css?<?=filemtime('templates/css/holiday.css')?>">
   <link rel="stylesheet" href="<?=$uri?>/templates/font-awesome/css/all.css?<?=filemtime('templates/font-awesome/css/all.css')?>">
   <link rel="shortcut icon" href="<?=$uri?>/templates/images/favoicon.png" type="image/png">
-  <script defer type="text/javascript" src="<?=$uri?>/templates/Admin/js/ckeditor/ckeditor.js?<?=filemtime('templates/Admin/js/ckeditor/ckeditor.js')?>"></script>
+  <script async type="text/javascript" src="<?=$uri?>/templates/Admin/js/ckeditor/ckeditor.js?<?=filemtime('templates/Admin/js/ckeditor/ckeditor.js')?>"></script>
 
   <meta name="description" content="<?=$description?>">
   <meta name="keywords" content="<?=$keywords?>">
