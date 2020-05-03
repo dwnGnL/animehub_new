@@ -37,7 +37,7 @@
 
   <meta name="description" content="<?=$description?>">
   <meta name="keywords" content="<?=$keywords?>">
-  <script async src="<?=$uri?>/templates/js/jquery-3.3.1.min.js?<?=filemtime('templates/js/jquery-3.3.1.min.js')?>"></script>
+  <script  src="<?=$uri?>/templates/js/jquery-3.3.1.min.js?<?=filemtime('templates/js/jquery-3.3.1.min.js')?>"></script>
 </head>
 <body data-domen="<?=$uri?>">
 
