@@ -11,12 +11,12 @@
   gtag('config', 'UA-165258888-1', { 'optimize_id': 'OPT-TQQW7JG'});
 
 </script>
-<<<<<<< HEAD
+
 
   <script data-ad-client="ca-pub-7141932570166320" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-=======
+
     <script data-ad-client="ca-pub-9527473133187463" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
->>>>>>> 91277e70727e67fa899a9e89cf1606f3598825f5
+
   <title><?=$title?></title>
   <meta charset="utf-8">
   <meta name="referrer" content="no-referrer">
