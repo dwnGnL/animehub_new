@@ -10,7 +10,7 @@
 \Slim\Slim::registerAutoloader();
 
 $app = new \Slim\Slim([
-        'debug' => true,
+        'debug' => false,
         'cookies.encrypt' => true,
         'cookies.secret_key' => 'Desu',
 ]);
@@ -37,7 +37,7 @@ function my_autoload($className){
 
 spl_autoload_register('my_autoload');
 
-$app->add(new \Lib\CheckAuthMiddleware( \Lib\AuthClass::getInstance(new \Model\Driver()), $exception)
+$app->add(new \Lib\CheckAuthMiddleware( \Lib\AuthClass::getInstance(new \Model\Driver(),$app), $exception)
 );
 $app->add(new \Lib\CheckToken($exception));
 $middle = function (){

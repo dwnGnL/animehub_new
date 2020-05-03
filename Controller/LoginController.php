@@ -57,8 +57,8 @@ class LoginController extends DisplayController
             $_SESSION['status'] = $result['status'];
             $_SESSION['id'] = $result['id'];
             $salt = $this->generateSalt();
-            $this->app->setCookie('key', $salt, '30 days');
-            setcookie('id', $result['id'], time() + (86400 * 7));
+            $this->app->setEncryptedCookie('key', $salt, '30 days');
+            $this->app->setEncryptedCookie('id', $result['id'], '30 days');
             $userDB->userLogin($salt,$result['id']);
             $userDB->updateIp($_SERVER['REMOTE_ADDR'],$result['id']);
 
@@ -71,7 +71,7 @@ class LoginController extends DisplayController
     public function getLogin(){
         if (isset($_SESSION['auth'])){
             $userDB = new User();
-            $user = $userDB->getUsersProperties($_COOKIE['key'], $_COOKIE['id']);
+            $user = $userDB->getUsersProperties($this->app->getEncryptedCookie('key'), $this->app->getEncryptedCookie('id'));
             $result = [
                 'info' => $user,
                 'status' => 200
