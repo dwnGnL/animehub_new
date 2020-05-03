@@ -2,16 +2,20 @@
 
 
 namespace Lib;
+use Slim\Slim;
+
 defined('_Sdef') or exit();
 
 class AuthClass
 {
     public $driver;
+    public $app;
     static public $instance;
 
     protected function __construct($driver)
     {
         $this->driver = $driver;
+        $this->app = \Slim\Slim::getInstance();
     }
 
     public static function getInstance($driver){
@@ -25,9 +29,10 @@ class AuthClass
     public function isUserLogin(){
         if (!isset($_SESSION['auth']) || empty($_SESSION['auth'])){
                 if (isset($_COOKIE['key'])  && !empty($_COOKIE['key'])){
+
                     $params = [
-                        'id' => $_COOKIE['id'],
-                        'salt' => $_COOKIE['key'],
+                        'id' => $this->app->getEncryptedCookie('id'),
+                        'salt' => $this->app->getEncryptedCookie('key'),
                     ];
                     $sql = 'SELECT lite_users.login,lite_status.title AS status,lite_users.id 
                             FROM lite_users, lite_status
