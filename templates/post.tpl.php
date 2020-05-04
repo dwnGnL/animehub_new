@@ -11,7 +11,7 @@
         <i class="fa fa-star"></i>
         <div class="favorite-text"><?=$favorite['title']?></div>
       </div>
-      <img src="<?=$uri?>/templates/images/testads.jpg" alt="">
+      <img src="<?=$post['image']?>" alt="">
       
     </div>
 
@@ -111,7 +111,7 @@
           <a href="/<?=$alias?>/<?=$helper::renderUrl($value['id'],$value['alias'])?>">
             <div class="background-film-item">
               
-      <img src="<?=$uri?>/templates/images/testads.jpg" alt="">
+      <img src="<?=$value['image']?>" alt="">
               
               <div class="over-back-film-item">
                 <div class="circle">
