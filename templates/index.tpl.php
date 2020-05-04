@@ -11,7 +11,7 @@
   gtag('config', 'UA-165258888-1', { 'optimize_id': 'OPT-TQQW7JG'});
 
 </script>
-    <script data-ad-client="ca-pub-9527473133187463" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
   <title><?=$title?></title>
   <meta charset="utf-8">
   <meta name="referrer" content="no-referrer">
