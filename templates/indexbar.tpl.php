@@ -36,7 +36,7 @@
         <div class="film-item">
           <a href="/anime/<?=$helper::renderUrl($item['id'], $item['alias'])?>">
             <div class="background-film-item">
-              <img src="<?=$uri?>/templates/images/testads.jpg" alt="">
+              <img src="<?=$item['image']?>" alt="">
 
               <div class="over-back-film-item">
                 <div class="circle">
@@ -72,7 +72,7 @@
         <div class="film-item">
           <a href="/anime/<?=$helper::renderUrl($val['id'], $val['alias'])?>">
             <div class="background-film-item">
-             <img src="<?=$uri?>/templates/images/testads.jpg" alt="">
+             <img src="<?=$val['image']?>" alt="">
               <div class="over-back-film-item">
                 <div class="circle">
                   <span class="review"><?=$val['views']?></span>
@@ -102,7 +102,7 @@
         <div class="film-item">
           <a href="/dorams/<?=$helper::renderUrl($val['id'], $val['alias'])?>">
             <div class="background-film-item">
-             <img src="<?=$uri?>/templates/images/testads.jpg" alt="">
+             <img src="<?=$val['image']?>" alt="">
 
               <div class="over-back-film-item">
                 <div class="circle">
@@ -135,7 +135,7 @@
         <?php foreach ($articles as $val): ?>
           <div class="news-item">
             <div class="background-news">
-            <img src="<?=$uri?>/templates/images/testads.jpg" alt="">
+            <img src="<?=$val['image']?>" alt="">
             
             </div>
 

@@ -28,7 +28,7 @@
             <div class="film-item">
                 <a href="<?=$uri.$item['title_type_post']?>/<?=$helper::renderUrl($item['id'],$item['alias'])?>">
                 <div class="background-film-item">
-            <img src="<?=$uri?>/templates/images/testads.jpg" alt="">
+            <img src="<?=$item['image']?>" alt="">
 
                     <div class="over-back-film-item">
                         <div class="circle">

@@ -12,7 +12,7 @@
         <a href="<?=$uri?>/anime/<?=$helper::renderUrl($topAnime[0]['id'],$topAnime[0]['alias'])?>">
 
             
-      <img src="<?=$uri?>/templates/images/testads.jpg" alt="">
+      <img src="<?=$topAnime[0]['image']?>" alt="">
 
 
         </a>
