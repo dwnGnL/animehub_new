@@ -110,7 +110,6 @@
         <div class="film-item">
           <a href="/<?=$alias?>/<?=$helper::renderUrl($value['id'],$value['alias'])?>">
             <div class="background-film-item">
-              
       <img src="<?=$value['image']?>" alt="">
               
               <div class="over-back-film-item">

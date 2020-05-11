@@ -50,7 +50,10 @@ function addFindElement(elem, index) {
   });
   search.value = '';
 };
-
+unchooes = document.querySelectorAll('.cross');
+unchooes.forEach((elem) => {
+  elem.onclick = () => unchooesEleme(elem, elem.dataset.index);
+});
 
 function arrDataFix(arr) {
   const arrFixed = arr.map((elem) => {
@@ -65,7 +68,7 @@ function arrDataFix(arr) {
 function createFindElem(elem, index) {
   const findElem = document.createElement('span');
   findElem.classList.add('finding__elem');
-  findElem.innerHTML = `${elem.innerHTML}<span class="cross" data-index="${index}"></span>`;
+  findElem.innerHTML = `${elem.innerHTML}<span class="cross" data-index="${elem.getAttribute("cat-id")}"></span>`;
 
   findingElemBlock.appendChild(findElem);
   controlInputWidth();
@@ -73,7 +76,12 @@ function createFindElem(elem, index) {
 
 function unchooesEleme(elem, index) {
   elem.parentNode.remove();
-  listData[index].classList.remove('choosed');
+  listData.forEach((elem2)=>{
+    if (elem2.getAttribute("cat-id")==index){
+      elem2.classList.remove('choosed');
+    }
+  })
+  // listData[index].classList.remove('choosed');
   controlInputWidth();
 };
 

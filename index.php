@@ -146,6 +146,12 @@ $app->group('/dashboard',$middle, function () use ($app){
              $o = \Controller\Controller::getInstance('post','AdminController'); //PostController
              $o->addPost();
          })->name('addPostF');
+
+        $app->post('/update', function (){
+            $o = \Controller\Controller::getInstance('post','AdminController'); //PostController
+            $o->update();
+        })->name('updatePost');
+
         $app->post('/delete', function (){
             $o = \Controller\Controller::getInstance('post','AdminController'); //PostController
             $o->delete();

@@ -39,6 +39,9 @@ class PageController extends DisplayController
             $i = 0;
             foreach ($post as $item){
                 $post[$i]['cats'] = $cat->getCatPostL2($item['id']);
+                if (strripos($post[$i]['image'], 'public/images/post') !== false){
+                    $post[$i]['image'] = $this->uri.$item['image'];
+                }
                 $i++;
             }
             $search = $this->getSearch();
@@ -99,7 +102,14 @@ class PageController extends DisplayController
         ];
         foreach ($similar as $key => $val){
             $similar[$key]['cats'] = $catDB->getCatPostL2($similar[$key]['id']);
+            if (strripos($similar[$key]['image'], 'public/images/post') !== false){
+                $similar[$key]['image'] = $this->uri.$similar[$key]['image'];
+            }
         }
+        if (strripos($post['image'], 'public/images/post') !== false){
+            $post['image'] = $this->uri.$post['image'];
+        }
+
         $orderPosts = $postDB->getOrderPosts($post['title']);
         $player = $anime->getSeria($post['id_tv'], $post['title']);
         $comments = $commentDB->getComments($post['id_post']);
@@ -145,6 +155,9 @@ class PageController extends DisplayController
             $row[] = $item;
             $row[$i]['cats'] = $catDB->getCatPostL2($row[$i]['id']);
             $row[$i]['seria'] = $anime->lastAddSeria($row[$i]['title']);
+            if (strripos($row[$i]['image'], 'public/images/post') !== false){
+                $row[$i]['image'] = $this->uri.$row[$i]['image'];
+            }
             $i++;
         }
         $items['items'] = $row;

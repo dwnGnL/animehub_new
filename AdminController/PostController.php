@@ -16,6 +16,7 @@ use Model\Post;
 use Model\PostType;
 use Model\Rating;
 use Model\Stud;
+use Model\Title;
 use Model\Tv;
 use Model\View;
 use Psr\Http\Message\ResponseInterface;
@@ -141,10 +142,12 @@ class PostController extends AdminController
 
     public function edit($params){
         $studDB = new Stud();
+        $typeBD = new PostType();
         $post = $this->postDB->getPost($params['post'], $params['alias']);
         $animeDB = new Anime();
         $catDB = new Cat();
         $cats = $catDB->getCategories();
+        $types = $typeBD->getPostType();
         $postCats = $catDB->getCatPost($post['id_post']);
         $post['type'] = $params['alias'];
         $anime = $animeDB->getSeria($post['id_tv'],$post['title']);
@@ -154,7 +157,8 @@ class PostController extends AdminController
             'anime' => $anime,
             'studs' => $studs,
             'cats' => $cats,
-            'postCats' => $postCats
+            'postCats' => $postCats,
+            'types' => $types
         ]);
         $this->display();
     }
@@ -177,6 +181,52 @@ class PostController extends AdminController
         }
         echo json_encode(['status' => 500]);
         exit();
+    }
+
+    public function update(){
+        $formData =  $this->decompileData($_POST['formData']);
+        $year = trim($formData['god']);
+        if (is_numeric($year) && strlen($year) == 4) {
+            $postDB = new Post();
+            $title = trim($formData['title']);
+            $tv_id = $this->getId(trim($formData['sezon']), new Tv());
+            $year_id = $this->getId($year, new GodWip());
+            $title_id = $this->getId($title, new Title());
+            $old_post = $postDB->one('image, title, id_tv, id', ['id' => $_POST['id_post']]);
+            if (!file_exists($formData['image'])){
+                $image = $this->downloadImage($formData['image'], $formData['alt_title']);
+                $old_post = $postDB->one('image, title, id_tv, id', ['id' => $_POST['id_post']]);
+                $this->deleteImage($old_post['image']);
+            }else{
+                $image = $formData['image'];
+            }
+
+        $post = $postDB->update([
+                'title' => $title,
+                'alias' => $formData['alt_title'],
+                'id_god_wip' => $year_id,
+                'image' => $image,
+                'body' => $formData['body'],
+                'id_tv' => $tv_id,
+                'id_type_post' => $formData['type']
+            ], $_POST['id_post']);
+            if ($post){
+                $catPostDB = new CatPost();
+                $catPostDB->delete(['id_post' => $old_post['id']]);
+                $cats = json_decode($_POST['cats']);
+                for ($i = 0; $i < count($cats); $i++){
+                    $catPostDB->add(['id_post' => $old_post['id'], 'id_cat' => $cats[$i]]);
+                }
+                $old_id_title = $this->getId($old_post['title'], new Title());
+                $animeDB = new Anime();
+                $animeDB->update(
+                    ['id_tv' => $tv_id, 'id_title' => $title_id],
+                    ['id_tv' => $old_post['id_tv'], 'id_title' => $old_id_title]
+                );
+            }
+
+        }
+        echo json_encode(['status' => 200]);
     }
 
     public function editSeria(){
