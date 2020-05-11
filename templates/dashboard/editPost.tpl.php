@@ -1,3 +1,7 @@
+<link href="<?=$uri?>/templates/dashboard/css/chosen.css?<?=filemtime('templates/dashboard/css/chosen.css')?>" rel="stylesheet" type="text/css">
+<link href="<?=$uri?>/templates/dashboard/css/pagination.css?<?=filemtime('templates/dashboard/css/pagination.css')?>" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="<?=$uri?>/templates/dashboard/css/cat.css?<?=filemtime('templates/dashboard/css/cat.css')?>">
+<link rel="stylesheet" href="<?=$uri?>/templates/font-awesome/css/all.css?<?=filemtime('templates/font-awesome/css/all.css')?>">
 <div class="container-fluid">
   <h1 class="h3 mb-4 text-gray-800">Добавление постов</h1>
 
@@ -14,7 +18,34 @@
     <label><span class="label-item">Альтернативное название:</span><input type="text" placeholder="Альтернативное название" value="<?=$post['alias']?>"></label>
     <label><span class="label-item">Сезон:</span><input type="text" placeholder="Сезон" value="<?=$post['tv']?>"></label>
     <label><span class="label-item">Картинка:</span><input type="text" placeholder="Картинка" value="<?=$post['image']?>" ></label>
-    <label><span class="label-item">Жанр:</span><input type="text" placeholder="Жанр" ></label>
+      <label><span class="label-item">Жанр:</span>
+          <div class="search-block-main">
+              <span class="finding__elem-block">
+                  <?php foreach ($postCats as $postCat): ?>
+                        <span class="finding__elem">
+                            <?=$postCat['title']?>
+                            <span class="cross" data-index="<?=$postCat['id']?>">
+                            </span>
+                        </span>
+                  <?php endforeach; ?>
+              </span>
+              <input class="search-input" type="text" placeholder="Выберите категорию">
+              <ul class="gener-list">
+                  <?php foreach ($cats as $cat): ?>
+                    <?php foreach ($postCats as $postCat): ?>
+                        <?php if ($cat['id'] == $postCat['id']): ?>
+                              <li class="list-item show choosed" cat-id="<?=$cat['id']?>"><?=$cat['title']?></li>
+                        <?php else: ?>
+                              <li class="list-item" cat-id="<?=$cat['id']?>"><?=$cat['title']?></li>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+
+
+                  <?php endforeach; ?>
+              </ul>
+          </div>
+
+      </label>
     <div>
       <div>
         <span>dsadsa</span>
@@ -122,3 +153,4 @@
         </div>
     </div>
 </div>
+<script src="<?=$uri?>/templates/dashboard/js/cat.js"></script>

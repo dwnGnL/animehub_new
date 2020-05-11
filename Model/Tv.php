@@ -4,6 +4,9 @@ namespace Model;
 
 class Tv extends Model
 {
+    protected $table = 'lite_tv';
+    protected $primary_key = 'id';
+
     public function check($title){
         $sql = 'SELECT id FROM lite_tv WHERE title = :title';
         $params  = [

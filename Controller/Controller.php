@@ -93,6 +93,33 @@ abstract class Controller
         return $salt;
     }
 
+    public function downloadImage($url, $title, $dir = 'public/images/post/'){
+        $link = $url;
+        $title = str_replace(' ', '-', $title);
+        $file = file_get_contents($link);
+        $fileName = $dir.time().$title.'.jpg';
+        if ( file_put_contents($fileName, $file)){
+            return $fileName;
+        }
+       return  false;
+    }
+
+    public function decompileData($array){
+        $newArray = [];
+        foreach ($array as $value){
+            $newArray[$value['name']] = $value['value'];
+        }
+        return $newArray;
+    }
+
+    public function deleteImage($path){
+        if (file_exists($path)){
+            unlink($path);
+            return true;
+        }
+        return  false;
+    }
+
     abstract protected function getMenu();
     abstract protected function getSidebar();
 

@@ -10,7 +10,7 @@
 \Slim\Slim::registerAutoloader();
 
 $app = new \Slim\Slim([
-        'debug' => false,
+        'debug' => true,
         'cookies.encrypt' => true,
         'cookies.secret_key' => 'Desu',
 ]);
@@ -142,6 +142,10 @@ $app->group('/dashboard',$middle, function () use ($app){
             $o->add();
         })->name('addPost');
 
+         $app->post('/addPost', function (){
+             $o = \Controller\Controller::getInstance('post','AdminController'); //PostController
+             $o->addPost();
+         })->name('addPostF');
         $app->post('/delete', function (){
             $o = \Controller\Controller::getInstance('post','AdminController'); //PostController
             $o->delete();

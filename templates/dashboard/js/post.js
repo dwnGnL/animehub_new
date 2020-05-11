@@ -114,3 +114,32 @@ function displayAnimate() {
 function displayAnimateDestroy() {
     $('body').loadingModal('destroy');
 }
+
+
+// Добавление поста
+
+function choosedCats() {
+    let cats = [];
+    $('.choosed').each(function (i) {
+        cats[i] = $(this).attr('cat-id');
+    })
+    return JSON.stringify(cats)
+}
+
+$('body').on('click', '#addPost',function () {
+    const cats = choosedCats();
+    const formData = $('#addPostForm').serializeArray();
+    console.log(formData);
+    $.ajax({
+        url: '/dashboard/post/addPost',
+        type: 'POST',
+        data: ({formData, 'cats': cats, "token":$('#token').text()}),
+        success: function (data) {
+            alert(data);
+            var response = JSON.parse(data);
+            if (response.status == 200){
+                alert('success');
+            }
+        }
+    })
+})
