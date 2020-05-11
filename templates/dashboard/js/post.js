@@ -1,3 +1,5 @@
+
+
 $('.container-fluid').on('click','.all-check', function () {
     if ($(this).prop('checked')){
         $('.check').prop('checked', true)
@@ -114,3 +116,54 @@ function displayAnimate() {
 function displayAnimateDestroy() {
     $('body').loadingModal('destroy');
 }
+
+
+// Добавление поста
+
+function choosedCats() {
+    let cats = [];
+    $('.cross').each(function (i) {
+        cats[i] = $(this).attr('data-index');
+    })
+    return JSON.stringify(cats)
+}
+
+$('body').on('click', '#addPost',function () {
+    displayAnimate();
+    const cats = choosedCats();
+    const formData = $('#addPostForm').serializeArray();
+    $.ajax({
+        url: '/dashboard/post/addPost',
+        type: 'POST',
+        data: ({formData, 'cats': cats, "token":$('#token').text()}),
+        success: function (data) {
+            displayAnimateDestroy();
+            var response = JSON.parse(data);
+            if (response.status == 200){
+                $('form input, form textarea').val('');
+                alert('Пост успешно добавлен!')
+                // тут очистка категории
+            }
+        }
+    })
+})
+
+//Обновление поста
+
+$('body').on('click', '#updatePost',function () {
+    displayAnimate();
+    const cats = choosedCats();
+    const formData = $('#addPostForm').serializeArray();
+    $.ajax({
+        url: '/dashboard/post/update',
+        type: 'POST',
+        data: ({formData, 'cats': cats, "token":$('#token').text(), "id_post": $('#id_post').val()}),
+        success: function (data) {
+            displayAnimateDestroy();
+            var response = JSON.parse(data);
+            if (response.status == 200){
+                alert('Пост успешно обновлен!');
+            }
+        }
+    })
+})

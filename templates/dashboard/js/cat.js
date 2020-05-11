@@ -16,19 +16,22 @@ search.onpaste = () => {
 };
 
 listData.forEach((elem, index) => {
-  elem.onclick = () => addFindElement(elem, index);
+  elem.onclick = () => {
+    elem.classList.add('show')
+    return addFindElement(elem, index);
+  }
 });
 
 function searchItems(pasteEevnt) {
   arrData = search.value.split(',');
   arrData = arrDataFix(arrData);
-  
+
   array.forEach((elem, index) => {
     listData[index].classList.remove('show');
     arrData.forEach(searchElem => {
-      if (elem.indexOf(searchElem) > - 1) { 
+      if (elem.indexOf(searchElem) > - 1) {
         listData[index].classList.add('show');
-        if (pasteEevnt) addFindElement(listData[index], index); 
+        if (pasteEevnt) addFindElement(listData[index], index);
       };
     });
   });
@@ -47,7 +50,10 @@ function addFindElement(elem, index) {
   });
   search.value = '';
 };
-
+unchooes = document.querySelectorAll('.cross');
+unchooes.forEach((elem) => {
+  elem.onclick = () => unchooesEleme(elem, elem.dataset.index);
+});
 
 function arrDataFix(arr) {
   const arrFixed = arr.map((elem) => {
@@ -55,14 +61,14 @@ function arrDataFix(arr) {
     elem = elem.trim();
     if (elem === '' || elem === undefined) return;
     return elem.substr(0).toLowerCase();
-  });  
+  });
   return arrFixed;
 };
 
 function createFindElem(elem, index) {
   const findElem = document.createElement('span');
   findElem.classList.add('finding__elem');
-  findElem.innerHTML = `${elem.innerHTML}<span class="cross" data-index="${index}"></span>`;
+  findElem.innerHTML = `${elem.innerHTML}<span class="cross" data-index="${elem.getAttribute("cat-id")}"></span>`;
 
   findingElemBlock.appendChild(findElem);
   controlInputWidth();
@@ -70,7 +76,12 @@ function createFindElem(elem, index) {
 
 function unchooesEleme(elem, index) {
   elem.parentNode.remove();
-  listData[index].classList.remove('choosed');
+  listData.forEach((elem2)=>{
+    if (elem2.getAttribute("cat-id")==index){
+      elem2.classList.remove('choosed');
+    }
+  })
+  // listData[index].classList.remove('choosed');
   controlInputWidth();
 };
 
@@ -79,11 +90,8 @@ function controlInputWidth() {
   let inputWidth = searchBlock.clientWidth - findingElemBlock.clientWidth - 5;
   let inputHeight = findingElemBlock.clientHeight;
   console.log(inputHeight);
-  
+
   if (inputHeight < 36) inputHeight = 36;
   search.style.width = `${inputWidth}px`;
   search.style.height = `${inputHeight}px`;
 }
-
-
-

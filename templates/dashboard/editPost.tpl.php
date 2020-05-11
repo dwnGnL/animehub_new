@@ -1,29 +1,60 @@
+<link href="<?=$uri?>/templates/dashboard/css/chosen.css?<?=filemtime('templates/dashboard/css/chosen.css')?>" rel="stylesheet" type="text/css">
+<link href="<?=$uri?>/templates/dashboard/css/pagination.css?<?=filemtime('templates/dashboard/css/pagination.css')?>" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="<?=$uri?>/templates/dashboard/css/cat.css?<?=filemtime('templates/dashboard/css/cat.css')?>">
+<link rel="stylesheet" href="<?=$uri?>/templates/font-awesome/css/all.css?<?=filemtime('templates/font-awesome/css/all.css')?>">
 <div class="container-fluid">
+    <input value="<?=$post['id_post']?>" hidden id="id_post">
   <h1 class="h3 mb-4 text-gray-800">Добавление постов</h1>
 
-  <form class="">
+  <form class="" id="addPostForm">
     <label><span class="label-item">Выбрать тип:</span>
-      <select>
-          <option value="<?=$post['type']?>"><?=$post['type']?></option>
-        <option value="anime">anime</option>
-        <option value="dorama">dorama</option>
-        <option value="articles">articles</option>
+      <select name="type">
+          <?php foreach ($types as $type): ?>
+            <?php if ($type['title_type'] == $post['type']): ?>
+          <option value="<?=$type['id_type']?>" selected><?=$type['title_type']?></option>
+            <?php else: ?>
+                  <option value="<?=$type['id_type']?>"><?=$type['title_type']?></option>
+            <?php endif; ?>
+          <?php endforeach; ?>
       </select>
     </label>
-    <label><span class="label-item">Название:</span><input type="text" placeholder="Название" value="<?=$post['title']?>"></label>
-    <label><span class="label-item">Альтернативное название:</span><input type="text" placeholder="Альтернативное название" value="<?=$post['alias']?>"></label>
-    <label><span class="label-item">Сезон:</span><input type="text" placeholder="Сезон" value="<?=$post['tv']?>"></label>
-    <label><span class="label-item">Картинка:</span><input type="text" placeholder="Картинка" value="<?=$post['image']?>" ></label>
-    <label><span class="label-item">Жанр:</span><input type="text" placeholder="Жанр" ></label>
-    <div>
-      <div>
-        <span>dsadsa</span>
-      </div>
-    </div>
-    <label><span class="label-item">Год выпуска:</span><input type="text" placeholder="Год выпуска" value="<?=$post['god']?>" ></label>
-    <label><span class="label-item">Описание:</span><textarea placeholder="Описание"  ><?=$post['body']?></textarea></label>
+    <label><span class="label-item">Название:</span><input type="text" placeholder="Название" value="<?=$post['title']?>" name="title"></label>
+    <label><span class="label-item">Альтернативное название:</span><input type="text" placeholder="Альтернативное название" value="<?=$post['alias']?>" name="alt_title"></label>
+    <label><span class="label-item">Сезон:</span><input type="text" placeholder="Сезон" value="<?=$post['tv']?>" name="sezon"></label>
+    <label><span class="label-item">Картинка:</span><input type="text" placeholder="Картинка" value="<?=$post['image']?>" name="image"></label>
+      <label><span class="label-item">Жанр:</span>
+          <div class="search-block-main">
+              <span class="finding__elem-block">
+                  <?php foreach ($postCats as $postCat): ?>
+                        <span class="finding__elem">
+                            <?=$postCat['title']?>
+                            <span class="cross" data-index="<?=$postCat['id']?>">
+                            </span>
+                        </span>
+                  <?php endforeach; ?>
+              </span>
+              <input class="search-input" type="text" placeholder="Выберите категорию">
+              <ul class="gener-list">
+                  <?php foreach ($cats as $cat): ?>
+                    <?php foreach ($postCats as $postCat): ?>
+                        <?php if ($cat['id'] == $postCat['id']): ?>
+                              <li class="list-item show choosed" cat-id="<?=$cat['id']?>"><?=$cat['title']?></li>
+                        <?php else: ?>
+                              <li class="list-item" cat-id="<?=$cat['id']?>"><?=$cat['title']?></li>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
 
-    <input type="button" name="save" value="Сохранить">
+
+                  <?php endforeach; ?>
+              </ul>
+          </div>
+
+      </label>
+    <label><span class="label-item">Год выпуска:</span><input type="text" placeholder="Год выпуска" value="<?=$post['god']?>" name="god"></label>
+    <label><span class="label-item">Описание:</span><textarea placeholder="Описание"  name="description"><?=$post['body']?></textarea></label>
+
+    <input type="button" name="save" id="updatePost" value="Сохранить">
+
   </form>
     <div class="row mt-2 mb-5">
             <div class="col-md-6 mb-4">
@@ -122,3 +153,4 @@
         </div>
     </div>
 </div>
+<script src="<?=$uri?>/templates/dashboard/js/cat.js"></script>

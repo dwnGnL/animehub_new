@@ -8,14 +8,21 @@ use Clue\React\Buzz\Browser;
 use Lib\Helper;
 use Model\Anime;
 use Model\Cat;
+use Model\CatPost;
 use Model\Comment;
+use Model\GodWip;
+use Model\Model;
 use Model\Post;
 use Model\PostType;
 use Model\Rating;
 use Model\Stud;
+use Model\Title;
+use Model\Tv;
 use Model\View;
 use Psr\Http\Message\ResponseInterface;
 use React\EventLoop\Factory;
+use Slim\Http\Request;
+
 require_once 'Lib/phpQuery.php';
 class PostController extends AdminController
 {
@@ -50,9 +57,61 @@ class PostController extends AdminController
         $cats = $cat->getCategories();
         $this->index = $this->app->view()->fetch('dashboard/addPost.tpl.php',[
             'cats' => $cats,
-            'types' => $types
+            'types' => $types,
+            'app' => $this->app
         ]);
         $this->display();
+    }
+
+    public function addPost(){
+
+      $formData =  $this->decompileData($_POST['formData']);
+      $year = trim($formData['god_wip']);
+      if (is_numeric($year) && strlen($year) == 4){
+            $postDB = new Post();
+            $year_id = $this->getId($year, new GodWip());
+            $tv_id = $this->getId(trim($formData['sezon']), new Tv());
+            $alt_title = trim($formData['alt_title']);
+            $post = $postDB->add([
+                'id_god_wip' => $year_id,
+                'image' => $this->downloadImage($formData['image'], $alt_title),
+                'title' => trim($formData['title']),
+                'alias' => $alt_title,
+                'date' => time(),
+                'body' => $formData['description'],
+                'id_tv' => $tv_id,
+                'rating' => 0,
+                'id_user' => $_SESSION['id'],
+                'id_type_post' => $formData['type'],
+            ]);
+            if ($post){
+                $viewsDB = new View();
+                $cats = json_decode($_POST['cats']);
+                $post_id = $postDB->driver->lastInsertId();
+                $catPostDB = new CatPost();
+                $viewsDB->add(['id_post' => $post_id]);
+                for ($i = 0; $i < count($cats); $i++){
+                        $catPostDB->add(['id_post' => $post_id, 'id_cat' => $cats[$i]]);
+                }
+            }
+
+            echo  json_encode(['status' => 200]);
+
+      }
+    }
+
+   public function getId($title, $DB){
+        $godDB = $DB;
+
+        $godWip =  $godDB->one('id',['title' => $title]);
+
+        if(!empty($godWip['id'])){
+            return $godWip['id'];
+        }else{
+            $godDB->add(['title' => $title]);
+            return $godDB->driver->lastInsertId();
+        }
+
     }
 
     protected function display(){
@@ -83,15 +142,23 @@ class PostController extends AdminController
 
     public function edit($params){
         $studDB = new Stud();
+        $typeBD = new PostType();
         $post = $this->postDB->getPost($params['post'], $params['alias']);
         $animeDB = new Anime();
+        $catDB = new Cat();
+        $cats = $catDB->getCategories();
+        $types = $typeBD->getPostType();
+        $postCats = $catDB->getCatPost($post['id_post']);
         $post['type'] = $params['alias'];
         $anime = $animeDB->getSeria($post['id_tv'],$post['title']);
         $studs = $studDB->row('id, title');
         $this->index = $this->app->view()->fetch('dashboard/editPost.tpl.php', [
             'post' => $post,
             'anime' => $anime,
-            'studs' => $studs
+            'studs' => $studs,
+            'cats' => $cats,
+            'postCats' => $postCats,
+            'types' => $types
         ]);
         $this->display();
     }
@@ -114,6 +181,52 @@ class PostController extends AdminController
         }
         echo json_encode(['status' => 500]);
         exit();
+    }
+
+    public function update(){
+        $formData =  $this->decompileData($_POST['formData']);
+        $year = trim($formData['god']);
+        if (is_numeric($year) && strlen($year) == 4) {
+            $postDB = new Post();
+            $title = trim($formData['title']);
+            $tv_id = $this->getId(trim($formData['sezon']), new Tv());
+            $year_id = $this->getId($year, new GodWip());
+            $title_id = $this->getId($title, new Title());
+            $old_post = $postDB->one('image, title, id_tv, id', ['id' => $_POST['id_post']]);
+            if (!file_exists($formData['image'])){
+                $image = $this->downloadImage($formData['image'], $formData['alt_title']);
+                $old_post = $postDB->one('image, title, id_tv, id', ['id' => $_POST['id_post']]);
+                $this->deleteImage($old_post['image']);
+            }else{
+                $image = $formData['image'];
+            }
+
+        $post = $postDB->update([
+                'title' => $title,
+                'alias' => $formData['alt_title'],
+                'id_god_wip' => $year_id,
+                'image' => $image,
+                'body' => $formData['body'],
+                'id_tv' => $tv_id,
+                'id_type_post' => $formData['type']
+            ], $_POST['id_post']);
+            if ($post){
+                $catPostDB = new CatPost();
+                $catPostDB->delete(['id_post' => $old_post['id']]);
+                $cats = json_decode($_POST['cats']);
+                for ($i = 0; $i < count($cats); $i++){
+                    $catPostDB->add(['id_post' => $old_post['id'], 'id_cat' => $cats[$i]]);
+                }
+                $old_id_title = $this->getId($old_post['title'], new Title());
+                $animeDB = new Anime();
+                $animeDB->update(
+                    ['id_tv' => $tv_id, 'id_title' => $title_id],
+                    ['id_tv' => $old_post['id_tv'], 'id_title' => $old_id_title]
+                );
+            }
+
+        }
+        echo json_encode(['status' => 200]);
     }
 
     public function editSeria(){

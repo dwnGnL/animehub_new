@@ -6,6 +6,8 @@ namespace Model;
 
 class Cat extends Model
 {
+    protected $table = 'table';
+    protected $primary_key = 'id';
     public function getCategories(){
         $sql = 'SELECT * FROM lite_cat ORDER BY title ASC';
 

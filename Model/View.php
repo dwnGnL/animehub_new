@@ -6,6 +6,8 @@ namespace Model;
 
 class View extends Model
 {
+    protected $table = 'lite_views';
+    protected $primary_key = 'id';
     public function updateView($id_post){
         $sql = 'Update lite_views Set views = views + 1 WHERE id_post = :id_post';
         $params = [

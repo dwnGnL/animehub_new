@@ -23,7 +23,7 @@ body {
 }
 
 .gener-list {
-  position: absolute;
+  position: relative;
   list-style-type: none;
   top: 115%;
   background: #f8f9fc;
