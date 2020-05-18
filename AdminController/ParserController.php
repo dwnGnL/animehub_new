@@ -12,6 +12,12 @@ use function Composer\Autoload\includeFile;
 require_once 'Lib/phpQuery.php';
 class ParserController extends AdminController
 {
+    protected $curl;
+    public function __construct()
+    {
+        parent::__construct();
+        $this->curl = new Curl($_POST['proxy']);
+    }
 
     public function index()
     {
@@ -43,27 +49,32 @@ class ParserController extends AdminController
 
     }
 
-    public function topParser($poisk, $start = 1, $end= 100,$startVideo = 1, $endVideo = 24){
+    public function topParser($poisk, $start = 1, $end= 100,$startVideo = 1, $endVideo = 24, $proxy = ''){
         $stop = null;
         $insert = new Parse();
         $countInsert = 0;
         if($start <= $end) {
 
             $search = str_replace(' ', '+', $poisk);
-            $html = Curl::curl_get("https://topvideo.tj/site/search?q=$search&page=$start");
+            $html = $this->curl->curl_get("https://topvideo.tj/search/$search/?mode=async&function=get_block&block_id=list_videos_videos_list_search_result&q=%D0%BD%D0%B0%D1%80%D1%83%D1%82%D0%BE&category_ids=&sort_by=post_date&from_videos=$start&from_albums=$start&_=1589268137588");
             $doc = \phpQuery::newDocument($html);
 
             for ($i = $startVideo - 1; $i <= $endVideo - 1; $i++) {
-                if ($doc->find('.previews' . " .preview:eq($i)")->attr('href')) {
-                    $href = $doc->find('.previews' . ' .preview:eq('.$i.')')->attr('href');
+                if ($doc->find('.margin-fix' . " .item:eq($i) a")->attr('href')) {
+                    $href = $doc->find('.margin-fix' . " .item:eq($i) a")->attr('href');
+                    $title = $doc->find('.margin-fix' . " .item:eq($i) a")->attr('title');
+                    $date = $doc->find('.margin-fix' . " .item:eq($i) .added em")->text();
+                    $mb = '180';
                     $rly_path = $href;
-                    $go = Curl::curl_get('https://topvideo.tj' . $href);
+                    $href = explode('/', $href);
+                    $href = 'https://topvideo.tj/embed/'.$href[4];
+                    $go = $this->curl->curl_get($href);
                     $newcon = \phpQuery::newDocument($go);
-                    $src = $newcon->find('source')->attr('src');
-                    $size = $newcon->find('.videodetails__fileinfo')->text();
-                    $mb = explode(' ', $size);
-                    $date = $mb[2].' '.$mb[3];
-                    $title = $newcon->find('.videodetails__title')->text();
+                    $script = $newcon->find('body script:eq(1)')->text();
+                    $startString = stripos($script, 'video_url: \'');
+                    $newString = substr($script, $startString + 12);
+                    $endString = stripos($newString, 'mp4');
+                    $src = substr($newString, 0, $endString + 3);
                     $dateCheck = $insert->excessCheckAnime($rly_path);
                     if($dateCheck['COUNT(*)'] > 0 && $countInsert > 0){
                         $insert->updateAnimeStatusFirst($rly_path);
@@ -79,11 +90,11 @@ class ParserController extends AdminController
                     }else {
 
                         if($i==0 && $start == 1){
-                            $insert->insertParse($rly_path,$title, $src,$mb[6],$date,1);
+                            $insert->insertParse($rly_path,$title, $src,$mb,$date,1);
                             $countInsert++;
                         }else{
 
-                            $insert->insertParse($rly_path,$title, $src, $mb[6], $date);
+                            $insert->insertParse($rly_path,$title, $src, $mb, $date);
                             $countInsert++;
                         }
                     }
@@ -101,7 +112,7 @@ class ParserController extends AdminController
        return $countInsert;
     }
 
-    public function mixParser($poisk, $start = 1, $end= 100,$startVideo = 1, $endVideo = 24)
+    public function mixParser($poisk, $start = 1, $end= 100,$startVideo = 1, $endVideo = 24, $proxy = '')
     {
         $stop = null;
         $insert = new Parse();
@@ -110,7 +121,7 @@ class ParserController extends AdminController
         if($start <= $end) {
             $search = str_replace(' ', '+', $poisk);
 
-            $html = Curl::curl_get("http://mix.tj/index.php?do=poisk&s=$search&so=0&st=0&sd=0&sc=0&page=$start");
+            $html = $this->curl->curl_get("http://mix.tj/index.php?do=poisk&s=$search&so=0&st=0&sd=0&sc=0&page=$start");
             $doc = \phpQuery::newDocument($html);
 
             for ($i = $startVideo - 1 ; $i <= $endVideo - 1; $i++) {
@@ -118,14 +129,14 @@ class ParserController extends AdminController
 
                     $href = $doc->find('.mixx-sub-wrap:eq(1)' . " article:eq($i)" . ' a')->attr('href');
                     $rly_path = $href;
-                    $go = Curl::curl_get('http://mix.tj' . $href);
+                    $go = $this->curl->curl_get('http://mix.tj' . $href);
                     $newcon = \phpQuery::newDocument($go);
 
 
                     $size = $newcon->find('.autoplay-group')->text();
 
                     $href = explode('/', $href);
-                    $embed = Curl::curl_get('http://mix.tj/embed/'. $href[2]);
+                    $embed = $this->curl->curl_get('http://mix.tj/embed/'. $href[2]);
                     $embed = \phpQuery::newDocument($embed);
                     $vid = $embed->find('script')->text();
                     $vid = substr($vid, 65,120);
@@ -219,7 +230,7 @@ class ParserController extends AdminController
             $endVideo = !empty(trim($_POST['endVideo'])) ? $_POST['endVideo'] : 24;
             $parse = new Parse();
             $excess = $parse->getParseStatus1($title);
-            $total =  $this->parseChannel($_POST['channel'], $title, $startPage, $endPage, $startVideo, $endVideo, !empty($excess) ? $excess : '' );
+            $total =  $this->parseChannel($_POST['channel'], $title, $startPage, $endPage, $startVideo, $endVideo, !empty($excess) ? $excess : '');
             if (!empty($excess)){
               $anime = $parse->getParseWithTitle($_POST['title']);
               if (count($anime) > 1){
@@ -238,14 +249,14 @@ class ParserController extends AdminController
         }
     }
 
-    public function parseChannel($channel, $anime, $pageStart = 1, $pageEnd = 1, $startVideo = 1, $endVideo = 24, $excess = '')
+    public function parseChannel($channel, $anime, $pageStart = 1, $pageEnd = 1, $startVideo = 1, $endVideo = 24, $excess = '', $proxy = '')
     {
         $insert = new Parse();
         $tempPage = $pageStart;
         $f = 0;
         while ($pageStart <= $pageEnd) {
 
-            $html = Curl::curl_get('http://mix.tj/channel/' . $channel . '?top=new&page=' . $pageStart);
+            $html =$this->curl->curl_get('http://mix.tj/channel/' . $channel . '?top=new&page=' . $pageStart, $proxy);
 
             $doc = \phpQuery::newDocument($html);
             if ($pageStart == $pageEnd) {
@@ -268,14 +279,14 @@ class ParserController extends AdminController
                         $href = $doc->find('.mixx-sub-wrap' . " article:eq($i)" . ' a')->attr('href');
 
                         $rly_path = $href;
-                        $go = Curl::curl_get('http://mix.tj' . $href);
+                        $go = $this->curl->curl_get('http://mix.tj' . $href, $proxy);
                         $newcon = \phpQuery::newDocument($go);
 
 
                         $size = $newcon->find('.autoplay-group')->text();
 
                         $href = explode('/', $href);
-                        $embed = Curl::curl_get('http://mix.tj/embed/' . $href[2]);
+                        $embed = $this->curl->curl_get('http://mix.tj/embed/' . $href[2]);
                         $embed = \phpQuery::newDocument($embed);
                         $vid = $embed->find('script')->text();
                         $vid = substr($vid, 65, 120);

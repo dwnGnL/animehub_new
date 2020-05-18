@@ -54,6 +54,7 @@ abstract  class DisplayController extends Controller
         $pages = $post->getPages();
         $categories = $cat->getCategories();
         $user = $userDB->getUser($_SESSION['login']);
+        $rep = '  ';
         return $this->app->view()->fetch('menu.tpl.php', [
                                                         'pages' => $pages,
                                                         'app' => $this->app,
