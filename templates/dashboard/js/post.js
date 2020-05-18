@@ -148,6 +148,7 @@ $('body').on('click', '#addPost',function () {
     })
 })
 
+
 //Обновление поста
 
 $('body').on('click', '#updatePost',function () {
