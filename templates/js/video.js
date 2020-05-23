@@ -18,6 +18,9 @@ let openSearch = true;
 let seriesListWidth = 0;
 let previousSeries = 0;
 let presentSeries = 0;
+let sumSize = 0;
+let maxTrans = -(seriesListWidth + 10) + seriesBlock.offsetWidth;
+let mousePressing, mouseUnPressing, posInt, positions, sumPos;
 let title = document.title;
 
 if (localStorage.getItem(id_post)!== null){
@@ -131,9 +134,9 @@ function addEvent(){
 
 addEvent();
 
-let sumSize = 0;
-let maxTrans = -(seriesListWidth + 10) + seriesBlock.offsetWidth;
-let mousePressing, mouseUnPressing, posInt, positions, sumPos;
+// let sumSize = 0;
+// let maxTrans = -(seriesListWidth + 10) + seriesBlock.offsetWidth;
+// let mousePressing, mouseUnPressing, posInt, positions, sumPos;
 
 toRightSeries.onmousedown = toRightSeries.ontouchstart = () => {
   mouseUnPressing = setTimeout(() => {
