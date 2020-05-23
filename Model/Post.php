@@ -137,7 +137,7 @@ class Post extends Model
                       AND lite_type_post.title_type_post = :alias 
                       ORDER BY date DESC';
         }
-        $fields = 'lite_post.id, lite_post.alias, lite_type_post.title_type_post, lite_post.title, lite_post.image, lite_tv.title AS tv_title, lite_views.views ';
+        $fields = 'lite_post.id, lite_post.alias, lite_type_post.title_type_post, lite_post.title, lite_post.image, lite_tv.title AS tv_title, lite_tv.id AS id_tv, lite_views.views ';
         $params = [
             'alias' => $alias
         ];
