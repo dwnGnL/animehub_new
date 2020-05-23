@@ -19,10 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6341c2f9-1102-484a-bdc9-098e620a8c13" name="Default Changelist" comment="new admin panel added">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Anime.php" beforeDir="false" afterPath="$PROJECT_DIR$/Model/Anime.php" afterDir="false" />
-    </list>
+    <list default="true" id="6341c2f9-1102-484a-bdc9-098e620a8c13" name="Default Changelist" comment="last add seria change order by" />
     <list id="38dd605b-6083-45a6-9f6b-662038e1e815" name="Revert &quot;no message&quot;" comment="Revert &quot;no message&quot;&#10;&#10;This reverts commit 1b2b2056" />
     <list id="26597201-c17a-4d66-b2be-a470cf0d8dee" name="Revert &quot;smiles&quot;" comment="Revert &quot;smiles&quot;&#10;&#10;This reverts commit a2f512a2" />
     <list id="b5c109f5-b337-497d-86a0-eccb14ab6f65" name="Revert &quot;stikers.js&quot;" comment="Revert &quot;stikers.js&quot;&#10;&#10;This reverts commit 3a6f5147" />
@@ -394,14 +391,7 @@
       <workItem from="1589894224293" duration="621000" />
       <workItem from="1590149548895" duration="9659000" />
       <workItem from="1590172594264" duration="4206000" />
-      <workItem from="1590210029345" duration="4502000" />
-    </task>
-    <task id="LOCAL-00012" summary="Revert &quot;vse&quot;&#10;&#10;This reverts commit 27cc687c">
-      <created>1579748849827</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1579748849827</updated>
+      <workItem from="1590210029345" duration="4879000" />
     </task>
     <task id="LOCAL-00013" summary="Revert &quot;vse&quot;&#10;&#10;This reverts commit 27cc687c">
       <created>1579751637054</created>
@@ -739,7 +729,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589783372646</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="last add seria change order by">
+      <created>1590220911088</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1590220911088</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -777,7 +774,8 @@
     <MESSAGE value="Редактирование постов в новой админке" />
     <MESSAGE value="ckeditor min" />
     <MESSAGE value="new admin panel added" />
-    <option name="LAST_COMMIT_MESSAGE" value="new admin panel added" />
+    <MESSAGE value="last add seria change order by" />
+    <option name="LAST_COMMIT_MESSAGE" value="last add seria change order by" />
   </component>
   <component name="WindowStateProjectService">
     <state x="527" y="214" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1590149854526">
@@ -812,10 +810,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="594" y="133" key="RollbackChangesDialog/0.0.1536.824@0.0.1536.824" timestamp="1584005679629" />
-    <state x="361" y="144" key="Vcs.Push.Dialog.v2" timestamp="1590215256031">
+    <state x="361" y="144" key="Vcs.Push.Dialog.v2" timestamp="1590220916291">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="144" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1590215256031" />
+    <state x="361" y="144" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1590220916291" />
     <state x="578" y="329" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1584030480236">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
