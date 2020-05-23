@@ -43,7 +43,7 @@ class Anime extends Model
     public function lastAddSeria($title_post){
         $sql = 'SELECT lite_anime.seria FROM lite_anime, lite_title 
                 WHERE lite_title.id = lite_anime.id_title
-                AND lite_title.title = :title ORDER BY lite_anime.id DESC LIMIT 1';
+                AND lite_title.title = :title ORDER BY lite_anime.seria DESC LIMIT 1';
         $params = [
             'title' => $title_post
         ];
