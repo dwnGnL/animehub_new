@@ -34,7 +34,7 @@ class IndexController extends DisplayController
 
         foreach ($posts as $key => $val) {
             $posts[$key]['cats'] = $cat->getCatPostL2($posts[$key]['id']);
-            $posts[$key]['seria'] = $anime->lastAddSeria($posts[$key]['title']);
+            $posts[$key]['seria'] = $anime->lastAddSeria($posts[$key]['title'],$posts[$key]['id_tv']);
         }
 
         $newPosts = $postDB->getPostL5();
@@ -44,7 +44,7 @@ class IndexController extends DisplayController
         $dorams =  $postDB->getPostL10('dorams',5);
         foreach ($dorams as $key => $val){
             $dorams[$key]['cats'] = $cat->getCatPostL2($dorams[$key]['id']);
-            $dorams[$key]['seria'] = $anime->lastAddSeria($dorams[$key]['title']);
+            $dorams[$key]['seria'] = $anime->lastAddSeria($dorams[$key]['title'],$val['id_tv']);
         }
         $articles =  $postDB->getPostL10('articles',6);
         $search = $this->getSearch();

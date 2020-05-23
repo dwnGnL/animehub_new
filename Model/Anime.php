@@ -40,12 +40,13 @@ class Anime extends Model
         return  $this->driver->row($sql);
     }
 
-    public function lastAddSeria($title_post){
+    public function lastAddSeria($title_post, $id_tv){
         $sql = 'SELECT lite_anime.seria FROM lite_anime, lite_title 
                 WHERE lite_title.id = lite_anime.id_title
-                AND lite_title.title = :title ORDER BY lite_anime.seria DESC LIMIT 1';
+                AND lite_title.title = :title AND lite_anime.id_tv = :id_tv ORDER BY lite_anime.seria DESC LIMIT 1';
         $params = [
-            'title' => $title_post
+            'title' => $title_post,
+            'id_tv' => $id_tv
         ];
      return  $this->driver->column($sql,$params);
     }
