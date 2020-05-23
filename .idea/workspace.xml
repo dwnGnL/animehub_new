@@ -19,7 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6341c2f9-1102-484a-bdc9-098e620a8c13" name="Default Changelist" comment="added page top anime">
+    <list default="true" id="6341c2f9-1102-484a-bdc9-098e620a8c13" name="Default Changelist" comment="Скрипт плейра улучшена">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/js/video.js" beforeDir="false" afterPath="$PROJECT_DIR$/templates/js/video.js" afterDir="false" />
     </list>
@@ -397,14 +397,7 @@
       <workItem from="1590210029345" duration="8052000" />
       <workItem from="1590224842559" duration="831000" />
       <workItem from="1590229541131" duration="9104000" />
-      <workItem from="1590250203192" duration="2121000" />
-    </task>
-    <task id="LOCAL-00016" summary="Revert &quot;vse&quot;&#10;&#10;This reverts commit 27cc687c">
-      <created>1579839344421</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1579839344421</updated>
+      <workItem from="1590250203192" duration="4097000" />
     </task>
     <task id="LOCAL-00017" summary="Revert &quot;vse&quot;&#10;&#10;This reverts commit 27cc687c">
       <created>1579866761133</created>
@@ -742,7 +735,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590223890295</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="Скрипт плейра улучшена">
+      <created>1590252339955</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1590252339955</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -782,7 +782,8 @@
     <MESSAGE value="new admin panel added" />
     <MESSAGE value="last add seria change order by" />
     <MESSAGE value="added page top anime" />
-    <option name="LAST_COMMIT_MESSAGE" value="added page top anime" />
+    <MESSAGE value="Скрипт плейра улучшена" />
+    <option name="LAST_COMMIT_MESSAGE" value="Скрипт плейра улучшена" />
   </component>
   <component name="WindowStateProjectService">
     <state x="527" y="214" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1590149854526">
@@ -817,10 +818,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="594" y="133" key="RollbackChangesDialog/0.0.1536.824@0.0.1536.824" timestamp="1584005679629" />
-    <state x="361" y="144" key="Vcs.Push.Dialog.v2" timestamp="1590223965343">
+    <state x="361" y="144" key="Vcs.Push.Dialog.v2" timestamp="1590252345870">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="144" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1590223965343" />
+    <state x="361" y="144" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1590252345870" />
     <state x="578" y="329" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1584030480236">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -833,6 +834,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="478" y="145" width="579" height="534" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1590156308607" />
+    <state x="486" y="200" key="git4idea.merge.GitPullDialog" timestamp="1590256335998">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="486" y="200" key="git4idea.merge.GitPullDialog/0.0.1536.824@0.0.1536.824" timestamp="1590256335998" />
     <state x="425" y="187" key="run.anything.popup" timestamp="1588528981758">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
