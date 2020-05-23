@@ -1,4 +1,6 @@
 let seriesList = document.querySelector('.series-list');
+var id_post = document.location.pathname.split('/')
+id_post = id_post[id_post.length - 1].split('-')[0]
 let seriesItem = document.querySelectorAll('.series-item');
 let seriesBlock = document.querySelector('.series-block');
 let toLeftSeries = document.querySelector('.to-left-series');
@@ -17,6 +19,27 @@ let seriesListWidth = 0;
 let previousSeries = 0;
 let presentSeries = 0;
 let title = document.title;
+
+if (localStorage.getItem(id_post)!== null){
+  let memory= JSON.parse(localStorage.getItem(id_post));
+  $(`.series-item:eq(${memory.index})`).addClass('series-item-active')
+  // seriesItem[presentSeries].classList.add('series-item-active');
+  videoLink.src = seriesItem[presentSeries].getAttribute('src');
+  videoLink.currentTime = memory.video;
+  videoLink.play()
+}else {
+  videoLink.removeAttribute("autoplay");
+  videoLink.src=seriesItem[0].getAttribute('src');
+  seriesItem[0].classList.add('series-item-active')
+}
+videoLink.addEventListener('timeupdate', function () {
+  let memory = JSON.parse(localStorage.getItem(id_post));
+  console.log(memory.index)
+  localStorage.setItem(id_post, JSON.stringify({
+    index: memory.index,
+    video: videoLink.currentTime
+  }))
+})
 favorite.classList.contains('choose') ? favoriteText.innerHTML = 'Удалить из избранного' : favoriteText.innerHTML = 'Добавить в избранное';
 
 favorite.onclick = () => {
@@ -80,8 +103,6 @@ seriesItem.forEach(function (elem, index) {
   });
 });
 
-videoLink.removeAttribute("autoplay");
-videoLink.src=seriesItem[0].getAttribute('src');
 
 function addEvent(){
   seriesItem = document.querySelectorAll('.series-item');
@@ -91,6 +112,10 @@ function addEvent(){
       videoLink.setAttribute("autoplay","true")
       previousSeries = presentSeries;
       presentSeries = index;
+        localStorage.setItem(id_post,JSON.stringify({
+          'index':index,
+          'video': 0
+        })) ;
       seriesItem[previousSeries].classList.remove('series-item-active');
       seriesItem[presentSeries].classList.add('series-item-active');
       document.title = `${title} ${$(".film-discription-header").text()} | ${elem.textContent}`;
@@ -242,8 +267,7 @@ function closeSeriesListPost() {
 };
 
 
-var id_post = document.location.pathname.split('/')
-id_post = id_post[id_post.length - 1].split('-')[0]
+
 
 $("#like").click(() => {
   raiting(1, id_post)
