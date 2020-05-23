@@ -154,7 +154,7 @@ class PageController extends DisplayController
         foreach ($items['items'] as $item){
             $row[] = $item;
             $row[$i]['cats'] = $catDB->getCatPostL2($row[$i]['id']);
-            $row[$i]['seria'] = $anime->lastAddSeria($row[$i]['title']);
+            $row[$i]['seria'] = $anime->lastAddSeria($row[$i]['title'],$row[$i]['id_tv']);
             if (strripos($row[$i]['image'], 'public/images/post') !== false){
                 $row[$i]['image'] = $this->uri.$row[$i]['image'];
             }
