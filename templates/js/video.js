@@ -102,7 +102,10 @@ seriesItem.forEach(function (elem, index) {
     seriaHtml: elem.outerHTML
   });
 });
-
+var datafromLocalstorage = localStorage.getItem(id_post)
+if (datafromLocalstorage){
+  scrollingSeries(seriesItem[0].offsetWidth*datafromLocalstorage.index + 10)
+}
 
 function addEvent(){
   seriesItem = document.querySelectorAll('.series-item');
