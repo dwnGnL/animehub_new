@@ -23,7 +23,6 @@ if ($_SESSION['status'] == 'Анимешник' || !isset($_SESSION['auth']) || 
   <link href="css/style.css" rel="stylesheet">
     <link href="css/table.css" rel="stylesheet">
   <link rel="stylesheet" href="css/normilize.css">
-<!--	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>-->
 	<script src="../templates/js/jquery-3.3.1.min.js"></script>
 	<script src="js/side-bar-script.js"></script>
 	<link rel="stylesheet" href="css/side-bar-style.css">
@@ -40,33 +39,23 @@ if ($_SESSION['status'] == 'Анимешник' || !isset($_SESSION['auth']) || 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="
           #navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span></button>
-          <?php if($_SESSION['status'] == 'Админ'){ ?>
-<!--          --><?php
-//          require_once 'lib/Model.php';
-//          $bd = new Model();
-//          $tech = $bd->getTech();
-//          $text = '';
-//          if($tech == 1){
-//              $text = 'Выключить тех...';
-//          }else{
-//              $text = 'Включить тех...';
-//          }
-//          ?>
+
         <div class="collapse navbar-collapse" id="navbarContent">
           <ul class="navbar-nav mr-auto">
+              <?php if($_SESSION['status'] == 'Админ'){ ?>
             <li class="nav-item">
               <a href="index.php?uved" class="nav-link waves-effect" id="Users">Уведомление</a>
             </li>
-              <?php if($_SESSION['status'] == 'Админ') {?>
-                  <li class="nav-item">
-                      <a href="http://ce93845.tmweb.ru/AnimeAdmin.php?pars=parse" class="nav-link waves-effect" id="Users">Парсер микса</a>
-                  </li>
-              <?php }?>
+
               <li class="nav-item">
                   <a href="index.php?ras" class="nav-link waves-effect" id="Users">Расписание</a>
               </li>
+              <?php  }?>
               <li class="nav-item">
-<!--                  <a href="#" class="nav-link waves-effect" id="tech" id-text="--><?//=$tech['tech'];?><!--">--><?//=$text;?><!--</a>-->
+                  <a href="/dashboard" class="nav-link waves-effect" id="Users">Новая админка</a>
+              </li>
+              <li class="nav-item">
+                  <a href="/laravel/public" class="nav-link waves-effect" id="Users">Админка laravel</a>
               </li>
           </ul>
           <ul class="navbar-nav nav-flex-icons">
@@ -88,32 +77,8 @@ if ($_SESSION['status'] == 'Анимешник' || !isset($_SESSION['auth']) || 
           </ul>
         </div>
       </div>
-        <?php  }?>
+
     </nav>
-
-    <!-- <div class="sidebar-fixed position-fixed"> -->
-      <!--<a href="#" class="logo-wrapper waves-effect">
-        <img src="http://tajfile.tj/templates/tajfile/images/logo.png" alt="" class="img-fluid">
-      </a> -->
-
-      <!-- <div class="list-group list-group-flush">
-        <a href="#" class="list-group-item waves-effect active">
-          <i class="fa fa-pie-chart mr-3" id="Item1">Dashboard</i>
-        </a>
-        <a href="#" class="list-group-item waves-effect ">
-          <i class="fa fa-user mr-3" id="Item2">Profile</i>
-        </a>
-        <a href="#" class="list-group-item waves-effect">
-          <i class="fa fa-table mr-3" id="Item3">Tables</i>
-        </a>
-        <a href="#" class="list-group-item waves-effect">
-          <i class="fa fa-map mr-3" id="Item4" >Maps</i>
-        </a>
-        <a href="#" class="list-group-item waves-effect">
-          <i class="fa fa-money mr-3" id="Item5">Orders</i>
-        </a>
-
-      </div> -->
       <span class="toggle-button">
         <div class="menu-bar menu-bar-top"></div>
         <div class="menu-bar menu-bar-middle"></div>
