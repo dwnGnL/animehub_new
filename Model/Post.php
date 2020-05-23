@@ -107,7 +107,7 @@ class Post extends Model
                      ORDER BY date DESC';
 
                     $alias = '%'.$alias.'%';
-
+                    break;
             }
 
         }elseif ($alias == 'ongoings') {
@@ -129,7 +129,16 @@ class Post extends Model
                         AND lite_post.id_type_post = lite_type_post.id_type_post
                         AND lite_favorites.id_user = :alias';
             $alias = $_SESSION['id'];
-        }else {
+        }elseif ($alias == 'top'){
+            $from = 'lite_post,lite_views, lite_tv, lite_type_post, lite_top';
+            $where = 'lite_post.id = lite_views.id_post
+                              AND lite_post.id_tv = lite_tv.id
+                              AND lite_post.id_type_post = lite_type_post.id_type_post
+                              AND lite_post.id = lite_top.id_post
+                              AND lite_type_post.title_type_post = :alias
+                              ORDER BY lite_top.rating DESC';
+            $alias = 'anime';
+        } else {
             $from = 'lite_post, lite_tv,lite_views, lite_type_post';
             $where = 'lite_post.id_tv = lite_tv.id
                       AND lite_views.id_post = lite_post.id 

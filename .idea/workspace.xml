@@ -21,7 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="6341c2f9-1102-484a-bdc9-098e620a8c13" name="Default Changelist" comment="last add seria change order by">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/PageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/PageController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Model/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/Model/Post.php" afterDir="false" />
     </list>
     <list id="38dd605b-6083-45a6-9f6b-662038e1e815" name="Revert &quot;no message&quot;" comment="Revert &quot;no message&quot;&#10;&#10;This reverts commit 1b2b2056" />
@@ -395,14 +394,7 @@
       <workItem from="1589894224293" duration="621000" />
       <workItem from="1590149548895" duration="9659000" />
       <workItem from="1590172594264" duration="4206000" />
-      <workItem from="1590210029345" duration="5512000" />
-    </task>
-    <task id="LOCAL-00014" summary="Revert &quot;vse&quot;&#10;&#10;This reverts commit 27cc687c">
-      <created>1579759907791</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1579759907791</updated>
+      <workItem from="1590210029345" duration="7326000" />
     </task>
     <task id="LOCAL-00015" summary="Revert &quot;vse&quot;&#10;&#10;This reverts commit 27cc687c">
       <created>1579769071551</created>
@@ -740,7 +732,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590221528014</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="last add seria change order by">
+      <created>1590221898246</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1590221898247</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -814,10 +813,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="594" y="133" key="RollbackChangesDialog/0.0.1536.824@0.0.1536.824" timestamp="1584005679629" />
-    <state x="361" y="144" key="Vcs.Push.Dialog.v2" timestamp="1590221563427">
+    <state x="361" y="144" key="Vcs.Push.Dialog.v2" timestamp="1590221906221">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="144" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1590221563427" />
+    <state x="361" y="144" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1590221906221" />
     <state x="578" y="329" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1584030480236">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

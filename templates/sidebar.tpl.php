@@ -5,7 +5,7 @@
   <div class="update-block">
     <!-- <div class="sidebar-head">Топ аниме</div> -->
     <div class="top-weak">
-      <div class="sidebar-head">Топ аниме</div>
+        <div class="sidebar-head"><a href="/top" >Топ аниме</a></div>
 
       <div class="top-weak-img">
 
