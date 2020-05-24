@@ -86,9 +86,9 @@ class PageController extends DisplayController
             $favorite['title'] = 'Удалить из избранного';
             $favorite['class'] = 'choose';
         }
-        if (!isset($_COOKIE[$matches[0]]) OR $_COOKIE[$matches[0]] != $matches[0]){
+        if (empty($this->app->getEncryptedCookie($matches[0])) OR $this->app->getEncryptedCookie($matches[0]) != $matches[0]){
             $view->updateView($post['id_post']);
-            $this->app->setCookie($matches[0], $matches[0],time() + 1440);
+            $this->app->setEncryptedCookie($matches[0], $matches[0],time() + 1440);
         }
         if (empty($post)){
             $this->app->notFound();
