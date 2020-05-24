@@ -18,26 +18,45 @@ let openSearch = true;
 let seriesListWidth = 0;
 let previousSeries = 0;
 let presentSeries = 0;
-let sumSize = 0;
-let maxTrans = -(seriesListWidth + 10) + seriesBlock.offsetWidth;
-let mousePressing, mouseUnPressing, posInt, positions, sumPos;
 let title = document.title;
+var sumSize = 0;
 
+
+videoLink.addEventListener('ended', function ()  {
+  videoLink.setAttribute("autoplay","true")
+  let oldSeries = $('.series-item-active');
+  oldSeries.removeClass('series-item-active')
+  let next = oldSeries.next();
+  if (next){
+    while (next.attr('id-ser') == oldSeries.attr('id-ser')){
+      next = next.next()
+    }
+    next.addClass('series-item-active');
+   let indexSeries = next.index();
+    localStorage.setItem(id_post,JSON.stringify({
+      'index': indexSeries,
+      'video': 0
+    })) ;
+    videoLink.src = next.attr('src')
+  }
+})
 if (localStorage.getItem(id_post)!== null){
   let memory= JSON.parse(localStorage.getItem(id_post));
   $(`.series-item:eq(${memory.index})`).addClass('series-item-active')
-  // seriesItem[presentSeries].classList.add('series-item-active');
   videoLink.src = seriesItem[presentSeries].getAttribute('src');
   videoLink.currentTime = memory.video;
-  videoLink.play()
 }else {
+  localStorage.setItem(id_post,JSON.stringify({
+    'index': 0,
+    'video': 0
+  })) ;
   videoLink.removeAttribute("autoplay");
   videoLink.src=seriesItem[0].getAttribute('src');
   seriesItem[0].classList.add('series-item-active')
 }
 videoLink.addEventListener('timeupdate', function () {
   let memory = JSON.parse(localStorage.getItem(id_post));
-  console.log(memory.index)
+  
   localStorage.setItem(id_post, JSON.stringify({
     index: memory.index,
     video: videoLink.currentTime
@@ -105,16 +124,19 @@ seriesItem.forEach(function (elem, index) {
     seriaHtml: elem.outerHTML
   });
 });
-var datafromLocalstorage = localStorage.getItem(id_post)
-if (datafromLocalstorage){
-  scrollingSeries(seriesItem[0].offsetWidth*datafromLocalstorage.index + 10)
-}
+
 
 function addEvent(){
   seriesItem = document.querySelectorAll('.series-item');
   seriesItem.forEach(function (elem, index) {
     seriesListWidth += elem.offsetWidth + 10;
     elem.onclick = () => {
+      let datafromLocalstorage = localStorage.getItem(id_post)
+		if (datafromLocalstorage){
+    		let info=JSON.parse(datafromLocalstorage)
+  			seriesItem[info.index].classList.remove('series-item-active');
+		}
+            
       videoLink.setAttribute("autoplay","true")
       previousSeries = presentSeries;
       presentSeries = index;
@@ -134,9 +156,14 @@ function addEvent(){
 
 addEvent();
 
-// let sumSize = 0;
-// let maxTrans = -(seriesListWidth + 10) + seriesBlock.offsetWidth;
-// let mousePressing, mouseUnPressing, posInt, positions, sumPos;
+var maxTrans = -(seriesListWidth + 10) + seriesBlock.offsetWidth;
+var mousePressing, mouseUnPressing, posInt, positions, sumPos;
+
+var datafromLocalstorage = localStorage.getItem(id_post)
+if (datafromLocalstorage){
+    let info=JSON.parse(datafromLocalstorage)
+  scrollingSeries(-(seriesItem[0].offsetWidth*info.index + 10))
+}
 
 toRightSeries.onmousedown = toRightSeries.ontouchstart = () => {
   mouseUnPressing = setTimeout(() => {
@@ -171,6 +198,7 @@ toRightSeries.onmouseup = toLeftSeries.onmouseup = toRightSeries.ontouchend = to
 };
 
 function scrollingSeries(size) {
+console.log(sumSize+" "+size+" "+maxTrans)
   sumSize += size;
   if (sumSize <= maxTrans) sumSize = maxTrans;
   if (sumSize > 0) sumSize = 0;

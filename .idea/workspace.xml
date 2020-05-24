@@ -19,9 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6341c2f9-1102-484a-bdc9-098e620a8c13" name="Default Changelist" comment="js video.js">
+    <list default="true" id="6341c2f9-1102-484a-bdc9-098e620a8c13" name="Default Changelist" comment="Баг с накруткой просмотров фикс">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/PageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/PageController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/js/video.js" beforeDir="false" afterPath="$PROJECT_DIR$/templates/js/video.js" afterDir="false" />
     </list>
     <list id="38dd605b-6083-45a6-9f6b-662038e1e815" name="Revert &quot;no message&quot;" comment="Revert &quot;no message&quot;&#10;&#10;This reverts commit 1b2b2056" />
     <list id="26597201-c17a-4d66-b2be-a470cf0d8dee" name="Revert &quot;smiles&quot;" comment="Revert &quot;smiles&quot;&#10;&#10;This reverts commit a2f512a2" />
@@ -399,14 +399,8 @@
       <workItem from="1590229541131" duration="9104000" />
       <workItem from="1590250203192" duration="4754000" />
       <workItem from="1590302002828" duration="81000" />
-      <workItem from="1590306572977" duration="372000" />
-    </task>
-    <task id="LOCAL-00018" summary="Revert &quot;vse&quot;&#10;&#10;This reverts commit 27cc687c">
-      <created>1580037872132</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1580037872132</updated>
+      <workItem from="1590306572977" duration="1084000" />
+      <workItem from="1590338679110" duration="5609000" />
     </task>
     <task id="LOCAL-00019" summary="Revert &quot;vse&quot;&#10;&#10;This reverts commit 27cc687c">
       <created>1580129414507</created>
@@ -744,7 +738,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590256395007</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="Баг с накруткой просмотров фикс">
+      <created>1590307053035</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1590307053036</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -786,7 +787,8 @@
     <MESSAGE value="added page top anime" />
     <MESSAGE value="Скрипт плейра улучшена" />
     <MESSAGE value="js video.js" />
-    <option name="LAST_COMMIT_MESSAGE" value="js video.js" />
+    <MESSAGE value="Баг с накруткой просмотров фикс" />
+    <option name="LAST_COMMIT_MESSAGE" value="Баг с накруткой просмотров фикс" />
   </component>
   <component name="WindowStateProjectService">
     <state x="527" y="214" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1590149854526">
@@ -821,10 +823,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="594" y="133" key="RollbackChangesDialog/0.0.1536.824@0.0.1536.824" timestamp="1584005679629" />
-    <state x="361" y="144" key="Vcs.Push.Dialog.v2" timestamp="1590252345870">
+    <state x="361" y="144" key="Vcs.Push.Dialog.v2" timestamp="1590307057045">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="144" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1590252345870" />
+    <state x="361" y="144" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1590307057045" />
     <state x="578" y="329" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1584030480236">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
