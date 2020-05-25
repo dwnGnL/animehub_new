@@ -22,14 +22,34 @@ let title = document.title;
 var sumSize = 0;
 
 
+videoLink.addEventListener('ended', function ()  {
+  videoLink.setAttribute("autoplay","true")
+  let oldSeries = $('.series-item-active');
+  oldSeries.removeClass('series-item-active')
+  let next = oldSeries.next();
+  if (next){
+    while (next.attr('id-ser') == oldSeries.attr('id-ser')){
+      next = next.next()
+    }
+    next.addClass('series-item-active');
+   let indexSeries = next.index();
+    localStorage.setItem(id_post,JSON.stringify({
+      'index': indexSeries,
+      'video': 0
+    })) ;
+    videoLink.src = next.attr('src')
+  }
+})
 if (localStorage.getItem(id_post)!== null){
   let memory= JSON.parse(localStorage.getItem(id_post));
   $(`.series-item:eq(${memory.index})`).addClass('series-item-active')
-  // seriesItem[presentSeries].classList.add('series-item-active');
   videoLink.src = seriesItem[presentSeries].getAttribute('src');
   videoLink.currentTime = memory.video;
-  videoLink.play()
 }else {
+  localStorage.setItem(id_post,JSON.stringify({
+    'index': 0,
+    'video': 0
+  })) ;
   videoLink.removeAttribute("autoplay");
   videoLink.src=seriesItem[0].getAttribute('src');
   seriesItem[0].classList.add('series-item-active')
