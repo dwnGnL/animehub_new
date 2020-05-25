@@ -10,5 +10,7 @@ RewriteRule . index.php [L]
 <Limit GET POST>
  order allow,deny
  deny from 94.199.21.231
+ deny from 146.185.152.98
+ deny from 31.210.107.199
  allow from all
 </Limit>

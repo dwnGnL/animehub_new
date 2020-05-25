@@ -160,11 +160,12 @@ var maxTrans = -(seriesListWidth + 10) + seriesBlock.offsetWidth;
 var mousePressing, mouseUnPressing, posInt, positions, sumPos;
 
 var datafromLocalstorage = localStorage.getItem(id_post)
+if(document.body.clientWidth>770){
 if (datafromLocalstorage){
     let info=JSON.parse(datafromLocalstorage)
   scrollingSeries(-(seriesItem[0].offsetWidth*info.index + 10))
 }
-
+}
 toRightSeries.onmousedown = toRightSeries.ontouchstart = () => {
   mouseUnPressing = setTimeout(() => {
     setPosition();
