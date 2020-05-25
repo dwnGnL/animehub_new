@@ -7,3 +7,8 @@ RewriteRule . index.php [L]
 <FilesMatch ".(flv|gif|jpg|jpeg|png|ico|swf|js|css|pdf)$">
   Header set Cache-Control "max-age=2592000"
 </FilesMatch>
+<Limit GET POST>
+ order allow,deny
+ deny from 94.199.21.231
+ allow from all
+</Limit>
