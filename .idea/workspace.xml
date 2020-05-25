@@ -19,9 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6341c2f9-1102-484a-bdc9-098e620a8c13" name="Default Changelist" comment="Авто след серии">
-      <change beforePath="$PROJECT_DIR$/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/.htaccess" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="6341c2f9-1102-484a-bdc9-098e620a8c13" name="Default Changelist" comment="Бан читера">
+      <change beforePath="$PROJECT_DIR$/Lib/CheckAuthMiddleware.php" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/CheckAuthMiddleware.php" afterDir="false" />
     </list>
     <list id="38dd605b-6083-45a6-9f6b-662038e1e815" name="Revert &quot;no message&quot;" comment="Revert &quot;no message&quot;&#10;&#10;This reverts commit 1b2b2056" />
     <list id="26597201-c17a-4d66-b2be-a470cf0d8dee" name="Revert &quot;smiles&quot;" comment="Revert &quot;smiles&quot;&#10;&#10;This reverts commit a2f512a2" />
@@ -402,21 +401,8 @@
       <workItem from="1590306572977" duration="1084000" />
       <workItem from="1590338679110" duration="6937000" />
       <workItem from="1590384920155" duration="2593000" />
-      <workItem from="1590415142184" duration="313000" />
-    </task>
-    <task id="LOCAL-00021" summary="Revert &quot;vse&quot;&#10;&#10;This reverts commit 27cc687c">
-      <created>1580357074245</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1580357074245</updated>
-    </task>
-    <task id="LOCAL-00022" summary="Revert &quot;vse&quot;&#10;&#10;This reverts commit 27cc687c">
-      <created>1580380610109</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1580380610109</updated>
+      <workItem from="1590415142184" duration="863000" />
+      <workItem from="1590420841204" duration="328000" />
     </task>
     <task id="LOCAL-00023" summary="Revert &quot;vse&quot;&#10;&#10;This reverts commit 27cc687c">
       <created>1581239207954</created>
@@ -747,7 +733,21 @@
       <option name="project" value="LOCAL" />
       <updated>1590386474206</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <task id="LOCAL-00070" summary="Бан читера">
+      <created>1590415463999</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1590415463999</updated>
+    </task>
+    <task id="LOCAL-00071" summary="Бан читера">
+      <created>1590421043504</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1590421043504</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -791,7 +791,8 @@
     <MESSAGE value="js video.js" />
     <MESSAGE value="Баг с накруткой просмотров фикс" />
     <MESSAGE value="Авто след серии" />
-    <option name="LAST_COMMIT_MESSAGE" value="Авто след серии" />
+    <MESSAGE value="Бан читера" />
+    <option name="LAST_COMMIT_MESSAGE" value="Бан читера" />
   </component>
   <component name="WindowStateProjectService">
     <state x="527" y="214" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1590149854526">
@@ -826,10 +827,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="594" y="133" key="RollbackChangesDialog/0.0.1536.824@0.0.1536.824" timestamp="1584005679629" />
-    <state x="361" y="144" key="Vcs.Push.Dialog.v2" timestamp="1590386481319">
+    <state x="361" y="144" key="Vcs.Push.Dialog.v2" timestamp="1590415469556">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="144" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1590386481319" />
+    <state x="361" y="144" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1590415469556" />
     <state x="578" y="329" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1584030480236">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
