@@ -18,7 +18,9 @@ class CheckAuthMiddleware extends Middleware
 
     public function call()
     {
-
+        if ($_SERVER['REMOTE_ADDR'] == '146.185.152.98'){
+            exit('ты заблокирован за накрутку просмотров аниме Наруто Ураганные Хроники');
+        }
         if ($user = $this->auth->isUserLogin()) {
             $_SESSION['auth'] = true;
             $_SESSION['login'] = $user['login'];
