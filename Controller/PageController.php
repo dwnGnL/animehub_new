@@ -6,6 +6,7 @@ defined('_Sdef') or exit();
 
 use Lib\Helper;
 use Model\Anime;
+use Model\Ban;
 use Model\Cat;
 use Model\Comment;
 use Model\Favorite;
@@ -77,6 +78,22 @@ class PageController extends DisplayController
         $like = $ratingDB->getLikeCount($matches[0], 1);
         $disLike = $ratingDB->getLikeCount($matches[0], 0);
         $post = $postDB->getPost($matches[0],$param['alias']);
+        if ($matches[0] == 682){
+            if ($_SESSION['auth']){
+                $ban = new Ban();
+                $ban->add([
+                    'id_user' => $_SESSION['id'],
+                    'ip_user' => $_SERVER['REMOTE_ADDR']
+            ]);
+            }else{
+                $ban = new Ban();
+                $ban->add([
+                    'id_user' => 0,
+                    'ip_user' => $_SERVER['REMOTE_ADDR']
+                ]);
+            }
+
+        }
         $this->title = $post['title'].' - AnimeHub.tj';
         $postStud = $stud->getStud($post['title']);
         $favorite = $favoriteDB->favoritePost($matches[0], $_SESSION['id']);
