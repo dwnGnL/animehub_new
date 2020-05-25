@@ -19,7 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6341c2f9-1102-484a-bdc9-098e620a8c13" name="Default Changelist" comment="Бан читера" />
+    <list default="true" id="6341c2f9-1102-484a-bdc9-098e620a8c13" name="Default Changelist" comment="Бан читера">
+      <change beforePath="$PROJECT_DIR$/Lib/CheckAuthMiddleware.php" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/CheckAuthMiddleware.php" afterDir="false" />
+    </list>
     <list id="38dd605b-6083-45a6-9f6b-662038e1e815" name="Revert &quot;no message&quot;" comment="Revert &quot;no message&quot;&#10;&#10;This reverts commit 1b2b2056" />
     <list id="26597201-c17a-4d66-b2be-a470cf0d8dee" name="Revert &quot;smiles&quot;" comment="Revert &quot;smiles&quot;&#10;&#10;This reverts commit a2f512a2" />
     <list id="b5c109f5-b337-497d-86a0-eccb14ab6f65" name="Revert &quot;stikers.js&quot;" comment="Revert &quot;stikers.js&quot;&#10;&#10;This reverts commit 3a6f5147" />
@@ -400,13 +402,7 @@
       <workItem from="1590338679110" duration="6937000" />
       <workItem from="1590384920155" duration="2593000" />
       <workItem from="1590415142184" duration="863000" />
-    </task>
-    <task id="LOCAL-00022" summary="Revert &quot;vse&quot;&#10;&#10;This reverts commit 27cc687c">
-      <created>1580380610109</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1580380610109</updated>
+      <workItem from="1590420841204" duration="328000" />
     </task>
     <task id="LOCAL-00023" summary="Revert &quot;vse&quot;&#10;&#10;This reverts commit 27cc687c">
       <created>1581239207954</created>
@@ -744,7 +740,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590415463999</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary="Бан читера">
+      <created>1590421043504</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1590421043504</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
