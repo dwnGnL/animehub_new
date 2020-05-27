@@ -266,8 +266,12 @@ class PostController extends AdminController
 
     }
 
-
-
+    public function globalCorrect(){
+        $animeDB = new Anime();
+        $anime = $animeDB->getAnimeGlobalCorrect();
+        $countAnime = $this->changeSrc($anime);
+        echo $countAnime;
+    }
     public function changeSrc( array $anime){
         $animeDB = new Anime();
         $i = 0;
@@ -276,6 +280,7 @@ class PostController extends AdminController
             if (($src = $this->autoCorrectMix($val['rly_path'], $val['src'])) != false){
                 $animeDB->updateSrc($val['id'],$src);
                 $changeSeria[$i] = $val ['id'];
+                $animeDB->update(['status_parse' => 1], ['id' => $val['id']]);
                 $i++;
             }
         }
@@ -308,6 +313,8 @@ class PostController extends AdminController
 
 
     }
+
+
 
     public function getContent($site){
         $loop = Factory::create();

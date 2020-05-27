@@ -97,6 +97,11 @@ class Anime extends Model
         return $this->driver->query($sql, $params);
     }
 
+    public function getAnimeGlobalCorrect(){
+        $sql = 'SELECT rly_path, id, src FROM `lite_anime` WHERE rly_path != "" AND status_parse = 0';
+        return $this->driver->row($sql);
+    }
+
     public function getAnimeIn(array $id){
         $in = $this->driver->in($id);
         $sql = 'SELECT id, rly_path,src FROM lite_anime WHERE id '.$in['in'];
