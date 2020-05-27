@@ -21,6 +21,25 @@
         <div class="head">
             <div class="left-head">Магазин Animehub</div>
         </div>
+        <div id="my-categories-30401046"></div>
+        <div class="ec-cart-widget"></div>
+        <div id="my-search-30401046"></div>
+        <div>
+            <script data-cfasync="false" type="text/javascript" src="https://app.ecwid.com/script.js?30401046&data_platform=code&data_date=2020-05-27" charset="utf-8"></script>
+            <script type="text/javascript"> xSearch("id=my-search-30401046"); </script>
+        </div>
+        <div>
+            <script data-cfasync="false" type="text/javascript" src="https://app.ecwid.com/script.js?30401046&data_platform=code&data_date=2020-05-27" charset="utf-8"></script>
+            <script type="text/javascript">Ecwid.init();</script>
+        </div>
+        <div>
+            <script data-cfasync="false" type="text/javascript" src="https://app.ecwid.com/script.js?30401046&data_platform=code&data_date=2020-05-27" charset="utf-8"></script>
+            <script type="text/javascript"> xCategoriesV2("id=my-categories-30401046"); </script>
+        </div>
+        <div id="my-store-30401046"></div>
+        <div>
+            <script data-cfasync="false" type="text/javascript" src="https://app.ecwid.com/script.js?30401046&data_platform=code&data_date=2020-05-27" charset="utf-8"></script><script type="text/javascript"> xProductBrowser("categoriesPerRow=3","views=grid(20,3) list(60) table(60)","categoryView=grid","searchView=list","id=my-store-30401046");</script>
+        </div>
 
         <div class="films">
             <?php if(isset($products) && is_array($products)): ?>

@@ -71,7 +71,15 @@ $app->group('/dashboard',$middle, function () use ($app){
         $o = \Controller\Controller::getInstance('parser', 'AdminController'); //ParserController
         $o->index();
     })->name('dashboard');
+    $app->get('/global', function () {
+        $o = \Controller\Controller::getInstance('post', 'AdminController'); //PostController
+        $o->globalCorrect();
+    })->name('globalCorrect');
     $app->group('/shop', function () use ($app){
+//        $app->get('/global', function () {
+//            $o = \Controller\Controller::getInstance('post', 'AdminController'); //PostController
+//            $o->globalCorrect();
+//        })->name('globalCorrect');
 
         $app->get('/viewAdd', function () {
             $o = \Controller\Controller::getInstance('shop', 'AdminController'); //ParserController
