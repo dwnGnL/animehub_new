@@ -11,6 +11,13 @@
   color: inherit;
 }
 
+.comment-text img {
+    max-width: 50px;
+    max-height: 50px;
+  }
+
+
+
 .sidebar-head {
   margin: 30px 0px;
   border-bottom: 1px solid #E3E3E3;

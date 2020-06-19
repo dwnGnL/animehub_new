@@ -21,11 +21,18 @@ let presentSeries = 0;
 let title = document.title;
 var sumSize = 0;
 
+var videos = document.querySelectorAll(".video-comment-text video")
+videos.forEach(element => {
+  element.remove()
+});
 
 videoLink.addEventListener('ended', function ()  {
   videoLink.setAttribute("autoplay","true")
   let oldSeries = $('.series-item-active');
   oldSeries.removeClass('series-item-active')
+  if (oldSeries.attr("src")===seriesItem[seriesItem.length-1].getAttribute("src")){
+      return
+  }
   let next = oldSeries.next();
   if (next){
     while (next.attr('id-ser') == oldSeries.attr('id-ser')){
@@ -40,11 +47,22 @@ videoLink.addEventListener('ended', function ()  {
     videoLink.src = next.attr('src')
   }
 })
-if (localStorage.getItem(id_post)!== null){
+if (localStorage.getItem(id_post)!== null ){
   let memory= JSON.parse(localStorage.getItem(id_post));
-  $(`.series-item:eq(${memory.index})`).addClass('series-item-active')
+  if (memory.index!=-1){
+    $(`.series-item:eq(${memory.index})`).addClass('series-item-active')
+    videoLink.setAttribute("autoplay","false")
   videoLink.src = seriesItem[presentSeries].getAttribute('src');
   videoLink.currentTime = memory.video;
+  videoLink.setAttribute("autoplay","false")
+	videoLink.pause();
+  }else{
+    localStorage.setItem(id_post,JSON.stringify({
+        'index': 0,
+        'video': 0
+      })) ;
+  }
+ 
 }else {
   localStorage.setItem(id_post,JSON.stringify({
     'index': 0,
@@ -54,9 +72,10 @@ if (localStorage.getItem(id_post)!== null){
   videoLink.src=seriesItem[0].getAttribute('src');
   seriesItem[0].classList.add('series-item-active')
 }
+
 videoLink.addEventListener('timeupdate', function () {
   let memory = JSON.parse(localStorage.getItem(id_post));
-  
+
   localStorage.setItem(id_post, JSON.stringify({
     index: memory.index,
     video: videoLink.currentTime
@@ -131,11 +150,13 @@ function addEvent(){
   seriesItem.forEach(function (elem, index) {
     seriesListWidth += elem.offsetWidth + 10;
     elem.onclick = () => {
-      let datafromLocalstorage = localStorage.getItem(id_post)
-		if (datafromLocalstorage){
-    		let info=JSON.parse(datafromLocalstorage)
-  			seriesItem[info.index].classList.remove('series-item-active');
-		}
+    //   let datafromLocalstorage = localStorage.getItem(id_post)
+	// 	if (datafromLocalstorage){
+    // 		let info=JSON.parse(datafromLocalstorage)
+  	// 		seriesItem[info.index].classList.remove('series-item-active');
+    // 	}
+    let oldSeries = $('.series-item-active');
+  oldSeries.removeClass('series-item-active')
             
       videoLink.setAttribute("autoplay","true")
       previousSeries = presentSeries;

@@ -37,10 +37,10 @@ function closeCooseAvatar() {
 let rightProfile = document.querySelector('.right-profile');
 let accountButton = document.querySelector('.account-button');
 let vipSettingButton = document.querySelector('.vip-setting-button');
-
-accountButton.addEventListener('click', () => togglePage('show-account', 'show-vip-setting', 'account-opacity', 'vip-setting-opacity'));
-vipSettingButton.addEventListener('click', () => togglePage('show-vip-setting', 'show-account', 'vip-setting-opacity', 'account-opacity'));
-
+if (accountButton && vipSettingButton){
+    accountButton.addEventListener('click', () => togglePage('show-account', 'show-vip-setting', 'account-opacity', 'vip-setting-opacity'));
+    vipSettingButton.addEventListener('click', () => togglePage('show-vip-setting', 'show-account', 'vip-setting-opacity', 'account-opacity'));
+}
 function togglePage(presentPage, previousPage, presentOpacity, previousOpacity) {
   rightProfile.classList.remove(previousOpacity);
 

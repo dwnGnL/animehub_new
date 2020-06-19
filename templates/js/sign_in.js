@@ -47,3 +47,8 @@ function inputFocus(elem, index, inputItem, classFocus) {
   elem.onfocus = () => inputItem[index].classList.add(classFocus);
   elem.onblur = () => elem.value == '' ? inputItem[index].classList.remove(classFocus) : elem;
 };
+
+var videos = document.querySelectorAll(".comment-text video")
+videos.forEach(element => {
+  element.remove()
+});

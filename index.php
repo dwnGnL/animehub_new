@@ -10,7 +10,7 @@
 \Slim\Slim::registerAutoloader();
 
 $app = new \Slim\Slim([
-        'debug' => true,
+        'debug' => false,
         'cookies.encrypt' => true,
         'cookies.secret_key' => 'Desu',
 ]);
