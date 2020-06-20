@@ -14,5 +14,6 @@ RewriteRule . index.php [L]
  deny from 31.210.107.199
  deny from 104.248.132.62
  deny from 31.210.107.206
+ deny from 176.113.132.212
  allow from all
 </Limit>

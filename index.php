@@ -7,10 +7,11 @@
 
   require 'config.php';
 
+
 \Slim\Slim::registerAutoloader();
 
 $app = new \Slim\Slim([
-        'debug' => false,
+        'debug' => true,
         'cookies.encrypt' => true,
         'cookies.secret_key' => 'Desu',
 ]);

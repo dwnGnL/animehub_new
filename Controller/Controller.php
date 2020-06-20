@@ -18,6 +18,10 @@ abstract class Controller
 
     public function __construct()
     {
+        if ($_SERVER['REMOTE_ADDR'] != '95.142.88.193' && $_SERVER['REMOTE_ADDR'] != '185.177.0.237'){
+            exit('Сайт закрыт');
+        }
+
         $this->app = \Slim\Slim::getInstance();
         $this->uri = $this->getUri();
         $this->title = 'AnimeHub | ';

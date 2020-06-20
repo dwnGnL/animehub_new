@@ -21,21 +21,21 @@ class ChatController extends DisplayController
                     $chat = new Chat();
                     $message = $chat->getNewMessage($_POST['id_message']);
                     $_SESSION['id_message'] = $message['id_chat'];
-                    echo json_encode(['status' => 200, 'messages' => $message]);
+                    echo json_encode(['status' => 200, 'messages' => htmlspecialchars($message)]);
                     exit();
                 }
     }
 
     public function onSave(){
                 $chat = new Chat();
-                $chat->addMessage($_SESSION['id'], $_POST['message']);
+                $chat->addMessage($_SESSION['id'], htmlspecialchars($_POST['message']));
                 echo json_encode(['status' => 200]);
                 exit();
     }
 
     public function onMessage(){
         $chat = new Chat();
-       $result = $chat->getMessages($_POST['id_chat']);
-        echo json_encode(['status' => 200, 'messages' => $result]);
+        $result = $chat->getMessages($_POST['id_chat']);
+        echo json_encode(['status' => 200, 'messages' => htmlspecialchars($result)]);
     }
 }
