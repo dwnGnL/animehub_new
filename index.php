@@ -24,15 +24,9 @@ if (SITE){
 \Slim\Slim::registerAutoloader();
 
 $app = new \Slim\Slim([
-<<<<<<< HEAD
         'debug' => true,
         'cookies.encrypt' => true,
         'cookies.secret_key' => 'Desu',
-=======
-    'debug' => false,
-    'cookies.encrypt' => true,
-    'cookies.secret_key' => 'Desu',
->>>>>>> 865d31e9cdd1e7e39200e5650229b1e2442de44a
 ]);
 
 
