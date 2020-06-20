@@ -1,35 +1,54 @@
 <?php
-  define('_Sdef', true);
+define('_Sdef', true);
+session_start();
 
-  session_start();
+require_once 'vendor/autoload.php';
 
-  require_once 'vendor/autoload.php';
-
-  require 'config.php';
+require 'config.php';
+require 'data.php';
+if (SITE){
+    foreach ($blackList as $value){
+        if ($_SERVER['REMOTE_ADDR'] == $value){
+            exit('Ты заблокирован за вредоносные действия на сайте');
+        }
+    }
+}else{
+    foreach ($whiteList as $value){
+        if ($_SERVER['REMOTE_ADDR'] != $value){
+            exit('Идет тех обслуживание');
+        }
+    }
+}
 
 
 \Slim\Slim::registerAutoloader();
 
 $app = new \Slim\Slim([
+<<<<<<< HEAD
         'debug' => true,
         'cookies.encrypt' => true,
         'cookies.secret_key' => 'Desu',
+=======
+    'debug' => false,
+    'cookies.encrypt' => true,
+    'cookies.secret_key' => 'Desu',
+>>>>>>> 865d31e9cdd1e7e39200e5650229b1e2442de44a
 ]);
 
 
-
-function my_autoload($className){
+function my_autoload($className)
+{
     $baseDir = __DIR__;
-    $fileName = $baseDir.DIRECTORY_SEPARATOR;
+    $fileName = $baseDir . DIRECTORY_SEPARATOR;
     $namespace = '';
-    if($lastNsPos = strripos($className, '\\')){
-        $namespace = substr($className, 0,$lastNsPos);
+    if ($lastNsPos = strripos($className, '\\')) {
+        $namespace = substr($className, 0, $lastNsPos);
         $className = substr($className, $lastNsPos + 1);
-        $fileName .= str_replace('\\',DIRECTORY_SEPARATOR,$namespace).DIRECTORY_SEPARATOR;
+        $fileName .= str_replace('\\', DIRECTORY_SEPARATOR, $namespace) . DIRECTORY_SEPARATOR;
     }
-    $fileName .= ucfirst($className).'.php';
+    $fileName .= ucfirst($className) . '.php';
 
-    if (file_exists($fileName)){
+    if (file_exists($fileName)) {
 
         require $fileName;
     }
@@ -38,35 +57,35 @@ function my_autoload($className){
 
 spl_autoload_register('my_autoload');
 
-$app->add(new \Lib\CheckAuthMiddleware( \Lib\AuthClass::getInstance(new \Model\Driver(),$app), $exception)
+$app->add(new \Lib\CheckAuthMiddleware(\Lib\AuthClass::getInstance(new \Model\Driver(), $app), $exception)
 );
 $app->add(new \Lib\CheckToken($exception));
-$middle = function (){
+$middle = function () {
     $obj = new \Lib\AuthMiddleware(
         \Lib\AclClass::getInstance()
     );
     return $obj->onBeforeDispatch();
 };
 
-$app->get('/parser', function () use ($app){
+$app->get('/parser', function () use ($app) {
     $o = \Controller\Controller::getInstance('parser'); //ParserController
     $o->changeSrc();
 });
-$app->get('/parserTop', function () use ($app){
+$app->get('/parserTop', function () use ($app) {
     $o = \Controller\Controller::getInstance('parser'); //ParserController
     $o->changeSrcTopVideo();
 });
-$app->group('/shop', function () use ($app){
-    $app->get('(/:page)', function ($page = false){
+$app->group('/shop', function () use ($app) {
+    $app->get('(/:page)', function ($page = false) {
         $o = \Controller\Controller::getInstance('shop'); //ShopController
         $o->index($page);
     });
-    $app->get('/product/:product', function ($product){
+    $app->get('/product/:product', function ($product) {
         $o = \Controller\Controller::getInstance('shop'); //ParserController
         $o->store($product);
     });
 });
-$app->group('/dashboard',$middle, function () use ($app){
+$app->group('/dashboard', $middle, function () use ($app) {
 
     $app->get('/', function () {
         $o = \Controller\Controller::getInstance('parser', 'AdminController'); //ParserController
@@ -76,7 +95,7 @@ $app->group('/dashboard',$middle, function () use ($app){
         $o = \Controller\Controller::getInstance('post', 'AdminController'); //PostController
         $o->globalCorrect();
     })->name('globalCorrect');
-    $app->group('/shop', function () use ($app){
+    $app->group('/shop', function () use ($app) {
 //        $app->get('/global', function () {
 //            $o = \Controller\Controller::getInstance('post', 'AdminController'); //PostController
 //            $o->globalCorrect();
@@ -117,88 +136,88 @@ $app->group('/dashboard',$middle, function () use ($app){
             $o->add();
         })->name('addProduct');
     });
-    $app->group('/slider', function () use ($app){
-        $app->get('/', function (){
-            $o = \Controller\Controller::getInstance('slider','AdminController'); //SliderController
+    $app->group('/slider', function () use ($app) {
+        $app->get('/', function () {
+            $o = \Controller\Controller::getInstance('slider', 'AdminController'); //SliderController
             $o->index();
         })->name('slider');
 
-        $app->post('/edit', function (){
-            $o = \Controller\Controller::getInstance('slider','AdminController'); //SliderController
+        $app->post('/edit', function () {
+            $o = \Controller\Controller::getInstance('slider', 'AdminController'); //SliderController
             $o->edit();
         })->name('editSlider');
 
-        $app->post('/add', function (){
-            $o = \Controller\Controller::getInstance('slider','AdminController'); //SliderController
+        $app->post('/add', function () {
+            $o = \Controller\Controller::getInstance('slider', 'AdminController'); //SliderController
             $o->add();
         })->name('addSlider');
 
-        $app->post('/delete', function (){
-            $o = \Controller\Controller::getInstance('slider','AdminController'); //SliderController
+        $app->post('/delete', function () {
+            $o = \Controller\Controller::getInstance('slider', 'AdminController'); //SliderController
             $o->delete();
         })->name('deleteSlider');
     });
 
-    $app->group('/post', function () use ($app){
+    $app->group('/post', function () use ($app) {
 
-        $app->get('(/:page)', function ($page = false){
-            $o = \Controller\Controller::getInstance('post','AdminController'); //PostController
+        $app->get('(/:page)', function ($page = false) {
+            $o = \Controller\Controller::getInstance('post', 'AdminController'); //PostController
             $o->index($page);
         })->name('viewPosts')->conditions(['page' => '\d+']);
 
-        $app->get('/add', function (){
-            $o = \Controller\Controller::getInstance('post','AdminController'); //PostController
+        $app->get('/add', function () {
+            $o = \Controller\Controller::getInstance('post', 'AdminController'); //PostController
             $o->add();
         })->name('addPost');
 
-         $app->post('/addPost', function (){
-             $o = \Controller\Controller::getInstance('post','AdminController'); //PostController
-             $o->addPost();
-         })->name('addPostF');
+        $app->post('/addPost', function () {
+            $o = \Controller\Controller::getInstance('post', 'AdminController'); //PostController
+            $o->addPost();
+        })->name('addPostF');
 
-        $app->post('/update', function (){
-            $o = \Controller\Controller::getInstance('post','AdminController'); //PostController
+        $app->post('/update', function () {
+            $o = \Controller\Controller::getInstance('post', 'AdminController'); //PostController
             $o->update();
         })->name('updatePost');
 
-        $app->post('/delete', function (){
-            $o = \Controller\Controller::getInstance('post','AdminController'); //PostController
+        $app->post('/delete', function () {
+            $o = \Controller\Controller::getInstance('post', 'AdminController'); //PostController
             $o->delete();
         })->name('deletePost');
 
-        $app->get('/edit/:alias(/:post)', function ($alias, $post){
-            $o = \Controller\Controller::getInstance('post','AdminController'); //PostController
+        $app->get('/edit/:alias(/:post)', function ($alias, $post) {
+            $o = \Controller\Controller::getInstance('post', 'AdminController'); //PostController
             $o->edit(['alias' => $alias, 'post' => $post]);
         })->name('editPost')->conditions(['post' => '\d+']);
-        $app->post('/seria/edit', function (){
-            $o = \Controller\Controller::getInstance('post','AdminController'); //PostController
+        $app->post('/seria/edit', function () {
+            $o = \Controller\Controller::getInstance('post', 'AdminController'); //PostController
             $o->editSeria();
         })->name('editSeria');
     });
 
-    $app->group('/parse', function () use ($app){
+    $app->group('/parse', function () use ($app) {
         $app->post('/sort', function () {
-            $o = \Controller\Controller::getInstance('sort','AdminController'); //SortController
+            $o = \Controller\Controller::getInstance('sort', 'AdminController'); //SortController
             $o->sortView();
         });
 
         $app->post('/delete', function () {
-            $o = \Controller\Controller::getInstance('sort','AdminController'); //SortController
+            $o = \Controller\Controller::getInstance('sort', 'AdminController'); //SortController
             $o->sortDelete();
         });
 
         $app->post('/save', function () {
-            $o = \Controller\Controller::getInstance('sort','AdminController'); //ParserController
+            $o = \Controller\Controller::getInstance('sort', 'AdminController'); //ParserController
             $o->saveSort();
         });
 
         $app->post('/start', function () {
-            $o = \Controller\Controller::getInstance('parser','AdminController'); //ParserController
+            $o = \Controller\Controller::getInstance('parser', 'AdminController'); //ParserController
             $o->start();
         });
 
         $app->post('/channel', function () {
-            $o = \Controller\Controller::getInstance('parser','AdminController'); //ParserController
+            $o = \Controller\Controller::getInstance('parser', 'AdminController'); //ParserController
             $o->startChannel();
         });
 
@@ -206,47 +225,45 @@ $app->group('/dashboard',$middle, function () use ($app){
 
 });
 
-$app->get('/ws/test', function () use ($app){
+$app->get('/ws/test', function () use ($app) {
     $o = \Controller\Controller::getInstance('page');
     $o->chat();
 
 });
-$app->get('/ws/login', function () use ($app){
+$app->get('/ws/login', function () use ($app) {
     $o = \Controller\Controller::getInstance('login');
     $o->getLogin();
 
 });
 
 
-
-
-$app->group('/ajax', function () use ($app){
-    $app->group('/chat', function () use ($app){
-        $app->post('/connect', function (){
-           $o = \Controller\Controller::getInstance('chat'); //ChatController
+$app->group('/ajax', function () use ($app) {
+    $app->group('/chat', function () use ($app) {
+        $app->post('/connect', function () {
+            $o = \Controller\Controller::getInstance('chat'); //ChatController
             $o->onConnect();
         });
 
-        $app->post('/online', function (){
+        $app->post('/online', function () {
             $o = \Controller\Controller::getInstance('chat'); //ChatController
             $o->onListener();
         });
 
-        $app->post('/message', function (){
+        $app->post('/message', function () {
             $o = \Controller\Controller::getInstance('chat'); //ChatController
             $o->onSave();
         });
 
-        $app->post('/getMessage', function (){
+        $app->post('/getMessage', function () {
             $o = \Controller\Controller::getInstance('chat'); //ChatController
             $o->onMessage();
         });
     });
-    $app->post('/search/posts', function (){
+    $app->post('/search/posts', function () {
         $o = \Controller\Controller::getInstance('post', 'AdminController'); //PostController
         $o->searchAjax();
     });
-    $app->post('/add/vote', function (){
+    $app->post('/add/vote', function () {
         $o = \Controller\Controller::getInstance('ajax'); //AjaxController
         $o->addVoted();
     })->name('addVote');
@@ -299,21 +316,21 @@ $app->group('/ajax', function () use ($app){
         $o->checkAuth();
     })->name('checkAuth');
 });
-$app->post('/question', function (){
+$app->post('/question', function () {
     $o = \Controller\Controller::getInstance('Widget'); //WidgetController
     $o->addQuestionnaire();
 })->name('addQA');
-$app->get('/question', function (){
+$app->get('/question', function () {
     $o = \Controller\Controller::getInstance('Widget'); //WidgetController
     $o->viewQuestionnaire();
 })->name('viewQuest');
 
-$app->get('/registration', function (){
+$app->get('/registration', function () {
     $o = \Controller\Controller::getInstance('regist'); //RegistController
     $o->formView();
 });
 
-$app->post('/registration', function (){
+$app->post('/registration', function () {
     $o = \Controller\Controller::getInstance('regist'); //RegistController
     $o->registration();
 })->name('regist');
@@ -321,69 +338,63 @@ $app->get('/search', function () use ($app) {
     $o = \Controller\Controller::getInstance('page'); //PageController
     $o->search($app->request->get('do'));
 })->name('search');
-$app->get('/profile(/:user)', function ($user) use ($app){
+$app->get('/profile(/:user)', function ($user) use ($app) {
     $o = \Controller\Controller::getInstance('profile'); //ProfileController
     $o->viewProfile(['login' => $user]);
 })->name('viewProfile');
 
-$app->get('/type/:alias(/:page)', function ($alias, $page = false) use($app){
+$app->get('/type/:alias(/:page)', function ($alias, $page = false) use ($app) {
     $o = \Controller\Controller::getInstance('page'); //CategoryController
     $o->allPost(['alias' => $alias, 'page' => $page, 'url' => 'type']);
 })->name('type');
 
-$app->get('/year/:alias(/:page)', function ($alias, $page = false) use($app){
+$app->get('/year/:alias(/:page)', function ($alias, $page = false) use ($app) {
     $o = \Controller\Controller::getInstance('page'); //CategoryController
     $o->allPost(['alias' => $alias, 'page' => $page, 'url' => 'year']);
 
 })->name('year')->conditions(['alias' => '\d+']);
 
-$app->get('/category/:alias(/:page)', function ($alias, $page = false) use($app){
+$app->get('/category/:alias(/:page)', function ($alias, $page = false) use ($app) {
 
     $o = \Controller\Controller::getInstance('page'); //CategoryController
     $o->allPost(['alias' => $alias, 'page' => $page, 'url' => 'category']);
 })->name('category');
 
 
-$app->get('/', function () use($app){
+$app->get('/', function () use ($app) {
 
     $o = \Controller\Controller::getInstance('index'); //IndexController
     $o->execute();
 })->name('home');
 
-$app->get('/login/logout', function () use ($app){
+$app->get('/login/logout', function () use ($app) {
     $o = \Controller\Controller::getInstance('login'); //LoginController
     $o->logout();
 })->name('logout');
 
-$app->get('/:alias(/:page)', function ($alias, $page = false) use($app){
+$app->get('/:alias(/:page)', function ($alias, $page = false) use ($app) {
     $o = \Controller\Controller::getInstance('page'); //PageController
     $o->allPost(['alias' => $alias, 'page' => $page]);
 
 })->conditions(['page' => '\d+'])->name('page');
 
-$app->get('/:alias(/:page)', function ($alias, $page = false) use($app){
+$app->get('/:alias(/:page)', function ($alias, $page = false) use ($app) {
 
     $o = \Controller\Controller::getInstance('page'); //PageController
     $o->post(['alias' => $alias, 'page' => $page]);
 })->name('post');
 
 
-
-
-
-$app->post('/login', function () use ($app){
+$app->post('/login', function () use ($app) {
     $o = \Controller\Controller::getInstance('login'); //LoginController
     $o->execute();
 })->name('login');
 
 
-
-$app->post('/ajax/comment', function () use ($app){
-   $o = \Controller\Controller::getInstance('Ajax'); //AjaxController
+$app->post('/ajax/comment', function () use ($app) {
+    $o = \Controller\Controller::getInstance('Ajax'); //AjaxController
     $o->request();
 });
-
-
 
 
 $app->run();
