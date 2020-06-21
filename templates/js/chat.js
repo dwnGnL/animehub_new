@@ -162,7 +162,7 @@ chat.ondragstart = function () {
 
 $('#sendChat').click(function () {
   var mymessage = CKEDITOR.instances['redactor'].getData();
-  var regex="[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&=]*)"
+  var regex="/[a-z]+[.][a-z]{2,3}"
   var links=mymessage.match(regex)
   console.log(mymessage)
   console.log(links)
