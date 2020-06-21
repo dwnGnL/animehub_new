@@ -13,13 +13,18 @@ if (SITE){
         }
     }
 }else{
+	$access = 0;
     foreach ($whiteList as $value){
-        if ($_SERVER['REMOTE_ADDR'] != $value){
-            exit('Идет тех обслуживание');
+        if ($_SERVER['REMOTE_ADDR'] == $value){
+        	$access = 1;
+        	break;
         }
     }
 }
 
+if($access != 1){
+	exit('Идет тех обслуживание');
+}
 
 \Slim\Slim::registerAutoloader();
 
