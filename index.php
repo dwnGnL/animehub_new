@@ -22,7 +22,7 @@ if (SITE){
     }
 }
 
-if($access != 1){
+if($access != 1 && !SITE){
 	exit('Идет тех обслуживание');
 }
 

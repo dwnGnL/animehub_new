@@ -9,33 +9,37 @@ use Model\Chat;
 class ChatController extends DisplayController
 {
 
-    public function onConnect(){
+    public function onConnect()
+    {
+        $chat = new Chat();
+        $offset = $_POST['page'] * 25;
+        $messages = $chat->getAllMessages($offset);
+        echo json_encode(['status' => 200, 'messages' => $messages]);
+    }
+
+    public function onListener()
+    {
+        if ($_SESSION['id_message'] != $_POST['id_message']) {
             $chat = new Chat();
-            $offset = $_POST['page'] * 25;
-            $messages = $chat->getAllMessages($offset);
-            echo json_encode(['status' => 200, 'messages' => $messages]);
+            $message = $chat->getNewMessage($_POST['id_message']);
+            $_SESSION['id_message'] = $message['id_chat'];
+            echo json_encode(['status' => 200, 'messages' => $message]);
+            exit();
+        }
     }
 
-    public function onListener(){
-                if ($_SESSION['id_message'] != $_POST['id_message']){
-                    $chat = new Chat();
-                    $message = $chat->getNewMessage($_POST['id_message']);
-                    $_SESSION['id_message'] = $message['id_chat'];
-                    echo json_encode(['status' => 200, 'messages' => htmlspecialchars($message)]);
-                    exit();
-                }
+    public function onSave()
+    {
+        $chat = new Chat();
+        $chat->addMessage($_SESSION['id'], $_POST['message']);
+        echo json_encode(['status' => 200]);
+        exit();
     }
 
-    public function onSave(){
-                $chat = new Chat();
-                $chat->addMessage($_SESSION['id'], htmlspecialchars($_POST['message']));
-                echo json_encode(['status' => 200]);
-                exit();
-    }
-
-    public function onMessage(){
+    public function onMessage()
+    {
         $chat = new Chat();
         $result = $chat->getMessages($_POST['id_chat']);
-        echo json_encode(['status' => 200, 'messages' => htmlspecialchars($result)]);
+        echo json_encode(['status' => 200, 'messages' => $result]);
     }
 }
