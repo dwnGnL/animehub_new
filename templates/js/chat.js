@@ -167,7 +167,7 @@ $('#sendChat').click(function () {
   console.log(mymessage)
   console.log(links)
 
-  if(links.lenght>0){
+  if(links){
     console.log("этап 1")
 
     links.forEach(element => {
