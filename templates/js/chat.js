@@ -232,7 +232,9 @@ $('#sendChat').click(function () {
       || mymessage.indexOf(hreflinks)+1>=0 
       || mymessage.indexOf(hreflinks2)+1>=0 
       || mymessage.indexOf(srclinks)+1>=0 
-      || mymessage.indexOf(srclinks2)+1>=0){
+      || mymessage.indexOf(srclinks2)+1>=0
+      || mymessage.indexOf("<object")
+      || mymessage.indexOf("<script")){
         mymessage=""
       }
     });
