@@ -164,6 +164,7 @@ $('#sendChat').click(function () {
   var mymessage = CKEDITOR.instances['redactor'].getData();
   var regex="/[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&=]*)/g"
   var links=mymessage.match(regex)
+  console.log(mymessage)
   if(links){
     
     links.forEach(element => {
