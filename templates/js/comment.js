@@ -24,8 +24,53 @@ var config2 = {
 CKEDITOR.replace('textComment', config2);
 
 $("#sendComment").click(function (e) {
-  var text = CKEDITOR.instances['textComment'].getData();
-  if (text.length < 10) {
+  var mymessage = CKEDITOR.instances['textComment'].getData();
+  var regex="/[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9]\.[a-zA-Z]{2,}"
+  var links=mymessage.match(regex)
+  console.log(mymessage)
+  console.log(links)
+
+  if(links){
+    console.log("этап 1")
+
+    links.forEach(element => {
+      element=element.substr(1)
+      console.log(element)
+      if (element=="animehub.tj"||element=="/animehub.tj") return
+      let fulllink="http://"+element
+      let fulllinks="https://"+element
+      let hreflinks='href="'+element
+      let hreflinks2="href='"+element
+      let srclinks='src="'+element
+      let srclinks2="src='"+element
+      
+      if(mymessage.indexOf(fulllink)+1>=0 
+      || mymessage.indexOf(fulllinks)+1>=0 
+      || mymessage.indexOf(hreflinks)+1>=0 
+      || mymessage.indexOf(hreflinks2)+1>=0 
+      || mymessage.indexOf(srclinks)+1>=0 
+      || mymessage.indexOf(srclinks2)+1>=0
+      || mymessage.indexOf("<object")
+      || mymessage.indexOf("<script")){
+        mymessage=""
+      }
+    });
+  }
+  mymessage=mymessage.replace("<br />","")
+  mymessage=mymessage.replace("<h1>","")
+  mymessage=mymessage.replace("</h1>","")
+  mymessage=mymessage.replace("<h2>","")
+  mymessage=mymessage.replace("</h2>","")
+  mymessage=mymessage.replace("<h3>","")
+  mymessage=mymessage.replace("</h3>","")
+  mymessage=mymessage.replace("<h4>","")
+  mymessage=mymessage.replace("</h4>","")
+  mymessage=mymessage.replace("<h5>","")
+  mymessage=mymessage.replace("</h5>","")
+  mymessage=mymessage.replace("style=","")
+  mymessage=mymessage.replace("<i>","")
+  mymessage=mymessage.replace("</i>","")
+  if (mymessage.length < 10) {
     alert("сообщение похоже на спам")
     return
   }
@@ -39,7 +84,7 @@ $("#sendComment").click(function (e) {
   $.ajax({
     type: "post",
     url: "/ajax/add/comment",
-    data: ({ "comment": {  "body": text, "id_post": id_post }, "token": $("#token").text() }),
+    data: ({ "comment": {  "body": mymessage, "id_post": id_post }, "token": $("#token").text() }),
     dataType: "text",
     success: function (response) {
       res = JSON.parse(response);
@@ -105,8 +150,53 @@ $("#sendComment").click(function (e) {
 });
 
 $("#sendComment2").click(function (e) {
-  var text = $("#textarea").val()
-  if (text.length < 10) {
+  var mymessage = $("#textarea").val()
+  var regex="/[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9]\.[a-zA-Z]{2,}"
+  var links=mymessage.match(regex)
+  console.log(mymessage)
+  console.log(links)
+
+  if(links){
+    console.log("этап 1")
+
+    links.forEach(element => {
+      element=element.substr(1)
+      console.log(element)
+      if (element=="animehub.tj"||element=="/animehub.tj") return
+      let fulllink="http://"+element
+      let fulllinks="https://"+element
+      let hreflinks='href="'+element
+      let hreflinks2="href='"+element
+      let srclinks='src="'+element
+      let srclinks2="src='"+element
+      
+      if(mymessage.indexOf(fulllink)+1>=0 
+      || mymessage.indexOf(fulllinks)+1>=0 
+      || mymessage.indexOf(hreflinks)+1>=0 
+      || mymessage.indexOf(hreflinks2)+1>=0 
+      || mymessage.indexOf(srclinks)+1>=0 
+      || mymessage.indexOf(srclinks2)+1>=0
+      || mymessage.indexOf("<object")
+      || mymessage.indexOf("<script")){
+        mymessage=""
+      }
+    });
+  }
+  mymessage=mymessage.replace("<br />","")
+  mymessage=mymessage.replace("<h1>","")
+  mymessage=mymessage.replace("</h1>","")
+  mymessage=mymessage.replace("<h2>","")
+  mymessage=mymessage.replace("</h2>","")
+  mymessage=mymessage.replace("<h3>","")
+  mymessage=mymessage.replace("</h3>","")
+  mymessage=mymessage.replace("<h4>","")
+  mymessage=mymessage.replace("</h4>","")
+  mymessage=mymessage.replace("<h5>","")
+  mymessage=mymessage.replace("</h5>","")
+  mymessage=mymessage.replace("style=","")
+  mymessage=mymessage.replace("<i>","")
+  mymessage=mymessage.replace("</i>","")
+  if (mymessage.length < 10) {
     alert("сообщение похоже на спам")
     return
   }
@@ -118,7 +208,7 @@ $("#sendComment2").click(function (e) {
   $.ajax({
     type: "post",
     url: "/ajax/add/comment",
-    data: ({ "comment": {  "body": text, "id_post": id_post }, "token": $("#token").text() }),
+    data: ({ "comment": {  "body": mymessage, "id_post": id_post }, "token": $("#token").text() }),
     dataType: "text",
     success: function (response) {
       res = JSON.parse(response);
