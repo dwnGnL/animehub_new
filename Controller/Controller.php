@@ -128,11 +128,13 @@ abstract class Controller
 
     abstract protected function display();
     protected function controls(){
-
+        require 'data.php';
         $access = 0;
         foreach ($exceptionIp as $value){
-            $access = 1;
-            break;
+            if ($value == $_SERVER['REMOTE_ADDR']){
+                $access = 1;
+                break;
+            }
         }
         if ($access != 1){
             $geo = new SxGeo();
