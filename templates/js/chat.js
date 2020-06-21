@@ -170,7 +170,7 @@ $('#sendChat').click(function () {
   if(links){
     
     links.forEach(element => {
-      if (element=="animehub.tj") return
+      if (element=="animehub.tj"||element=="/animehub.tj") return
       let fulllink="http://"+element
       let fulllinks="https://"+element
       let hreflinks='href="'+element
