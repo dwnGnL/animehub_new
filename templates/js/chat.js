@@ -171,6 +171,7 @@ $('#sendChat').click(function () {
     console.log("этап 1")
 
     links.forEach(element => {
+      element=element.substr(1)
       console.log(element)
       if (element=="animehub.tj"||element=="/animehub.tj") return
       let fulllink="http://"+element
