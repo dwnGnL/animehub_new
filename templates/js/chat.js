@@ -168,8 +168,10 @@ $('#sendChat').click(function () {
   console.log(links)
 
   if(links){
-    
+    console.log("этап 1")
+
     links.forEach(element => {
+      console.log(element)
       if (element=="animehub.tj"||element=="/animehub.tj") return
       let fulllink="http://"+element
       let fulllinks="https://"+element
