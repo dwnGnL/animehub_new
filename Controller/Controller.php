@@ -3,6 +3,8 @@
 
 namespace Controller;
 
+use services\geo\SxGeo;
+
 defined('_Sdef') or exit();
 
 abstract class Controller
@@ -18,7 +20,10 @@ abstract class Controller
 
     public function __construct()
     {
-        
+        $geo = new SxGeo();
+        if (strtoupper($geo->getCountry($_SERVER['REMOTE_ADDR'])) != strtoupper('TJ')){
+            exit('Сай доступен для пользователей РТ.');
+        }
         $this->app = \Slim\Slim::getInstance();
         $this->uri = $this->getUri();
         $this->title = 'AnimeHub | ';
