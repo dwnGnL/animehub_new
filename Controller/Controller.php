@@ -20,10 +20,7 @@ abstract class Controller
 
     public function __construct()
     {
-        $geo = new SxGeo();
-        if (strtoupper($geo->getCountry($_SERVER['REMOTE_ADDR'])) != strtoupper('TJ')){
-            exit('Сай доступен для пользователей РТ.');
-        }
+        $this->controls();
         $this->app = \Slim\Slim::getInstance();
         $this->uri = $this->getUri();
         $this->title = 'AnimeHub | ';
@@ -130,4 +127,18 @@ abstract class Controller
     abstract protected function getSidebar();
 
     abstract protected function display();
+    protected function controls(){
+
+        $access = 0;
+        foreach ($exceptionIp as $value){
+            $access = 1;
+            break;
+        }
+        if ($access != 1){
+            $geo = new SxGeo();
+            if (strtoupper($geo->getCountry($_SERVER['REMOTE_ADDR'])) != strtoupper('TJ')){
+                exit('Сай доступен для пользователей РТ.');
+            }
+        }
+    }
 }
