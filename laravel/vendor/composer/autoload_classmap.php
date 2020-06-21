@@ -2877,6 +2877,7 @@ return array(
     'League\\Flysystem\\Adapter\\Polyfill\\StreamedTrait' => $vendorDir . '/league/flysystem/src/Adapter/Polyfill/StreamedTrait.php',
     'League\\Flysystem\\Adapter\\Polyfill\\StreamedWritingTrait' => $vendorDir . '/league/flysystem/src/Adapter/Polyfill/StreamedWritingTrait.php',
     'League\\Flysystem\\Adapter\\SynologyFtp' => $vendorDir . '/league/flysystem/src/Adapter/SynologyFtp.php',
+    'League\\Flysystem\\Config' => $vendorDir . '/league/flysystem/src/Config.php',
     'League\\Flysystem\\ConfigAwareTrait' => $vendorDir . '/league/flysystem/src/ConfigAwareTrait.php',
     'League\\Flysystem\\ConnectionErrorException' => $vendorDir . '/league/flysystem/src/ConnectionErrorException.php',
     'League\\Flysystem\\ConnectionRuntimeException' => $vendorDir . '/league/flysystem/src/ConnectionRuntimeException.php',
