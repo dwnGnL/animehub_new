@@ -32,8 +32,11 @@ class ChatController extends DisplayController
     {
         $chat = new Chat();
         $message = $this->clearMessage($_POST['message']);
-        $chat->addMessage($_SESSION['id'], $message);
-        echo json_encode(['status' => 200]);
+        if (!empty($message)){
+            $chat->addMessage($_SESSION['id'], $message);
+            echo json_encode(['status' => 200]);
+            exit();
+        }
         exit();
     }
 
