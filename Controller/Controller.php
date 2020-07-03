@@ -20,14 +20,9 @@ abstract class Controller
 
     public function __construct()
     {
-//        $this->controls();
-
-      $this->clearMessage('<img src="'.$this->getUrl().'/templates/Admin/js/ckeditor/plugins/asdasdasdasdasd');
-
         $this->app = \Slim\Slim::getInstance();
         $this->uri = $this->getUri();
         $this->title = 'AnimeHub | ';
-        $text = '';
     }
 
     public function getInstance($prefix, $dir = 'Controller'){
@@ -164,16 +159,5 @@ abstract class Controller
             }
         }
     }
-//    protected function prebmatch(){
-//        $domen = $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'].'/templates/Admin/js/ckeditor/plugins/hkemoji/sticker';
-//        $message = '';
-//        $regHtml = '/(\<(\/?[^>]+)>)/';
-//        $html = 'asdasdasdasd<p>dasdasdasdasdasdasdasdasd</p>asdasdasdasdasd < href="">';
-//
-//        if (!preg_match('/(\<img>)/', $html) && preg_match($regHtml, $html) || strpos($html, $domen) && preg_match('/(\<img>)/', $html, $matches) && ){
-//            $message = str_replace($regHtml,'',$html);
-//            $this->debug($message);
-//
-//        }
-//    }
+
 }
