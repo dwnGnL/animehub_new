@@ -23,7 +23,6 @@ class ChatController extends DisplayController
             $chat = new Chat();
             $message = $chat->getNewMessage($_POST['id_message']);
             $_SESSION['id_message'] = $message['id_chat'];
-            $message = htmlspecialchars($message['lite_chat.text']);
             echo json_encode(['status' => 200, 'messages' => $message]);
             exit();
         }
@@ -32,7 +31,7 @@ class ChatController extends DisplayController
     public function onSave()
     {
         $chat = new Chat();
-        $message = htmlspecialchars($_POST['message']);
+        $message = $this->clearMessage($_POST['message']);
         $chat->addMessage($_SESSION['id'], $message);
         echo json_encode(['status' => 200]);
         exit();
@@ -42,9 +41,6 @@ class ChatController extends DisplayController
     {
         $chat = new Chat();
         $result = $chat->getMessages($_POST['id_chat']);
-        foreach ($result as $value){
-            $value['lite_chat.text'] = htmlspecialchars($value['lite_chat.text']);
-        }
         echo json_encode(['status' => 200, 'messages' => $result]);
     }
 }

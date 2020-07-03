@@ -39,7 +39,7 @@ class AjaxController extends DisplayController
             $post = $_POST['comment'];
                if (!empty(trim($post['body'])) && !empty(trim($post['id_post'])) ){
                    $comment = new Comment();
-                   $comment->addComment($post['id_post'],$_SESSION['id'],$post['body']);
+                   $comment->addComment($post['id_post'],$_SESSION['id'],$this->clearMessage($post['body']));
                    $id_comment = $comment->driver->lastInsertId();
                    $response = $comment->getComment($id_comment);
                    $response[0]['date'] = Helper::getWatch($response['0']['date']);

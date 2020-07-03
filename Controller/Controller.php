@@ -21,12 +21,18 @@ abstract class Controller
     public function __construct()
     {
 //        $this->controls();
+
+      $this->clearMessage('<img src="'.$this->getUrl().'/templates/Admin/js/ckeditor/plugins/asdasdasdasdasd');
+
         $this->app = \Slim\Slim::getInstance();
         $this->uri = $this->getUri();
         $this->title = 'AnimeHub | ';
+        $text = '';
     }
 
     public function getInstance($prefix, $dir = 'Controller'){
+
+
 
         $class = $dir.'\\'.ucfirst($prefix).'Controller';
 
@@ -73,7 +79,9 @@ abstract class Controller
         return $theURI;
     }
 
-
+    protected function getUrl(){
+       return $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'];
+    }
 
     protected function debug($string){
         echo '<pre>';
@@ -81,7 +89,21 @@ abstract class Controller
         echo '</pre>';
         exit();
     }
+    protected function clearMessage($var){
+        $pattern = $this->getUrl().'/templates/Admin/js/ckeditor/plugins/';
+        $var = preg_replace('/<(?!img)\/?[a-z][^>]*(>|$)/i', '', $var);
+        if (preg_match_all( "/\< *[img][^\>]*[src] *= *[\"\']{0,1}([^\"\'\ >]*)/",$var,$matches)){
 
+            foreach ($matches as $key => $match){
+                if ($key % 2 == 0){
+                    if (!strpos($match[0], $pattern)){
+                        return $this->clear_str($var);
+                    }
+                }
+            }
+        }
+        return $var;
+    }
     protected function clear_str($var){
 
         return strip_tags(trim($var));
