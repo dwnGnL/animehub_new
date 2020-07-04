@@ -9,7 +9,6 @@ RewriteRule . index.php [L]
 </FilesMatch>
 <Limit GET POST>
  order allow,deny
- deny from 94.199.21.231
  deny from 146.185.152.98
  deny from 31.210.107.199
  deny from 104.248.132.62
