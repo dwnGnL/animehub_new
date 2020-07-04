@@ -2,7 +2,7 @@
 namespace Lib;
 class Curl
 {
-    public $proxy;
+    private $proxy;
     public function __construct($proxy = '')
     {
         $this->proxy = $proxy;
