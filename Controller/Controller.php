@@ -21,12 +21,12 @@ abstract class Controller
 
     public function __construct()
     {
-        $curl = new Curl();
-        $response = $curl->curl_get('http://ip-api.com/php/'.$_SERVER['REMOTE_ADDR'].'?fields=message,countryCode,region');
-        $response = unserialize($response);
-        if ($response['countryCode'] != 'TJ'){
-            exit('Сайт доступен только для пользователей Таджикистана');
-        }
+//        $curl = new Curl();
+//        $response = $curl->curl_get('http://ip-api.com/php/'.$_SERVER['REMOTE_ADDR'].'?fields=message,countryCode,region');
+//        $response = unserialize($response);
+//        if ($response['countryCode'] != 'TJ'){
+//            exit('Сайт доступен только для пользователей Таджикистана');
+//        }
 
         $this->app = \Slim\Slim::getInstance();
         $this->uri = $this->getUri();
