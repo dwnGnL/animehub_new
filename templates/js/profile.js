@@ -99,8 +99,9 @@ function saveDate() {
 let fontFamilyUserName = document.querySelector('.font-family-user-name');
 let fontFamilyType = document.querySelector('.font-family-type');
 let saveVip = document.querySelector('.save-vip-button');
-
+if (saveVip){
 saveVip.addEventListener('click', saveingVip);
+}
 
 function saveingVip() {
   fontFamilyUserName.style.fontFamily = fontFamilyType.value;
