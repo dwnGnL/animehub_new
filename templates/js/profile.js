@@ -112,7 +112,7 @@ function saveingVip() {
 let choosedBG = document.querySelector('.choosed-bg');
 let choosingBG = document.querySelector('.choosing-bg');
 let bgItem = document.querySelectorAll('.bg-item');
-
+if(choosedBG && choosingBG && bgItem){
 choosedBG.style.backgroundImage=choosedBG.getAttribute("data-src")
 choosedBG.onclick = () => {
   if (choosedBG.classList.contains('show-bg-list')) return;
@@ -129,7 +129,7 @@ bgItem.forEach((elem, index) => {
   };
 });
 
-
+}
 
 
 
