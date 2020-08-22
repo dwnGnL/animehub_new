@@ -8,6 +8,7 @@ namespace Controller;
 
 use AdminController\AdminController;
 use Clue\React\Buzz\Browser;
+use Lib\Curl;
 use Model\Anime;
 use Psr\Http\Message\ResponseInterface;
 use React\EventLoop\Factory;
@@ -25,7 +26,6 @@ class ParserController
         $this->client = new Browser($this->loop);
 
     }
-
     public function getContent($site){
         $loop = Factory::create();
         $client = new Browser($loop);
@@ -96,9 +96,9 @@ class ParserController
 
 
     public function autoCorrectMix($href){
-
+            $curl = new Curl();
             $href = explode('/', $href);
-            $embed = $this->getContent('http://mix.tj/embed/'. $href[2]);
+            $embed = $curl->curl_get('http://mix.tj/embed/'. $href[2]);
             $embed = \phpQuery::newDocument($embed);
             $src = '';
             if($embed->find('script')) {
