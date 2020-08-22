@@ -22,8 +22,6 @@ class ParserController
 
     public function __construct()
     {
-        $this->loop = Factory::create();
-        $this->client = new Browser($this->loop);
 
     }
     public function getContent($site){
