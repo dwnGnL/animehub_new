@@ -104,6 +104,7 @@ class ParserController
                 $vid = substr($vid, 65,120);
                 $delimetr = '"';
                 $vid = explode($delimetr, $vid,3 );
+                print_r($vid);
                 $src = $vid[1];
             }
             if(!empty($src)){
