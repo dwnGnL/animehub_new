@@ -6,6 +6,7 @@ require_once 'vendor/autoload.php';
 
 require 'config.php';
 require 'data.php';
+$access = '';
 if (SITE){
     foreach ($blackList as $value){
         if ($_SERVER['REMOTE_ADDR'] == $value){
