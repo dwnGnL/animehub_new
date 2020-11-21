@@ -4,3 +4,7 @@
 /images
 config.php
 .htaccess
+laravel/.idea
+laravel/vendor
+laravel/.env
+laravel/public/storage
