@@ -78,7 +78,7 @@ class Anime extends Model
         return $this->driver->query($sql,$params);
     }
     public function getAnimeForCorrect($src){
-        $sql = 'SELECT id, rly_path FROM lite_anime WHERE lite_anime.src LIKE :src 
+        $sql = 'SELECT id, rly_path FROM lite_anime WHERE lite_anime.c LIKE :src 
                 AND lite_anime.rly_path != "" AND lite_anime.auto_correction = "1" 
                 OR lite_anime.src = "" AND lite_anime.rly_path != "" AND lite_anime.auto_correction = "1"
                 ORDER BY date DESC';

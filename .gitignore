@@ -8,3 +8,5 @@ laravel/.idea
 laravel/vendor
 laravel/.env
 laravel/public/storage
+/laravel/vendor/composer/
+laravel/vendor/*

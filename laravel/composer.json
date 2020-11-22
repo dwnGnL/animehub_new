@@ -15,6 +15,9 @@
         "laravel/framework": "^7.0",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.0",
+        "symfony/browser-kit": "^5.1",
+        "symfony/dom-crawler": "^5.1",
+        "symfony/http-client": "^5.1",
         "tcg/voyager": "^1.4",
         "voyager-relation-selector": "dev-master"
     },
