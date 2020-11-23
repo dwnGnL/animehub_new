@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-165258888-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-165258888-1', { 'optimize_id': 'OPT-TQQW7JG'});
-
-</script>
+<!--   Global site tag (gtag.js) - Google Analytics -->
+<!--<script async src="https://www.googletagmanager.com/gtag/js?id=UA-165258888-1"></script>-->
+<!--<script>-->
+<!--  window.dataLayer = window.dataLayer || [];-->
+<!--  function gtag(){dataLayer.push(arguments);}-->
+<!--  gtag('js', new Date());-->
+<!---->
+<!--  gtag('config', 'UA-165258888-1', { 'optimize_id': 'OPT-TQQW7JG'});-->
+<!---->
+<!--</script>-->
 
   <title><?=$title?></title>
   <meta charset="utf-8">
@@ -189,7 +189,7 @@
         <div class="top-block">
           <div class="left">
             <div class="logo footer-logo">
-              <img class="logo-img" src="<?=$uri?>/templates/images/logo.png">
+              <img class="logo-img" src="<?=$uri?>/templates/images/logo.png" alt="logo">
             </div>
 
             <div class="questions-block">
@@ -213,15 +213,15 @@
               <div class="social-item-img"><a href="https://www.instagram.com/animehub_tj" target="_blank"><i class="fab fa-instagram"></i></a></div>
             </div>
 
-             
+
 
           </div>
-        
+
         </div>
 <div class="bottom-block">
           &#169; 2020 AnimeHub.tj
         </div>
-        
+
       </div>
     </div>
     <span id="token" style="display:none;"><?=$helper::generateToken()?></span>

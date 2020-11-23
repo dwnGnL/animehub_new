@@ -25,7 +25,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('inspire')->hourly();
-        $schedule->command('mix:fix')->everyTwoHours();
+        $schedule->command('mix:fix')->everyFifteenMinutes();
     }
 
     /**

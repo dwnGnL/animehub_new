@@ -24,8 +24,8 @@ if (controls !== null) {
 
 
       var mymessage = CKEDITOR.instances['redactor'].getData();
-      
-    
+
+
       if (mymessage == "") {
         showMessage("error", "Введите ваше сообщение!", error);
         return;
@@ -39,7 +39,6 @@ if (controls !== null) {
 var page = 1;
 innerChat.onscroll = () => {
   let scrollBottom = innerChat.scrollHeight - innerChat.scrollTop - innerChat.clientHeight;
-  console.log(innerChat.scrollTop);
   if (innerChat.scrollTop == 0){
 
 
@@ -182,12 +181,12 @@ $('#sendChat').click(function () {
   //     let hreflinks2="href='"+element
   //     let srclinks='src="'+element
   //     let srclinks2="src='"+element
-      
-  //     if(mymessage.indexOf(fulllink)+1>=0 
-  //     || mymessage.indexOf(fulllinks)+1>=0 
-  //     || mymessage.indexOf(hreflinks)+1>=0 
-  //     || mymessage.indexOf(hreflinks2)+1>=0 
-  //     || mymessage.indexOf(srclinks)+1>=0 
+
+  //     if(mymessage.indexOf(fulllink)+1>=0
+  //     || mymessage.indexOf(fulllinks)+1>=0
+  //     || mymessage.indexOf(hreflinks)+1>=0
+  //     || mymessage.indexOf(hreflinks2)+1>=0
+  //     || mymessage.indexOf(srclinks)+1>=0
   //     || mymessage.indexOf(srclinks2)+1>=0
   //     || mymessage.indexOf("<object")
   //     || mymessage.indexOf("<script")){
@@ -215,7 +214,7 @@ $('#sendChat').click(function () {
     showMessage("error", "Введите ваше сообщение!", error);
     return;
   }
-  
+
 
 
 
@@ -283,14 +282,13 @@ function onListener() {
   localStorage.setItem('id_chat', lastMessage);
   if (lastMessage !== 'undefined') {
     lastMessage = parseInt(lastMessage) + 1;
-    console.log(lastMessage);
     $.ajax({
       url: '/ajax/chat/online',
       method: 'POST',
       data: ({ token: $('#token').text(), id_message: lastMessage }),
       success: function (data) {
         var message = JSON.parse(data);
-        if (message.messages.login) {
+        if (message.messages) {
           template(message.messages.img, message.messages.login, message.messages.date, message.messages.text, message.messages.login_color, message.messages.font, message.messages.id_chat, message.messages.status, message.messages.color);
         }
       }
@@ -302,13 +300,11 @@ function onListener() {
 function onMessage() {
   var lastMessage = $('.chat-user:last').attr('id');
   if (lastMessage !== 'undefined') {
-    console.log(lastMessage);
     $.ajax({
       url: '/ajax/chat/getMessage',
       method: 'POST',
       data: ({ id_chat: lastMessage }),
       success: function (data) {
-        console.log(data);
         var message = JSON.parse(data);
         viewMessage(message);
       }
