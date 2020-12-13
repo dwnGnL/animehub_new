@@ -4,6 +4,7 @@
 namespace Controller;
 defined('_Sdef') or exit();
 
+use Lib\Cache;
 use Lib\Helper;
 use Model\Comment;
 use Model\Favorite;
@@ -43,6 +44,8 @@ class AjaxController extends DisplayController
                    $id_comment = $comment->driver->lastInsertId();
                    $response = $comment->getComment($id_comment);
                    $response[0]['date'] = Helper::getWatch($response['0']['date']);
+                   $cache = new Cache();
+                   $cache->delete('comments');
                    echo json_encode($response[0]);
                    exit();
             }

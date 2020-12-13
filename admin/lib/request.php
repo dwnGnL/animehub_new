@@ -1,4 +1,7 @@
 <?php
+
+use Lib\Cache;
+
 require_once 'sortStr.php';
 require_once 'Parsemix.php';
 $m = new Model();
@@ -98,6 +101,8 @@ if (isset($_POST['id_parse'])){
           $m->addAnime($basAnime[$i]['rly_path'],$stud,$kach,$tv['id'],$title['id'],$src,$seria,$basAnime[$i]['title'],$basAnime[$i]['img']);
           $m->updateTimePost($_POST['titleAnime'], $tv['id']);
           $m->updatePostAuthor($userId['id'], $_POST['titleAnime'], $tv['id'] );
+            $cache = new Cache();
+            $cache->delete('posts');
           if(!empty($_POST['prichina'])){
                 $m->addPrichinaForPost($_POST['prichina'], $_POST['titleAnime'], $tv['id']);
                 if($i == 0){
@@ -106,7 +111,6 @@ if (isset($_POST['id_parse'])){
                 $titleForUved = $_POST['titleAnime'].' '.$_POST['tv1'];
                 $description = $_POST['prichina'].' Ссылка: <a href="index.php?title_content&post='.$idpost['id'].'">'.$_POST['titleAnime'].'</a>';
                 $time = time();
-                $m->addUved($titleForUved,$description,$time);
                 $id_uved = $m->getUvedId($time, $titleForUved,$description);
                 foreach ($users as $user){
                         $m->addIdUserAndIdUved($user['id'], $id_uved['id']);

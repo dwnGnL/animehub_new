@@ -35,6 +35,11 @@ class Cache
 
     public function delete($key)
     {
+        if ($this->exists($key)){
+            unlink($this->dir.$key.'.txt');
+            return true;
+        }
+        return  false;
 
     }
 

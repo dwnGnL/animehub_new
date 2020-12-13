@@ -4,6 +4,7 @@
 namespace AdminController;
 
 
+use Lib\Cache;
 use Model\Anime;
 use Model\Parse;
 use Model\Post;
@@ -107,6 +108,8 @@ class SortController extends AdminController
             $parseBD->deleteParseRdy($_POST['title']);
             $j += 3;
         }
+        $cache = new Cache();
+        $cache->delete('posts');
         echo json_encode(['status' => 200]);
         exit();
 
