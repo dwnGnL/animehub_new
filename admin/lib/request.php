@@ -91,7 +91,7 @@ if (isset($_POST['id_parse'])){
         $basAnime = $m->getAnimeForSort($_POST['rlyTitle']);
         $userId = $m->getUserId($_POST['login']);
         for($i = 0; $i < $_POST['lengthSer']; $i++){
-            $num = $i + 1;
+          $num = $i + 1;
           $stud =  $sort->sortStud($basAnime[$i]['title']);
           $kach = $sort->sortKach($basAnime[$i]['size']);
           $tv = $sort->saveSortTv($_POST['tv'.$num]);
@@ -101,23 +101,9 @@ if (isset($_POST['id_parse'])){
           $m->addAnime($basAnime[$i]['rly_path'],$stud,$kach,$tv['id'],$title['id'],$src,$seria,$basAnime[$i]['title'],$basAnime[$i]['img']);
           $m->updateTimePost($_POST['titleAnime'], $tv['id']);
           $m->updatePostAuthor($userId['id'], $_POST['titleAnime'], $tv['id'] );
-            $cache = new Cache();
-            $cache->delete('posts');
-          if(!empty($_POST['prichina'])){
-                $m->addPrichinaForPost($_POST['prichina'], $_POST['titleAnime'], $tv['id']);
-                if($i == 0){
-                $users = $m->getUserUved();
-                $idpost = $m->getIdPost($_POST['titleAnime'], $tv['id']);
-                $titleForUved = $_POST['titleAnime'].' '.$_POST['tv1'];
-                $description = $_POST['prichina'].' Ссылка: <a href="index.php?title_content&post='.$idpost['id'].'">'.$_POST['titleAnime'].'</a>';
-                $time = time();
-                $id_uved = $m->getUvedId($time, $titleForUved,$description);
-                foreach ($users as $user){
-                        $m->addIdUserAndIdUved($user['id'], $id_uved['id']);
-                    }
-                }
-          }
         }
+        $cache = new Cache();
+        $cache->delete('posts');
         $m->deleteAnimeTvM();
         $m->deleteAnimeExcessWithTitle($_POST['rlyTitle']);
 
