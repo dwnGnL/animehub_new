@@ -7,15 +7,5 @@ RewriteRule . index.php [L]
 <FilesMatch ".(flv|gif|jpg|jpeg|png|ico|swf|js|css|pdf)$">
   Header set Cache-Control "max-age=2592000"
 </FilesMatch>
-<Limit GET POST>
- order allow,deny
- deny from 146.185.152.98
- deny from 31.210.107.199
- deny from 104.248.132.62
- deny from 31.210.107.206
- deny from 176.113.132.212
- deny from 91.218.163.74
- allow from all
-</Limit>
 #php_flag display_errors on
 #php_value error_reporting 2047
