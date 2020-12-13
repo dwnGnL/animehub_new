@@ -115,21 +115,57 @@ abstract class DisplayController extends Controller
         $anime = new Anime();
         $post = new Post();
         $commentDB = new Comment();
-        $quest = $question->getQuestions();
-        $answer = $answerDB->getAnswers($quest['id_questions']);
-        foreach ($answer as $key => $value) {
-            $votedUser = $voteDB->getVotedUserQA($_SESSION['id'], $answer[$key]['id_answers']);
-            $total = $voteDB->getTotalVoted($answer[$key]['id_answers']);
-            $answer[$key]['total'] = $total['total'];
-            if (!empty($votedUser)) {
-                $vote = $votedUser;
-                $answer[$key]['voted'] = $votedUser['id_voting'];
-            }
+        $cache = new Cache();
+
+
+
+
+        if ($cache->exists('quest')){
+            $quest = $cache->get('quest');
+        }else{
+            $quest = $question->getQuestions();
+            $cache->save('quest', $quest);
         }
-        $topAnime = $top->getTopAnime();
-        $newSerii = $anime->getNewSeria();
-        $articles = $post->getPostL10('articles', 5);
-        $comments = $commentDB->getCommentL(5);
+
+        if ($cache->exists('answer')){
+            $answer = $cache->get('answer');
+        }else{
+            $answer = $answerDB->getAnswers($quest['id_questions']);
+            foreach ($answer as $key => $value) {
+                $votedUser = $voteDB->getVotedUserQA($_SESSION['id'], $answer[$key]['id_answers']);
+                $total = $voteDB->getTotalVoted($answer[$key]['id_answers']);
+                $answer[$key]['total'] = $total['total'];
+                if (!empty($votedUser)) {
+                    $vote = $votedUser;
+                    $answer[$key]['voted'] = $votedUser['id_voting'];
+                }
+            }
+            $cache->save('answer', $answer);
+        }
+
+
+        if ($cache->exists('topAnime')){
+            $topAnime = $cache->get('topAnime');
+        }else{
+            $topAnime = $top->getTopAnime();
+            $cache->save('topAnime', $topAnime);
+        }
+
+        $articles = [];
+
+        if ($cache->exists('newSerii')){
+            $newSerii = $cache->get('newSerii');
+        }else{
+            $newSerii = $anime->getNewSeria();
+            $cache->save('newSerii', $newSerii);
+        }
+
+        if ($cache->exists('comments')){
+            $comments = $cache->get('comments');
+        }else{
+            $comments = $commentDB->getCommentL(5);
+            $cache->save('comments', $comments);
+        }
         return $this->app->view()->fetch('sidebar.tpl.php', [
             'app' => $this->app,
             'uri' => $this->uri,
