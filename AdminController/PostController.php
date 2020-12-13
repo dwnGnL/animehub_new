@@ -187,6 +187,10 @@ class PostController extends AdminController
                 if ($views->deleteViewsPost($_POST['id'])) {
                     if ($rating->deleteRatingPost($_POST['id'])) {
                         $this->postDB->deletePost($_POST['id']);
+                        $cache = new Cache();
+                        $cache->delete('dorams');
+                        $cache->delete('newPosts');
+                        $cache->delete('posts');
                         echo json_encode(['status' => 200]);
                         exit();
                     }
