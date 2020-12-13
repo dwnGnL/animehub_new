@@ -10,3 +10,4 @@ laravel/.env
 laravel/public/storage
 /laravel/vendor/composer/
 laravel/vendor/*
+storage/cache/*

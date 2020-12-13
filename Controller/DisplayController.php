@@ -2,6 +2,8 @@
 
 
 namespace Controller;
+
+use Lib\Cache;
 use Lib\Helper;
 use Model\Anime;
 use Model\Answer;
@@ -17,28 +19,39 @@ use Model\Top;
 use Model\User;
 use Model\Vote;
 
-defined('_Sdef') or  exit();
+defined('_Sdef') or exit();
 
-abstract  class DisplayController extends Controller
+abstract class DisplayController extends Controller
 {
 
 
     protected $template = 'index.tpl.php';
-    protected function getSlider(){
+
+    protected function getSlider()
+    {
         $db = new Slider();
-        $slider = $db->getSlider();
-        return $this->app->view()->fetch('slider.tpl.php',[
+        $cache = new Cache();
+
+        if ($cache->exists('slider')) {
+            $slider = $cache->get('slider');
+        } else {
+            $slider = $db->getSlider();
+            $cache->save('slider', $slider);
+        }
+
+        return $this->app->view()->fetch('slider.tpl.php', [
             'slider' => $slider,
             'uri' => $this->uri,
             'helper' => Helper::getInstance(),
         ]);
     }
 
-    protected function getSearch($type = 'Пост'){
-       return $this->app->view()->fetch('search.tpl.php', [
-           'uri' => $this->getUri(),
-           'type' => $type
-       ]) ;
+    protected function getSearch($type = 'Пост')
+    {
+        return $this->app->view()->fetch('search.tpl.php', [
+            'uri' => $this->getUri(),
+            'type' => $type
+        ]);
     }
 
 
@@ -49,21 +62,45 @@ abstract  class DisplayController extends Controller
         $post = new Post();
         $cat = new Cat();
         $userDB = new User();
+        $cache = new Cache();
+
+
         $favorites = $fav->getCountFavorites($_SESSION['id']);
-        $years = $godWip->getGodWip();
-        $pages = $post->getPages();
-        $categories = $cat->getCategories();
+
+
+        if ($cache->exists('years')){
+            $years = $cache->get('years');
+        }else{
+            $years = $godWip->getGodWip();
+            $cache->save('years', $years);
+        }
+
+        if ($cache->exists('pages')){
+            $pages = $cache->get('pages');
+        }else{
+            $pages = $post->getPages();
+            $cache->save('pages', $pages);
+        }
+
+        if ($cache->exists('categories')){
+            $categories = $cache->get('categories');
+        }else{
+            $categories = $cat->getCategories();
+            $cache->save('categories', $categories);
+        }
+
+
         $user = $userDB->getUser($_SESSION['login']);
         $rep = '  ';
         return $this->app->view()->fetch('menu.tpl.php', [
-                                                        'pages' => $pages,
-                                                        'app' => $this->app,
-                                                        'uri' => $this->uri,
-                                                        'categories' => $categories,
-                                                        'years' => $years,
-                                                        'user' => $user,
-                                                        'favorites' => $favorites['total']
-                                                            ]);
+            'pages' => $pages,
+            'app' => $this->app,
+            'uri' => $this->uri,
+            'categories' => $categories,
+            'years' => $years,
+            'user' => $user,
+            'favorites' => $favorites['total']
+        ]);
 
 
         // TODO: Implement getMenu() method.
@@ -80,11 +117,11 @@ abstract  class DisplayController extends Controller
         $commentDB = new Comment();
         $quest = $question->getQuestions();
         $answer = $answerDB->getAnswers($quest['id_questions']);
-        foreach ($answer as $key => $value){
+        foreach ($answer as $key => $value) {
             $votedUser = $voteDB->getVotedUserQA($_SESSION['id'], $answer[$key]['id_answers']);
             $total = $voteDB->getTotalVoted($answer[$key]['id_answers']);
             $answer[$key]['total'] = $total['total'];
-            if (!empty($votedUser)){
+            if (!empty($votedUser)) {
                 $vote = $votedUser;
                 $answer[$key]['voted'] = $votedUser['id_voting'];
             }
@@ -107,13 +144,14 @@ abstract  class DisplayController extends Controller
         ]);
         // TODO: Implement getSidebar() method.
     }
+
     protected function display()
     {
         $notifacation = new Notification();
         $menu = $this->getMenu();
         $sidebar = $this->getSidebar();
         $notifications = $notifacation->getNotifications($_SESSION['id']);
-        $this->app->render($this->template,[
+        $this->app->render($this->template, [
             'app' => $this->app,
             'uri' => $this->uri,
             'menu' => $menu,
@@ -122,7 +160,7 @@ abstract  class DisplayController extends Controller
             'keywords' => $this->keywords,
             'description' => $this->description,
             'main' => $this->main,
-            'helper'=> Helper::getInstance(),
+            'helper' => Helper::getInstance(),
             'notifications' => $notifications,
 
         ]);
