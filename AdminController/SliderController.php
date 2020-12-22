@@ -4,6 +4,7 @@
 namespace AdminController;
 
 
+use Lib\Cache;
 use Lib\Helper;
 use Model\Post;
 use Model\Slider;
@@ -29,17 +30,22 @@ class SliderController extends AdminController
     public function edit(){
         $postBD = new Post();
         $postID = $postBD->getPostWithTitleAndTv($_POST['title'], $_POST['tv']);
+        $cache = new Cache();
+        $cache->delete('slider');
         if ($postID){
             $this->sliderDB->updateSlide($postID['id'], $_POST['img'], $_POST['id_slider']);
             echo  json_encode(['status' => 200]);
         }else{
             echo  json_encode(['status' => 500]);
         }
+
     }
 
     public function add(){
         $postBD = new Post();
         $postID = $postBD->getPostWithTitleAndTv($_POST['title'], $_POST['tv']);
+        $cache = new Cache();
+        $cache->delete('slider');
         if ($postID){
             $this->sliderDB->addSlide($postID['id'], $_POST['img']);
             $slide = $this->sliderDB->getSliderForDashboard('ORDER BY lite_slider.id DESC LIMIT 1');
@@ -59,6 +65,8 @@ class SliderController extends AdminController
         }else{
             echo  json_encode(['status' => 500]);
         }
+        $cache = new Cache();
+        $cache->delete('slider');
         exit();
     }
     protected function display()
