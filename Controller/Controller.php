@@ -124,7 +124,7 @@ abstract class Controller
         $link = $url;
         $title = str_replace(' ', '-', $title);
         $file = file_get_contents($link);
-        $fileName = $dir.sha1(time().$title).'.jpg';
+        $fileName = $dir.md5(time().$title).'.jpg';
         if ( file_put_contents($fileName, $file)){
             return $fileName;
         }
