@@ -2,6 +2,8 @@
 
 
 namespace Controller;
+
+use Lib\ReCaptcha;
 use Model\User;
 
 defined('_Sdef') or exit();
@@ -10,64 +12,75 @@ class RegistController extends DisplayController
 {
     protected $index;
 
-    public function formView(){
-        $this->index = $this->app->view()->fetch('regist.tpl.php',[
+    public function formView()
+    {
+        $this->index = $this->app->view()->fetch('regist.tpl.php', [
             'uri' => $this->uri,
         ]);
         $this->display();
     }
 
-//    public function registration(){
-//        $userDB = new User();
-//
-//if (isset($_POST['button'])) {
-//    $errors = [];
-//    if (isset($_POST['login'])) {
-//        if (trim($_POST['login']) == '') {
-//            $errors[] = 'Введите логин!';
-//        } elseif ((strlen(trim($_POST['login']))) <= 3) {
-//            $errors[] = 'Login должен иметь более 3 символов';
-//        }
-//    }
-//
-//    if (isset($_POST['email'])) {
-//        if (trim($_POST['email']) == '') {
-//            $errors[] = 'Введите email!';
-//        }
-//    }
-//
-//    if (isset($_POST['password'])) {
-//        if (trim($_POST['password']) == '') {
-//            $errors[] = 'Введите пароль!';
-//        }
-//    }
-//    if (isset($_POST['repassword'])) {
-//        if ($_POST['password'] != $_POST['repassword']) {
-//            $errors[] = 'Введённые пароли должны совпадать.!';
-//        }
-//        if (trim($_POST['password']) == '') {
-//            $errors[] = 'Введите повторный пароль!';
-//        }
-//    }
-//
-//    }
-//
-//    $count = $userDB->getCountUsersLoginOrEmail($_POST['login'], $_POST['email']);
-//    if ($count['COUNT(*)'] > 0) {
-//        $errors [] = 'Пользователь с таким логином или почтой существует!';
-//    }
-//    if (empty($errors)) {
-//        $userDB->addNewUser($_POST['login'], $_POST['email'], $_POST['password'],time(), $_SERVER['REMOTE_ADDR'],$this->uri);
-//        $this->app->redirectTo('home');
-//        echo '<p style="color:green;">Вы успешно зарегистрировались на сайте!,</p>';
-//    } else {
-//        echo '<p style="color: red; margin-left: 10px;">' . array_shift($errors) . '</p>';
-//
-//    }
-//}
+    public function registration()
+    {
+        $userDB = new User();
 
+        $validation = $this->validations();
+        if ($validation['success']) {
+            $userDB->addNewUser($_POST['login'], $_POST['email'], $_POST['password'], time(), $_SERVER['REMOTE_ADDR'], $this->uri);
+            $this->app->redirectTo('home');
+        } else {
+            $this->app->flash('errors', $validation['errors']);
+            $this->app->redirectTo('registration.index');
+        }
+    }
 
+    private function validations()
+    {
+        $userDB = new User();
 
+        $errors = [];
+        if (isset($_POST['login'])) {
+            if (trim($_POST['login']) == '') {
+                $errors[] = 'Введите логин!';
+            } elseif ((strlen(trim($_POST['login']))) <= 3) {
+                $errors[] = 'Login должен иметь более 3 символов';
+            }
+        }
+
+        if (isset($_POST['email'])) {
+            if (trim($_POST['email']) == '') {
+                $errors[] = 'Введите email!';
+            }
+        }
+
+        if (isset($_POST['password'])) {
+            if (trim($_POST['password']) == '') {
+                $errors[] = 'Введите пароль!';
+            }
+        }
+        if (isset($_POST['repassword'])) {
+            if ($_POST['password'] != $_POST['repassword']) {
+                $errors[] = 'Введённые пароли должны совпадать.!';
+            }
+            if (trim($_POST['password']) == '') {
+                $errors[] = 'Введите повторный пароль!';
+            }
+        }
+
+        $count = $userDB->getCountUsersLoginOrEmail($_POST['login'], $_POST['email']);
+        if ($count['COUNT(*)'] > 0) {
+            $errors [] = 'Пользователь с таким логином или почтой существует!';
+        }
+
+        if (!ReCaptcha::validate($_POST['g-recaptcha-response'])){
+            $errors [] = 'Вы не прошли проверку капчти';
+        }
+
+        if (empty($errors)){
+            return ['success' => true];
+        }
+        return ['success' => false, 'errors' => $errors];
+    }
 
     protected function display()
     {

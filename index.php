@@ -328,7 +328,7 @@ $app->get('/question', function () {
 $app->get('/registration', function () {
     $o = \Controller\Controller::getInstance('regist'); //RegistController
     $o->formView();
-});
+})->name('registration.index');
 
 $app->post('/registration', function () {
     $o = \Controller\Controller::getInstance('regist'); //RegistController
