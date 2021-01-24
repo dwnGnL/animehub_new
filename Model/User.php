@@ -102,7 +102,7 @@ class User extends Model
             'img' =>$img
         ];
 
-        $this->driver->query($query,$params);
+       $this->driver->query($query,$params);
     }
 
 

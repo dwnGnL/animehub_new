@@ -86,12 +86,7 @@ abstract class Controller
        return $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'];
     }
 
-    protected function debug($string){
-        echo '<pre>';
-        var_dump($string);
-        echo '</pre>';
-        exit();
-    }
+
     protected function clearMessage($var){
         $pattern = $this->getUrl().'/templates/Admin/js/ckeditor/plugins/';
         $var = preg_replace('/<(?!img)\/?[a-z][^>]*(>|$)/i', '', $var);

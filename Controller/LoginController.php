@@ -5,6 +5,8 @@ namespace Controller;
 
 
 
+use Lib\Auth;
+use Lib\AuthClass;
 use Model\User;
 
 defined('_Sdef') or exit();
@@ -36,34 +38,18 @@ class LoginController extends DisplayController
         $post = $this->app->request->post();
 
         if (!empty($post)){
-            $userDB = new User();
-            $login = $this->clear_str($post['login']);
-            $password = $this->clear_str($post['password']);
+            $login = clear_str($post['login']);
+            $password = clear_str($post['password']);
             if (empty($login) || empty($password)){
-                $this->app->flash('error','Заполните обезязательные поля');
+                $this->app->flash('error','Заполните обязательные поля');
                 $this->app->redirect($_POST['redirect']);
             }
-            $password = MD5($password);
-
-            $result = $userDB->getUserLoginPass($login,$password);
+            $result = Auth::auth($login, $password) ;
             if (!$result){
                 $this->app->flash('error','Пароль или логин ввели не правильно');
                 $this->app->redirect($_POST['redirect']);
             }
-
-
-            $_SESSION['auth'] = true;
-            $_SESSION['login'] = $result['login'];
-            $_SESSION['status'] = $result['status'];
-            $_SESSION['id'] = $result['id'];
-            $salt = $this->generateSalt();
-            $this->app->setEncryptedCookie('key', $salt, '30 days');
-            $this->app->setEncryptedCookie('id', $result['id'], '30 days');
-            $userDB->userLogin($salt,$result['id']);
-            $userDB->updateIp($_SERVER['REMOTE_ADDR'],$result['id']);
-
             $this->app->redirect($_POST['redirect']);
-
         }else{
             $this->app->redirect($this->app->urlFor('home'));
         }

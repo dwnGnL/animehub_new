@@ -19,10 +19,12 @@ class ReCaptcha
     public static function validate($captcha, $required = true)
     {
         if ($required){
-            if (self::request($captcha)){
-                return true;
+            if (empty($captcha)){
+                return  false;
             }
-            return false;
+            if (!self::request($captcha)){
+                return false;
+            }
         }
         return  true;
     }
@@ -33,7 +35,6 @@ class ReCaptcha
         $url = 'https://www.google.com/recaptcha/api/siteverify?secret=' . urlencode($secretKey) .  '&response=' . urlencode($captcha);
         $response = file_get_contents($url);
         $responseKeys = json_decode($response,true);
-
         if($responseKeys["success"]) {
             return true;
         } else {

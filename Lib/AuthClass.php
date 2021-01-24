@@ -2,6 +2,7 @@
 
 
 namespace Lib;
+use Model\User;
 use Slim\Slim;
 
 defined('_Sdef') or exit();
@@ -47,5 +48,6 @@ class AuthClass
         }
         return false;
     }
+
 
 }

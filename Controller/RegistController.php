@@ -3,6 +3,7 @@
 
 namespace Controller;
 
+use Lib\Auth;
 use Lib\ReCaptcha;
 use Model\User;
 
@@ -26,7 +27,8 @@ class RegistController extends DisplayController
 
         $validation = $this->validations();
         if ($validation['success']) {
-            $userDB->addNewUser($_POST['login'], $_POST['email'], $_POST['password'], time(), $_SERVER['REMOTE_ADDR'], $this->uri);
+           $userDB->addNewUser($_POST['login'], $_POST['email'], $_POST['password'], time(), $_SERVER['REMOTE_ADDR'], $this->uri);
+            Auth::auth($_POST['login'], $_POST['password']);
             $this->app->redirectTo('home');
         } else {
             $this->app->flash('errors', $validation['errors']);
