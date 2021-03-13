@@ -8,10 +8,12 @@ use Lib\Curl;
 use Model\Channel;
 use Model\Parse;
 use function Composer\Autoload\includeFile;
+use Helper;
 
 require_once 'Lib/phpQuery.php';
 class ParserController extends AdminController
 {
+    use Helper;
     protected $curl;
     public function __construct()
     {
@@ -139,12 +141,7 @@ class ParserController extends AdminController
                     $embed = $this->curl->curl_get('http://mix.tj/embed/'. $href[2]);
                     $embed = \phpQuery::newDocument($embed);
                     $vid = $embed->find('script')->text();
-                    $vid = substr($vid, 65,120);
-                    $delimetr = '"';
-                    $vid = explode($delimetr, $vid,3 );
-                    $src = $vid[1];
-
-
+                    $src = $this->getSrc($vid);
                     $mb = explode(' ', $size, 3);
                     $addAnimeDate = explode(' ', $size, 4);
                     $date = $mb[2];
@@ -289,12 +286,7 @@ class ParserController extends AdminController
                         $embed = $this->curl->curl_get('http://mix.tj/embed/' . $href[2]);
                         $embed = \phpQuery::newDocument($embed);
                         $vid = $embed->find('script')->text();
-                        $vid = substr($vid, 65, 120);
-                        $delimetr = '"';
-                        $vid = explode($delimetr, $vid, 3);
-                        $src = $vid[1];
-
-
+                        $src = $this->getSrc($vid);
                         $mb = explode(' ', $size, 3);
                         $addAnimeDate = explode(' ', $size, 4);
                         $date = $mb[2];
