@@ -12,7 +12,6 @@ use Model\Cat;
 use Model\CatPost;
 use Model\Comment;
 use Model\GodWip;
-use Model\Model;
 use Model\Post;
 use Model\PostType;
 use Model\Rating;
@@ -22,12 +21,13 @@ use Model\Tv;
 use Model\View;
 use Psr\Http\Message\ResponseInterface;
 use React\EventLoop\Factory;
-use Slim\Http\Request;
+use Traits\Helper AS THelper;
 
 require_once 'Lib/phpQuery.php';
 
 class PostController extends AdminController
 {
+    use THelper;
     protected $postDB;
 
     public function __construct()

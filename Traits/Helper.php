@@ -1,6 +1,6 @@
 <?php
 
-
+namespace Traits;
 trait Helper
 {
     private function getSrc($text)

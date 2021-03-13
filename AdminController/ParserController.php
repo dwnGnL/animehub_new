@@ -7,8 +7,7 @@ namespace AdminController;
 use Lib\Curl;
 use Model\Channel;
 use Model\Parse;
-use function Composer\Autoload\includeFile;
-use Helper;
+use Traits\Helper;
 
 require_once 'Lib/phpQuery.php';
 class ParserController extends AdminController
