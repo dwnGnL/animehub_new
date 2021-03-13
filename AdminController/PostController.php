@@ -6,6 +6,7 @@ namespace AdminController;
 
 use Clue\React\Buzz\Browser;
 use Lib\Cache;
+use Lib\Curl;
 use Lib\Helper;
 use Model\Anime;
 use Model\Cat;
@@ -323,9 +324,9 @@ class PostController extends AdminController
 
     public function autoCorrectMix($href, $oldSrc)
     {
-
+        $curl = new Curl();
         $href = explode('/', $href);
-        $embed = $this->getContent('http://mix.tj/embed/' . $href[2]);
+        $embed = $curl->curl_get('http://mix.tj/embed/' . $href[2]);
         $embed = \phpQuery::newDocument($embed);
         $src = '';
         if ($embed->find('script')) {
@@ -348,18 +349,18 @@ class PostController extends AdminController
 
 
 
-
-    public function getContent($site)
-    {
-        $loop = Factory::create();
-        $client = new Browser($loop);
-        $client->get($site)
-            ->then(function (ResponseInterface $response) use ($loop) {
-                $this->content = $response->getBody();
-                $loop->stop();
-            });
-        $loop->run();
-
-        return $this->content;
-    }
+//
+//    public function getContent($site)
+//    {
+//        $loop = Factory::create();
+//        $client = new Browser($loop);
+//        $client->get($site)
+//            ->then(function (ResponseInterface $response) use ($loop) {
+//                $this->content = $response->getBody();
+//                $loop->stop();
+//            });
+//        $loop->run();
+//
+//        return $this->content;
+//    }
 }
