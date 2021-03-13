@@ -107,7 +107,7 @@ class ParserController extends AdminController
             }
             if($stop === null){
                 $start++;
-              $countInsert += parseTopVideo($poisk,$start,$end);
+              $countInsert += $this->topParser($poisk,$start,$end);
             }
         }
        return $countInsert;
