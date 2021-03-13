@@ -330,10 +330,7 @@ class PostController extends AdminController
         $src = '';
         if ($embed->find('script')) {
             $vid = $embed->find('script')->text();
-            $vid = substr($vid, 65, 120);
-            $delimetr = '"';
-            $vid = explode($delimetr, $vid, 3);
-            $src = $vid[1];
+            $src = $this->getSrc($vid);
         }
         if (!empty($src)) {
             if ($oldSrc != $src) {
@@ -347,6 +344,14 @@ class PostController extends AdminController
         }
 
 
+    }
+
+    private function getSrc($text)
+    {
+        $matches = [];
+        preg_match('/file:""*?(?<uri>.+?)"/', $text, $matches);
+        $uri = !empty($matches['uri']) ? $matches['uri'] : '';
+        return $uri;
     }
 
 
