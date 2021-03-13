@@ -77,7 +77,6 @@ class AjaxController extends DisplayController
     public function searchAjax()
     {
             if ((isset($_POST['title'] )) && (iconv_strlen(trim($_POST['title']))) > 3){
-                if($_POST['type'] == 'Пост') {
                     $post = new Post();
                     $title = explode(' ', $_POST['title']);
                     $result = $post->searchAjax($title);
@@ -90,20 +89,7 @@ class AjaxController extends DisplayController
                     $result[0]['count'] = count($result);
                     echo json_encode($result);
                     exit();
-                }elseif ($_POST['type'] == 'Манга'){
-                    $productDB = new Product();
-                    $title = explode(' ', $_POST['title']);
-                    $result = $productDB->productSearch($title);
-                    foreach ($result as $key => $value) {
-                        $result[$key]['src'] = '/shop/product/' . Helper::renderUrl($result[$key]['id'], $result[$key]['title']);
-                    }
-                    $result[0]['count'] = count($result);
-                    echo json_encode($result);
-                    exit();
-
                 }
-            }
-
         return false;
     }
 
