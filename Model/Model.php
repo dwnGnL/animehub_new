@@ -76,7 +76,6 @@ class Model
             $params[$key] = $val;
             $i++;
         }
-
         $query .= ' where '.$this->primary_key.' = :id';
         $params ['id'] = $where;
         return $this->driver->query($query, $params);

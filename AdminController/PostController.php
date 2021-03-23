@@ -217,9 +217,8 @@ class PostController extends AdminController
             $year_id = $this->getId($year, new GodWip());
             $title_id = $this->getId($title, new Title());
             $old_post = $postDB->one('image, title, id_tv, id', ['id' => $_POST['id_post']]);
-            if (!file_exists($formData['image'])) {
+            if ($this->is_url($formData['image']) && !file_exists($formData['image'])) {
                 $image = $this->downloadImage($formData['image'], $formData['alt_title']);
-                $old_post = $postDB->one('image, title, id_tv, id', ['id' => $_POST['id_post']]);
                 $this->deleteImage($old_post['image']);
             } else {
                 $image = $formData['image'];
@@ -230,7 +229,7 @@ class PostController extends AdminController
                 'alias' => $formData['alt_title'],
                 'id_god_wip' => $year_id,
                 'image' => $image,
-                'body' => $formData['body'],
+                'body' => $formData['description'],
                 'id_tv' => $tv_id,
                 'id_type_post' => $formData['type']
             ], $_POST['id_post']);
