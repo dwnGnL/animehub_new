@@ -353,10 +353,10 @@ class ParserController extends AdminController
     private function parseImage($name)
     {
         $crawler = new HttpBrowser(HttpClient::create());
-        $image = $crawler->request('GET', 'https://animego.org/search/all?q='.$name);
-        $anime =  $image->filter('.animes-grid .animes-grid-item');
+        $image = $crawler->request('GET', 'https://animang.ru/?s='.$name);
+        $anime =  $image->filter('.content .post-home');
         if ($anime->count() > 0){
-            $image =   $anime->first()->filter('.anime-grid-lazy')->attr('data-original');
+            $image =   $anime->first()->filter('img')->attr('src');
             if (!empty($image)){
                 return $image;
             }
@@ -371,11 +371,21 @@ class ParserController extends AdminController
         $limit = !empty($limit)? $limit: 0;
         $offset = !empty($offset)?$offset:0;
         $posts = Post::where('id_type_post', 1)
-            ->skip($offset)->take($limit)->get();
+            ->with('tv')
+            ->skip($offset)
+            ->take($limit)
+            ->get();
         foreach ($posts as $post){
-            $image = $this->parseImage($post->title);
+            echo $post->title.'</br>';
+            preg_match('#\d+#',$post->tv->title, $mathes);
+            if (empty($mathes)){
+                $tv = $post->tv->title;
+            }else{
+                $tv = $mathes[0];
+            }
+            $image = $this->parseImage($post->title.' '.$tv);
             if ($image){
-                $image = $this->downloadImage($image, $post['title']);
+                $image = $this->downloadImage($image, $post->title);
                 if ($image){
                     $post->image = $image;
                     $post->save();
