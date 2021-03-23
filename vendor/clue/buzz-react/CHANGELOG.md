@@ -1,5 +1,121 @@
 # Changelog
 
+## 2.9.0 (2020-07-03)
+
+A **major feature release** adding a new options APIs and more consistent APIs
+for sending streaming requests. Includes a major documentation overhaul and
+deprecates a number of APIs.
+
+*   Feature: Add new `request()` and `requestStreaming()` methods and
+    deprecate `send()` method and `streaming` option.
+    (#170 by @clue)
+
+    ```php
+    // old: deprecated
+    $browser->withOptions(['streaming' => true])->get($url);
+    $browser->send(new Request('OPTIONS', $url));
+
+    // new
+    $browser->requestStreaming('GET', $url);
+    $browser->request('OPTIONS', $url);
+    ```
+
+*   Feature: Add dedicated methods to control options, deprecate `withOptions()`.
+    (#172 by @clue)
+
+    ```php
+    // old: deprecated
+    $browser->withOptions(['timeout' => 10]);
+    $browser->withOptions(['followRedirects' => false]);
+    $browser->withOptions(['obeySuccessCode' => false]);
+
+    // new
+    $browser->withTimeout(10);
+    $browser->withFollowRedirects(false);
+    $browser->withRejectErrorResponse(false);
+    ```
+
+*   Feature: Add `withResponseBuffer()` method to limit maximum response buffer size (defaults to 16 MiB).
+    (#175 by @clue)
+
+    ```php
+    // new: download maximum of 100 MB
+    $browser->withResponseBuffer(100 * 1000000)->get($url);
+    ```
+
+*   Feature: Improve `withBase()` method and deprecate `withoutBase()` method
+    (#173 by @clue)
+
+    ```php
+    // old: deprecated
+    $browser = $browser->withoutBase();
+
+    // new
+    $browser = $browser->withBase(null);
+    ```
+
+*   Deprecate `submit()` method, use `post()` instead.
+    (#171 by @clue)
+
+    ```php
+    // old: deprecated
+    $browser->submit($url, $data);
+
+    // new
+    $browser->post($url, ['Content-Type' => 'application/x-www-form-urlencoded'], http_build_query($data));
+    ```
+
+*   Deprecate `UriInterface` for request methods, use URL strings instead
+    (#174 by @clue)
+
+*   Fix: Fix unneeded timeout timer when request body closes and sender already rejected.
+    (#169 by @clue)
+
+*   Improve documentation structure, add documentation for all API methods and
+    handling concurrency.
+    (#167 and #176 by @clue)
+
+*   Improve test suite to use ReactPHP-based webserver instead of httpbin and
+    add forward compatibility with PHPUnit 9.
+    (#168 by @clue)
+
+## 2.8.2 (2020-06-02)
+
+*   Fix: HTTP `HEAD` requests should not expect a response body.
+    (#166 by @clue)
+
+## 2.8.1 (2020-05-19)
+
+*   Fix: Fix cancellation of pending requests with promise followers.
+    (#164 by @clue)
+
+## 2.8.0 (2020-05-13)
+
+*   Feature: Use HTTP/1.1 protocol version by default and add new `Browser::withProtocolVersion()`.
+    (#162 by @clue)
+
+    This is the preferred HTTP protocol version which also provides decent
+    backwards-compatibility with legacy HTTP/1.0 servers. As such, there should
+    rarely be a need to explicitly change this protocol version. You can revert
+    to legacy HTTP/1.0 like this:
+
+    ```php
+    $browser->withProtocolVersion('1.0')->get($url)->then(…);
+    ```
+
+*   Feature / Fix: Explicitly close connection after response body ends.
+    (#161 by @clue)
+
+    This improves support for servers ignoring the `Connection: close` request
+    header that would otherwise keep the connection open and could eventually
+    run into a timeout even though the transfer was completed.
+
+*   Fixed small issue in code example.
+    (#160 by @mmoreram)
+
+*   Clean up test suite and add `.gitattributes` to exclude dev files from exports.
+    (#163 by @SimonFrings)
+
 ## 2.7.0 (2020-02-26)
 
 *   Feature: Add backpressure support and support throttling for streaming outgoing chunked request body.

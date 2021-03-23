@@ -35,6 +35,8 @@ class Transaction
 
     private $streaming = false;
 
+    private $maximumSize = 16777216; // 16 MiB = 2^24 bytes
+
     public function __construct(Sender $sender, MessageFactory $messageFactory, LoopInterface $loop)
     {
         $this->sender = $sender;
@@ -75,13 +77,29 @@ class Transaction
 
         $deferred->numRequests = 0;
 
-        $this->next($request, $deferred)->then(
-            array($deferred, 'resolve'),
-            array($deferred, 'reject')
-        );
-
         // use timeout from options or default to PHP's default_socket_timeout (60)
         $timeout = (float)($this->timeout !== null ? $this->timeout : ini_get("default_socket_timeout"));
+
+        $loop = $this->loop;
+        $this->next($request, $deferred)->then(
+            function (ResponseInterface $response) use ($deferred, $loop, &$timeout) {
+                if (isset($deferred->timeout)) {
+                    $loop->cancelTimer($deferred->timeout);
+                    unset($deferred->timeout);
+                }
+                $timeout = -1;
+                $deferred->resolve($response);
+            },
+            function ($e) use ($deferred, $loop, &$timeout) {
+                if (isset($deferred->timeout)) {
+                    $loop->cancelTimer($deferred->timeout);
+                    unset($deferred->timeout);
+                }
+                $timeout = -1;
+                $deferred->reject($e);
+            }
+        );
+
         if ($timeout < 0) {
             return $deferred->promise();
         }
@@ -89,8 +107,10 @@ class Transaction
         $body = $request->getBody();
         if ($body instanceof ReadableStreamInterface && $body->isReadable()) {
             $that = $this;
-            $body->on('close', function () use ($that, $deferred, $timeout) {
-                $that->applyTimeout($deferred, $timeout);
+            $body->on('close', function () use ($that, $deferred, &$timeout) {
+                if ($timeout >= 0) {
+                    $that->applyTimeout($deferred, $timeout);
+                }
             });
         } else {
             $this->applyTimeout($deferred, $timeout);
@@ -107,7 +127,7 @@ class Transaction
      */
     public function applyTimeout(Deferred $deferred, $timeout)
     {
-        $timer = $this->loop->addTimer($timeout, function () use ($timeout, $deferred) {
+        $deferred->timeout = $this->loop->addTimer($timeout, function () use ($timeout, $deferred) {
             $deferred->reject(new \RuntimeException(
                 'Request timed out after ' . $timeout . ' seconds'
             ));
@@ -115,13 +135,6 @@ class Transaction
                 $deferred->pending->cancel();
                 unset($deferred->pending);
             }
-        });
-
-        $loop = $this->loop;
-        $deferred->promise()->then(function () use ($loop, $timer){
-            $loop->cancelTimer($timer);
-        }, function () use ($loop, $timer) {
-            $loop->cancelTimer($timer);
         });
     }
 
@@ -158,6 +171,15 @@ class Transaction
     {
         $stream = $response->getBody();
 
+        $size = $stream->getSize();
+        if ($size !== null && $size > $this->maximumSize) {
+            $stream->close();
+            return \React\Promise\reject(new \OverflowException(
+                'Response body size of ' . $size . ' bytes exceeds maximum of ' . $this->maximumSize . ' bytes',
+                \defined('SOCKET_EMSGSIZE') ? \SOCKET_EMSGSIZE : 0
+            ));
+        }
+
         // body is not streaming => already buffered
         if (!$stream instanceof ReadableStreamInterface) {
             return \React\Promise\resolve($response);
@@ -165,13 +187,21 @@ class Transaction
 
         // buffer stream and resolve with buffered body
         $messageFactory = $this->messageFactory;
-        $promise = \React\Promise\Stream\buffer($stream)->then(
+        $maximumSize = $this->maximumSize;
+        $promise = \React\Promise\Stream\buffer($stream, $maximumSize)->then(
             function ($body) use ($response, $messageFactory) {
                 return $response->withBody($messageFactory->body($body));
             },
-            function ($e) use ($stream) {
+            function ($e) use ($stream, $maximumSize) {
                 // try to close stream if buffering fails (or is cancelled)
                 $stream->close();
+
+                if ($e instanceof \OverflowException) {
+                    $e = new \OverflowException(
+                        'Response body size exceeds maximum of ' . $maximumSize . ' bytes',
+                        \defined('SOCKET_EMSGSIZE') ? \SOCKET_EMSGSIZE : 0
+                    );
+                }
 
                 throw $e;
             }

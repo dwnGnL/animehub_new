@@ -43,6 +43,7 @@ handle multiple concurrent connections without blocking.
   * [Connector](#connector)
   * [Advanced client usage](#advanced-client-usage)
     * [TcpConnector](#tcpconnector)
+    * [HappyEyeBallsConnector](#happyeyeballsconnector)
     * [DnsConnector](#dnsconnector)
     * [SecureConnector](#secureconnector)
     * [TimeoutConnector](#timeoutconnector)
@@ -424,6 +425,7 @@ $server = new React\Socket\Server('[::1]:8080', $loop, array(
   their defaults and effects of changing these may vary depending on your system
   and/or PHP version.
   Passing unknown context options has no effect.
+  The `backlog` context option defaults to `511` unless given explicitly.
   For BC reasons, you can also pass the TCP socket context options as a simple
   array without wrapping this in another array under the `tcp` key.
 
@@ -576,6 +578,7 @@ $server = new React\Socket\TcpServer('[::1]:8080', $loop, array(
 their defaults and effects of changing these may vary depending on your system
 and/or PHP version.
 Passing unknown context options has no effect.
+The `backlog` context option defaults to `511` unless given explicitly.
 
 Whenever a client connects, it will emit a `connection` event with a connection
 instance implementing [`ConnectionInterface`](#connectioninterface):
@@ -926,6 +929,22 @@ also shares all of their features and implementation details.
 If you want to typehint in your higher-level protocol implementation, you SHOULD
 use the generic [`ConnectorInterface`](#connectorinterface) instead.
 
+As of `v1.4.0`, the `Connector` class defaults to using the
+[happy eyeballs algorithm](https://en.wikipedia.org/wiki/Happy_Eyeballs) to
+automatically connect over IPv4 or IPv6 when a hostname is given.
+This automatically attempts to connect using both IPv4 and IPv6 at the same time
+(preferring IPv6), thus avoiding the usual problems faced by users with imperfect
+IPv6 connections or setups.
+If you want to revert to the old behavior of only doing an IPv4 lookup and
+only attempt a single IPv4 connection, you can set up the `Connector` like this:
+
+```php
+$connector = new React\Socket\Connector($loop, array(
+    'happy_eyeballs' => false
+));
+```
+
+Similarly, you can also affect the default DNS behavior as follows.
 The `Connector` class will try to detect your system DNS settings (and uses
 Google's public DNS server `8.8.8.8` as a fallback if unable to determine your
 system settings) to resolve all public hostnames into underlying IP addresses by
@@ -958,8 +977,8 @@ $connector->connect('127.0.0.1:80')->then(function (React\Socket\ConnectionInter
 });
 ```
 
-Advanced: If you need a custom DNS `Resolver` instance, you can also set up
-your `Connector` like this:
+Advanced: If you need a custom DNS `React\Dns\Resolver\ResolverInterface` instance, you
+can also set up your `Connector` like this:
 
 ```php
 $dnsResolverFactory = new React\Dns\Resolver\Factory();
@@ -976,7 +995,7 @@ $connector->connect('localhost:80')->then(function (React\Socket\ConnectionInter
 ```
 
 By default, the `tcp://` and `tls://` URI schemes will use timeout value that
-repects your `default_socket_timeout` ini setting (which defaults to 60s).
+respects your `default_socket_timeout` ini setting (which defaults to 60s).
 If you want a custom timeout value, you can simply pass this like this:
 
 ```php
@@ -1060,7 +1079,7 @@ pass an instance implementing the `ConnectorInterface` like this:
 ```php
 $dnsResolverFactory = new React\Dns\Resolver\Factory();
 $resolver = $dnsResolverFactory->createCached('127.0.1.1', $loop);
-$tcp = new React\Socket\DnsConnector(new React\Socket\TcpConnector($loop), $resolver);
+$tcp = new React\Socket\HappyEyeBallsConnector($loop, new React\Socket\TcpConnector($loop), $resolver);
 
 $tls = new React\Socket\SecureConnector($tcp, $loop);
 
@@ -1154,6 +1173,60 @@ be used to set up the TLS peer name.
 This is used by the `SecureConnector` and `DnsConnector` to verify the peer
 name and can also be used if you want a custom TLS peer name.
 
+#### HappyEyeBallsConnector
+
+The `HappyEyeBallsConnector` class implements the
+[`ConnectorInterface`](#connectorinterface) and allows you to create plaintext
+TCP/IP connections to any hostname-port-combination. Internally it implements the 
+happy eyeballs algorithm from [`RFC6555`](https://tools.ietf.org/html/rfc6555) and 
+[`RFC8305`](https://tools.ietf.org/html/rfc8305) to support IPv6 and IPv4 hostnames.
+
+It does so by decorating a given `TcpConnector` instance so that it first
+looks up the given domain name via DNS (if applicable) and then establishes the
+underlying TCP/IP connection to the resolved target IP address.
+
+Make sure to set up your DNS resolver and underlying TCP connector like this:
+
+```php
+$dnsResolverFactory = new React\Dns\Resolver\Factory();
+$dns = $dnsResolverFactory->createCached('8.8.8.8', $loop);
+
+$dnsConnector = new React\Socket\HappyEyeBallsConnector($loop, $tcpConnector, $dns);
+
+$dnsConnector->connect('www.google.com:80')->then(function (React\Socket\ConnectionInterface $connection) {
+    $connection->write('...');
+    $connection->end();
+});
+
+$loop->run();
+```
+
+See also the [examples](examples).
+
+Pending connection attempts can be cancelled by cancelling its pending promise like so:
+
+```php
+$promise = $dnsConnector->connect('www.google.com:80');
+
+$promise->cancel();
+```
+
+Calling `cancel()` on a pending promise will cancel the underlying DNS lookups
+and/or the underlying TCP/IP connection(s) and reject the resulting promise.
+
+
+> Advanced usage: Internally, the `HappyEyeBallsConnector` relies on a `Resolver` to
+look up the IP addresses for the given hostname.
+It will then replace the hostname in the destination URI with this IP's and
+append a `hostname` query parameter and pass this updated URI to the underlying
+connector. 
+The Happy Eye Balls algorithm describes looking the IPv6 and IPv4 address for 
+the given hostname so this connector sends out two DNS lookups for the A and 
+AAAA records. It then uses all IP addresses (both v6 and v4) and tries to 
+connect to all of them with a 50ms interval in between. Alterating between IPv6 
+and IPv4 addresses. When a connection is established all the other DNS lookups 
+and connection attempts are cancelled.
+
 #### DnsConnector
 
 The `DnsConnector` class implements the
@@ -1193,8 +1266,8 @@ $promise->cancel();
 Calling `cancel()` on a pending promise will cancel the underlying DNS lookup
 and/or the underlying TCP/IP connection and reject the resulting promise.
 
-> Advanced usage: Internally, the `DnsConnector` relies on a `Resolver` to
-look up the IP address for the given hostname.
+> Advanced usage: Internally, the `DnsConnector` relies on a `React\Dns\Resolver\ResolverInterface`
+to look up the IP address for the given hostname.
 It will then replace the hostname in the destination URI with this IP and
 append a `hostname` query parameter and pass this updated URI to the underlying
 connector.
@@ -1354,7 +1427,7 @@ This project follows [SemVer](https://semver.org/).
 This will install the latest supported version:
 
 ```bash
-$ composer require react/socket:^1.3
+$ composer require react/socket:^1.6
 ```
 
 See also the [CHANGELOG](CHANGELOG.md) for details about version upgrades.

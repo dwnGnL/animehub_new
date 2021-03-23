@@ -11,7 +11,6 @@ class ComposerStaticInitedcd5f54bd802a2a5205776abaa6c5f2
         '972fda704d680a3a53c68e34e193cb22' => __DIR__ . '/..' . '/react/promise-timer/src/functions_include.php',
         'cea474b4340aa9fa53661e887a21a316' => __DIR__ . '/..' . '/react/promise-stream/src/functions_include.php',
         'ebf8799635f67b5d7248946fe2154f4a' => __DIR__ . '/..' . '/ringcentral/psr7/src/functions_include.php',
-        '253c157292f75eb38082b5acb06f3f01' => __DIR__ . '/..' . '/nikic/fast-route/src/functions.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -31,11 +30,6 @@ class ComposerStaticInitedcd5f54bd802a2a5205776abaa6c5f2
         'P' => 
         array (
             'Psr\\Http\\Message\\' => 17,
-            'Psr\\Container\\' => 14,
-        ),
-        'F' => 
-        array (
-            'FastRoute\\' => 10,
         ),
         'C' => 
         array (
@@ -88,14 +82,6 @@ class ComposerStaticInitedcd5f54bd802a2a5205776abaa6c5f2
         array (
             0 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
-        'Psr\\Container\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/psr/container/src',
-        ),
-        'FastRoute\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/nikic/fast-route/src',
-        ),
         'Clue\\React\\Buzz\\' => 
         array (
             0 => __DIR__ . '/..' . '/clue/buzz-react/src',
@@ -103,20 +89,6 @@ class ComposerStaticInitedcd5f54bd802a2a5205776abaa6c5f2
     );
 
     public static $prefixesPsr0 = array (
-        'S' => 
-        array (
-            'Slim' => 
-            array (
-                0 => __DIR__ . '/..' . '/slim/slim',
-            ),
-        ),
-        'P' => 
-        array (
-            'Pimple' => 
-            array (
-                0 => __DIR__ . '/..' . '/pimple/pimple/src',
-            ),
-        ),
         'E' => 
         array (
             'Evenement' => 

@@ -17,7 +17,5 @@ return array(
     'React\\Dns\\' => array($vendorDir . '/react/dns/src'),
     'React\\Cache\\' => array($vendorDir . '/react/cache/src'),
     'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-message/src'),
-    'Psr\\Container\\' => array($vendorDir . '/psr/container/src'),
-    'FastRoute\\' => array($vendorDir . '/nikic/fast-route/src'),
     'Clue\\React\\Buzz\\' => array($vendorDir . '/clue/buzz-react/src'),
 );

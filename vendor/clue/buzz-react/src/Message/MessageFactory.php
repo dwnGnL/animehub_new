@@ -21,27 +21,45 @@ class MessageFactory
      * @param string|UriInterface            $uri
      * @param array                          $headers
      * @param string|ReadableStreamInterface $content
+     * @param string                         $protocolVersion
      * @return Request
      */
-    public function request($method, $uri, $headers = array(), $content = '')
+    public function request($method, $uri, $headers = array(), $content = '', $protocolVersion = '1.1')
     {
-        return new Request($method, $uri, $headers, $this->body($content), '1.0');
+        return new Request($method, $uri, $headers, $this->body($content), $protocolVersion);
     }
 
     /**
      * Creates a new instance of ResponseInterface for the given response parameters
      *
-     * @param string $version
+     * @param string $protocolVersion
      * @param int    $status
      * @param string $reason
      * @param array  $headers
      * @param ReadableStreamInterface|string $body
+     * @param ?string $requestMethod
      * @return Response
      * @uses self::body()
      */
-    public function response($version, $status, $reason, $headers = array(), $body = '')
+    public function response($protocolVersion, $status, $reason, $headers = array(), $body = '', $requestMethod = null)
     {
-        return new Response($status, $headers, $this->body($body), $version, $reason);
+        $response = new Response($status, $headers, $body instanceof ReadableStreamInterface ? null : $body, $protocolVersion, $reason);
+
+        if ($body instanceof ReadableStreamInterface) {
+            $length = null;
+            $code = $response->getStatusCode();
+            if ($requestMethod === 'HEAD' || ($code >= 100 && $code < 200) || $code == 204 || $code == 304) {
+                $length = 0;
+            } elseif (\strtolower($response->getHeaderLine('Transfer-Encoding')) === 'chunked') {
+                $length = null;
+            } elseif ($response->hasHeader('Content-Length')) {
+                $length = (int)$response->getHeaderLine('Content-Length');
+            }
+
+            $response = $response->withBody(new ReadableBodyStream($body, $length));
+        }
+
+        return $response;
     }
 
     /**
@@ -93,20 +111,15 @@ class MessageFactory
      *
      * If the given $uri is a relative URI, it will simply be appended behind $base URI.
      *
-     * If the given $uri is an absolute URI, it will simply be verified to
-     * be *below* the given $base URI.
+     * If the given $uri is an absolute URI, it will simply be returned as-is.
      *
      * @param UriInterface $uri
      * @param UriInterface $base
      * @return UriInterface
-     * @throws \UnexpectedValueException
      */
     public function expandBase(UriInterface $uri, UriInterface $base)
     {
         if ($uri->getScheme() !== '') {
-            if (strpos((string)$uri, (string)$base) !== 0) {
-                throw new \UnexpectedValueException('Invalid base, "' . $uri . '" does not appear to be below "' . $base . '"');
-            }
             return $uri;
         }
 
