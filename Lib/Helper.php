@@ -29,15 +29,16 @@ class  Helper
         return $id.$alias;
     }
 
-    public static function renderCat($catPost){
+    public static function renderCat($catPost, $limit = 2){
         $count = count($catPost);
         $result = '';
         $i = 0;
         foreach ($catPost as $cat) {
-            if($i == $count-1){
-                $result .= $cat['title'];
+            if($i == $count-1 || $limit == $i + 1){
+                $result .= $cat->title;
+                break;
             }else{
-                $result .= $cat['title'].', ';
+                $result .= $cat->title.', ';
             }
             $i++;
         }
