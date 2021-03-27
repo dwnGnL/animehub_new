@@ -4,10 +4,14 @@
 namespace AdminController;
 
 
+use App\Models\Post;
 use Lib\Curl;
 use Model\Channel;
 use Model\Parse;
+use Symfony\Component\BrowserKit\HttpBrowser;
+use Symfony\Component\HttpClient\HttpClient;
 use Traits\Helper;
+
 
 require_once 'Lib/phpQuery.php';
 class ParserController extends AdminController
@@ -344,6 +348,51 @@ class ParserController extends AdminController
         }
 
         return $f;
+    }
+
+    private function parseImage($name)
+    {
+        $crawler = new HttpBrowser(HttpClient::create());
+        $image = $crawler->request('GET', 'https://animang.ru/?s='.$name);
+        $anime =  $image->filter('.content .post-home');
+        if ($anime->count() > 0){
+            $image =   $anime->first()->filter('img')->attr('src');
+            if (!empty($image)){
+                return $image;
+            }
+        }
+        return  false;
+    }
+
+    public function saveImages()
+    {
+        $offset = $this->app->request->get('offset');
+        $limit = $this->app->request->get('limit');
+        $limit = !empty($limit)? $limit: 0;
+        $offset = !empty($offset)?$offset:0;
+        $posts = Post::where('id_type_post', 1)
+            ->with('tv')
+            ->skip($offset)
+            ->take($limit)
+            ->get();
+        foreach ($posts as $post){
+            echo $post->title.'</br>';
+            preg_match('#\d+#',$post->tv->title, $mathes);
+            if (empty($mathes)){
+                $tv = $post->tv->title;
+            }else{
+                $tv = $mathes[0];
+            }
+            $image = $this->parseImage($post->title.' '.$tv);
+            if ($image){
+                $image = $this->downloadImage($image, $post->title);
+                if ($image){
+                    $post->image = $image;
+                    $post->save();
+                }
+            }
+        }
+
     }
 
     protected function display()
