@@ -9,6 +9,7 @@
                 </div>
             </div>
         </div>
+        <div class="ribbon"><?=$post->anime->seria?></div>
     </a>
     <div class="discription">
         <div class="film-name"><a href="<?=$url?>/<?=$helper::renderUrl($post->id, $post->alias)?>"><?=$post->title.' '.$post->tv->title?></a></div>

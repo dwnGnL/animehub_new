@@ -33,15 +33,28 @@ class  Helper
         $count = count($catPost);
         $result = '';
         $i = 0;
-        foreach ($catPost as $cat) {
-            if($i == $count-1 || $limit == $i + 1){
-                $result .= $cat->title;
-                break;
-            }else{
-                $result .= $cat->title.', ';
+        if (is_array($catPost)){
+            foreach ($catPost as $cat) {
+                if($i == $count-1 || $limit == $i + 1){
+                    $result .= $cat['title'];
+                    break;
+                }else{
+                    $result .= $cat['title'].', ';
+                }
+                $i++;
             }
-            $i++;
+        }else{
+            foreach ($catPost as $cat) {
+                if($i == $count-1 || $limit == $i + 1){
+                    $result .= $cat->title;
+                    break;
+                }else{
+                    $result .= $cat->title.', ';
+                }
+                $i++;
+            }
         }
+
         return $result;
     }
 
