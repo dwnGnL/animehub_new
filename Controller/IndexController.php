@@ -2,6 +2,8 @@
 
 
 namespace Controller;
+
+use Illuminate\Database\Eloquent\Builder;
 use Lib\Cache;
 use Lib\Helper;
 use Model\Anime;
@@ -14,6 +16,7 @@ defined('_Sdef') or exit();
 class IndexController extends DisplayController
 {
     protected $page;
+
     public function execute($param = [])
     {
 
@@ -22,65 +25,55 @@ class IndexController extends DisplayController
 
     protected function display()
     {
-        $postDB = new Post();
         $cache = new Cache();
-
-
-        $cat = new Cat();
-        $anime = new Anime();
         $this->title .= 'Таджикский аниме портал !';
 
-        if ($cache->exists('posts')){
+        if ($cache->exists('posts')) {
             $posts = $cache->get('posts');
-        }else{
-
-            $posts =  $postDB->getPostL10('anime',10);
-            foreach ($posts as $key => $val) {
-                $posts[$key]['cats'] = $cat->getCatPostL2($posts[$key]['id']);
-                $posts[$key]['seria'] = $anime->lastAddSeria($posts[$key]['title'],$posts[$key]['id_tv']);
-            }
+        } else {
+            $posts = \App\Models\Post::post('anime')
+                ->orderBy('date', 'DESC')
+                ->take(10)
+                ->get();
             $cache->save('posts', $posts);
         }
 
 
-        if ($cache->exists('newPosts')){
+        if ($cache->exists('newPosts')) {
             $newPosts = $cache->get('newPosts');
-        }else{
-            $newPosts = $postDB->getPostL5();
-            foreach ($newPosts as $key => $val){
-                $newPosts[$key]['cats'] = $cat->getCatPostL2($newPosts[$key]['id']);
-            }
-           $cache->save('newPosts', $newPosts);
+        } else {
+            $newPosts = \App\Models\Post::post('anime')
+                ->orderBy('id', 'DESC')
+                ->take(5)
+                ->get();
+            $cache->save('newPosts', $newPosts);
         }
 
-        if ($cache->exists('dorams')){
+        if ($cache->exists('dorams')) {
             $dorams = $cache->get('dorams');
-        }else{
-            $dorams =  $postDB->getPostL10('dorams',5);
-            foreach ($dorams as $key => $val){
-                $dorams[$key]['cats'] = $cat->getCatPostL2($dorams[$key]['id']);
-                $dorams[$key]['seria'] = $anime->lastAddSeria($dorams[$key]['title'],$val['id_tv']);
-            }
+        } else {
+            $dorams = \App\Models\Post::post('dorams')->orderBy('date', 'DESC')->take(5)->get();
+
             $cache->save('dorams', $dorams);
         }
 
-        if ($cache->exists('articles')){
-            $articles = $cache->get('articles');
-        }else{
-            $articles =  $postDB->getPostL10('articles',6);
-            $cache->save('articles', $articles);
-        }
+//        if ($cache->exists('articles')) {
+//            $articles = $cache->get('articles');
+//        } else {
+//            $articles = \App\Models\Post::post('articles')->orderBy('date', 'DESC')->take(5)->get();
+//            $cache->save('articles', $articles);
+//        }
 
         $search = $this->getSearch();
         $slider = $this->getSlider();
-        $this->main = $this->app->view()->fetch('indexbar.tpl.php',[
+        $this->main = $this->app->view()->fetch('indexbar.tpl.php', [
             'app' => $this->app,
             'uri' => $this->uri,
             'posts' => $posts,
             'helper' => Helper::getInstance(),
             'newPosts' => $newPosts,
             'dorams' => $dorams,
-            'articles' => $articles,
+//            'articles' => $articles,
             'slider' => $slider,
             'search' => $search,
         ]);

@@ -10,6 +10,9 @@ use Model\Parse;
 use Model\Post;
 use Model\Title;
 use Model\Tv;
+use App\Models\Parse as EParse;
+use App\Models\Post as EPost;
+use App\Models\Anime as EAnime;
 
 class SortController extends AdminController
 {
@@ -73,36 +76,46 @@ class SortController extends AdminController
             echo json_encode(['status' == 500]);
             exit();
         }
-        $parseBD = new Parse();
-        $animeDB = new Anime();
-        $postBD = new Post();
+
         $total = count($_POST['anime']) / 3;
-        $anime = $parseBD->getParseAnime($_POST['title']);
+        $anime = EParse::where('title', 'LIKE', '%' . $_POST['title'] . '%')->get();
+        $postBD = new Post();
+        $parseBD = new Parse();
         $tv = [];
         $j = 0;
         for ($i = 0; $i < $total; $i++) {
             if (!empty(trim($_POST['anime'][$j]['value'])) && !empty($_POST['anime'][$j + 1]['value'])) {
-               $id_tv =  $this->saveSortTv($_POST['anime'][$j + 1]['value']);
-                $animeDB->addAnime(
-                    $anime[$i]['rly_path'],
-                    $this->sortStud($_POST['anime'][$j + 2]['value']),
-                    $this->sortKach($anime[$i]['size']),
-                     $id_tv,
-                    $this->saveSortTitle($_POST['title']),
-                    $anime[$i]['src'],
-                    $_POST['anime'][$j]['value'],
-                    $_POST['anime'][$j + 2]['value']
-                );
-                if (!array_search($id_tv, $tv)){
-                   $tv = array_merge($tv, (array)$id_tv);
+                $id_tv = $this->saveSortTv($_POST['anime'][$j + 1]['value']);
+
+                $post = EPost::where('title', 'like', '%' . $_POST['title'] . '%')
+                    ->where('id_tv', $id_tv)->first();
+
+                if (empty($post)){
+                    continue;
+                }
+
+                EAnime::create([
+                    'rly_path' => $anime[$i]->rly_path,
+                    'id_stud' => $this->sortStud($_POST['anime'][$j + 2]['value']),
+                    'id_tv' => $id_tv,
+                    'id_title' => $this->saveSortTitle($_POST['title']),
+                    'id_kach' => $this->sortKach($anime[$i]->size),
+                    'src' => $anime[$i]->src,
+                    'seria' => $_POST['anime'][$j]['value'],
+                    'mix_title' => $_POST['anime'][$j + 2]['value'],
+                    'post_id' => $post->id,
+                ]);
+
+                if (!array_search($id_tv, $tv)) {
+                    $tv = array_merge($tv, (array)$id_tv);
                 }
 
             }
-            if (!empty($tv) && count($tv) > 1){
-                for ($k = 0; $k  < count($tv); $k++){
+            if (!empty($tv) && count($tv) > 1) {
+                for ($k = 0; $k < count($tv); $k++) {
                     $postBD->postDateUpdate($_POST['title'], $tv[$k]);
                 }
-            }else{
+            } else {
                 $postBD->postDateUpdate($_POST['title'], $tv[0]);
             }
             $parseBD->deleteParseRdy($_POST['title']);
@@ -406,5 +419,6 @@ class SortController extends AdminController
             return $title = ['ser' => trim($result['ser']), 'tv' => ''];
         }
     }
+
 
 }
