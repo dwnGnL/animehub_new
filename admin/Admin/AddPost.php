@@ -3,6 +3,7 @@
     require_once 'lib/Model.php';
     $model = new Model();
     $type = $model->getType_Post();
+    exit('Используйте новую админку');
     ?>
     <div class="container-fluid">
 

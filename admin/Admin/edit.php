@@ -3,7 +3,7 @@ if(isset($_GET['edit']))
 {
     require 'lib/Model.php';
     $model = new Model();
-
+exit('Используйте новую админку');
 ?>
 
     <main class="pt-5 mx-lg-5">
@@ -64,7 +64,7 @@ if(isset($_GET['edit']))
                 </div>
             </div>
 
-    
+
     </main>
     <script>
         var elems=document.querySelectorAll('input[type="text"]');
