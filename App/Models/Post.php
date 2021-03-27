@@ -3,11 +3,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
-use Staudenmeir\EloquentEagerLimit\HasEagerLimit;
+
 
 class Post extends Model {
-
-    use HasEagerLimit;
 
     protected $table = 'lite_post';
     public $timestamps = false;
