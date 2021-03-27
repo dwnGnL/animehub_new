@@ -30,6 +30,7 @@ class  Helper
     }
 
     public static function renderCat($catPost, $limit = 2){
+        debug($catPost);
         $count = count($catPost);
         $result = '';
         $i = 0;
