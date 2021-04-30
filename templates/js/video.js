@@ -55,7 +55,6 @@ if (localStorage.getItem(id_post) !== null) {
         videoLink.setAttribute("autoplay", "false")
         videoLink.src = seriesItem[memory.index].getAttribute('src');
         videoLink.currentTime = memory.video;
-        videoLink.setAttribute("autoplay", "false")
         videoLink.pause();
     } else {
         localStorage.setItem(id_post, JSON.stringify({
@@ -188,7 +187,9 @@ var datafromLocalstorage = localStorage.getItem(id_post)
 if (document.body.clientWidth > 770) {
     if (datafromLocalstorage) {
         let info = JSON.parse(datafromLocalstorage)
-        scrollingSeries(-(seriesItem[0].offsetWidth * info.index + 10))
+
+        const scrollTo = seriesItem[info.index].getBoundingClientRect().x - toLeftSeries.getBoundingClientRect().right
+        scrollingSeries(-scrollTo)
     }
 }
 toRightSeries.onmousedown = toRightSeries.ontouchstart = () => {
@@ -255,16 +256,15 @@ function hideSearch() {
 searchInput.oninput = () => search(searchInput.value);
 
 function search(val) {
-    if (val == "") {
-        changeSeriaList(seriesData);
-    } else {
-        var newSeriasData = [];
-        seriesData.forEach((elem, index) => {
-            if (elem.seriaNum == val) newSeriasData.push(elem);
-        });
-        changeSeriaList(newSeriasData);
+  const seriesItems = $('.series-item')
+  seriesItems.show()
+    if (val.length) {
+      seriesItems.each(function (){
+        if (parseInt($(this).attr('id-ser')) < parseInt(val)) {
+            $(this).hide()
+        }
+      })
     }
-    ;
     sumSize = 0;
     scrollingSeries(0);
     addEvent();
