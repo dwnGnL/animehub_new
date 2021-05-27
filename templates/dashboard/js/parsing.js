@@ -22,17 +22,19 @@ $('#save').on('click', function () {
   $.ajax({
     url: '/dashboard/parse/save',
     type: 'POST',
-    data: ({"anime": array, "token": $('#token').text(), "title": $('#titleForSave').val()}),
+    data: ({"anime": array, "token": $('#token').text(), "title": $('#titleForSave').val(), 'rlyTitle': $('#rlyTitle').val()}),
     success: function (data) {
       var response = JSON.parse(data);
       if (response.status == 200) {
         $('#formSort li').remove();
         $('#titleForSave').val('');
+        alert('Аниме успешно сохранен')
       }
     },
     error: function () {
       $('#formSort li').remove();
       $('#titleForSave').val('');
+      alert('Ошибка, повторите ещё')
     }
   })
 });
@@ -53,6 +55,7 @@ $('#btnForSort').on('click', function () {
         if (response.status == 200){
           $('#formSort').html(response.html);
           $('#titleForSave').val(title);
+          $('#rlyTitle').val(title)
           $('#titleForSort').val('');
         }
       }

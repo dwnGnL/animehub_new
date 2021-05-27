@@ -9,6 +9,7 @@ use Lib\Cache;
 use Lib\Curl;
 use Lib\Helper;
 use Model\Anime;
+use App\Models\Anime AS EAnime;
 use Model\Cat;
 use Model\CatPost;
 use Model\Comment;
@@ -158,13 +159,15 @@ class PostController extends AdminController
         $studDB = new Stud();
         $typeBD = new PostType();
         $post = $this->postDB->getPost($params['post'], $params['alias']);
-        $animeDB = new Anime();
         $catDB = new Cat();
         $cats = $catDB->getCategories();
         $types = $typeBD->getPostType();
         $postCats = $catDB->getCatPost($post['id_post']);
         $post['type'] = $params['alias'];
-        $anime = $animeDB->getSeria($post['id_tv'], $post['title']);
+        $anime = EAnime::where('post_id', $post['id_post'])
+            ->orderBy('seria')
+            ->with('stud')
+            ->get();
         $studs = $studDB->row('id, title');
         $this->index = $this->app->view()->fetch('dashboard/editPost.tpl.php', [
             'post' => $post,

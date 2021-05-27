@@ -33,10 +33,6 @@
           <span class="distinctio-list-left">Автор:</span>
           <span class="distinctio-list-right"><?=$post['login']?></span>
         </li>
-        <li>
-          <span class="distinctio-list-left">День выхода:</span>
-          <span class="distinctio-list-right">Воскресение</span>
-        </li>
 
         <li class="review-order">
           <span>Порядок просмотра:</span>
@@ -76,11 +72,9 @@
         </div>
 
         <ul class="series-list">
-          <?php if(isset($player) && is_array($player)): ?>
-            <?php foreach($player As $item): ?>
-              <li class="series-item" src="<?=$item['src']?>" id-ser="<?=$item['seria']?>" stud="<?=$item['stud']?>" id="<?=$item['id']?>"><?=''.$item['kach'].' '.$item['stud'].' '.$item['seria'].' серия'?></li>
+            <?php foreach($player as $item): ?>
+              <li class="series-item" src="<?=$item->src?>" id-ser="<?=$item->seria?>" stud="<?=$item->stud->title?>" id="<?=$item->id?>"><?=''.$item->kach->title.' '.$item->stud->title.' '.$item->seria.' серия'?></li>
             <?php endforeach; ?>
-          <?php endif; ?>
         </ul>
       </div>
     </div>

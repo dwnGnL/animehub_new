@@ -72,15 +72,15 @@
                 </div>
             </div>
         <?php foreach ($anime as $value): ?>
-        <div class="col-md-12 row parent" id="<?=$value['id']?>">
+        <div class="col-md-12 row parent" id="<?=$value->id?>">
             <div class="col-md-1 form-group">
-                <input type="number" class="form-control ser enter" data-type="1"  value="<?=$value['seria']?>">
+                <input type="number" class="form-control ser enter" data-type="1"  value="<?=$value->seria?>">
             </div>
             <div class="col-md-3 form-group">
-                <input type="text" class="form-control stud" value="<?=$value['stud']?>" disabled>
+                <input type="text" class="form-control stud" value="<?=$value->stud->title?>" disabled>
             </div>
             <div class="col-md-7 form-group">
-                <input type="text" class="form-control enter" id="src<?=$value['id']?>" data-type="3" value="<?=$value['src']?>">
+                <input type="text" class="form-control enter" id="src<?=$value->id?>" data-type="3" value="<?=$value->src?>">
             </div>
             <div class="custom-control custom-checkbox form-group col-md-1">
                 <input type="checkbox" class="check">

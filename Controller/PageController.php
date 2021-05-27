@@ -14,6 +14,7 @@ use Model\Post;
 use Model\Rating;
 use Model\Stud;
 use Model\View;
+use App\Models\Anime AS EAnime;
 
 
 class PageController extends DisplayController
@@ -71,7 +72,6 @@ class PageController extends DisplayController
         $favoriteDB = new Favorite();
         $view = new View();
         $catDB = new Cat();
-        $anime = new Anime();
         $stud = new Stud();
         $commentDB = new Comment();
         preg_match('#\d+#', $param['page'], $matches);
@@ -128,7 +128,10 @@ class PageController extends DisplayController
         }
 
         $orderPosts = $postDB->getOrderPosts($post['title']);
-        $player = $anime->getSeria($post['id_tv'], $post['title']);
+        $player = EAnime::where('post_id', $post['id_post'])
+            ->orderBy('seria')
+            ->with(['kach', 'stud'])
+            ->get();
         $comments = $commentDB->getComments($post['id_post']);
         $this->index = $this->app->view()->fetch('post.tpl.php',[
             'uri' => $this->uri,

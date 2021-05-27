@@ -76,9 +76,8 @@ class SortController extends AdminController
             echo json_encode(['status' == 500]);
             exit();
         }
-
         $total = count($_POST['anime']) / 3;
-        $anime = EParse::where('title', 'LIKE', '%' . $_POST['title'] . '%')->get();
+        $anime = EParse::where('title', 'LIKE', '%' . $_POST['rlyTitle'] . '%')->get();
         $postBD = new Post();
         $parseBD = new Parse();
         $tv = [];

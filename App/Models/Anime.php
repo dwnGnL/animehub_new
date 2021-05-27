@@ -30,4 +30,14 @@ class Anime extends Model
     {
         return $this->belongsTo(Title::class, 'id_title');
     }
+
+    public function stud()
+    {
+        return $this->belongsTo(Stud::class, 'id_stud');
+    }
+
+    public function kach()
+    {
+        return $this->belongsTo(Kach::class, 'id_kach');
+    }
 }
