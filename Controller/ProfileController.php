@@ -10,16 +10,19 @@ use Model\User;
 class ProfileController extends DisplayController
 {
     protected $index;
-    public function viewProfile($param = []){
+
+    public function viewProfile($param = [])
+    {
         $userDB = new User();
         $user = $userDB->getUser($param['login']);
-        if (empty($user)){
+        if (empty($user)) {
             $this->app->notFound();
         }
-        $this->index = $this->app->view()->fetch('profile.tpl.php',[
+        $this->index = $this->app->view()->fetch('profile.tpl.php', [
             'uri' => $this->uri,
             'user' => $user,
             'helper' => Helper::getInstance(),
+            'salt' => $this->app->getCookie('key')
         ]);
         $this->display();
     }

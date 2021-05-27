@@ -11,7 +11,7 @@
 
         <a href="<?=$uri?>/anime/<?=$helper::renderUrl($topAnime[0]['id'],$topAnime[0]['alias'])?>">
 
-            
+
       <img src="<?=$topAnime[0]['image']?>" alt="">
 
 
@@ -64,7 +64,7 @@
       <div class="comment-item">
         <a href="/profile/<?=$comment['login']?>">
           <div class="comment-user">
-            <div class="user-avatar"><img loading="lazy" src="<?=$comment['img']?>"></div>
+            <div class="user-avatar"><img loading="lazy" src="<?=viewAvatar($comment['img'])?>" alt="avatar"></div>
             <div class="user-name-comment" style="<?=$comment['login_color']?>; font-family: <?=$comment['font']?>"><?=$comment['login']?> <span style="color: <?=$comment['color']?>; font-family:<?=$comment['login']?> "><?=$comment['status']?></span></div>
           </div>
         </a>

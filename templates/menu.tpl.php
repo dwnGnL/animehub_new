@@ -10,7 +10,7 @@
   <div class="main-sign-in-page">
     <div class="profile-data">
       <div class="profile-avatar">
-        <img src="<?=$user['img']?>">
+        <img src="<?=viewAvatar($user['img'])?>" alt="avatar">
       </div>
 
       <div class="profile-name" style="font-family: <?=$user['font']?>; <?=$user['login_color']?>">

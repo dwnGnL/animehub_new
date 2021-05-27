@@ -12,7 +12,7 @@
         <div class="favorite-text"><?=$favorite['title']?></div>
       </div>
       <img src="<?=$post['image']?>" alt="">
-      
+
     </div>
 
     <div class="film-discription">
@@ -37,7 +37,7 @@
           <span class="distinctio-list-left">День выхода:</span>
           <span class="distinctio-list-right">Воскресение</span>
         </li>
-          
+
         <li class="review-order">
           <span>Порядок просмотра:</span>
           <ol class="review-order-list">
@@ -111,7 +111,7 @@
           <a href="/<?=$alias?>/<?=$helper::renderUrl($value['id'],$value['alias'])?>">
             <div class="background-film-item">
       <img src="<?=$value['image']?>" alt="">
-              
+
               <div class="over-back-film-item">
                 <div class="circle">
                   <span class="review"><?=$value['views']?></span>
@@ -153,7 +153,7 @@
       <?php foreach($comments as $val): ?>
         <div class="video-comment-item">
           <div class="video-comment-user-avatar">
-            <img src="<?=$val['img']?>">
+            <img src="<?=viewAvatar($val['img'])?>">
           </div>
 
           <div class="video-comment-right <?= !empty($val['back_fon'])? 'vip' : ''  ?>" style='background-image:<?=$val['back_fon']?>'>

@@ -2,8 +2,11 @@ let messagePlace = document.querySelector('.message-place');
 let closeMessage;
 let allMes = new Array;
 let crossLength = new Array;
-let error = 'error-message';
-let successful = 'successful-message';
+const BODY = $('body');
+const error = 'error-message';
+const successful = 'successful-message';
+const BASE_API = BODY.data('api');
+const BASE_URL = BODY.data('url');
 
 
 function showMessage(name, discription, typeMessage) {

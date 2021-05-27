@@ -157,74 +157,36 @@ chat.ondragstart = function () {
   return false;
 };
 
-
-
-
-
 $('#sendChat').click(function () {
   var mymessage = CKEDITOR.instances['redactor'].getData();
-  // var regex="/[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9]\.[a-zA-Z]{2,}"
-  // var links=mymessage.match(regex)
-  // console.log(mymessage)
-  // console.log(links)
-
-  // if(links){
-  //   console.log("этап 1")
-
-  //   links.forEach(element => {
-  //     element=element.substr(1)
-  //     console.log(element)
-  //     if (element=="animehub.tj"||element=="/animehub.tj") return
-  //     let fulllink="http://"+element
-  //     let fulllinks="https://"+element
-  //     let hreflinks='href="'+element
-  //     let hreflinks2="href='"+element
-  //     let srclinks='src="'+element
-  //     let srclinks2="src='"+element
-
-  //     if(mymessage.indexOf(fulllink)+1>=0
-  //     || mymessage.indexOf(fulllinks)+1>=0
-  //     || mymessage.indexOf(hreflinks)+1>=0
-  //     || mymessage.indexOf(hreflinks2)+1>=0
-  //     || mymessage.indexOf(srclinks)+1>=0
-  //     || mymessage.indexOf(srclinks2)+1>=0
-  //     || mymessage.indexOf("<object")
-  //     || mymessage.indexOf("<script")){
-  //       mymessage=""
-  //     }
-  //   });
-  // }
-  // mymessage=mymessage.replace("<br />","")
-  // mymessage=mymessage.replace("<h1>","")
-  // mymessage=mymessage.replace("</h1>","")
-  // mymessage=mymessage.replace("<h2>","")
-  // mymessage=mymessage.replace("</h2>","")
-  // mymessage=mymessage.replace("<h3>","")
-  // mymessage=mymessage.replace("</h3>","")
-  // mymessage=mymessage.replace("<h4>","")
-  // mymessage=mymessage.replace("</h4>","")
-  // mymessage=mymessage.replace("<h5>","")
-  // mymessage=mymessage.replace("</h5>","")
-  // mymessage=mymessage.replace("style=","")
-  // mymessage=mymessage.replace("<i>","")
-  // mymessage=mymessage.replace("</i>","")
-
 
   if (mymessage == "") {
     showMessage("error", "Введите ваше сообщение!", error);
     return;
   }
 
-
-
-
   sendMessage(mymessage);
   CKEDITOR.instances['redactor'].setData("");
 });
 
+function isLaravel(str){
+  if (str.indexOf('storage/uploads/avatars') !== -1){
+      return true;
+  }
+  return  false;
+}
+
+function viewAvatar(str){
+  if (isLaravel(str)){
+    return `${BASE_URL}/${str}`
+  }
+  return str;
+}
+
+
 function viewMessage(message) {
   if (message.messages.length == 1) {
-    template(message.messages.img, message.messages.login, message.messages.date, message.messages.text, message.messages.login_color, message.messages.font, message.messages.id_chat, message.messages.status, message.messages.color)
+    template(viewAvatar(message.messages.img), message.messages.login, message.messages.date, message.messages.text, message.messages.login_color, message.messages.font, message.messages.id_chat, message.messages.status, message.messages.color)
   } else {
     for (var i = message.messages.length - 1; i >= 0 ; i--) {
       template(message.messages[i].img, message.messages[i].login, message.messages[i].date, message.messages[i].text, message.messages[i].login_color, message.messages[i].font, message.messages[i].id_chat, message.messages[i].status, message.messages[i].color)
@@ -236,10 +198,10 @@ function viewMessage(message) {
 
 function viewMessageAjax(message) {
   if (message.messages.length == 1) {
-    ajaxView(message.messages.img, message.messages.login, message.messages.date, message.messages.text, message.messages.login_color, message.messages.font, message.messages.id_chat, message.messages.status, message.messages.color)
+    ajaxView(viewAvatar(message.messages.img), message.messages.login, message.messages.date, message.messages.text, message.messages.login_color, message.messages.font, message.messages.id_chat, message.messages.status, message.messages.color)
   } else {
     for (var i = 0; i < message.messages.length; i++) {
-      ajaxView(message.messages[i].img, message.messages[i].login, message.messages[i].date, message.messages[i].text, message.messages[i].login_color, message.messages[i].font, message.messages[i].id_chat, message.messages[i].status, message.messages[i].color)
+      ajaxView(viewAvatar(message.messages[i].img), message.messages[i].login, message.messages[i].date, message.messages[i].text, message.messages[i].login_color, message.messages[i].font, message.messages[i].id_chat, message.messages[i].status, message.messages[i].color)
     }
   }
   localStorage.setItem('idInterval', setInterval(onListener, 500));
@@ -329,7 +291,7 @@ function template(avatar, username, date, mess, color, font, id_chat, status, st
   // var message=`<div class="chat-item" style="display:none">
   var message = `<div class="chat-item">
         <div class="chat-user" id="${id_chat}">
-          <div class="chat-user-avatar"><img src="${avatar}"></div>
+          <div class="chat-user-avatar"><img src="${viewAvatar(avatar)}"></div>
           <div class="chat-user-right">
             <div class="chat-user-name"><a style="${color};font-family:'${font}'" href="/profile/${username}">${username}</a> <span style="color: ${status_color}">${status}</span></div>
             <div class="chat-date">${date}</div>

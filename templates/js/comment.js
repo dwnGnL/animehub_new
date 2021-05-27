@@ -25,51 +25,7 @@ CKEDITOR.replace('textComment', config2);
 
 $("#sendComment").click(function (e) {
   var mymessage = CKEDITOR.instances['textComment'].getData();
-  // var regex="/[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9]\.[a-zA-Z]{2,}"
-  // var links=mymessage.match(regex)
-  // console.log(mymessage)
-  // console.log(links)
 
-  // if(links){
-  //   console.log("этап 1")
-
-  //   links.forEach(element => {
-  //     element=element.substr(1)
-  //     console.log(element)
-  //     if (element=="animehub.tj"||element=="/animehub.tj") return
-  //     let fulllink="http://"+element
-  //     let fulllinks="https://"+element
-  //     let hreflinks='href="'+element
-  //     let hreflinks2="href='"+element
-  //     let srclinks='src="'+element
-  //     let srclinks2="src='"+element
-      
-  //     if(mymessage.indexOf(fulllink)+1>=0 
-  //     || mymessage.indexOf(fulllinks)+1>=0 
-  //     || mymessage.indexOf(hreflinks)+1>=0 
-  //     || mymessage.indexOf(hreflinks2)+1>=0 
-  //     || mymessage.indexOf(srclinks)+1>=0 
-  //     || mymessage.indexOf(srclinks2)+1>=0
-  //     || mymessage.indexOf("<object")
-  //     || mymessage.indexOf("<script")){
-  //       mymessage=""
-  //     }
-  //   });
-  // }
-  // mymessage=mymessage.replace("<br />","")
-  // mymessage=mymessage.replace("<h1>","")
-  // mymessage=mymessage.replace("</h1>","")
-  // mymessage=mymessage.replace("<h2>","")
-  // mymessage=mymessage.replace("</h2>","")
-  // mymessage=mymessage.replace("<h3>","")
-  // mymessage=mymessage.replace("</h3>","")
-  // mymessage=mymessage.replace("<h4>","")
-  // mymessage=mymessage.replace("</h4>","")
-  // mymessage=mymessage.replace("<h5>","")
-  // mymessage=mymessage.replace("</h5>","")
-  // mymessage=mymessage.replace("style=","")
-  // mymessage=mymessage.replace("<i>","")
-  // mymessage=mymessage.replace("</i>","")
   if (mymessage.length < 10) {
     alert("сообщение похоже на спам")
     return
@@ -98,7 +54,7 @@ $("#sendComment").click(function (e) {
       if (res.back_fon != "") {
         var commentToPut = `
         <div class="video-comment-user-avatar">
-          <img src="${res.img}">
+          <img src="${viewAvatar(res.img)}">
         </div>
         <div class="video-comment-right vip" style='background-image:${res.back_fon}'>
         <div class="comment-arrow"></div>
@@ -120,7 +76,7 @@ $("#sendComment").click(function (e) {
       } else {
         var commentToPut = `
           <div class="video-comment-user-avatar">
-            <img src="${res.img}">
+            <img src="${viewAvatar(res.img)}">
           </div>
           <div class="video-comment-right">
           <div class="comment-arrow"></div>
@@ -152,7 +108,7 @@ $("#sendComment").click(function (e) {
 $("#sendComment2").click(function (e) {
   var mymessage = $("#textarea").val()
   var regex="/[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9]\.[a-zA-Z]{2,}"
- 
+
   if (mymessage.length < 10) {
     alert("сообщение похоже на спам")
     return

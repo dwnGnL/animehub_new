@@ -10,7 +10,7 @@ let changeAvatar = document.querySelector('.profile-page-user-avatar');
 let chooseAvatarImg = document.querySelectorAll('.choose-avatar-img');
 let choosedIMG = document.querySelector('.profile-page-user-avatar-img');
 
-changeAvatar.addEventListener('click', openCooseAvatar);
+// changeAvatar.addEventListener('click', openCooseAvatar);
 
 chooseAvatarImg.forEach((elem) => {
   elem.onclick = () => {
@@ -186,3 +186,86 @@ $("#save_vip").click(function () {
     }
   });
 });
+
+$('.profile-page-user-avatar').click(function () {
+  $('#chose-image').click()
+})
+
+function errors(data) {
+  var status = data.status
+  if (status === 400) {
+    var errors = data.responseJSON.errors,
+        html = ''
+    for (var key in errors) {
+      errors[key].forEach(function (value) {
+        html += `<p>${value}</p>`
+      })
+    }
+    showMessage('Ошибка!', html, error)
+  }
+}
+
+$('#chose-image').change(async function (e) {
+  $('.profile-page-user-avatar-img').hide()
+  $('#avatar_loader').show()
+  const js_info = $('#js-info')
+  const salt = js_info.attr('data-salt')
+  const id = js_info.attr('data-id')
+  var file = e.target.files[0];
+  var imageType = /image.*/;
+
+  if (!file.type.match(imageType)) return;
+
+  var formData = new FormData();
+  formData.append('image', file);
+  formData.append('token', salt);
+  formData.append('user_id', id);
+
+  $.ajax({
+    url: `${BASE_API}/profile/upload_image`,
+    data: formData,
+    processData: false,
+    contentType: false,
+    crossDomain: true,
+    type: 'POST',
+    success: function(data){
+      $('.profile-page-user-avatar-img').attr('src', `${BASE_URL}/${data}`)
+      showMessage("OK",'Аватар успешно изменен',successful)
+    },
+    error: function (response) {
+        errors(response)
+    },
+    complete:function (response) {
+      $('#avatar_loader').hide()
+      $('.profile-page-user-avatar-img').show()
+    }
+  });
+})
+
+function getBase64(file) {
+  var reader = new FileReader();
+  reader.readAsDataURL(file);
+  reader.onload = function () {
+    reader.result
+  };
+  reader.onerror = function (error) {
+    console.log('Error: ', error);
+  };
+  return  reader.result
+}
+
+async function request(endpoint, method = 'GET', body = {}, headers = {}){
+    return  fetch(`${BASE_API}/${endpoint}`, {
+    method: method, // *GET, POST, PUT, DELETE, etc.
+    mode: 'no-cors', // no-cors, *cors, same-origin
+    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+    credentials: 'same-origin', // include, *same-origin, omit
+    headers: {
+          ...headers
+    },
+    redirect: 'follow', // manual, *follow, error
+    referrerPolicy: 'no-referrer', // no-referrer, *client
+    body: body// body data type must match "Content-Type" header
+  });
+
+}
