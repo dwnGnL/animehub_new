@@ -84,6 +84,7 @@ class SortController extends AdminController
         $j = 0;
         for ($i = 0; $i < $total; $i++) {
             if (!empty(trim($_POST['anime'][$j]['value'])) && !empty($_POST['anime'][$j + 1]['value'])) {
+
                 $id_tv = $this->saveSortTv($_POST['anime'][$j + 1]['value']);
 
                 $post = EPost::where('title', 'like', '%' . $_POST['title'] . '%')

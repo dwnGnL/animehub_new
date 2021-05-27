@@ -94,8 +94,9 @@
                 <div class="parse-inputs-top">
                     <div class="">Серия Cезон/Категория Оригинальное название</div>
                 </div>
+                <input type="search" placeholder="Аниме для сортировки" name="rlyTitle" id="rlyTitle" hidden>
                 <form name="sortForm" action="#" id="sortForm">
-                    <input type="search" placeholder="Аниме для сортировки" name="rlyTitle" id="rlyTitle" hidden>
+
                 <ul class="parse-inputs-bottom" id="formSort">
 
 
