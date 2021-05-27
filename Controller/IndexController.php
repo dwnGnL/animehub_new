@@ -25,7 +25,7 @@ class IndexController extends DisplayController
 
     protected function display()
     {
-        $cache = new Cache();
+            $cache = new Cache();
         $this->title .= 'Таджикский аниме портал !';
 
         if ($cache->exists('posts')) {

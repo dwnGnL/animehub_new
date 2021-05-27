@@ -24,7 +24,7 @@ function generateSalt($saltLength = 8)
 
 function isLaravel($str)
 {
-    if (str_contains($str, 'storage/uploads/avatars')) {
+    if (strpos($str, 'storage/uploads/avatars') !== false) {
         return true;
     }
     return false;
