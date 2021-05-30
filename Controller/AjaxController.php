@@ -55,7 +55,7 @@ class AjaxController extends DisplayController
 
     public function saveProfile(){
                 $user = new User();
-                $user->saveProfile($_POST['age'],$_POST['id_pol'],$_POST['name'],$_POST['city'],$_POST['image'],$_SESSION['id']);
+                $user->saveProfile($_POST['age'],$_POST['id_pol'],$_POST['name'],$_POST['city'],$_SESSION['id']);
                 $profile = $user->getProfile($_SESSION['id']);
                 echo json_encode($profile);
                 exit();

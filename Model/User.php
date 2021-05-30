@@ -52,16 +52,15 @@ class User extends Model
         return $this->driver->column($sql,$params);
     }
 
-    public function saveProfile($age, $pol,$userName, $city,$image,$id_user){
+    public function saveProfile($age, $pol,$userName, $city,$id_user){
         $sql = 'Update lite_users 
-                SET age = :age, id_pol = :id_pol, nameUser = :userName, city = :city, img = :image
+                SET age = :age, id_pol = :id_pol, nameUser = :userName, city = :city
                 WHERE id = :id_user';
         $params = [
             'age'=>$age,
             'id_pol'=>$pol,
             'userName'=>$userName,
             'city' =>$city,
-            'image' => $image,
             'id_user'=>$id_user
         ];
         $this->driver->query($sql,$params);
