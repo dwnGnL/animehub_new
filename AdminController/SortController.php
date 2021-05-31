@@ -4,8 +4,10 @@
 namespace AdminController;
 
 
+use App\Models\Uved;
+use App\Models\UvedUser;
 use Lib\Cache;
-use Model\Anime;
+use Lib\Helper;
 use Model\Parse;
 use Model\Post;
 use Model\Title;
@@ -88,13 +90,15 @@ class SortController extends AdminController
                 $id_tv = $this->saveSortTv($_POST['anime'][$j + 1]['value']);
 
                 $post = EPost::where('title', 'like', '%' . $_POST['title'] . '%')
-                    ->where('id_tv', $id_tv)->first();
+                    ->where('id_tv', $id_tv)
+                    ->with('users')
+                    ->first();
 
-                if (empty($post)){
+                if (empty($post)) {
                     continue;
                 }
 
-                EAnime::create([
+                $eAnime = EAnime::create([
                     'rly_path' => $anime[$i]->rly_path,
                     'id_stud' => $this->sortStud($_POST['anime'][$j + 2]['value']),
                     'id_tv' => $id_tv,
@@ -105,6 +109,8 @@ class SortController extends AdminController
                     'mix_title' => $_POST['anime'][$j + 2]['value'],
                     'post_id' => $post->id,
                 ]);
+
+                $this->createUved($eAnime,$post);
 
                 if (!array_search($id_tv, $tv)) {
                     $tv = array_merge($tv, (array)$id_tv);
@@ -126,6 +132,30 @@ class SortController extends AdminController
         echo json_encode(['status' => 200]);
         exit();
 
+    }
+
+    private function createUved($eAnime, $post)
+    {
+        $types = [
+            'dorams' => 'дорама',
+            'anime' => 'аниме',
+            'articles' => 'статья'
+        ];
+        $uved = Uved::create([
+            'title' => 'Добавлена новая серия '.$types[$post->type->title_type_post].' '. $post->title . ' ' . $post->tv->title,
+            'description' => 'Серия ' . $eAnime->seria . ' озвучка ' . $eAnime->stud->title . ' качество ' . $eAnime->kach->title
+                . ' <a href="' . $this->getUri() . $post->type->title_type_post . '/' . Helper::renderUrl($post->id, $post->title) . '">Посмотреть</a>',
+            'id_author' => $_SESSION['id'],
+            'date' => time()
+        ]);
+
+        foreach ($post->users as $user) {
+            UvedUser::create([
+                'id_uved' => $uved->id,
+                'id_user' => $user->id,
+                'view' => 0
+            ]);
+        }
     }
 
     public function sortKach($kach)

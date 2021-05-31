@@ -50,5 +50,10 @@ class Post extends Model {
     {
         return $this->hasOne(Anime::class, 'post_id');
     }
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class, 'lite_favorites', 'id_post', 'id_user');
+    }
 }
 
